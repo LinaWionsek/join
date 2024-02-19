@@ -1,0 +1,284 @@
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter' !important;
+}
+
+.form {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.dialogSignUp {
+    position: relative;
+    background-color: var(--text-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04) !important;
+    border-radius: 30px !important;
+    width: auto;
+    padding: 48px 88px;
+}
+
+.signUpUnderlineContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#mobileBackArrowId {
+    position: absolute;
+    top: 60px;
+    left: 88px;
+}
+
+.button {
+    background-color: var(--main-color) !important;
+    color: var(--text-white) !important;
+}
+
+.button:hover {
+    background-color: var(--headline) !important;
+}
+
+.button-guest-login {
+    background-color: var(--text-white) !important;
+    color: var(--main-color) !important;
+    margin: 35px;
+    height: 51px !important;
+    min-width: 161 !important;
+    padding-top: 4px !important;
+    padding-right: 16px !important;
+    padding-bottom: 4px !important;
+    padding-left: 16px !important;
+}
+
+.button-log-in {
+    width: 145px !important;
+    height: 51px !important;
+    display: flex;
+}
+
+
+input {
+    border: none;
+    outline: none;
+}
+
+.input-field {
+    justify-content: space-between;
+    display: flex;
+    width: 422px;
+    background-color: var(--text-white);
+    border: 1px solid var(--border-grey);
+    border-radius: 10px;
+    margin-top: 24px !important;
+    padding: 12px 21px;
+}
+
+.input-field img {
+    width: 24px;
+    height: 24px;
+}
+
+#myCheckbox {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+
+.checkboxSignUp a {
+    padding: 3px;
+    text-decoration: none;
+    margin-left: 4px;
+    color: var(--headline);
+}
+
+.checkboxSignUp a:hover {
+    text-decoration: underline !important;
+}
+
+.checkboxSignUp {
+    display: flex !important;
+    align-content: center !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: auto;
+    width: 100%;
+    padding: 0 39px;
+    margin: 34px 0 32px !important;
+}
+
+.signUpBtnRegister {
+    border-radius: 8px;
+    background: #2A3647;
+    font-weight: 700;
+    font-size: 21px;
+    color: white;
+    border: none;
+    padding: 15px 24px;
+    cursor: pointer;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.logo-container img {
+    width: 100.034px;
+    height: 121.966px;
+    flex-shrink: 0;
+}
+
+.button-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dialog-warning {
+    background-color: rgba(0, 0, 0, 0.761);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 997;
+}
+
+#dialog-window {
+    z-index: 999;
+    background-color: aliceblue;
+    padding: 10%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04)
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
+    padding-right: 77px;
+    padding-left: 77px;
+    padding-top: 40px;
+}
+
+.d-none {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    .dialogSignUp {
+        padding: 32px 0;
+        margin: 30px 16px 0;
+        width: auto;
+    }
+
+    .fontSize61 {
+        font-size: 47 !important;
+    }
+
+    .input-field {
+        margin: 0 16px;
+        width: auto;
+    }
+
+    .input-fields {
+        width: 100%;
+        margin: 0 !important;
+    }
+
+    .registerBtn {
+        width: 180px;
+        height: 21px;
+        padding: 0;
+        margin-bottom: 16px !important;
+    }
+
+    .checkboxSignUp {
+        margin: 38px 0 32px !important;
+    }
+
+    #mobileBackArrowId {
+        top: 36px;
+        left: 15px;
+    }
+}
+
+@media(max-width: 375px) {
+    body {
+        height: 100vh;
+    }
+
+    .input-field {
+        width: auto;
+    }
+
+    header {
+        padding-top: 12px;
+        padding-right: 12px;
+        padding-left: 15px;
+    }
+
+    header img {
+        height: 80px;
+    }
+
+    .logo-container {
+        margin-bottom: 0px;
+    }
+
+    .dialog {
+        margin-top: 25px;
+    }
+}
+
+@media (max-height: 900px) {
+    .dialogSignUp {
+        margin-top: 5px !important;
+        padding: 32px 16px;
+        width: auto;
+    }
+
+    .logo-container img {
+        width: 20px;
+        height: 20px;
+    }
+
+    header {
+        padding: 0;
+    }
+}
+
+@media (max-height: 700px) {
+    .fontSize61 {
+        font-size: 34px !important;
+    }
+
+    #mobileBackArrowId {
+        top: 16px;
+        left: 15px;
+    }
+
+    #password,
+    #userName,
+    #passwort,
+    #email {
+        font-size: 14px !important;
+    }
+
+    .dialogSignUp {
+        padding: 16px 8px;
+    }
+}

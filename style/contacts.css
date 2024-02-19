@@ -1,0 +1,326 @@
+body {
+    background-color: var(--main-background-color) !important;
+    height: 100vh;
+    display: flex;
+    margin: 0;
+    width: 100vw;
+    font-family: 'Inter' !important;
+}
+
+.contactPage {
+    margin-top: 110px;
+}
+
+.summary-line {
+    height: 59px;
+    border-radius: 8px;
+    width: 4px;
+    background-color: var(--headline) !important;
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+#contactsId {
+    height: calc(100vh - 160px);
+}
+
+.profilePicture {
+    height: 42px;
+    width: 42px;
+    border-radius: 100%;
+    margin-right: 35px !important;
+    color: white;
+    border: 2px solid white;
+    box-shadow: -2px 0 6px 0 rgb(0, 0, 0, 0.2);
+}
+
+.btnBackground {
+    position: fixed;
+    width: auto;
+    height: 101px;
+    background: white;
+}
+
+.createContactButton,
+.addNewContactButton {
+    background: #2A3647 !important;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+.addNewContactButton:hover {
+    background: #29ABE2;
+    box-shadow: -2px 0 6px 0 rgb(0, 0, 0, 0.2);
+}
+
+.addNewContactButton {
+    position: relative;
+    width: 352px;
+    height: 56px !important;
+    padding: 0 !important;
+    gap: 16px;
+}
+
+.button:hover {
+    background: #29ABE2 !important;
+}
+
+.addNewContactButton img {
+    width: 32px;
+    height: 32px;
+}
+
+.form-control:focus {
+    border-color: inherit !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.contacts-container {
+    top: 300px;
+    width: 456px;
+    min-width: 456px;
+    height: calc(100vh - 96px);
+    margin-top: -110px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #FFF;
+    overflow-y: scroll;
+}
+
+.emptyContainer {
+    height: 78px;
+}
+
+.scrollingContainer {
+    margin-top: 101px;
+}
+
+.contactsInfo {
+    padding: 15px 24px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.contactsInfo:hover {
+    background: #F2F2F2;
+}
+
+.firstLetterOverContact {
+    width: 352px;
+    padding: 17px 36px !important;
+    height: 58px;
+}
+
+.partingLine {
+    height: 1px;
+    background: #D1D1D1;
+    margin: 8px 0 8px;
+    font-weight: 400;
+}
+
+/* all pictures of right popup side */
+.contactInfo img {
+    width: 24px;
+    height: 24px;
+}
+
+.createContactButton {
+    width: calc(32px + 182px);
+    height: calc(32px + 25px);
+    padding: 16px;
+    gap: 4px;
+}
+
+.createContactButton:hover {
+    background: #29ABE2 !important;
+    box-shadow: -2px 0 6px 0 rgb(0, 0, 0, 0.5);
+}
+
+.cancelBtn {
+    width: calc(32px + 94px);
+    height: calc(32px + 24px);
+    padding: 16px;
+    gap: 4px;
+    margin-right: 24px;
+    border-radius: 10px;
+    border: 1px solid var(--version-2-main-color, #2A3647);
+    background: #F8F8F8;
+    text-decoration: none;
+    color: #2A3647;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cancelBtn:hover {
+    border: 1px solid var(--version-2-main-color, #29ABE2);
+    background: #F8F8F8;
+    color: #29ABE2;
+}
+
+.cancelBtn:hover,
+.createContactButton:hover {
+    box-shadow: 2px 0 6px 0 rgb(0, 0, 0, 0.5);
+}
+
+.closePopupCross {
+    position: absolute;
+    top: 48px;
+    right: 48px;
+    width: 32px;
+    height: 32px;
+}
+
+.closePopupCross:hover {
+    background: #EEEEEE;
+    border-radius: 100%;
+}
+
+/* Text on right side */
+.contactInfoBig,
+.contactsTitle {
+    margin: 0 55px;
+    height: auto;
+    width: auto;
+}
+
+.contactsTitle {
+    gap: 30px;
+    height: 73px;
+    margin-bottom: 32px;
+}
+
+.profilePictureBig {
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    color: white;
+    margin: 0 54px 0 0 !important;
+    border: 3px solid white;
+    box-shadow: -2px 0 6px 0 rgb(0, 0, 0, 0.2);
+}
+
+.contactInfoTextBlock {
+    height: 74px;
+    margin-bottom: 21px !important;
+    margin-top: 21px !important;
+}
+
+.emailText {
+    margin-bottom: 15px !important;
+}
+
+.emailScrollMenu,
+#emailid a {
+    color: #007CEE;
+}
+
+#emailid a {
+    width: 400px !important;
+}
+
+#emailid,
+.phoneNumber {
+    width: 100% !important;
+}
+
+.phoneNumber {
+    color: black !important;
+}
+
+.phoneText {
+    margin: 22px 0 15px !important;
+}
+
+.pencilBigView {
+    width: 30px;
+}
+
+.editDeleteContact {
+    gap: 8px;
+}
+
+.editDeleteContact:hover {
+    color: #29ABE2;
+    font-weight: bold !important;
+}
+
+.editDeleteContact svg {
+    width: 24px;
+    height: 24px;
+}
+
+.mobileEditDeleteBox {
+    position: absolute;
+    bottom: calc(80px + 32px);
+    right: 16px;
+    width: 116px;
+    height: 100px;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.mobileDeleteText:hover,
+.mobileEditText:hover,
+.mobileEdit:hover,
+.mobileDelete:hover {
+    color: #29ABE2;
+    font-weight: bold;
+    background-color: #EEEEEE;
+    border-radius: 5px;
+}
+
+#mobileBackArrowId {
+    position: absolute;
+    top: 124.97px !important;
+    left: calc(100vw - 63.13px) !important;
+}
+
+#mobileBackArrowId:hover {
+    width: 36.901px;
+    height: 36.901px;
+    background-color: #F7F7F7;
+    border-radius: 100%;
+}
+
+#mobileBackArrowId img {
+    width: 36.901px;
+    height: 36.901px;
+}
+
+#nameId {
+    margin-bottom: 4px;
+}
+
+#deleteEditId {
+    margin-top: 4px;
+}
+
+.nameAbbreviation {
+    margin-top: 2px !important;
+}
+
+.contentContact {
+    display: flex;
+    flex-direction: column;
+    padding-left: 243px;
+    margin-top: 96px;
+    width: 100%;
+    height: auto;
+    overflow-y: auto;
+}
+
+.content {
+    display: none !important;
+    z-index: 0 !important;
+}
+
+.d-none {
+    display: none;
+}

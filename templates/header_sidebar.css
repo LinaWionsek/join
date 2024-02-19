@@ -1,0 +1,342 @@
+/*header*/
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 243px;
+    z-index: 3;
+    max-width: calc(100vw - 243px);
+    width: 100%;
+    height: 96px;
+    background-color: var(--text-white);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 116px;
+    padding-right: 40px;
+}
+
+.headerHeadlineBox {
+    display: flex;
+}
+
+/* ? */
+
+.headImgLeft {
+    display: none;
+}
+
+.headBoxRight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+}
+
+.headBoxRightImg {
+    width: 32px;
+}
+
+.headBoxRightUserCircle {
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    color: #29ABE2;
+    border: 3px solid black;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+
+.headBoxRightUserCircle:hover {
+    background: #E1E5EC;
+    cursor: pointer;
+}
+
+/*------------------------------------------------*/
+
+
+/*Sidebar*/
+
+.sidebar {
+    position: fixed;
+    padding: 64px 0;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    width: 243px;
+    background-color: var(--main-color) !important;
+    overflow-y: auto;
+    z-index: 1;
+}
+
+.logo-container {
+    padding-left: 52px;
+}
+
+.sidebar-text {
+    height: 30px;
+    gap: 15px;
+    color: #CDCDCD;
+}
+
+.sidebar-text-sub {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 56px;
+    width: 100%;
+}
+
+.sidebar-text-sub img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.sidebar-text-area {
+    width: 100%;
+}
+
+.sidebar-text-area a {
+    text-decoration: none;
+}
+
+.sideBarCategory {
+    margin: 7.5px 0;
+}
+
+.sideBarCategory:hover {
+    background: #2A3D59;
+}
+
+.quickLinksSidebar {
+    display: flex !important;
+    flex-direction: column;
+    gap: 4px;
+    padding-left: 52px !important;
+}
+
+.sidebar-bottom {
+    padding: 8px;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.sidebar-bottom:hover {
+    color: var(--headline) !important;
+    font-weight: bold;
+}
+
+.htmlActive {
+    background-color: #091931;
+}
+
+/*------------------------------------------------*/
+
+
+/*???*/
+
+.police {
+    display: flex;
+    justify-content: center;
+}
+
+
+/*???*/
+
+
+/*???*/
+
+.header-title {
+    display: flex;
+    display: flex;
+    align-items: center;
+}
+
+
+/*???*/
+
+#header-summary {
+    margin-top: 110px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 56px;
+    justify-content: space-evenly;
+}
+
+@media (max-width: 1000px) {
+    .header {
+        padding-left: 59px;
+        padding-right: 59px;
+    }
+
+    .header {
+        position: fixed;
+        top: 0;
+        left: 160px;
+        z-index: 3;
+        max-width: calc(100vw - 160px);
+        width: 100%;
+        height: 96px;
+        background-color: var(--text-white);
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+
+    .sidebar {
+        width: calc(243px - 83px);
+    }
+
+    .sidebar-text-sub {
+        padding: 8px 20px;
+    }
+
+    .quickLinksSidebar {
+        padding-left: 20px !important;
+    }
+
+    .logo-container {
+        padding-left: 24px;
+    }
+}
+
+@media(max-width: 768px) {
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0px;
+        height: 80px !important;
+        z-index: 3;
+        width: 100%;
+        max-width: unset;
+        background-color: var(--text-white);
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
+        display: flex;
+        align-items: center;
+        padding-left: 16px;
+        padding-right: 16px;
+        margin-bottom: 110px;
+    }
+
+    .headerHeadlineBox {
+        display: none !important;
+    }
+
+    .headImgLeft {
+        display: unset;
+    }
+
+    .fontAtMobile {
+        font-size: 14px !important;
+    }
+
+    #header-summary {
+        margin-bottom: 0px;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-content: space-between;
+        align-items: flex-start;
+        margin-left: 9px;
+        margin-top: 0;
+    }
+
+    /*Sidebar*/
+    .sidebar {
+        position: fixed;
+        left: 0;
+        padding: 0 0 !important;
+        top: unset;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        height: 80px;
+        width: 100vw;
+        background-color: var(--main-color) !important;
+    }
+
+    .logo-container {
+        display: none;
+    }
+
+    .quickLinksSidebar {
+        display: none !important;
+    }
+
+    .sideBarCategory:hover {
+        background: none;
+    }
+
+    .sidebar-text-sub {
+        flex-direction: column !important;
+        font-size: 14px !important;
+        height: 76px !important;
+        width: 76px !important;
+        padding: 0 0 !important;
+        justify-content: center !important;
+    }
+
+    .sidebar-text-area {
+        display: flex !important;
+        flex-direction: row !important;
+        height: 80px !important;
+        width: 100vw !important;
+        justify-content: space-around !important;
+        align-items: center !important;
+    }
+
+    .sidebar-text-sub img {
+        width: 24px !important;
+        height: 24px !important;
+    }
+
+    .htmlActive {
+        border-radius: 16px;
+    }
+
+    .header-mobile-container {
+        flex: 1;
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+        height: 0px;
+        padding-top: 10px;
+    }
+
+    .header-mobile {
+        display: flex;
+        background-color: var(--main-color);
+        width: 100%;
+    }
+
+    .sidebar-mobile {
+        display: flex;
+    }
+
+    .sidebar-mobile {
+        display: flex;
+        width: 100%;
+    }
+
+    .headBoxRightUserCircle {
+        width: 40px !important;
+        height: 40px !important;
+    }
+
+    .fontSize16 {
+        font-size: 14px !important;
+    }
+
+    .headBoxRightImg {
+        display: none;
+    }
+}

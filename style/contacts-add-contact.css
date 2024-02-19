@@ -1,0 +1,148 @@
+.profilePictureArea {
+    position: relative;
+    width: 275px;
+    height: 100%;
+    width: 100%;
+}
+
+.circle {
+    margin-top: 204px;
+    width: 120px;
+    height: 120px;
+    border: #FFFFFF solid 2px;
+    border-radius: 100%;
+    box-shadow: -2px 0 6px 0 rgb(0, 0, 0, 0.2);
+}
+
+.personInCircle {
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    top: 264px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.addContactBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.addContactPopup {
+    width: 1212px;
+    height: 592px;
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 35px;
+    border-top-left-radius: 35px;
+    background: #FFF;
+}
+
+.leftSideAddContactPopup {
+    position: relative;
+    height: 100%;
+    width: 476px;
+    background: #2A3647;
+    border-radius: 30px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;
+    color: white;
+    padding: 66px 46px;
+}
+
+.leftSideAddContactPopup img {
+    position: absolute;
+    top: 154px;
+    left: 48px;
+    width: 55.6px;
+    height: 66.483px;
+    display: flex;
+}
+
+.addContactLeftText {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 8px;
+}
+
+.textUnderAddContactTitle {
+    margin-bottom: 17.5px !important;
+}
+
+.blueLine {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 90px;
+    background: #29ABE2;
+    border-radius: 1.5px;
+}
+
+.rightSidePopup {
+    position: relative;
+    width: 745px;
+    justify-content: flex-end;
+}
+
+.contactInfo {
+    width: 422px;
+    height: 215px;
+    margin: 137px 48px 0 0;
+    gap: 32px;
+}
+
+.inputName input,
+.inputEmail input,
+.inputPhone input {
+    width: calc(41px + 380px);
+    height: calc(26px + 24px);
+    padding: 13px 21px;
+    border-radius: 10px;
+    border: 1px solid #D1D1D1;
+    background: #FFF;
+}
+
+.inputName,
+.inputEmail,
+.inputPhone {
+    position: relative;
+}
+
+textarea:focus,
+input:focus {
+    outline: 1px solid #29ABE2;
+}
+
+input {
+    border: none;
+}
+
+.inputName input:hover,
+.inputEmail input:hover,
+.inputPhone input:hover {
+    border: 1px solid #29ABE2;
+}
+
+.inputName img,
+.inputEmail img,
+.inputPhone img {
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    transform: translate(-50%, -50%);
+    right: calc(21px - 12px);
+}
+
+.addContactButtonContainer {
+    margin-top: 16px;
+}

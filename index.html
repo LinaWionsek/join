@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join</title>
+
+    <link rel="stylesheet" href="style/animation.css">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/log-in.css">
+    <link rel="stylesheet" href="style/fonts.css">
+    <link rel="shortcut icon" href="img/Logo for Favicon construction.svg" type="image/x-icon">
+
+    <script defer src="script/saveAndLoad.js"></script>
+    <script defer src="script/addTask.js"></script>
+    <script defer src="script/contacts.js"></script>
+    <script defer src="script/register.js"></script>
+    <script defer src="script/log-in.js"></script>
+
+</head>
+
+<!-- this is the log in -->
+
+<body onload="initLogin()">
+
+    <div class="join-logo-contain d-none">
+        <img class="join-logo" src="img/Logo for Favicon construction.svg" alt="">
+    </div>
+
+    <header>
+        <div class="logo-container">
+            <img src="./img/join-logo.svg" alt="">
+        </div>
+        <div id="sing-up">
+            <span class="fontSize20">Not a Join user?</span>
+            <button onclick="loadRegister()" type="button" class="signInBtn fontSize16"><b>Sign up</b></button>
+        </div>
+    </header>
+
+    <div class="section">
+        <div id="dialog" class="dialog">
+
+        </div>
+    </div>
+    <div class="sing-up-mobile">
+        <span>Not a Join user?</span>
+        <button onclick="loadRegister()" type="button" class="signInBtn fontSize21">Sign up</button>
+    </div>
+
+    <div class="police">
+        <div class="police-link">
+            <a href="./privacy-police.html">Privacy Policy</a>
+        </div>
+        <div class="police-link">
+            <a href="./legalNotice.html">Legal Notice</a>
+        </div>
+    </div>
+</body>
+
+</html>

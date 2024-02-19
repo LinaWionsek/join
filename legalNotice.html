@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Notice</title>
+
+    <script defer src="templates/templates.js"></script>
+    <script defer src="script/saveAndLoad.js"></script>
+
+    <link rel="shortcut icon" href="img/Logo for Favicon construction.svg" type="image/x-icon">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="templates/header_sidebar.css">
+    <link rel="stylesheet" href="style/legalNotice.css">
+    <link rel="stylesheet" href="style/help.css">
+    <link rel="stylesheet" href="style/fonts.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+</head>
+
+<body onclick="hideMenuHeader()" onload="renderSidebarHeader(), loadActivUser(), userCircle(), hideSidebarLinks()">
+    <header>
+        <div id="sidebarArea"></div>
+        <div id="headerArea"></div>
+    </header>
+    <div id="menu-header-container" class="menu-header-container d-none">
+        <div class="menu-header">
+            <a href="./help.html">Help</a>
+            <a href="./legalNotice.html">Legal Notice</a>
+            <a href="./privacy-police.html">Privacy Policy</a>
+            <a href="./index.html">Log Out</a>
+        </div>
+    </div>
+
+    <div class="quicklinksContainer">
+
+        <span class="fontSize61 mb32 column">
+            <b>Legal Notice</b>
+        </span>
+
+
+        <span class="fontSize27 column mb16">
+            <b>Imprint</b>
+        </span>
+        <span class="fontSize16 mb24 column">
+            Lina Wionsek<br>
+            David Peterka<br>
+            Bernhard Sigl
+        </span>
+
+        <span class="fontSize20 column">
+            <b>Exploring the Board</b>
+        </span>
+        <span class="fontSize26 mb24 column">
+            Email: [Email]
+        </span>
+
+
+        <span class="fontSize20 column">
+            <b>Acceptance of terms</b>
+        </span>
+        <span class="fontSize16 mb24 column">
+            By accessing and using Join (Product), you acknowledge and agree to the following terms and conditions, and
+            any
+            policies, guidelines, or amendments thereto that may be presented to you from time to time. We, the listed
+            students, may update or change the
+            terms and conditions from time to time without notice.
+        </span>
+
+        <span class="fontSize20">
+            <b>Scope and ownership of the product</b>
+        </span>
+        <span class="fontSize16 mb24 column">
+            Join has been developed as part of a student group project in a web development bootcamp at the Developer
+            Akademie GmbH. It has an educational purpose and is not intended for extensive personal & business usage. As
+            such, we cannot guarantee consistent
+            availability, reliability, accuracy, or any other aspect of quality regarding this Product. The design of
+            Join
+            is owned by the Developer Akademie GmbH. Unauthorized use, reproduction, modification, distribution, or
+            replication of the design is strictly
+            prohibited.
+        </span>
+
+        <span class="fontSize20">
+            <b>Proprietary rights</b>
+        </span>
+        <span class="fontSize16 mb24 column">
+            Aside from the design owned by Developer Akademie GmbH, we, the listed students, retain all proprietary
+            rights
+            in Join, including any associated copyrighted material, trademarks, and other proprietary information.
+        </span>
+
+        <span class="fontSize20">
+            <b>Use of the product</b>
+        </span>
+        <span class="fontSize16 mb24 column">
+            Join is intended to be used for lawful purposes only, in accordance with all applicable laws and
+            regulations.
+            Any use of Join for illegal activities, or to harass, harm, threaten, or intimidate another person, is
+            strictly
+            prohibited. You are solely responsible
+            for your interactions with other users of Join.
+        </span>
+
+        <span class="fontSize20">
+            <b>Disclaimer of warranties and limitation of liability</b>
+        </span>
+        <span class="fontSize16 mb24 column">
+            Join is provided "as is" without warranty of any kind, whether express or implied, including but not limited
+            to
+            the implied warranties of merchantability, fitness for a particular purpose, and non-infringement. In no
+            event
+            will we, the listed students,
+            or the Developer Akademie, be liable for any direct, indirect, incidental, special, consequential or
+            exemplary
+            damages, including but not limited to, damages for loss of profits, goodwill, use, data, or other intangible
+            losses, even if we have been
+            advised of the possibility of such damages, arising out of or in connection with the use or performance of
+            Join.
+        </span>
+
+        <div class="pointer" id="mobileBackArrowId" onclick="goBack()">
+            <img src="./img/arror-left.svg">
+        </div>
+    </div>
+
+    <div class="emptyContainer" id="emptyContainer"></div>
+</body>
+
+</html>
