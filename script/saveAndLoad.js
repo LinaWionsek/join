@@ -2,7 +2,7 @@ const STORAGE_TOKEN = '7RNGNHOIRRY7RSZAG9040DSCH7N4JNMMZ3I48MJN';
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 
 let tasks = [];
-let user = [];
+let allUsers = [];
 let activUser = {
     'name': '',
 }

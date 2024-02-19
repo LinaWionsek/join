@@ -22,7 +22,7 @@ function signUp() {
 async function registUser() {
     let emailControl = document.getElementById('email');
     if (!arePasswordsMatching()) return handlePasswordMismatch();
-    if (user.some(u => u.email === emailControl.value)) return handleEmailExists();
+    if (allUsers.some(u => u.email === emailControl.value)) return handleEmailExists();
     if (checkbox.checked) await handleRegistration();
 }
 
@@ -48,12 +48,12 @@ function handleEmailExists() {
  */
 async function handleRegistration() {
     registerBtn.disabled = true;
-    user.push({
+    allUsers.push({
         name: userName.value,
         email: email.value,
         password: password.value,
     });
-    await setItem('userGroup698', JSON.stringify(user));
+    await setItem('userGroup698', JSON.stringify(allUsers));
     changesSaved('You Signed Up successfully');
     setTimeout(() => {
         resetForm();
@@ -95,7 +95,7 @@ function arePasswordsMatching() {
  */
 async function loadUserGroup698() {
     try {
-        user = JSON.parse(await getItem('userGroup698'));
+        allUsers = JSON.parse(await getItem('userGroup698'));
     } catch (e) {
         console.error('Loading error:', e);
     }

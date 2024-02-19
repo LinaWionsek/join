@@ -63,15 +63,15 @@ function closeDialog() {
 function login() {
     let email = document.getElementById('email');
     let passwort = document.getElementById('passwort');
-    let users = user.find(u => u.email === email.value && u.password === passwort.value);
-    let currentUser = user.findIndex(u => u.email === email.value);
+    let users = allUsers.find(u => u.email === email.value && u.password === passwort.value);
+    let currentUser = allUsers.findIndex(u => u.email === email.value);
     if (users) {
         if (document.getElementById('myCheckbox').checked) {
             localStorage.setItem('rememberMe', email.value);
         } else {
             localStorage.removeItem('rememberMe');
         }
-        activUser['name'] = user[currentUser].name;
+        activUser['name'] = allUsers[currentUser].name;
         saveActivUser();
         window.location.href = "./summary.html";
     } else {
