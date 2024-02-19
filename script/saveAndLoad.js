@@ -262,7 +262,7 @@ async function currentUserContactsLoad() {
 /**
  * Saves the current active user to local storage.
  */
-function saveActivUser() {
+function saveActiveUser() {
     localStorage.setItem('activUserAsText', JSON.stringify(activUser));
 }
 

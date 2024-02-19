@@ -7,7 +7,7 @@ async function initLogin() {
     activUser = {
         'name': '',
     };
-    saveActivUser();
+    saveActiveUser();
     startAnimation();
     loadLogIn();
     await loadUserGroup698();
@@ -62,17 +62,11 @@ function closeDialog() {
  */
 function login() {
     let email = document.getElementById('email');
-    let passwort = document.getElementById('passwort');
-    let users = allUsers.find(u => u.email === email.value && u.password === passwort.value);
-    let currentUser = allUsers.findIndex(u => u.email === email.value);
-    if (users) {
-        if (document.getElementById('myCheckbox').checked) {
-            localStorage.setItem('rememberMe', email.value);
-        } else {
-            localStorage.removeItem('rememberMe');
-        }
-        activUser['name'] = allUsers[currentUser].name;
-        saveActivUser();
+    let password = document.getElementById('passwort');
+    if (verifyLoginCredentials(email, password)) {
+        handleRememberMe(email)
+        setActiveUser(email);
+        saveActiveUser();
         window.location.href = "./summary.html";
     } else {
         loadRedBorderInput();
@@ -80,12 +74,30 @@ function login() {
     }
 }
 
+function verifyLoginCredentials(email, password){
+    return allUsers.find(u => u.email === email.value && u.password === password.value);
+}
+
+function handleRememberMe(email){
+    if (document.getElementById('myCheckbox').checked) {
+        localStorage.setItem('rememberMe', email.value);
+    } else {
+        localStorage.removeItem('rememberMe');
+    }
+}
+
+function setActiveUser(email){
+    let currentUser = allUsers.findIndex(u => u.email === email.value);
+    activUser['name'] = allUsers[currentUser].name;
+}
+
+
 /**
  * Logs in a user as a guest and fills default data arrays.
  */
 function guestLogin() {
     activUser.name = 'Guest698';
-    saveActivUser();
+    saveActiveUser();
     fillTestArray();
     window.location.href = "./summary.html";
 }
