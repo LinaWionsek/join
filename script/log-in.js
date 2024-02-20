@@ -20,7 +20,7 @@ function loadLogIn() {
     dialog.innerHTML = loadTempleteLogIn();
     let rememberedEmail = localStorage.getItem('rememberMe');
     if (rememberedEmail) {
-        document.getElementById('email').value = rememberedEmail;
+        document.getElementById('login_email').value = rememberedEmail;
         document.getElementById('myCheckbox').checked = true; // Setzen Sie das "Remember me" Kästchen als angekreuzt
     }
 }
@@ -61,7 +61,7 @@ function closeDialog() {
  * Validates user credentials and logs them in if valid.
  */
 function login() {
-    let email = document.getElementById('email');
+    let email = document.getElementById('login_email');
     let password = document.getElementById('passwort');
     if (verifyLoginCredentials(email, password)) {
         handleRememberMe(email)
@@ -269,7 +269,7 @@ function loadTempleteLogIn() {
         </div>
         <div  class="input-fields fontSize20">
             <div id="input-email" class="input-field ">
-                <input required id="email" type="text" placeholder="Email">
+                <input required id="login_email" type="text" placeholder="Email">
                 <img src="./img/letter.svg" alt="Bild hinten" class="input-suffix">
             </div>
             <div class="warning-field">
