@@ -15,7 +15,7 @@ let nextColorIndex = 0;
 
 /** * This function is to load functions at start */
 async function initContacts() {
-    loadActivUser();
+    loadActiveUser();
     userCircle();
     await currentUserContactsLoad();
     renderContacts();

@@ -5,7 +5,7 @@ loadTaskElements();
  * Initializes the task addition process.
  */
 async function initAddTask() {
-    loadActivUser();
+    loadActiveUser();
     userCircle();
     markCategory();
     await currentUserTaskLoad();

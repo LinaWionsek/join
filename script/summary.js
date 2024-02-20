@@ -2,7 +2,7 @@
  * Asynchronously initializes the summary section.
  */
 async function initSummary() {
-    loadActivUser();
+    loadActiveUser();
     userCircle();
     await currentUserTaskLoad();
     loadTimeOfDay();
@@ -30,7 +30,7 @@ function loadText() {
  */
 function loadUserName() {
     userName = document.getElementById('name')
-    userName.innerText = activUser.name;
+    userName.innerText = activeUser.name;
 }
 
 /**

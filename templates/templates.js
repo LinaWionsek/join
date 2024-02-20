@@ -78,7 +78,7 @@ function markCategory() {
  */
 function userCircle() {
     let container = document.getElementById('header-user-img');
-    let nameParts = activUser.name.split(' ');
+    let nameParts = activeUser.name.split(' ');
     let firstName = nameParts[0];
     let lastName = nameParts.length > 1 ? nameParts[nameParts.length - 1] : '';
     let nameAbbreviation = `<b>${firstName.charAt(0).toUpperCase()}${lastName.charAt(0).toUpperCase()}</b>`;
@@ -266,7 +266,7 @@ function toggleVisibility(id, show) {
  * If the active user's name is an empty string, it hides the sidebar links. Otherwise, it hides the empty container.
  */
 function hideSidebarLinks() {
-    if (activUser.name === '') {
+    if (activeUser.name === '') {
         document.getElementById('sidebarLinks').classList.add('d-none');
     } else {
         document.getElementById('emptyContainer').classList.add('d-none');

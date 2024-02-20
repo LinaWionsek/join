@@ -4,7 +4,7 @@ let dialog = document.getElementById('dialog');
  * Initializes the login sequence by setting the active user, starting animations,
  */
 async function initLogin() {
-    activUser = {
+    activeUser = {
         'name': '',
     };
     saveActiveUser();
@@ -88,7 +88,7 @@ function handleRememberMe(email){
 
 function setActiveUser(email){
     let currentUser = allUsers.findIndex(u => u.email === email.value);
-    activUser['name'] = allUsers[currentUser].name;
+    activeUser['name'] = allUsers[currentUser].name;
 }
 
 
@@ -96,7 +96,7 @@ function setActiveUser(email){
  * Logs in a user as a guest and fills default data arrays.
  */
 function guestLogin() {
-    activUser.name = 'Guest698';
+    activeUser.name = 'Guest698';
     saveActiveUser();
     fillTestArray();
     window.location.href = "./summary.html";
