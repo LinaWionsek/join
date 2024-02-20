@@ -62,7 +62,7 @@ function closeDialog() {
  */
 function login() {
     let email = document.getElementById('login_email');
-    let password = document.getElementById('passwort');
+    let password = document.getElementById('login_password');
     if (verifyLoginCredentials(email, password)) {
         handleRememberMe(email)
         setActiveUser(email);
@@ -278,7 +278,7 @@ function loadTempleteLogIn() {
             </span>
             </div>
             <div id="input-passwort" class="input-field">
-                <input required id="passwort" type="password" placeholder="Password">
+                <input required id="login_password" type="password" placeholder="Password">
                 <img src="./img/lock.svg" alt="Bild hinten" class="input-suffix">
             </div>
             <div class="warning-field">

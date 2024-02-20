@@ -218,7 +218,7 @@ header {
 #confirmPassword,
 #password,
 #userName,
-#passwort,
+#login_password,
 #email {
     width: 100%;
     font-size: 20px;
@@ -404,7 +404,7 @@ header {
     #confirmPassword,
     #password,
     #userName,
-    #passwort,
+    #login_password,
     #email {
         font-size: 14px !important;
     }
