@@ -79,7 +79,7 @@
     }
 
     .inputName input,
-    .inputEmail input,
+    .register_email_container input,
     .inputPhone input {
         width: calc(592px - 64px) !important;
         height: calc(26px + 15px) !important;
@@ -214,7 +214,7 @@
     }
 
     .inputName input,
-    .inputEmail input,
+    .register_email_container input,
     .inputPhone input {
         width: calc(100vw - 64px) !important;
     }

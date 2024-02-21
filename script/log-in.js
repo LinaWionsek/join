@@ -241,7 +241,7 @@ function fillTestArray() {
  * Adds a red border to specified input elements indicating an error.
  */
 function loadRedBorderInput() {
-    let inputIds = ["input-email", "input-passwort"];
+    let inputIds = ["login_email_container", "login_password_container"];
     for (let id of inputIds) {
         document.getElementById(id).classList.add("red-border");
     }
@@ -268,7 +268,7 @@ function loadTempleteLogIn() {
             <div class="underline"></div>
         </div>
         <div  class="input-fields fontSize20">
-            <div id="input-email" class="input-field ">
+            <div id="login_email_container" class="input-field ">
                 <input required id="login_email" type="text" placeholder="Email">
                 <img src="./img/letter.svg" alt="Bild hinten" class="input-suffix">
             </div>
@@ -277,7 +277,7 @@ function loadTempleteLogIn() {
             Please enter the appropriate email address.
             </span>
             </div>
-            <div id="input-passwort" class="input-field">
+            <div id="login_password_container" class="input-field">
                 <input required id="login_password" type="password" placeholder="Password">
                 <img src="./img/lock.svg" alt="Bild hinten" class="input-suffix">
             </div>

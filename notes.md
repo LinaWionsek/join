@@ -1,16 +1,16 @@
 # log-in
 login_email //
-login_email_container - input-email
+login_email_container - input-email //
 
 login_password //
-login_password_container - input-passwort
+login_password_container - input-passwort //
 
 # register
-register_userName - userName
-register_userName_container - containerUserName
+register_name - userName //
+register_name_container - containerUserName //
 
-register_email - email
-register_email_container - inputEmail
+register_email - email //
+register_email_container - inputEmail //
 
 register_password - password
 register_password_container - inputPassword

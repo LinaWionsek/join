@@ -272,9 +272,9 @@ header {
     }
 
     #password,
-    #userName,
+    #register_name,
     #login_password,
-    #email {
+    #register_email {
         font-size: 14px !important;
     }
 

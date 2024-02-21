@@ -20,7 +20,7 @@ function signUp() {
  * Validates user inputs, checks for email duplicates, and proceeds with the registration process.
  */
 async function registUser() {
-    let emailControl = document.getElementById('email');
+    let emailControl = document.getElementById('register_email');
     if (!arePasswordsMatching()) return handlePasswordMismatch();
     if (allUsers.some(u => u.email === emailControl.value)) return handleEmailExists();
     if (checkbox.checked) await handleRegistration();
@@ -38,7 +38,7 @@ function handlePasswordMismatch() {
  * Handles a scenario when the entered email already exists in the system.
  */
 function handleEmailExists() {
-    document.getElementById('inputEmail').classList.add("red-border");
+    document.getElementById('register_email_container').classList.add("red-border");
     document.getElementById('warning-email').classList.remove("d-none");
     resetForm();
 }

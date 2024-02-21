@@ -112,11 +112,11 @@ input {
     height: auto;
 }
 
-#containerUserName {
+#register_name_container {
     margin-top: 0 !important;
 }
 
-#input-passwort {
+#login_password_container {
     margin-top: 32px;
 }
 
@@ -217,9 +217,10 @@ header {
 
 #confirmPassword,
 #password,
-#userName,
+#register_name,
+#register_email,
 #login_password,
-#email {
+#login_email {
     width: 100%;
     font-size: 20px;
 }
@@ -403,9 +404,10 @@ header {
 
     #confirmPassword,
     #password,
-    #userName,
+    #register_name,
+    #register_email,
     #login_password,
-    #email {
+    #login_email {
         font-size: 14px !important;
     }
 

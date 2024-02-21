@@ -102,7 +102,7 @@
 }
 
 .inputName input,
-.inputEmail input,
+.register_email_container input,
 .inputPhone input {
     width: calc(41px + 380px);
     height: calc(26px + 24px);
@@ -113,7 +113,7 @@
 }
 
 .inputName,
-.inputEmail,
+.register_email_container,
 .inputPhone {
     position: relative;
 }
@@ -128,13 +128,13 @@ input {
 }
 
 .inputName input:hover,
-.inputEmail input:hover,
+.register_email_container input:hover,
 .inputPhone input:hover {
     border: 1px solid #29ABE2;
 }
 
 .inputName img,
-.inputEmail img,
+.register_email_container img,
 .inputPhone img {
     position: absolute;
     top: 50%;
