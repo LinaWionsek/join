@@ -215,8 +215,8 @@ header {
     font-weight: bold;
 }
 
-#confirmPassword,
-#password,
+#register_password_confirm,
+#register_password,
 #register_name,
 #register_email,
 #login_password,
@@ -402,8 +402,8 @@ header {
         font-size: 34px !important;
     }
 
-    #confirmPassword,
-    #password,
+    #register_password_confirm,
+    #register_password,
     #register_name,
     #register_email,
     #login_password,

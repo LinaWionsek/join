@@ -65,7 +65,7 @@ async function handleRegistration() {
  * Highlights password fields in red.
  */
 function loadRedBorderPassword() {
-    let inputIds = ["inputPassword", "inputConfirmPassword"];
+    let inputIds = ["register_password_container", "inputConfirmPassword"];
     for (let id of inputIds) {
         document.getElementById(id).classList.add("red-border");
     }
@@ -85,8 +85,8 @@ function loadWarningTextTamplate() {
  * Checks if the entered password and confirmation password are matching.
  */
 function arePasswordsMatching() {
-    const password = document.getElementById('password').value;
-    const confirmPassword = document.getElementById('confirmPassword').value;
+    const password = document.getElementById('register_password').value;
+    const confirmPassword = document.getElementById('register_password_confirm').value;
     return password === confirmPassword;
 }
 
