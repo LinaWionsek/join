@@ -1,12 +1,11 @@
 let registerBtn = document.getElementById('registerBtn');
-let checkbox = document.getElementById("myCheckbox");
-
+let checkbox = document.getElementById('myCheckbox');
 
 /**
  * Initializes the registration functionality by loading existing user data.
  */
 async function initRegister() {
-    await loadUserGroup698()
+    await loadUserGroup698();
 }
 
 /**
@@ -38,8 +37,8 @@ function handlePasswordMismatch() {
  * Handles a scenario when the entered email already exists in the system.
  */
 function handleEmailExists() {
-    document.getElementById('register_email_container').classList.add("red-border");
-    document.getElementById('warning-email').classList.remove("d-none");
+    document.getElementById('register_email_container').classList.add('red-border');
+    document.getElementById('warning-email').classList.remove('d-none');
     resetForm();
 }
 
@@ -49,9 +48,9 @@ function handleEmailExists() {
 async function handleRegistration() {
     registerBtn.disabled = true;
     allUsers.push({
-        name: userName.value,
-        email: email.value,
-        password: password.value,
+        'name': userName.value,
+        'email': email.value,
+        'password': password.value,
     });
     await setItem('userGroup698', JSON.stringify(allUsers));
     changesSaved('You Signed Up successfully');
@@ -65,9 +64,9 @@ async function handleRegistration() {
  * Highlights password fields in red.
  */
 function loadRedBorderPassword() {
-    let inputIds = ["register_password_container", "inputConfirmPassword"];
+    let inputIds = ['register_password_container', 'inputConfirmPassword'];
     for (let id of inputIds) {
-        document.getElementById(id).classList.add("red-border");
+        document.getElementById(id).classList.add('red-border');
     }
 }
 
@@ -75,9 +74,9 @@ function loadRedBorderPassword() {
  * Displays warning messages for password fields.
  */
 function loadWarningTextTamplate() {
-    let warningIds = ["warning-password", "warning-confirmPassword"];
+    let warningIds = ['warning-password', 'warning-confirmPassword'];
     for (let id of warningIds) {
-        document.getElementById(id).classList.remove("d-none");
+        document.getElementById(id).classList.remove('d-none');
     }
 }
 
@@ -111,12 +110,11 @@ function resetForm() {
     registerBtn.disabled = false;
 }
 
-
-/* NICHT AKTUELL! WEIL FALSCHER KEY! */
 /**
  * Resets all users in the backend storage.
  */
-// async function resetAllBackendUser() {
-//     users.splice(0, users.length);
-//     await setItem('users', JSON.stringify(users));
-// }
+async function resetAllBackendUser() {
+    await loadUserGroup698();
+    allUsers.splice(0, allUsers.length);
+    await setItem('userGroup698', JSON.stringify(allUsers));
+}
