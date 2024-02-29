@@ -48,11 +48,11 @@ function handleEmailExists() {
 async function handleRegistration() {
     registerBtn.disabled = true;
     allUsers.push({
-        'name': userName.value,
-        'email': email.value,
-        'password': password.value,
+        'name': register_name.value,
+        'email': register_email.value,
+        'password': register_password.value,
     });
-    await setItem('userGroup698', JSON.stringify(allUsers));
+    await setItem('users', JSON.stringify(allUsers));
     changesSaved('You Signed Up successfully');
     setTimeout(() => {
         resetForm();
@@ -94,7 +94,7 @@ function arePasswordsMatching() {
  */
 async function loadUserGroup698() {
     try {
-        allUsers = JSON.parse(await getItem('userGroup698'));
+        allUsers = JSON.parse(await getItem('users'));
     } catch (e) {
         console.error('Loading error:', e);
     }
@@ -104,9 +104,9 @@ async function loadUserGroup698() {
  * Resets the registration form by clearing inputs and enabling the register button.
  */
 function resetForm() {
-    email.value = '';
-    password.value = '';
-    confirmPassword.value = '';
+    register_email.value = '';
+    register_password.value = '';
+    register_password_confirm.value = '';
     registerBtn.disabled = false;
 }
 
@@ -116,5 +116,5 @@ function resetForm() {
 async function resetAllBackendUser() {
     await loadUserGroup698();
     allUsers.splice(0, allUsers.length);
-    await setItem('userGroup698', JSON.stringify(allUsers));
+    await setItem('users', JSON.stringify(allUsers));
 }
