@@ -188,11 +188,6 @@ function returnRenderHeader() {
 }
 
 
-function closeDialog() {
-    document.getElementById('dialog-full').classList.add('d-none');
-}
-
-
 /** * This function is used to create a slide in animation */
 function slide(frontId, backgroundId) {
     toggleVisibility(frontId, true);

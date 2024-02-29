@@ -41,19 +41,6 @@ function loadRegister() {
     window.location.href = "./register.html";
 }
 
-/**
- * Populates the dialog with the password reset template.
- */
-function resetPasswort() {
-    dialog.innerHTML = loadTemplateResetPasswort();
-}
-
-/**
- * Reverts the dialog back to the login interface.
- */
-function closeDialog() {
-    loadLogIn();
-}
 
 /**
  * Validates user credentials and logs them in if valid.
