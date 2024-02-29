@@ -29,11 +29,9 @@ function loadLogIn() {
  * Starts the join-logo animation if the document referrer is empty.
  */
 function startAnimation() {
-    if (!document.referrer) { // Wenn referrer leer ist
         document.querySelector('.join-logo-contain').classList.add('animated');
         document.querySelector('.join-logo-contain').classList.remove('d-none');
         document.querySelector('.join-logo').classList.add('animated');
-    }
 }
 
 /**
