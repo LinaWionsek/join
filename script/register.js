@@ -5,14 +5,7 @@ let checkbox = document.getElementById('myCheckbox');
  * Initializes the registration functionality by loading existing user data.
  */
 async function initRegister() {
-    await loadUserGroup698();
-}
-
-/**
- * Initiates the sign-up process by loading the respective template into the dialog.
- */
-function signUp() {
-    dialog.innerHTML = loadTemplateSignUp();
+    await loadUsers();
 }
 
 /**
@@ -92,7 +85,7 @@ function arePasswordsMatching() {
 /**
  * Loads existing users from the storage.
  */
-async function loadUserGroup698() {
+async function loadUsers() {
     try {
         allUsers = JSON.parse(await getItem('users'));
     } catch (e) {
@@ -114,7 +107,7 @@ function resetForm() {
  * Resets all users in the backend storage.
  */
 async function resetAllBackendUser() {
-    await loadUserGroup698();
+    await loadUsers();
     allUsers.splice(0, allUsers.length);
     await setItem('users', JSON.stringify(allUsers));
 }

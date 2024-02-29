@@ -10,7 +10,7 @@ async function initLogin() {
     saveActiveUser();
     startAnimation();
     loadLogIn();
-    await loadUserGroup698();
+    await loadUsers();
 }
 
 /**
@@ -96,7 +96,7 @@ function setActiveUser(email){
  * Logs in a user as a guest and fills default data arrays.
  */
 function guestLogin() {
-    activeUser.name = 'Guest698';
+    activeUser.name = 'Guest';
     saveActiveUser();
     fillTestArray();
     window.location.href = "./summary.html";
