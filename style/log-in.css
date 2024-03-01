@@ -14,6 +14,35 @@ form {
     align-items: center;
 }
 
+input {
+    outline: none;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    padding: 12px 20px;
+}
+
+input:focus {
+    border-color: #29ABE2;
+}
+
+input[type=text] {
+    background: url('../img/lock.svg') no-repeat scroll;
+    background-position: center right; /* 16px */
+    background-origin: content-box;
+}
+
+input[type=email] {
+    background: url('../img/mail.svg') no-repeat scroll;
+    background-position: center right -2px; /* DON'T DELETE IMPORTANT FOR SYMETRY! */
+    background-origin: content-box;
+}
+
+input[type=password] {
+    background: url('../img/lock.svg') no-repeat scroll;
+    background-position: center right; /* 20px */
+    background-origin: content-box;
+}
+
 .button {
     background-color: var(--main-color) !important;
     color: var(--text-white) !important;
@@ -58,10 +87,6 @@ form {
     background-color: var(--headline) !important;
 }
 
-input {
-    border: none;
-    outline: none;
-}
 
 .signInBtn {
     padding: 15px 16px !important;
@@ -221,7 +246,6 @@ header {
 #register_email,
 #login_password,
 #login_email {
-    width: 100%;
     font-size: 20px;
 }
 

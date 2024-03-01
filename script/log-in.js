@@ -226,7 +226,7 @@ function fillTestArray() {
  * Adds a red border to specified input elements indicating an error.
  */
 function loadRedBorderInput() {
-    let inputIds = ["login_email_container", "login_password_container"];
+    let inputIds = ["login_email", "login_password"];
     for (let id of inputIds) {
         document.getElementById(id).classList.add("red-border");
     }
@@ -253,19 +253,19 @@ function loadTempleteLogIn() {
             <div class="underline"></div>
         </div>
         <div  class="input-fields fontSize20">
-            <div id="login_email_container" class="input-field ">
-                <input required id="login_email" type="text" placeholder="Email">
-                <img src="./img/letter.svg" alt="Bild hinten" class="input-suffix">
-            </div>
+            <!-- <div id="login_email_container" class="input-field "> -->
+                <input required id="login_email" type="email" placeholder="Email">
+                <!-- <img src="./img/letter.svg" alt="Bild hinten" class="input-suffix">
+            </div> -->
             <div class="warning-field">
             <span id="warning-text-email" class="d-none">
             Please enter the appropriate email address.
             </span>
             </div>
-            <div id="login_password_container" class="input-field">
+            <!-- <div id="login_password_container" class="input-field"> -->
                 <input required id="login_password" type="password" placeholder="Password">
-                <img src="./img/lock.svg" alt="Bild hinten" class="input-suffix">
-            </div>
+                <!-- <img src="./img/lock.svg" alt="Bild hinten" class="input-suffix"> -->
+            <!-- </div> -->
             <div class="warning-field">
             <span id="warning-text-passwort" class="d-none">
             Please enter the appropriate password.

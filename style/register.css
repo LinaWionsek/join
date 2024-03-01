@@ -65,6 +65,9 @@ body {
     display: flex;
 }
 
+#register_name {
+    background-image: url('../img/user.svg');
+}
 
 input {
     border: none;
