@@ -135,17 +135,17 @@ input {
     cursor: pointer;
 }
 
-.logo-container {
+/* .logo-container {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
-}
+} */
 
-.logo-container img {
+/* .logo-container img {
     width: 100.034px;
     height: 121.966px;
     flex-shrink: 0;
-}
+} */
 
 .button-div {
     display: flex;

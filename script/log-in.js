@@ -273,7 +273,7 @@ function loadTempleteLogIn() {
             </div>
         </div>
 
-        <div class="rememberMeForgetMyPasswordContainer">
+        <div class="remember-me-container">
             <div class="checkboxRememberMeContainer">
                 <input type="checkbox" name="myCheckbox" id="myCheckbox">
                 <label for=" fontSize16">Remember me</label>
