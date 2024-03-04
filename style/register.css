@@ -1,9 +1,9 @@
-body {
+/* body {
     height: 100vh;
     display: flex;
     flex-direction: column;
     font-family: 'Inter' !important;
-}
+} */
 
 #warning-email {
         color: var(--color-red);
@@ -11,7 +11,7 @@ body {
 }
 
 .form {
-    display: flex !important;
+    display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
@@ -43,44 +43,22 @@ body {
     left: 88px;
 }
 
-.button {
+/* .button {
     background-color: var(--main-color) !important;
     color: var(--text-white) !important;
 }
 
 .button:hover {
     background-color: var(--headline) !important;
-}
+} */
 
-.button-guest-login {
-    background-color: var(--text-white) !important;
-    color: var(--main-color) !important;
-    margin: 35px;
-    height: 51px !important;
-    min-width: 161 !important;
-    padding-top: 4px !important;
-    padding-right: 16px !important;
-    padding-bottom: 4px !important;
-    padding-left: 16px !important;
-}
-
-.button-log-in {
-    width: 145px !important;
-    height: 51px !important;
-    display: flex;
-}
 
 #register_name {
     background-image: url('../img/user.svg');
     background-position: center right -4px;
 }
 
-input {
-    border: none;
-    outline: none;
-}
-
-.input-field {
+/* .input-field {
     justify-content: space-between;
     display: flex;
     width: 422px;
@@ -94,9 +72,9 @@ input {
 .input-field img {
     width: 24px;
     height: 24px;
-}
+} */
 
-#myCheckbox {
+#register_checkbox {
     width: 16px;
     height: 16px;
     margin-right: 8px;
@@ -114,19 +92,19 @@ input {
 }
 
 .checkboxSignUp {
-    display: flex !important;
-    align-content: center !important;
-    align-items: center !important;
-    justify-content: center !important;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
     height: auto;
     width: 100%;
     padding: 0 39px;
-    margin: 34px 0 32px !important;
+    margin: 34px 0 32px;
 }
 
 .signUpBtnRegister {
     border-radius: 8px;
-    background: #2A3647;
+    background: #2A3647; 
     font-weight: 700;
     font-size: 21px;
     color: white;
@@ -153,7 +131,7 @@ input {
     justify-content: center;
 }
 
-.dialog-warning {
+/* .dialog-warning {
     background-color: rgba(0, 0, 0, 0.761);
     position: fixed;
     width: 100%;
@@ -162,9 +140,9 @@ input {
     align-items: center;
     justify-content: center;
     z-index: 997;
-}
+} */
 
-#dialog-window {
+/* #dialog-window {
     z-index: 999;
     background-color: aliceblue;
     padding: 10%;
@@ -172,16 +150,16 @@ input {
     justify-content: center;
     border-radius: 30px;
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04)
-}
+} */
 
-header {
+/* header {
     display: flex;
     justify-content: space-between;
     z-index: 1;
     padding-right: 77px;
     padding-left: 77px;
     padding-top: 40px;
-}
+} */
 
 .d-none {
     display: none !important;
@@ -198,15 +176,15 @@ header {
         font-size: 47 !important;
     }
 
-    .input-field {
+    /* .input-field {
         margin: 0 16px;
         width: auto;
-    }
+    } */
 
-    .input-fields {
+    /* .input-fields {
         width: 100%;
         margin: 0 !important;
-    }
+    } */
 
     .registerBtn {
         width: 180px;
@@ -230,9 +208,9 @@ header {
         height: 100vh;
     }
 
-    .input-field {
+    /* .input-field {
         width: auto;
-    }
+    } */
 
     header {
         padding-top: 12px;
