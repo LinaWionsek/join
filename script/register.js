@@ -30,7 +30,7 @@ function handlePasswordMismatch() {
  * Handles a scenario when the entered email already exists in the system.
  */
 function handleEmailExists() {
-    document.getElementById('register_email_container').classList.add('red-border');
+    document.getElementById('register_email').classList.add('red-border');
     document.getElementById('warning-email').classList.remove('d-none');
     resetForm();
 }
@@ -57,7 +57,7 @@ async function handleRegistration() {
  * Highlights password fields in red.
  */
 function loadRedBorderPassword() {
-    let inputIds = ['register_password_container', 'inputConfirmPassword'];
+    let inputIds = ['register_password', 'register_password_confirm'];
     for (let id of inputIds) {
         document.getElementById(id).classList.add('red-border');
     }
