@@ -17,7 +17,7 @@
     width: 100%;
 }
 
-.dialogSignUp {
+.dialog-sign-up {
     position: relative;
     background-color: var(--text-white);
     display: flex;
@@ -31,13 +31,14 @@
     padding: 48px 88px;
 }
 
-.signUpUnderlineContainer {
+.sign-up-underline-container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 #mobileBackArrowId {
+    display: none;
     position: absolute;
     top: 60px;
     left: 88px;
@@ -166,7 +167,7 @@
 }
 
 @media (max-width: 768px) {
-    .dialogSignUp {
+    .dialog-sign-up {
         padding: 32px 0;
         margin: 30px 16px 0;
         width: auto;
@@ -198,6 +199,7 @@
     }
 
     #mobileBackArrowId {
+        display: block;
         top: 36px;
         left: 15px;
     }
@@ -232,7 +234,7 @@
 }
 
 @media (max-height: 900px) {
-    .dialogSignUp {
+    .dialog-sign-up {
         margin-top: 5px !important;
         padding: 32px 16px;
         width: auto;
@@ -265,7 +267,7 @@
         font-size: 14px !important;
     }
 
-    .dialogSignUp {
+    .dialog-sign-up {
         padding: 16px 8px;
     }
 }
