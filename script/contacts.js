@@ -123,7 +123,7 @@ async function createContact() {
     await currentUserContactsSave();
     clearInputFields();
     slideOut('swipeContactPopupId', 'addContactId', 200);
-    toggleVisibility('mobileBackArrowId', false);
+    toggleVisibility('mobile_backarrow_id', false);
     toggleVisibility('mobileVisibilityId', true);
     renderContacts();
     changesSaved('Contact successfully created');
@@ -184,7 +184,7 @@ function mobileEditMenu(i) {
 
 /** * This function is used to show the back button on the mobile view */
 function showArrowMobileView() {
-    showOnMobileView('mobileBackArrowId');
+    showOnMobileView('mobile_backarrow_id');
     document.getElementById('mobileVisibilityId').classList.add('mobileContactOverview');
     toggleVisibility('mobileVisibilityId', true);
 }
@@ -241,7 +241,7 @@ function highlightContact(i) {
 /** * This function is used to close the popup window on mobile view */
 function closePopupMobile() {
     toggleVisibility('mobileEditDeleteBoxId', false);
-    toggleVisibility('mobileBackArrowId', false);
+    toggleVisibility('mobile_backarrow_id', false);
     toggleVisibility('mobileVisibilityId', false);
     toggleVisibility('mobileDotsSymbol', false);
     toggleVisibility('mobileAddContactId', true);
@@ -289,7 +289,7 @@ async function deleteContact(i) {
 /** This function is to show or hide objects after deleting a contact */
 function showHideAfterDeleteContact() {
     toggleVisibility('mobileEditDeleteBoxId', false);
-    toggleVisibility('mobileBackArrowId', false);
+    toggleVisibility('mobile_backarrow_id', false);
     toggleVisibility('contactInfoBigId', false);
     toggleVisibility('contactsTitleId', true);
     toggleVisibility('mobileDotsSymbol', false);
@@ -341,7 +341,7 @@ function showHideAfterSaveContact() {
     showNotOnMobileView('mobileVisibilityId');
     toggleVisibility('mobileDotsSymbol', false);
     toggleVisibility('mobileAddContactId', true);
-    toggleVisibility('mobileBackArrowId', false);
+    toggleVisibility('mobile_backarrow_id', false);
     toggleVisibility('contactInfoBigId', false);
     toggleVisibility('contactsTitleId', true);
     slideOut('swipeContactPopupId', 'addContactId', 200);

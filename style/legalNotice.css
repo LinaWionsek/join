@@ -18,7 +18,7 @@ body {
     font-family: 'Inter' !important;
 }
 
-#mobileBackArrowId {
+#mobile_backarrow_id {
     position: absolute;
     top: 20px;
     right: 98px;
@@ -27,11 +27,11 @@ body {
     transition: transform 0.4s ease;
 }
 
-#mobileBackArrowId img:hover {
+#mobile_backarrow_id img:hover {
     transform: scale(1.05);
 }
 
-#mobileBackArrowId:hover {
+#mobile_backarrow_id:hover {
 
     background-color: #F7F7F7;
     border-radius: 100%;
@@ -135,7 +135,7 @@ td {
         padding-bottom: 30px;
     }
 
-    #mobileBackArrowId {
+    #mobile_backarrow_id {
         position: absolute;
         top: 46px;
         right: 6px;

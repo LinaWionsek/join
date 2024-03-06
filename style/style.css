@@ -66,7 +66,7 @@
     background-color: var(--text-color) !important;
 }
 
-#mobileBackArrowId {
+#mobile_backarrow_id {
     position: absolute;
     top: 60px;
     width: 32px;
@@ -76,7 +76,7 @@
     align-items: center;
 }
 
-#mobileBackArrowId:hover {
+#mobile_backarrow_id:hover {
     background-color: #F7F7F7;
     border-radius: 100%;
 }

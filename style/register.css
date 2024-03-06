@@ -37,7 +37,7 @@
     align-items: center;
 }
 
-#mobileBackArrowId {
+#mobile_backarrow_id {
     display: none;
     position: absolute;
     top: 60px;
@@ -81,18 +81,18 @@
     margin-right: 8px;
 }
 
-.checkboxSignUp a {
+.register-checkbox-container a {
     padding: 3px;
     text-decoration: none;
     margin-left: 4px;
     color: var(--headline);
 }
 
-.checkboxSignUp a:hover {
+.register-checkbox-container a:hover {
     text-decoration: underline !important;
 }
 
-.checkboxSignUp {
+.register-checkbox-container {
     display: flex;
     align-content: center;
     align-items: center;
@@ -103,7 +103,7 @@
     margin: 34px 0 32px;
 }
 
-.signUpBtnRegister {
+.sign-up-btn-register {
     border-radius: 8px;
     background: #2A3647; 
     font-weight: 700;
@@ -194,11 +194,11 @@
         margin-bottom: 16px !important;
     }
 
-    .checkboxSignUp {
+    .register-checkbox-container {
         margin: 38px 0 32px !important;
     }
 
-    #mobileBackArrowId {
+    #mobile_backarrow_id {
         display: block;
         top: 36px;
         left: 15px;
@@ -255,7 +255,7 @@
         font-size: 34px !important;
     }
 
-    #mobileBackArrowId {
+    #mobile_backarrow_id {
         top: 16px;
         left: 15px;
     }

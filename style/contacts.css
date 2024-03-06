@@ -276,20 +276,20 @@ body {
     border-radius: 5px;
 }
 
-#mobileBackArrowId {
+#mobile_backarrow_id {
     position: absolute;
     top: 124.97px !important;
     left: calc(100vw - 63.13px) !important;
 }
 
-#mobileBackArrowId:hover {
+#mobile_backarrow_id:hover {
     width: 36.901px;
     height: 36.901px;
     background-color: #F7F7F7;
     border-radius: 100%;
 }
 
-#mobileBackArrowId img {
+#mobile_backarrow_id img {
     width: 36.901px;
     height: 36.901px;
 }
