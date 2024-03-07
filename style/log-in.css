@@ -8,6 +8,20 @@ body {
     overflow-x: hidden;
 }
 /* -------------------------------------------------OK!------------------------------------------------- */
+.dialog-login {
+    background-color: var(--text-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04) !important;
+    border-radius: 30px !important;
+    width: 650px;
+    padding: 48px 115px;
+    position: relative;
+}
+
 form {
     display: flex;
     flex-direction: column;
@@ -243,10 +257,9 @@ header {
 /* ----------------------------------------------------------MEDIA---------------------------------------------------------- */
 
 @media (max-width: 900px) {
-    .dialog {
+    .dialog-login {
         padding: 32px 0;
         margin: 30px 16px 0;
-        width: auto;
     }
 }
 
@@ -289,10 +302,10 @@ header {
         display: none;
     }
 
-    .dialog {
+    .dialog-login {
         margin: 30px 16px 0;
         padding: 32px 16px;
-        width: auto;
+        width: 90vw;
     }
 
     .underline {
@@ -363,10 +376,9 @@ header {
 }
 
 @media (max-height: 900px) {
-    .dialog {
+    .dialog-login {
         margin-top: 5px;
         padding: 32px 16px;
-        width: auto;
     }
 }
 
@@ -384,7 +396,7 @@ header {
         font-size: 14px !important;
     }
 
-    .dialog {
+    .dialog-login {
         padding: 16px 8px;
     }
 
