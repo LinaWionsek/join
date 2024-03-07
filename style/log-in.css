@@ -12,6 +12,7 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 32px;
 }
 
 input {
@@ -49,17 +50,17 @@ input[type=password] {
 #register_email,
 #login_password,
 #login_email {
-    font-size: 20px;
+    font-size: 14px; /* 20 */
 }
 /* -------------------------------------------------OK!------------------------------------------------- */
-.button {
+/* .button {
     background-color: var(--main-color) !important;
     color: var(--text-white) !important;
 }
 
 .button:hover {
     background-color: var(--headline) !important;
-}
+} */
 
 
 .button-log-in {
@@ -138,7 +139,7 @@ input[type=password] {
 }
 
 .input-fields {
-    margin: 35px;
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -150,7 +151,6 @@ input[type=password] {
     align-items: center !important;
     height: auto;
     width: 100%;
-    margin: 8px 0 32px;
 }
 
 .remember-me-container a {
@@ -161,7 +161,7 @@ input[type=password] {
 .checkboxRememberMeContainer {
     display: flex;
     align-items: center;
-    padding: 0 39px;
+    padding: 0 16px;
 }
 
 #myCheckbox {
@@ -174,6 +174,7 @@ input[type=password] {
 .buttonsUnderLogin {
     display: flex;
     justify-content: center;
+    gap: 35px;
 }
 
 header {
@@ -231,6 +232,12 @@ header {
     width: 100.034px;
     height: 121.966px;
     flex-shrink: 0;
+}
+
+#sign-up {
+    display: flex;
+    align-items: center;
+    gap: 32px;
 }
 
 /* ----------------------------------------------------------MEDIA---------------------------------------------------------- */

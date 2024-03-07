@@ -103,6 +103,10 @@
     margin: 34px 0 32px;
 }
 
+.register-checkbox-container label {
+    color: #A8A8A8;
+}
+
 .sign-up-btn-register {
     border-radius: 8px;
     background: #2A3647; 

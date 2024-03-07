@@ -9,13 +9,60 @@
     --marketing-background: #0038FF;
     --media-background: #FFC701;
     --main-background-color: #F6F7F8;
-    --headline: #29ABE2;
+    --headline: #29ABE2; /* light-blue */
+    --light-blue: #29ABE2; 
     --hover-color: #091931;
     --sidebarHoverElements: #2A3D59;
     --sidebarSelectedPage: #091931;
     --color-red: #FF3D00;
     --active-sildebar-page: rgba(9, 25, 49, 1);
     --body-background-color: #F6F7F8;
+}
+.mt-32{
+    margin-top: 32px;
+}
+
+.blue-btn{
+    background-color: var(--main-color);
+    color: white;
+    font-size: 17px;
+    border: none;
+}
+
+.blue-btn:hover {
+    cursor: pointer;
+    background-color: #29ABE2;
+}
+
+.outline-btn{
+    background-color: var(--text-white);
+    color: var(--main-color);
+    border: 1px solid var(--main-color);
+}
+
+.outline-btn:hover{
+    cursor: pointer;
+    color: var(--light-blue);
+    border: 1px solid var(--light-blue);
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 16px; /*16px */
+    gap: 5px;
+    height: 56px;
+    width: auto; /* fit-content */
+    border-radius: 10px;
+    font-weight: 700;
+    gap: 4px;
+    white-space: nowrap;
+}
+
+.border-radius-8{
+    border-radius: 8px;
 }
 
 .content {
