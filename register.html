@@ -18,7 +18,7 @@
 </head>
 
 <body onload="initRegister()">
-    <div>
+    <!-- <div> -->
         <header>
             <div class="logo-container">
                 <img src="./img/join-logo.svg" alt="">
@@ -30,62 +30,57 @@
                 <a href="index.html" id="mobile_backarrow_id">
                     <img src="img/arror-left.svg" alt="">
                 </a>
-                <div class="sign-up-underline-container">
-                    <span class="fontSize61"><b>Sign up</b></span>
-                    <div class="underline"></div>
-                </div>
+                
 
-                <form onsubmit="registUser(); return false;" action="" class="fontSize20 form">
-                    <!-- <div class="input-field" id="register_name_container"> -->
+                <form onsubmit="registUser(); return false;" action="" class="fontSize20">
+
+                    <div class="sign-up-underline-container">
+                        <span class="fontSize61"><b>Sign up</b></span>
+                        <div class="underline"></div>
+                    </div>
+
+                    <div class="input-fields fontSize20">
                         <input required type="text" minlength="4" placeholder="Name" id="register_name">
-                        <!-- <img src="./img/user.svg" alt="Bild user" class="input-suffix"> -->
-                    <!-- </div> -->
-
-                    <!-- <div class="input-field" id="register_email_container"> -->
-                        <input required type="email" minlength="4" placeholder="Email" id="register_email">
-                        <!-- <img src="./img/letter.svg" alt="Bild letter" class="input-suffix"> -->
-                    <!-- </div> -->
-                    <div class="warning-field">
-                        <span id="warning-email" class="d-none">
-                            This email address already exists.
-                        </span>
+                        <input class="mt-24" required type="email" minlength="4" placeholder="Email" id="register_email">
+                        <div class="warning-field">
+                            <span id="warning-email" class="d-none">
+                                This email address already exists.
+                            </span>
+                        </div>
+                        <input class="mt-24" required type="password" minlength="4" placeholder="Password" id="register_password">
+                        <div class="warning-field">
+                            <span id="warning-password" class="d-none">
+                                Password do not Match.
+                            </span>
+                        </div>    
+                        <input class="mt-24" required type="password" minlength="4" placeholder="Confirm Password"
+                                id="register_password_confirm">
+                        <div class="warning-field">
+                            <span id="warning-confirmPassword" class="d-none">
+                                Password do not Match.
+                            </span>
+                        </div>
                     </div>
 
-                    <!-- <div class="input-field" id="register_password_container"> -->
-                        <input required type="password" minlength="4" placeholder="Password" id="register_password">
-                        <!-- <img src="./img/lock.svg" alt="Bild lock" class="input-suffix"> -->
-                    <!-- </div> -->
-                    <div class="warning-field">
-                        <span id="warning-password" class="d-none">
-                            Password do not Match.
-                        </span>
+                    <div class="width-100P">
+                        <div class="checkboxRememberMeContainer fontSize16">
+                            <input type="checkbox" name="myCheckbox" id="register_checkbox" value="yes" required>
+                            <label for="myCheckbox">I accept the </label>
+                            <a onclick="" href="./privacy-police.html">Privacy policy</a>
+                        </div>
                     </div>
-
-                    <!-- <div class="input-field" id="register_password_confirm_container"> -->
-                        <input required type="password" minlength="4" placeholder="Confirm Password"
-                            id="register_password_confirm">
-                        <!-- <img src="./img/lock.svg" alt="Bild lock" class="input-suffix"> -->
-                    <!-- </div> -->
-                    <div class="warning-field">
-                        <span id="warning-confirmPassword" class="d-none">
-                            Password do not Match.
-                        </span>
-                    </div>
-
-                    <div class="register-checkbox-container fontSize16">
-                        <input type="checkbox" name="myCheckbox" id="register_checkbox" value="yes" required>
-                        <label for="myCheckbox">I accept the</label>
-                        <a onclick="" href="./privacy-police.html">Privacy policy</a>
-                    </div>
+                   
                     <div class="button-div">
-                        <button type="submit" type="button" id="registerBtn" class="sign-up-btn-register">Sign
+                        <button type="submit" type="button" id="registerBtn" class="btn blue-btn">Sign
                             up</button>
                     </div>
                 </form>
 
             </div>
+
         </div>
-    </div>
+
+    <!-- </div> -->
     <div class="police">
         <div class="police-link">
             <a href="./privacy-police.html">Privacy Policy</a>

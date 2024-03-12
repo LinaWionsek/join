@@ -26,6 +26,7 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 300px;
     gap: 32px;
 }
 
@@ -259,11 +260,14 @@ header {
 @media (max-width: 900px) {
     .dialog-login {
         padding: 32px 0;
-        margin: 30px 16px 0;
+        margin: 30px 16px;
     }
 }
 
 @media (max-width: 700px) {
+    body {
+        justify-content: space-between;
+    }
     header {
         display: flex;
         justify-content: space-between;
@@ -274,10 +278,9 @@ header {
     }
 
     .sign-up-mobile {
-        padding-top: 90px;
-        display: flex;
-        justify-content: space-around;
         height: 49px;
+        display: flex;
+        justify-content: center;
         z-index: 1;
         align-items: center;
     }
@@ -303,7 +306,7 @@ header {
     }
 
     .dialog-login {
-        margin: 30px 16px 0;
+        margin: 0px 16px;
         padding: 32px 16px;
         width: 90vw;
     }
@@ -313,7 +316,7 @@ header {
     }
 
     .fontSize61 {
-        font-size: 47px;
+        font-size: 47px !important;
     }
 
     .fontSize21 {
@@ -341,14 +344,21 @@ header {
         flex-shrink: 0;
     }
 
+    .police{
+        flex-grow: unset;
+        padding: 0px 17px 17px 17px;
+    }
+
 }
 
 @media (max-width: 375px) {
+
+    form {
+        width: 75vw;
+    }
+
     .sign-up-mobile {
-        display: flex;
-        justify-content: space-around;
-        padding-top: 44px;
-        height: 0;
+        height: 49px;
     }
 
     body {
