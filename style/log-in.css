@@ -179,6 +179,14 @@ input[type=password] {
     padding: 0 16px;
 }
 
+.checkboxRememberMeContainer label {
+    margin-right: 4px;
+}
+
+.checkboxRememberMeContainer a {
+    color: var(--light-blue);
+}
+
 #myCheckbox {
     width: 16px;
     height: 16px;
