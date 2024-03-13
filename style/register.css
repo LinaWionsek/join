@@ -171,7 +171,6 @@
 }
 @media (max-width: 900px){
     .dialog-sign-up {
-        width: 90vw;
         padding: 32px 0;
         margin: 30px 16px 0;
     }
@@ -182,16 +181,10 @@
         font-size: 47 !important;
     }
 
-    /* .input-field {
-        margin: 0 16px;
-        width: auto;
-    } */
-
-    /* .input-fields {
-        width: 100%;
-        margin: 0 !important;
-    } */
-
+    .dialog-sign-up {
+        width: 90vw;
+    }
+    
     .registerBtn {
         width: 180px;
         height: 21px;
@@ -235,7 +228,7 @@
     .dialog-sign-up {
         margin-top: 5px !important;
         padding: 32px 16px;
-        width: auto;
+        /* width: auto; */
     }
 
     .logo-container img {

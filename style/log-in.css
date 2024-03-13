@@ -291,6 +291,12 @@ header {
         justify-content: center;
         z-index: 1;
         align-items: center;
+        gap: 16px;
+    }
+
+    
+    .sign-up-mobile button {
+        height: 46px;
     }
 
     #warning-text-passwort,
@@ -363,10 +369,6 @@ header {
 
     form {
         width: 75vw;
-    }
-
-    .sign-up-mobile {
-        height: 49px;
     }
 
     body {
