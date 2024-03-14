@@ -185,7 +185,7 @@ function mobileEditMenu(i) {
 /** * This function is used to show the back button on the mobile view */
 function showArrowMobileView() {
     showOnMobileView('mobile_backarrow_id');
-    document.getElementById('mobileVisibilityId').classList.add('mobileContactOverview');
+    document.getElementById('mobileVisibilityId').classList.add('contact-details-mobile');
     toggleVisibility('mobileVisibilityId', true);
 }
 

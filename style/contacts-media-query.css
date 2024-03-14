@@ -246,7 +246,7 @@
         background-color: #29ABE2;
     }
 
-    .mobileContactOverview {
+    .contact-details-mobile {
         position: absolute;
         top: 80px;
         bottom: 80px;
@@ -386,7 +386,7 @@
         height: 80px;
     }
 
-    .mobileContactOverview {
+    .contact-details-mobile {
         margin-top: -100px;
     }
 }
