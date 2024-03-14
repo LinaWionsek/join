@@ -322,35 +322,7 @@ section {
     fill: #29ABE2 !important;
 }
 
-/* scroll-bar contacts */
-.contacts-container::-webkit-scrollbar-button:start:decrement {
-    background-position: center !important;
-    background-image: url('../img/arrow_drop_up.svg') !important;
-    border-top-right-radius: 100% !important;
-    border-top-left-radius: 100% !important;
-}
 
-.contacts-container::-webkit-scrollbar-button:end:increment {
-    background-position: center !important;
-    background-image: url('../img/arrow_drop_downaa.svg') !important;
-    border-bottom-right-radius: 100% !important;
-    border-bottom-left-radius: 100% !important;
-}
-
-.contacts-container::-webkit-scrollbar {
-    display: block !important;
-    width: 8px !important;
-    padding: 20px 0 !important;
-}
-
-.contacts-container::-webkit-scrollbar-track {
-    background-color: transparent !important;
-}
-
-.contacts-container::-webkit-scrollbar-thumb {
-    background-color: #909090 !important;
-    border-radius: 10px;
-}
 
 @media (max-width: 768px) {
     .content {
