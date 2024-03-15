@@ -39,10 +39,10 @@
     <div class="contentContact">
 
         <div class="d-flex contactPage">
-            <section class="contacts-list">
+            <section class="left-container">
                 <div class="btnBackground horicontalAndVertical" id="btnBackgroundId">
                     <button type="button" class="addNewContactButton horicontalAndVertical fontSize21"
-                        onclick="addContact(), slide('swipeContactPopupId', 'addContactId')">
+                        onclick="openAddContactWindow(), slide('contact_popup', 'contact_popup_section')">
                         Add new Contact
                         <img src="./img/person_add.svg">
                     </button>
@@ -53,11 +53,11 @@
                 </div>
             </section>
 
-            <section class="addContactBackground horicontalAndVertical d-none" id="addContactId"
-                onclick="slideOut('swipeContactPopupId', 'addContactId', 200)">
-                <div class="addContactPopup d-flex" onclick="doNotClose(event)" id="swipeContactPopupId">
+            <section class="addContactBackground horicontalAndVertical d-none" id="contact_popup_section"
+                onclick="slideOut('contact_popup', 'contact_popup_section', 200)">
+                <div class="addContactPopup d-flex" onclick="doNotClose(event)" id="contact_popup">
                     <div class="leftSideAddContactPopup horicontal">
-                        <img src="./img/join.logo-white.svg" id="joinLogoAddContactId">
+                        <!-- <img src="./img/join.logo-white.svg" id="joinLogoAddContactId"> -->
                         <div class="addContactLeftText">
                             <spline class="fontSize61"><b id="textChangeToEditContactId">Add contact</b></spline>
                             <spline class="fontSize27 textUnderAddContactTitle">Tasks are better with a team!</spline>
@@ -71,7 +71,7 @@
                             <img class="personInCircle" src="./img/person.svg">
                         </div>
                         <form class="contactInfo column" onsubmit="createContact(); return false;"
-                            id="editContactFormId">
+                            id="contact_form">
                             <div class="inputName">
                                 <input type="text" placeholder="Name" id="inputNameId" class="fontSize20" required>
                                 <div>
@@ -91,7 +91,7 @@
                             </div>
                             <div class="d-flex textHorizontal addContactButtonContainer">
                                 <a href="#" class="cancelBtn d-flex"
-                                    onclick="slideOut('swipeContactPopupId', 'addContactId', 200)"
+                                    onclick="slideOut('contact_popup', 'contact_popup_section', 200)"
                                     id="cancelBtnMobileId">
                                     <spline class="fontSize20" id="editCancelButtonId">Cancel</spline>
 
@@ -111,7 +111,7 @@
                                 </button>
                             </div>
                             <div class="closePopupCross pointer horicontalAndVertical"
-                                onclick="slideOut('swipeContactPopupId', 'addContactId', 200)">
+                                onclick="slideOut('contact_popup', 'contact_popup_section', 200)">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none">
                                     <mask id="mask0_88894_4110" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0"
@@ -131,7 +131,7 @@
                 </div>
             </section>
 
-            <section id="mobileVisibilityId">
+            <section id="right-container">
                 <div class=" contactsTitle horicontal" id="contactsTitleId">
                     <div class="fontSize61"><b>Contacts</b></div>
                     <div id="blueLineIdDesktopViewId">
@@ -150,10 +150,10 @@
                     </div>
                 </div>
 
-                <div class="contactInfoBig column d-none" id="contactInfoBigId">
+                <div class="contactInfoBig column d-none" id="contact_details">
                     <!-- Big Picture / Name / Edit and Delete -->
                     <div class="profilePicAndNameBig horicontal">
-                        <div id="profilePictureBigId">
+                        <div id="detail_profile_picture">
                         </div>
                         <div>
                             <div id="nameId" class="fontSize47">
@@ -187,7 +187,7 @@
 
             <section>
                 <div class="mobileAddContact horicontalAndVertical pointer"
-                    onclick="addContact(), slide('swipeContactPopupId', 'addContactId')" id="mobileAddContactId">
+                    onclick="openAddContactWindow(), slide('contact_popup', 'contact_popup_section')" id="mobile_add_contact_button">
                     <img src="./img/person_add.svg">
                 </div>
             </section>

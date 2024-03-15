@@ -77,7 +77,7 @@ body {
     box-shadow: none !important;
 }
 
-.contacts-list {
+.left-container {
     top: 300px;
     width: 456px;
     min-width: 456px;
@@ -91,31 +91,31 @@ body {
 }
 
 /* scroll-bar contacts */
-.contacts-list::-webkit-scrollbar-button:start:decrement {
+.left-container::-webkit-scrollbar-button:start:decrement {
     background-position: center !important;
     background-image: url('../img/arrow_drop_up.svg') !important;
     border-top-right-radius: 100% !important;
     border-top-left-radius: 100% !important;
 }
 
-.contacts-list::-webkit-scrollbar-button:end:increment {
+.left-container::-webkit-scrollbar-button:end:increment {
     background-position: center !important;
     background-image: url('../img/arrow_drop_downaa.svg') !important;
     border-bottom-right-radius: 100% !important;
     border-bottom-left-radius: 100% !important;
 }
 
-.contacts-list::-webkit-scrollbar {
+.left-container::-webkit-scrollbar {
     display: block !important;
     width: 8px !important;
     padding: 20px 0 !important;
 }
 
-.contacts-list::-webkit-scrollbar-track {
+.left-container::-webkit-scrollbar-track {
     background-color: transparent !important;
 }
 
-.contacts-list::-webkit-scrollbar-thumb {
+.left-container::-webkit-scrollbar-thumb {
     background-color: #909090 !important;
     border-radius: 10px;
 }

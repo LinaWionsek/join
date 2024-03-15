@@ -104,10 +104,12 @@ function maxLetters(text, maxLength) {
 }
 
 /** * This function is used to display the adding screen for new contacts */
-function addContact() {
-    resetFunctionImageText();
-    showNotOnMobileView('cancelBtnMobileId');
+function openAddContactWindow() {
     clearInputFields();
+    resetFunctionImageText();
+    
+    // showNotOnMobileView('cancelBtnMobileId');
+    
 }
 
 /** * This function is to save the input in the contact array */
@@ -122,9 +124,9 @@ async function createContact() {
     contactsArray.push(newContact);
     await currentUserContactsSave();
     clearInputFields();
-    slideOut('swipeContactPopupId', 'addContactId', 200);
+    slideOut('contact_popup', 'contact_popup_section', 200);
     toggleVisibility('mobile_backarrow_id', false);
-    toggleVisibility('mobileVisibilityId', true);
+    toggleVisibility('right-container', true);
     renderContacts();
     changesSaved('Contact successfully created');
     hoverNewContact(newContact);
@@ -154,17 +156,32 @@ function getColor() {
     return color;
 }
 
+
+/** * This function is used to change a function */
+function changeFunction(id) {
+    const editContactForm = document.getElementById('contact_form');
+    editContactForm.onsubmit = function () {
+        saveContact(id);
+        return false;
+    };
+    // const editCancelButton = document.getElementById('editCancelButtonId');
+    // editCancelButton.onclick = function () {
+    //     deleteContact(id);
+    // };
+}
+
+
 /** * This function is used to display the contact info in a big container */
 function openContactBigInfo(contact, i, nameAbbreviation) {
-    slideOneObject('contactInfoBigId');
+    slideOneObject('contact_details');
     showOnMobileView('mobileDotsSymbol');
-    toggleVisibility('mobileAddContactId', false);
+    toggleVisibility('mobile_add_contact_button', false);
     document.getElementById('mobileDotsSymbol').innerHTML = mobileEditMenu(i);
     showArrowMobileView();
-    changeFunction(i);
+    // changeFunction(i);
     highlightContact(i);
 
-    document.getElementById('profilePictureBigId').innerHTML = contactImage(contact, nameAbbreviation);
+    document.getElementById('detail_profile_picture').innerHTML = contactImage(contact, nameAbbreviation);
     contactDescription(contact);
 
     document.getElementById('editMobileButtonId').innerHTML = editContactMobile(i);
@@ -185,8 +202,8 @@ function mobileEditMenu(i) {
 /** * This function is used to show the back button on the mobile view */
 function showArrowMobileView() {
     showOnMobileView('mobile_backarrow_id');
-    document.getElementById('mobileVisibilityId').classList.add('contact-details-mobile');
-    toggleVisibility('mobileVisibilityId', true);
+    document.getElementById('right-container').classList.add('contact-details-mobile');
+    toggleVisibility('right-container', true);
 }
 
 /** * This function is used to show the color image on the contact detail view! */
@@ -242,9 +259,9 @@ function highlightContact(i) {
 function closePopupMobile() {
     toggleVisibility('mobileEditDeleteBoxId', false);
     toggleVisibility('mobile_backarrow_id', false);
-    toggleVisibility('mobileVisibilityId', false);
+    toggleVisibility('right-container', false);
     toggleVisibility('mobileDotsSymbol', false);
-    toggleVisibility('mobileAddContactId', true);
+    toggleVisibility('mobile_add_contact_button', true);
     resetFunctionImageText();
     highlightContactMobile();
 }
@@ -290,25 +307,25 @@ async function deleteContact(i) {
 function showHideAfterDeleteContact() {
     toggleVisibility('mobileEditDeleteBoxId', false);
     toggleVisibility('mobile_backarrow_id', false);
-    toggleVisibility('contactInfoBigId', false);
+    toggleVisibility('contact_details', false);
     toggleVisibility('contactsTitleId', true);
     toggleVisibility('mobileDotsSymbol', false);
-    toggleVisibility('mobileAddContactId', true);
-    showNotOnMobileView('mobileVisibilityId');
+    toggleVisibility('mobile_add_contact_button', true);
+    showNotOnMobileView('right-container');
 }
 
 /** * This function is used to edit a contact */
 async function editContact(i) {
-    slide('swipeContactPopupId', 'addContactId');
+    slide('contact_popup', 'contact_popup_section');
     toggleVisibility('cancelBtnMobileId', true);
-    toggleVisibility('addContactId', true);
+    toggleVisibility('contact_popup_section', true);
     toggleVisibility('mobileEditDeleteBoxId', false);
 
     document.getElementById('inputNameId').value = contactsArray[i]['name'];
     document.getElementById('inputEmailId').value = contactsArray[i]['email'];
     document.getElementById('inputPhoneId').value = contactsArray[i]['phone'];
 
-    changeText();
+    editContactText();
     changeFunction(i);
     await currentUserContactsSave();
     renderContacts();
@@ -331,25 +348,25 @@ async function saveContact(i) {
     changesSaved('Contact successfully saved');
     showHideAfterSaveContact();
     resetFunctionImageText();
-    changeText();
+    editContactText();
     highlightContact(i);
     renderContacts();
 }
 
 /** * This function is to show or hide objects after saving a contact */
 function showHideAfterSaveContact() {
-    showNotOnMobileView('mobileVisibilityId');
+    showNotOnMobileView('right-container');
     toggleVisibility('mobileDotsSymbol', false);
-    toggleVisibility('mobileAddContactId', true);
+    toggleVisibility('mobile_add_contact_button', true);
     toggleVisibility('mobile_backarrow_id', false);
-    toggleVisibility('contactInfoBigId', false);
+    toggleVisibility('contact_details', false);
     toggleVisibility('contactsTitleId', true);
-    slideOut('swipeContactPopupId', 'addContactId', 200);
+    slideOut('contact_popup', 'contact_popup_section', 200);
 }
 
 /** * This function is used to change the text in a container */
-function changeText() {
-    document.querySelector('#editCancelButtonId').textContent = "Delete";
+function editContactText() {
+    document.querySelector('#editCancelButtonId').textContent = "Cancel";
     document.querySelector('#textChangeToEditContactId').textContent = "Edit contact";
     document.querySelector('#textChangeToSaveId').textContent = "Save";
 }
@@ -359,21 +376,10 @@ function changeButtonTextToDeleted() {
     document.querySelector('#successfullyCreatedId').textContent = "Contact successfully deleted";
 }
 
-/** * This function is used to change a function */
-function changeFunction(id) {
-    const editContactForm = document.getElementById('editContactFormId');
-    editContactForm.onsubmit = function () {
-        saveContact(id);
-        return false;
-    };
-    const editCancelButton = document.getElementById('editCancelButtonId');
-    editCancelButton.onclick = function () {
-        deleteContact(id);
-    };
-}
+
 
 /** * This function is to reset the changeText() */
-function originalText() {
+function addContactText() {
     document.querySelector('#editCancelButtonId').textContent = "Cancel";
     document.querySelector('#textChangeToEditContactId').textContent = "Add contact";
     document.querySelector('#textChangeToSaveId').textContent = "Add contact";
@@ -381,42 +387,42 @@ function originalText() {
 
 /** * This function is to reset the changeFunction(i) */
 function originalFunction() {
-    const editContactForm = document.getElementById('editContactFormId');
+    const editContactForm = document.getElementById('contact_form');
     editContactForm.onsubmit = function () {
         createContact();
         return false;
     };
     const editCancelButton = document.getElementById('editCancelButtonId');
     editCancelButton.onclick = function () {
-        slideOut('swipeContactPopupId', 'addContactId', 200);
+        slideOut('contact_popup', 'contact_popup_section', 200);
     };
 }
 
 /** * This function is to reset the changeImage() */
-function originalImage() {
+function addContactMobileImage() {
     let newImage = './img/person_add.svg';
-    let switchImage = document.querySelector('#mobileAddContactId img');
+    let switchImage = document.querySelector('#mobile_add_contact_button img');
     switchImage.src = newImage;
 }
 
-/** * This function is switch multiply objects to the original function */
+/** * Changes dialog text */
 function resetFunctionImageText() {
-    originalImage();
-    originalText();
-    originalFunction();
+    addContactText();
+    addContactMobileImage();
+    // originalFunction();
 }
 
 /** * This function is used to disable and enable some id's on the mobile view */
 function mobileView() {
     const isMobile = window.innerWidth <= 768;
-    toggleVisibility('mobileVisibilityId', !isMobile);
+    toggleVisibility('right-container', !isMobile);
     toggleVisibility('btnBackgroundId', !isMobile);
-    toggleVisibility('joinLogoAddContactId', !isMobile);
-    toggleVisibility('mobileAddContactId', isMobile);
+    // toggleVisibility('joinLogoAddContactId', !isMobile);
+    toggleVisibility('mobile_add_contact_button', isMobile);
     toggleVisibility('blueLineId', isMobile);
     toggleVisibility('deleteEditId', !isMobile);
     document.getElementById('contactsTitleId').classList.toggle('horicontal', !isMobile);
-    document.getElementById('mobileVisibilityId').classList.toggle('mobileEditDeleteBoxId', isMobile);
+    document.getElementById('right-container').classList.toggle('mobileEditDeleteBoxId', isMobile);
 }
 
 /** * This function is used to disable and enable some id's on the mobile view */
