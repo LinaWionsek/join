@@ -25,7 +25,7 @@
 </head>
 
 <body onclick="hideMenuHeader()" onload="renderSidebarHeader(), initContacts()"
-    onresize="mobileView(), desktopViewSmall()">
+    onresize="adjustLayoutForScreenSize(), toggleBlueLineOnNarrowDesktop()">
     <div id="sidebarArea"></div>
     <div id="headerArea"></div>
     <div id="menu-header-container" class="menu-header-container d-none">
@@ -79,7 +79,7 @@
                                     class="fontSize20"
                                     oninvalid="this.setCustomValidity('Invalid input! Only + and numbers from 0-9 are allowed')"
                                     oninput="this.setCustomValidity('')" required>
-                             
+
                 
                             <div class="d-flex textHorizontal addContactButtonContainer">
                                 <a href="#" class="cancelBtn d-flex"
