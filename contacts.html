@@ -66,29 +66,21 @@
                         </div>
                     </div>
                     <div class="rightSidePopup d-flex">
-                        <div class="profilePictureArea vertical">
+                        <div class="profilePictureArea">
                             <img class="circle" src="./img/Group 9.svg">
                             <img class="personInCircle" src="./img/person.svg">
                         </div>
-                        <form class="contactInfo column" onsubmit="createContact(); return false;"
+                        <form class="contactInfo" onsubmit="createContact(); return false;"
                             id="contact_form">
-                            <div class="inputName">
+                          
                                 <input type="text" placeholder="Name" id="inputNameId" class="fontSize20" required>
-                                <div>
-                                    <img src="./img/person-white.svg">
-                                </div>
-                            </div>
-                            <div class="inputEmail">
                                 <input type="email" placeholder="Email" id="inputEmailId" class="fontSize20" required>
-                                <img src="./img/mail.svg">
-                            </div>
-                            <div class="inputPhone">
                                 <input type="tel" pattern="[0-9+ ]+" placeholder="Phone" id="inputPhoneId"
                                     class="fontSize20"
                                     oninvalid="this.setCustomValidity('Invalid input! Only + and numbers from 0-9 are allowed')"
                                     oninput="this.setCustomValidity('')" required>
-                                <img src=" ./img/call.svg">
-                            </div>
+                             
+                
                             <div class="d-flex textHorizontal addContactButtonContainer">
                                 <a href="#" class="cancelBtn d-flex"
                                     onclick="slideOut('contact_popup', 'contact_popup_section', 200)"
@@ -150,7 +142,7 @@
                     </div>
                 </div>
 
-                <div class="contactInfoBig column d-none" id="contact_details">
+                <div class="contactInfoBig d-none" id="contact_details">
                     <!-- Big Picture / Name / Edit and Delete -->
                     <div class="profilePicAndNameBig">
                         <div id="detail_profile_picture">

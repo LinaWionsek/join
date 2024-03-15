@@ -218,6 +218,11 @@ body {
     width: auto;
 }
 
+.contactInfoBig {
+    display: flex;
+    flex-direction: column;
+}
+
 .contactsTitle {
     display: flex;
     align-items: center;

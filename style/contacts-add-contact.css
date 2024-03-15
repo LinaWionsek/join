@@ -1,4 +1,6 @@
 .profilePictureArea {
+    display: flex;
+    justify-content: center;
     position: relative;
     width: 275px;
     height: 100%;
@@ -95,10 +97,13 @@
 }
 
 .contactInfo {
+    display: flex;
+    flex-direction: column;
     width: 422px;
     height: 215px;
     margin: 137px 48px 0 0;
     gap: 32px;
+    z-index: 1;
 }
 
 .inputName input,
@@ -123,8 +128,34 @@ input:focus {
     outline: 1px solid #29ABE2;
 }
 
+
 input {
-    border: none;
+    outline: none;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    padding: 12px 20px;
+}
+
+input:focus {
+    border-color: #29ABE2;
+}
+
+input[type=text] {
+    background: url('../img/lock.svg') no-repeat scroll;
+    background-position: center right; /* 16px */
+    background-origin: content-box;
+}
+
+input[type=email] {
+    background: url('../img/mail.svg') no-repeat scroll;
+    background-position: center right -2px; /* DON'T DELETE IMPORTANT FOR SYMETRY! */
+    background-origin: content-box;
+}
+
+input[type=tel] {
+    background: url('../img/call.svg') no-repeat scroll;
+    background-position: center right; /* 20px */
+    background-origin: content-box;
 }
 
 .inputName input:hover,

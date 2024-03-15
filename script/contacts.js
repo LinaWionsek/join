@@ -177,7 +177,7 @@ function openContactBigInfo(contact, i, nameAbbreviation) {
     toggleVisibility('mobile_add_contact_button', false);
     document.getElementById('mobileDotsSymbol').innerHTML = mobileEditMenu(i);
     showArrowMobileView();
-    // changeFunction(i);
+    changeFunction(i);
     highlightContact(i);
 
     document.getElementById('detail_profile_picture').innerHTML = contactImage(contact, nameAbbreviation);
@@ -408,7 +408,7 @@ function addContactMobileImage() {
 function resetFunctionImageText() {
     addContactText();
     addContactMobileImage();
-    // originalFunction();
+    originalFunction();
 }
 
 /** * This function is used to disable and enable some id's on the mobile view */
