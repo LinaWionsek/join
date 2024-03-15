@@ -1,11 +1,11 @@
 @media (max-width: 1345px) {
     .contactsTitle {
-        gap: 8px !important;
-        height: auto !important;
-        display: flex !important;
-        flex-direction: column !important;
-        margin: 0px 55px 32px !important;
-        align-items: flex-start !important;
+        gap: 8px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        margin: 0px 55px 32px;
+        align-items: flex-start;
     }
 
     #blueLineIdDesktopViewId {
@@ -192,12 +192,12 @@
         height: calc(100vh - 160px) !important;
     }
 
-    .firstLetterOverContact {
+    .initial{
         width: 100% !important;
         justify-content: flex-start !important;
     }
 
-    #contactsId {
+    #contact_list {
         width: 100vw !important;
         padding-left: 38px !important;
         padding-right: 38px !important;
@@ -257,11 +257,10 @@
     }
 
     .contactsTitle {
-        gap: 8px !important;
-        height: auto !important;
-        display: flex !important;
-        flex-direction: column !important;
-        margin: 48px 16px 48px !important;
+        gap: 8px;
+        height: auto;
+        flex-direction: column;
+        margin: 48px 16px 48px;
     }
 
     .contactsTitle img {
@@ -361,7 +360,7 @@
         align-items: flex-start !important;
     }
 
-    .firstLetterOverContact {
+    .initial{
         padding: 17px 36px 17px 24px !important;
     }
 }

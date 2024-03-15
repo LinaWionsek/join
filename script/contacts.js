@@ -26,7 +26,7 @@ async function initContacts() {
 
 /** * This function us used to render the contact informations and sort it */
 function renderContacts() {
-    let userContent = document.getElementById('contactsId');
+    let userContent = document.getElementById('contact_list');
     userContent.innerHTML = '';
     let previousFirstLetter = '';
     contactsArray.sort((a, b) => a.name.localeCompare(b.name, 'de', { sensitivity: 'base' }));
@@ -49,7 +49,7 @@ function pullNameAbbreviation(userContent, previousFirstLetter) {
         nameAbbreviationArray.push(nameAbbreviation);
 
         if (firstLetter !== previousFirstLetter) {
-            userContent.innerHTML += contatcsCategory(firstLetter);
+            userContent.innerHTML += createInitial(firstLetter);
             previousFirstLetter = firstLetter;
         }
 
@@ -58,10 +58,9 @@ function pullNameAbbreviation(userContent, previousFirstLetter) {
     }
 }
 
-/** This function is used to create the first letter of a name for the category */
-function contatcsCategory(firstLetter) {
+function createInitial(firstLetter) {
     return /* html */ `
-    <div class="firstLetterOverContact horicontal fontSize20">
+    <div class="initial fontSize20">
         ${firstLetter}
     </div>
     <div class="partingLine">
@@ -69,17 +68,10 @@ function contatcsCategory(firstLetter) {
     `
 }
 
-/** * This function is used to save the name abbreviation in the contacts array */
-function addNameAbbreviationInContactsArray() {
-    for (let i = 0; i < contactsArray.length; i++) {
-        contactsArray[i].nameAbbreviation = nameAbbreviationArray[i];
-    }
-}
-
 /** * This function us used to display the contact infos */
 function loadContactInfos(contact, nameAbbreviation, i) {
     return /* html */ `
-    <div class="horicontal contactsInfo pointer"
+    <div class="contactsInfo pointer"
         onclick="openContactBigInfo(contactsArray[${i}], ${i}, '${nameAbbreviation}')">
         <div class="profilePicture horicontalAndVertical" style="background-color: ${contact.color}">
             <span class="fontSize12 nameAbbreviation">
@@ -92,6 +84,13 @@ function loadContactInfos(contact, nameAbbreviation, i) {
         </div>
     </div>
     `
+}
+
+/** * This function is used to save the name abbreviation in the contacts array */
+function addNameAbbreviationInContactsArray() {
+    for (let i = 0; i < contactsArray.length; i++) {
+        contactsArray[i].nameAbbreviation = nameAbbreviationArray[i];
+    }
 }
 
 /** * This function is to limit the output letters */
@@ -280,12 +279,12 @@ function deleteEditContactAtIndex(i) {
     let deleteContact = document.getElementById('deleteEditId');
     deleteContact.innerHTML = /* html */ `
     <div class="colorOnHover">
-        <div class="editDeleteContact pointer horicontal" onclick="editContact(${i})">
+        <div class="editDeleteContact pointer" onclick="editContact(${i})">
             ${getPencilSVG()}<span class="pencilBigView">Edit</span>
         </div>
     </div>
     <div class="colorOnHover">
-        <div class="editDeleteContact pointer horicontal" onclick="deleteContact(${i})">
+        <div class="editDeleteContact pointer" onclick="deleteContact(${i})">
             ${getDeleteSVG()}Delete
         </div>
     </div>
@@ -421,7 +420,6 @@ function mobileView() {
     toggleVisibility('mobile_add_contact_button', isMobile);
     toggleVisibility('blueLineId', isMobile);
     toggleVisibility('deleteEditId', !isMobile);
-    document.getElementById('contactsTitleId').classList.toggle('horicontal', !isMobile);
     document.getElementById('right-container').classList.toggle('mobileEditDeleteBoxId', isMobile);
 }
 

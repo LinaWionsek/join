@@ -216,7 +216,7 @@ function findAssignedUser(i) {
         let color = colors[j]
         assignedUserDetail += /*html*/ ` 
         <div class="user-details">
-            <div class="profile-picture horicontal-and-vertical" style="background-color:${color}">
+            <div class="profile-picture" style="background-color:${color}">
                 ${user}
             </div>
             <div class="user-name">
