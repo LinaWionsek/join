@@ -1,14 +1,20 @@
-.profilePictureArea {
+#img_container{
     display: flex;
-    justify-content: center;
-    position: relative;
-    width: 275px;
-    height: 100%;
-    width: 100%;
+    margin: 0 92px;
 }
 
+.no-profile-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+#join_logo_add_contact{
+    display: block;
+    height: 66.48px;
+    width: 55.6px;
+}
 .circle {
-    margin-top: 204px;
     width: 120px;
     height: 120px;
     border: #FFFFFF solid 2px;
@@ -20,9 +26,9 @@
     position: absolute;
     width: 64px;
     height: 64px;
-    top: 264px;
+    /* top: 264px;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
 }
 
 .addContactBackground {
@@ -36,7 +42,7 @@
 }
 
 .addContactPopup {
-    width: 1212px;
+    /* width: 1212px; */
     height: 592px;
     border-bottom-right-radius: 30px;
     border-top-right-radius: 30px;
@@ -59,21 +65,14 @@
     padding: 66px 46px;
 }
 
-.leftSideAddContactPopup img {
-    position: absolute;
-    top: 154px;
-    left: 48px;
-    width: 55.6px;
-    height: 66.483px;
-    display: flex;
-}
 
 .addContactLeftText {
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    gap: 8px;
+    gap: 16px;
+    margin-top: 66px;
 }
 
 .textUnderAddContactTitle {
@@ -92,8 +91,8 @@
 
 .rightSidePopup {
     position: relative;
-    width: 745px;
     justify-content: flex-end;
+    padding: 66px 46px 66px 0px;
 }
 
 .contactInfo {
@@ -101,7 +100,7 @@
     flex-direction: column;
     width: 422px;
     height: 215px;
-    margin: 137px 48px 0 0;
+    margin-top: 66px;
     gap: 32px;
     z-index: 1;
 }

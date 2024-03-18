@@ -57,30 +57,47 @@
                 onclick="slideOut('contact_popup', 'contact_popup_section', 200)">
                 <div class="addContactPopup d-flex" onclick="doNotClose(event)" id="contact_popup">
                     <div class="leftSideAddContactPopup">
-                        <!-- <img src="./img/join.logo-white.svg" id="joinLogoAddContactId"> -->
                         <div class="addContactLeftText">
+                            <img src="./img/join.logo-white.svg" id="join_logo_add_contact">
                             <spline class="fontSize61"><b id="textChangeToEditContactId">Add contact</b></spline>
-                            <spline class="fontSize27 textUnderAddContactTitle">Tasks are better with a team!</spline>
+                            <spline class="fontSize27 textUnderAddContactTitle" id="add_contact_underline">Tasks are better with a team!</spline>
                             <div class="blueLine">
                             </div>
                         </div>
                     </div>
-                    <div class="rightSidePopup d-flex">
-                        <div class="profilePictureArea">
+                    <div id="img_container">
+                        <div class="no-profile-img" id="">
                             <img class="circle" src="./img/Group 9.svg">
                             <img class="personInCircle" src="./img/person.svg">
                         </div>
-                        <form class="contactInfo" onsubmit="createContact(); return false;"
-                            id="contact_form">
-                          
-                                <input type="text" placeholder="Name" id="inputNameId" class="fontSize20" required>
-                                <input type="email" placeholder="Email" id="inputEmailId" class="fontSize20" required>
-                                <input type="tel" pattern="[0-9+ ]+" placeholder="Phone" id="inputPhoneId"
-                                    class="fontSize20"
-                                    oninvalid="this.setCustomValidity('Invalid input! Only + and numbers from 0-9 are allowed')"
-                                    oninput="this.setCustomValidity('')" required>
+                    </div>
 
-                
+                    <div class="rightSidePopup d-flex">
+                        <div class="closePopupCross pointer horicontalAndVertical"
+                            onclick="slideOut('contact_popup', 'contact_popup_section', 200)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none">
+                                <mask id="mask0_88894_4110" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0"
+                                    y="0" width="24" height="24">
+                                    <rect width="24" height="24" fill="#D9D9D9" />
+                                </mask>
+                                <g mask="url(#mask0_88894_4110)">
+                                    <path
+                                        d="M12 13.4L7.10005 18.3C6.91672 18.4834 6.68338 18.575 6.40005 18.575C6.11672 18.575 5.88338 18.4834 5.70005 18.3C5.51672 18.1167 5.42505 17.8834 5.42505 17.6C5.42505 17.3167 5.51672 17.0834 5.70005 16.9L10.6 12L5.70005 7.10005C5.51672 6.91672 5.42505 6.68338 5.42505 6.40005C5.42505 6.11672 5.51672 5.88338 5.70005 5.70005C5.88338 5.51672 6.11672 5.42505 6.40005 5.42505C6.68338 5.42505 6.91672 5.51672 7.10005 5.70005L12 10.6L16.9 5.70005C17.0834 5.51672 17.3167 5.42505 17.6 5.42505C17.8834 5.42505 18.1167 5.51672 18.3 5.70005C18.4834 5.88338 18.575 6.11672 18.575 6.40005C18.575 6.68338 18.4834 6.91672 18.3 7.10005L13.4 12L18.3 16.9C18.4834 17.0834 18.575 17.3167 18.575 17.6C18.575 17.8834 18.4834 18.1167 18.3 18.3C18.1167 18.4834 17.8834 18.575 17.6 18.575C17.3167 18.575 17.0834 18.4834 16.9 18.3L12 13.4Z"
+                                        fill="#2A3647" />
+                                </g>
+                            </svg>
+                        </div>
+                        <form class="contactInfo" onsubmit="createContact(); return false;" id="contact_form">
+
+                            <input type="text" placeholder="Name" id="inputNameId" class="fontSize20" required>
+                            <input type="email" placeholder="Email" id="inputEmailId" class="fontSize20" required>
+                            <input type="tel" pattern="[0-9+ ]+" placeholder="Phone" id="inputPhoneId"
+                                class="fontSize20"
+                                oninvalid="this.setCustomValidity('Invalid input! Only + and numbers from 0-9 are allowed')"
+                                oninput="this.setCustomValidity('')" required>
+
+
                             <div class="d-flex textHorizontal addContactButtonContainer">
                                 <a href="#" class="cancelBtn d-flex"
                                     onclick="slideOut('contact_popup', 'contact_popup_section', 200)"
@@ -102,21 +119,7 @@
                                     <img src="./img/check.svg">
                                 </button>
                             </div>
-                            <div class="closePopupCross pointer horicontalAndVertical"
-                                onclick="slideOut('contact_popup', 'contact_popup_section', 200)">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none">
-                                    <mask id="mask0_88894_4110" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0"
-                                        y="0" width="24" height="24">
-                                        <rect width="24" height="24" fill="#D9D9D9" />
-                                    </mask>
-                                    <g mask="url(#mask0_88894_4110)">
-                                        <path
-                                            d="M12 13.4L7.10005 18.3C6.91672 18.4834 6.68338 18.575 6.40005 18.575C6.11672 18.575 5.88338 18.4834 5.70005 18.3C5.51672 18.1167 5.42505 17.8834 5.42505 17.6C5.42505 17.3167 5.51672 17.0834 5.70005 16.9L10.6 12L5.70005 7.10005C5.51672 6.91672 5.42505 6.68338 5.42505 6.40005C5.42505 6.11672 5.51672 5.88338 5.70005 5.70005C5.88338 5.51672 6.11672 5.42505 6.40005 5.42505C6.68338 5.42505 6.91672 5.51672 7.10005 5.70005L12 10.6L16.9 5.70005C17.0834 5.51672 17.3167 5.42505 17.6 5.42505C17.8834 5.42505 18.1167 5.51672 18.3 5.70005C18.4834 5.88338 18.575 6.11672 18.575 6.40005C18.575 6.68338 18.4834 6.91672 18.3 7.10005L13.4 12L18.3 16.9C18.4834 17.0834 18.575 17.3167 18.575 17.6C18.575 17.8834 18.4834 18.1167 18.3 18.3C18.1167 18.4834 17.8834 18.575 17.6 18.575C17.3167 18.575 17.0834 18.4834 16.9 18.3L12 13.4Z"
-                                            fill="#2A3647" />
-                                    </g>
-                                </svg>
-                            </div>
+
                         </form>
                         <div id="deleteButtonEditMode"></div>
                     </div>
@@ -179,7 +182,8 @@
 
             <section>
                 <div class="mobileAddContact horicontalAndVertical pointer"
-                    onclick="openAddContactWindow(), slide('contact_popup', 'contact_popup_section')" id="mobile_add_contact_button">
+                    onclick="openAddContactWindow(), slide('contact_popup', 'contact_popup_section')"
+                    id="mobile_add_contact_button">
                     <img src="./img/person_add.svg">
                 </div>
             </section>

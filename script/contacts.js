@@ -105,6 +105,7 @@ function maxLetters(text, maxLength) {
 
 /** * This function is used to display the adding screen for new contacts */
 function openAddContactWindow() {
+    toggleVisibility('add_contact_underline', true);
     clearInputFields();
     refreshContactDialogUI();
 }
@@ -344,6 +345,7 @@ async function editContact(i) {
     toggleVisibility('cancelBtnMobileId', true);
     toggleVisibility('contact_popup_section', true);
     toggleVisibility('mobileEditDeleteBoxId', false);
+    toggleVisibility('add_contact_underline', false);
     document.getElementById('inputNameId').value = contactsArray[i]['name'];
     document.getElementById('inputEmailId').value = contactsArray[i]['email'];
     document.getElementById('inputPhoneId').value = contactsArray[i]['phone'];
@@ -419,7 +421,6 @@ function adjustLayoutForScreenSize() {
     const isMobile = window.innerWidth <= 768;
     toggleVisibility('right-container', !isMobile);
     toggleVisibility('btnBackgroundId', !isMobile);
-    // toggleVisibility('joinLogoAddContactId', !isMobile);
     toggleVisibility('mobile_add_contact_button', isMobile);
     toggleVisibility('blueLineId', isMobile);
     toggleVisibility('deleteEditId', !isMobile);
