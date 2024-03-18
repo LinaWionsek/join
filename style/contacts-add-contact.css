@@ -1,6 +1,8 @@
 #img_container{
     display: flex;
-    margin: 0 92px;
+    margin-left: 92px;
+    margin-right: 92px;
+    margin-bottom: 100px;
 }
 
 .no-profile-img {

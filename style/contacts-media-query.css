@@ -1,4 +1,4 @@
-@media (max-width: 1345px) {
+ @media (max-width: 1345px) {
     .contactsTitle {
         gap: 8px;
         height: auto;
@@ -21,9 +21,21 @@
         flex-direction: column;
         align-items: flex-start !important;
     }
+
+    #img_container {
+        margin-left: 46px;
+        margin-right: 46px;
+    }
+} 
+
+@media (max-width: 1000px) {
+    .contentContact {
+        padding-left: calc(243px - 83px);
+    }
 }
 
-@media (max-width: 1250px) {
+
+@media (max-width: 1150px) {
     .addContactPopup {
         display: flex !important;
         flex-direction: column !important;
@@ -51,6 +63,7 @@
 
     #img_container {
        margin-top: -60px;
+       margin-bottom: 0px;
     }
 
     .contactInfo {
@@ -98,9 +111,11 @@
         top: 100px !important;
         left: 20px !important;
     }
-}
+} 
 
 @media (max-width: 1100px) {
+  
+
     .contactsTitle {
         margin: 0px 12px 32px !important;
     }
@@ -119,12 +134,8 @@
         min-width: 230px;
         max-width: 230px;
     }
-}
 
-@media (max-width: 1000px) {
-    .contentContact {
-        padding-left: calc(243px - 83px);
-    }
+   
 }
 
 @media (max-width: 768px) {
@@ -273,26 +284,6 @@
     }
 }
 
-@media (max-height: 700px) {
-    .contactInfoBig {
-        overflow-y: scroll !important;
-        height: calc(100vh - 319.5px) !important;
-    }
-
-    #phoneId {
-        padding-bottom: 8px;
-    }
-
-    .contactsTitle {
-        margin: 32px 16px 32px !important;
-    }
-
-    .profilePictureBig {
-        width: 60px !important;
-        height: 60px !important
-    }
-}
-
 @media (max-width: 374px) {
     .circle {
         width: 70px;
@@ -323,7 +314,26 @@
 }
 
 @media (max-height: 1150px) {
+}
 
+@media (max-height: 700px) {
+    .contactInfoBig {
+        overflow-y: scroll !important;
+        height: calc(100vh - 319.5px) !important;
+    }
+
+    #phoneId {
+        padding-bottom: 8px;
+    }
+
+    .contactsTitle {
+        margin: 32px 16px 32px !important;
+    }
+
+    .profilePictureBig {
+        width: 60px !important;
+        height: 60px !important
+    }
 }
 
 @media (max-height: 860px) and (min-width: 769px) {
