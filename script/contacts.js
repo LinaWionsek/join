@@ -338,6 +338,8 @@ function changeButtonTextToDeleted() {
 
 /** * This function is used to edit a contact */
 async function editContact(i) {
+    console.log(contactsArray[i]['color'],
+	contactsArray[i]['nameAbbreviation'])
     slide('contact_popup', 'contact_popup_section');
     toggleVisibility('cancelBtnMobileId', true);
     toggleVisibility('contact_popup_section', true);
