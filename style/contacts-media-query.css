@@ -12,10 +12,10 @@
         display: none;
     }
 
-    .left-container {
+    /* .left-container {
         max-width: 375px !important;
         min-width: 375px !important;
-    }
+    } */
 
     .profilePicAndNameBig {
         flex-direction: column;
@@ -119,6 +119,9 @@
 
 @media (max-width: 1100px) {
   
+    .scrollingContainer {
+        width: auto;
+    }
 
     .contactsTitle {
         margin: 0px 12px 32px !important;
@@ -128,16 +131,16 @@
         margin: 0 12px;
     }
 
-    .contactsInfo {
+    /* .contactsInfo {
         max-width: 352px !important;
         min-width: 352px !important;
-    }
+    } */
 
-    .left-container {
+    /* .left-container {
         width: auto;
         min-width: 230px;
         max-width: 230px;
-    }
+    } */
 
    
 }
@@ -314,7 +317,7 @@
     }
 
     .initial{
-        padding: 17px 36px 17px 24px !important;
+        padding: 15px 36px 15px 24px !important;
     }
 }
 

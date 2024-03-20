@@ -1,8 +1,8 @@
 body {
     display: flex;
     flex-direction: column;
-    background-color: var(--body-background-color) !important;
-    font-family: 'Inter' !important;
+    background-color: var(--body-background-color);
+    font-family: 'Inter';
     margin: 0;
     overflow-y: auto;
     overflow-x: hidden;
@@ -15,8 +15,8 @@ body {
     align-items: center;
     justify-content: center;
     height: 500px;
-    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04) !important;
-    border-radius: 30px !important;
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+    border-radius: 30px;
     width: 650px;
     padding: 48px 115px;
     position: relative;
@@ -69,78 +69,78 @@ input[type=password] {
 }
 /* -------------------------------------------------OK!------------------------------------------------- */
 /* .button {
-    background-color: var(--main-color) !important;
-    color: var(--text-white) !important;
+    background-color: var(--main-color);
+    color: var(--text-white);
 }
 
 .button:hover {
-    background-color: var(--headline) !important;
+    background-color: var(--headline);
 } */
 
 
 .button-log-in {
-    width: 145px !important;
-    height: 51px !important;
+    width: 145px;
+    height: 51px;
     display: flex;
 }
 
 .button-log-in,
 .button-guest-login {
-    height: auto !important;
-    width: auto !important;
-    padding: 15px 24px !important;
-    border-radius: 8px !important;
-    font-weight: 700 !important;
-    cursor: pointer !important;
-    font-family: 'Inter' !important;
+    height: auto;
+    width: auto;
+    padding: 15px 24px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Inter';
 }
 
 .button-guest-login {
-    background-color: var(--text-white) !important;
-    color: var(--main-color) !important;
-    border: 1px solid var(--version-2-main-color, #2A3647) !important;
-    margin-left: calc(35px / 2) !important;
+    background-color: var(--text-white);
+    color: var(--main-color);
+    border: 1px solid var(--version-2-main-color, #2A3647);
+    margin-left: calc(35px / 2);
 }
 
 /* REGISTER */
 .button-guest-login {
-    background-color: var(--text-white) !important;
-    color: var(--main-color) !important;
+    background-color: var(--text-white);
+    color: var(--main-color);
     margin: 35px;
-    height: 51px !important;
-    min-width: 161 !important;
-    padding-top: 4px !important;
-    padding-right: 16px !important;
-    padding-bottom: 4px !important;
-    padding-left: 16px !important;
+    height: 51px;
+    min-width: 161;
+    padding-top: 4px;
+    padding-right: 16px;
+    padding-bottom: 4px;
+    padding-left: 16px;
 }
 
 .button-guest-login:hover {
-    border-color: var(--headline) !important;
+    border-color: var(--headline);
     /* border-width: 2px; */
-    color: var(--headline) !important;
+    color: var(--headline);
 }
 
 .button-log-in {
-    background-color: #2A3647 !important;
-    color: white !important;
-    border: none !important;
-    margin-right: calc(35px / 2) !important;
+    background-color: #2A3647;
+    color: white;
+    border: none;
+    margin-right: calc(35px / 2);
 }
 
 .button-log-in:hover {
-    background-color: var(--headline) !important;
+    background-color: var(--headline);
 }
 
 .signInBtn {
-    padding: 15px 16px !important;
+    padding: 15px 16px;
     border-radius: 8px;
     background: #2A3647;
     color: white;
     border: none;
-    margin-left: 35px !important;
+    margin-left: 35px;
     cursor: pointer;
-    font-family: 'Inter' !important;
+    font-family: 'Inter';
 }
 
 .signInBtn:hover {
@@ -160,10 +160,10 @@ input[type=password] {
 }
 
 .remember-me-container {
-    display: flex !important;
+    display: flex;
     justify-content: space-between;
-    align-content: center !important;
-    align-items: center !important;
+    align-content: center;
+    align-items: center;
     height: auto;
     width: 100%;
 }
@@ -330,11 +330,11 @@ header {
     }
 
     .fontSize61 {
-        font-size: 47px !important;
+        font-size: 47px;
     }
 
     .fontSize21 {
-        font-size: 16px !important;
+        font-size: 16px;
     }
 
     .buttonsUnderLogin {
@@ -345,7 +345,7 @@ header {
 
     .button-log-in,
     .button-guest-login {
-        margin: 0 !important;
+        margin: 0;
     }
 
     .input-fields {
@@ -404,7 +404,7 @@ header {
 
 @media (max-height: 768px) {
     .fontSize61 {
-        font-size: 34px !important;
+        font-size: 34px;
     }
 
     #register_password_confirm,
@@ -413,7 +413,7 @@ header {
     #register_email,
     #login_password,
     #login_email {
-        font-size: 14px !important;
+        font-size: 14px;
     }
 
     .dialog-login {

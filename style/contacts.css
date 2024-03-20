@@ -1,10 +1,10 @@
 body {
-    background-color: var(--main-background-color) !important;
+    background-color: var(--main-background-color);
     height: 100vh;
     display: flex;
     margin: 0;
     width: 100vw;
-    font-family: 'Inter' !important;
+    font-family: 'Inter';
 }
 
 .contactPage {
@@ -15,7 +15,7 @@ body {
     height: 59px;
     border-radius: 8px;
     width: 4px;
-    background-color: var(--headline) !important;
+    background-color: var(--headline);
     margin-right: 30px;
     margin-left: 30px;
 }
@@ -42,7 +42,7 @@ body {
 
 .createContactButton,
 .addNewContactButton {
-    background: #2A3647 !important;
+    background: #2A3647;
     color: white;
     border: none;
     border-radius: 10px;
@@ -55,14 +55,14 @@ body {
 
 .addNewContactButton {
     position: relative;
-    width: 352px;
-    height: 56px !important;
-    padding: 0 !important;
+    /* width: 352px; */
+    height: 56px;
+    padding: 0;
     gap: 16px;
 }
 
 .button:hover {
-    background: #29ABE2 !important;
+    background: #29ABE2;
 }
 
 .addNewContactButton img {
@@ -71,15 +71,15 @@ body {
 }
 
 .form-control:focus {
-    border-color: inherit !important;
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 
 .left-container {
     top: 300px;
-    width: 456px;
-    min-width: 456px;
+    /* width: 456px;
+    min-width: 456px; */
     height: calc(100vh - 96px);
     margin-top: -110px;
     display: flex;
@@ -91,31 +91,31 @@ body {
 
 /* scroll-bar contacts */
 .left-container::-webkit-scrollbar-button:start:decrement {
-    background-position: center !important;
-    background-image: url('../img/arrow_drop_up.svg') !important;
-    border-top-right-radius: 100% !important;
-    border-top-left-radius: 100% !important;
+    background-position: center;
+    background-image: url('../img/arrow_drop_up.svg');
+    border-top-right-radius: 100%;
+    border-top-left-radius: 100%;
 }
 
 .left-container::-webkit-scrollbar-button:end:increment {
-    background-position: center !important;
-    background-image: url('../img/arrow_drop_downaa.svg') !important;
-    border-bottom-right-radius: 100% !important;
-    border-bottom-left-radius: 100% !important;
+    background-position: center;
+    background-image: url('../img/arrow_drop_downaa.svg');
+    border-bottom-right-radius: 100%;
+    border-bottom-left-radius: 100%;
 }
 
 .left-container::-webkit-scrollbar {
-    display: block !important;
-    width: 8px !important;
-    padding: 20px 0 !important;
+    display: block;
+    width: 8px;
+    padding: 20px 0;
 }
 
 .left-container::-webkit-scrollbar-track {
-    background-color: transparent !important;
+    background-color: transparent;
 }
 
 .left-container::-webkit-scrollbar-thumb {
-    background-color: #909090 !important;
+    background-color: #909090;
     border-radius: 10px;
 }
 
@@ -124,7 +124,9 @@ body {
 }
 
 .scrollingContainer {
+    width: 400px;
     margin-top: 101px;
+    padding: 0px 20px 0px 20px;
 }
 
 .contactsInfo {
@@ -144,8 +146,8 @@ body {
 .initial{
     display: flex;
     align-items: center;
-    width: 352px;
-    padding: 17px 36px !important;
+    /* width: 352px; */
+    padding: 15px 36px;
     height: 58px;
 }
 
@@ -170,7 +172,7 @@ body {
 }
 
 .createContactButton:hover {
-    background: #29ABE2 !important;
+    background: #29ABE2;
     box-shadow: -2px 0 6px 0 rgb(0, 0, 0, 0.5);
 }
 
@@ -239,19 +241,18 @@ body {
     height: 120px;
     border-radius: 100%;
     color: white;
-    margin: 0 54px 0 0 !important;
     border: 3px solid white;
     box-shadow: -2px 0 6px 0 rgb(0, 0, 0, 0.2);
 }
 
 .contactInfoTextBlock {
     height: 74px;
-    margin-bottom: 21px !important;
-    margin-top: 21px !important;
+    margin-bottom: 21px;
+    margin-top: 21px;
 }
 
 .emailText {
-    margin-bottom: 15px !important;
+    margin-bottom: 15px;
 }
 
 .emailScrollMenu,
@@ -260,12 +261,12 @@ body {
 }
 
 #emailid a {
-    width: 400px !important;
+    width: 400px;
 }
 
 #emailid,
 .phoneNumber {
-    width: 100% !important;
+    width: 100%;
 }
 
 .phoneNumber {
@@ -273,7 +274,7 @@ body {
 }
 
 .phoneText {
-    margin: 22px 0 15px !important;
+    margin: 22px 0 15px;
 }
 
 .pencilBigView {
@@ -286,7 +287,7 @@ body {
 
 .editDeleteContact:hover {
     color: #29ABE2;
-    font-weight: bold !important;
+    font-weight: bold;
 }
 
 .editDeleteContact svg {
@@ -320,8 +321,8 @@ body {
 
 #mobile_backarrow_id {
     position: absolute;
-    top: 124.97px !important;
-    left: calc(100vw - 63.13px) !important;
+    top: 124.97px;
+    left: calc(100vw - 63.13px);
 }
 
 #mobile_backarrow_id:hover {
@@ -335,9 +336,14 @@ body {
     width: 36.901px;
     height: 36.901px;
 }
+.profilePicAndNameBig{
+    display: flex;
+    gap: 54px;
+}
 
 #nameId {
     margin-bottom: 4px;
+    font-size: 47px;
 }
 
 #deleteEditId {
@@ -345,7 +351,7 @@ body {
 }
 
 .nameAbbreviation {
-    margin-top: 2px !important;
+    margin-top: 2px;
 }
 
 .contentContact {
@@ -359,8 +365,8 @@ body {
 }
 
 .content {
-    display: none !important;
-    z-index: 0 !important;
+    display: none;
+    z-index: 0;
 }
 
 .d-none {
