@@ -36,6 +36,10 @@
 
 
 @media (max-width: 1150px) {
+    .left-container::-webkit-scrollbar {
+        display:none !important;
+    }
+
     .addContactPopup {
         display: flex !important;
         flex-direction: column !important;
@@ -165,7 +169,7 @@
         max-width: 100% !important;
         min-width: 50vw !important;
         padding: 15px 24px !important;
-        flex-direction: row !important;
+        /* flex-direction: row !important; */
         text-align: start !important;
     }
 
@@ -304,7 +308,7 @@
 
     .contactsInfo {
         display: flex;
-        flex-direction: column !important;
+        /* flex-direction: column !important; */
         padding: 15px 24px 15px 24px !important;
         align-items: flex-start !important;
     }

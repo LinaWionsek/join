@@ -28,7 +28,6 @@ body {
     height: 42px;
     width: 42px;
     border-radius: 100%;
-    margin-right: 35px !important;
     color: white;
     border: 2px solid white;
     box-shadow: -2px 0 6px 0 rgb(0, 0, 0, 0.2);
@@ -129,6 +128,10 @@ body {
 }
 
 .contactsInfo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 35px;
     padding: 15px 24px;
     cursor: pointer;
     border-radius: 10px;
