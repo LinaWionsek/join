@@ -105,7 +105,8 @@ function maxLetters(text, maxLength) {
 
 /** * This function is used to display the adding screen for new contacts */
 function openAddContactWindow() {
-    toggleVisibility('add_contact_underline', true);
+    toggleVisibility('profile_img', false);
+    toggleVisibility('no_profile_img', true);
     clearInputFields();
     refreshContactDialogUI();
 }
@@ -346,16 +347,27 @@ async function editContact(i) {
     toggleVisibility('contact_popup_section', true);
     toggleVisibility('mobileEditDeleteBoxId', false);
     toggleVisibility('add_contact_underline', false);
+    toggleVisibility('profile_img', true);
+    toggleVisibility('no_profile_img', false);
+    document.getElementById('profile_img').innerHTML = contactImageEdit(i)
     document.getElementById('inputNameId').value = contactsArray[i]['name'];
     document.getElementById('inputEmailId').value = contactsArray[i]['email'];
     document.getElementById('inputPhoneId').value = contactsArray[i]['phone'];
+    
     editContactText();
     initializeEditContactBehavior(i);
     await currentUserContactsSave();
     renderContacts();
     highlightContact(i);
 }
-
+/** * This function is used to show the color image on the contact detail view! */
+function contactImageEdit(i) {
+    return /*html*/ `
+    <div class="profile-edit-img fontSize47" style="background-color: ${contactsArray[i]['color']}" id="nameAbbreviationId">
+        ${contactsArray[i]['nameAbbreviation']}
+    </div>
+`;
+}
 
 
 /** * This function is used to create the button for the mobile view edit contact menu */

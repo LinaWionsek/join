@@ -1,21 +1,36 @@
-#img_container{
+.center-popup{
     display: flex;
     margin-left: 92px;
     margin-right: 92px;
     margin-bottom: 100px;
 }
 
-.no-profile-img {
+#profile_img,
+#no_profile_img {
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1;
 }
+
 #join_logo_add_contact{
     display: block;
     height: 66.48px;
     width: 55.6px;
 }
+
+.profile-edit-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    width: 120px;
+    border-radius: 100%;
+    color: white;
+    border: 3px solid white;
+    box-shadow: -2px 0 6px 0 rgb(0, 0, 0, 0.2);
+}
+
 .circle {
     width: 120px;
     height: 120px;
