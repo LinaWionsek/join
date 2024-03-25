@@ -333,10 +333,6 @@ header {
         font-size: 47px;
     }
 
-    .fontSize21 {
-        font-size: 16px;
-    }
-
     .buttonsUnderLogin {
         display: flex;
         flex-direction: column;
