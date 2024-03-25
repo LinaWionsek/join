@@ -433,9 +433,9 @@ body {
 }
 
 @media(max-width:768px) {
-    .fontSize20 {
+    /* .fontSize20 {
         font-size: 14px !important;
-    }
+    } */
 }
 
 @media(max-width: 375px) {
@@ -456,9 +456,9 @@ body {
         font-size: 14px !important;
     }
 
-    .fontSize20 {
+    /* .fontSize20 {
         font-size: 12px !important;
-    }
+    } */
 
     .data-panel-big-background,
     .data-panel-small-img {

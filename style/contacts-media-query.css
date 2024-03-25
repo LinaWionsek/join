@@ -76,7 +76,6 @@
     }
 
     .contactInfo {
-        width: 100%;
         height: auto !important;
         margin: 0 !important;
         align-items: center !important;
@@ -84,7 +83,12 @@
         gap: 15px !important;
     }
 
+    .contactInfo input {
+        width: 100%;
+    }
+
     .addContactButtonContainer {
+        width: 100%;
         z-index: 0 !important;
         justify-content: center;
     }
@@ -103,10 +107,10 @@
     .closePopupCross path {
         fill: white !important;
     }
-
+    /* top: calc(0px -(100vh* 0.4) + 2px) !important; */
     .closePopupCross {
         position: absolute;
-        top: calc(0px - (100vh * 0.4) + 24px) !important;
+        top: calc(0px - (100vh * 0.4) + -16px);
         right: 16px !important;
     }
 
@@ -296,25 +300,40 @@
         margin: 0 20px 0 0 !important;
     }
 }
+@media (max-width: 450px){
+    .addContactButtonContainer {
+        gap: 12px;
+    }
+
+    .contactInfo {
+        width: 100% !important;
+    }
+}
 
 @media (max-width: 374px) {
 
-    .button {
-        height: 52px;
-        padding: 18px;
+    .contactInfo {
+        
+        gap: 15px !important;
     }
 
     .profile-edit-img,
     .circle {
-        width: 70px;
-        height: 70px;
+        /* width: 70px;
+        height: 70px; */
         /* margin-top: -35px !important; */
     }
 
     .personInCircle {
-        width: 30px;
-        height: 30px;
+        /* width: 30px;
+        height: 30px; */
     }
+    .closePopupCross{
+        top: calc(0px -(100vh* 0.4) + -36px) !important;
+    }
+    /* .center-popup {
+        margin-top: -40px;
+     } */
 
     .profilePicAndNameBig {
         flex-direction: column !important;

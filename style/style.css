@@ -29,7 +29,6 @@
 .blue-btn{
     background-color: var(--main-color);
     color: white;
-    font-size: 17px;
     border: none;
 }
 
@@ -60,7 +59,7 @@
     height: 56px;
     width: auto; /* fit-content */
     border-radius: 10px;
-    font-weight: 700;
+    font-weight: 400; /* 700 */
     gap: 4px;
     white-space: nowrap;
 }
@@ -344,4 +343,12 @@ section {
     .menu-header-container {
         top: 80px;
     }
+}
+
+@media (max-width: 374px) {
+    .button {
+        height: 52px;
+        padding: 10px;
+    }
+   
 }
