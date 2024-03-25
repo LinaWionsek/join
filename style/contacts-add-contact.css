@@ -191,5 +191,6 @@ input[type=tel] {
 }
 
 .addContactButtonContainer {
+    gap: 24px;
     margin-top: 16px;
 }

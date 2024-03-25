@@ -223,8 +223,8 @@ function loadTempleteLogIn() {
 
             </div>
             <div class="buttonsUnderLogin">
-                <button type="submit" class="btn blue-btn border-radius-8 fontSize21">Log in</button>
-                <button onclick='guestLogin()' type="button" class="btn outline-btn border-radius-8 fontSize21">Guest Log in</button>
+                <button type="submit" class="button blue-btn border-radius-8 fontSize20">Log in</button>
+                <button onclick='guestLogin()' type="button" class="button outline-btn border-radius-8 fontSize20">Guest Log in</button>
             </div>
 
     </form>`;

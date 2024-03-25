@@ -167,8 +167,9 @@
 } */
 
 .d-none {
-    display: none;
+    display: none !important;
 }
+
 @media (max-width: 900px){
     .dialog-sign-up {
         padding: 32px 0;

@@ -36,6 +36,11 @@
 
 
 @media (max-width: 1150px) {
+
+    #join_logo_add_contact{
+        display: none;
+    }
+
     .left-container::-webkit-scrollbar {
         display:none !important;
     }
@@ -146,6 +151,7 @@
 }
 
 @media (max-width: 768px) {
+
     .mobileDelete {
         display: none !important;
     }
@@ -292,6 +298,12 @@
 }
 
 @media (max-width: 374px) {
+
+    .button {
+        height: 52px;
+        padding: 18px;
+    }
+
     .profile-edit-img,
     .circle {
         width: 70px;

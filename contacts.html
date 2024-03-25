@@ -41,7 +41,7 @@
         <div class="d-flex contactPage">
             <section class="left-container">
                 <div class="btnBackground horicontalAndVertical" id="btnBackgroundId">
-                    <button type="button" class="addNewContactButton horicontalAndVertical fontSize21"
+                    <button type="button" class="button blue-btn fontSize20"
                         onclick="openAddContactWindow(), slide('contact_popup', 'contact_popup_section')">
                         Add new Contact
                         <img src="./img/person_add.svg">
@@ -100,10 +100,10 @@
 
 
                             <div class="d-flex textHorizontal addContactButtonContainer">
-                                <a href="#" class="cancelBtn d-flex"
+                                <button class="button outline-btn"
                                     onclick="slideOut('contact_popup', 'contact_popup_section', 200)"
                                     id="cancelBtnMobileId">
-                                    <spline class="fontSize20" id="editCancelButtonId">Cancel</spline>
+                                    <spline id="editCancelButtonId">Cancel</spline>
 
                                     <svg class="colorOnHover" xmlns="http://www.w3.org/2000/svg" width="24" height="25"
                                         viewBox="0 0 24 25" fill="none">
@@ -112,9 +112,9 @@
                                             stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                             stroke-linejoin="round" />
                                     </svg>
-                                </a>
-                                <button class="createContactButton horicontalAndVertical">
-                                    <spline class="fontSize21">
+                                </button>
+                                <button class="button blue-btn">
+                                    <spline>
                                         <b id="textChangeToSaveId">Create contact</b>
                                     </spline>
                                     <img src="./img/check.svg">

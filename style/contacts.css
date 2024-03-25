@@ -33,14 +33,14 @@ body {
     box-shadow: -2px 0 6px 0 rgb(0, 0, 0, 0.2);
 }
 
-.btnBackground {
+/* .btnBackground {
     position: fixed;
     width: auto;
     height: 101px;
     background: white;
-}
+} */
 
-.createContactButton,
+/* .createContactButton,
 .addNewContactButton {
     background: #2A3647;
     color: white;
@@ -51,19 +51,19 @@ body {
 .addNewContactButton:hover {
     background: #29ABE2;
     box-shadow: -2px 0 6px 0 rgb(0, 0, 0, 0.2);
-}
+} */
 
-.addNewContactButton {
+/* .addNewContactButton {
     position: relative;
     /* width: 352px; */
-    height: 56px;
+    /* height: 56px;
     padding: 0;
-    gap: 16px;
-}
-
+    gap: 16px; 
+} */
+/* 
 .button:hover {
     background: #29ABE2;
-}
+} */
 
 .addNewContactButton img {
     width: 32px;
@@ -164,7 +164,7 @@ body {
     height: 24px;
 }
 
-.createContactButton {
+/* .createContactButton {
     width: calc(32px + 182px);
     height: calc(32px + 25px);
     padding: 16px;
@@ -174,9 +174,9 @@ body {
 .createContactButton:hover {
     background: #29ABE2;
     box-shadow: -2px 0 6px 0 rgb(0, 0, 0, 0.5);
-}
+} */
 
-.cancelBtn {
+/* .cancelBtn {
     width: calc(32px + 94px);
     height: calc(32px + 24px);
     padding: 16px;
@@ -200,7 +200,7 @@ body {
 .cancelBtn:hover,
 .createContactButton:hover {
     box-shadow: 2px 0 6px 0 rgb(0, 0, 0, 0.5);
-}
+} */
 
 .closePopupCross {
     position: absolute;
