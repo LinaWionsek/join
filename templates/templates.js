@@ -58,15 +58,14 @@ function openHeaderMenu(event) {
 function markCategory() {
     const currentPage = window.location.href.split('/').pop().trim() || 'index.html';
     const links = document.querySelectorAll(`.sidebar-text[href*="${currentPage}"]`);
-
     links.forEach(link => {
         const categoryElement = link.querySelector('.sidebar-text-sub');
         categoryElement.classList.add('htmlActive');
         categoryElement.style.color = 'white';
         const categoryImage = link.querySelector('img');
         if (categoryImage) {
-            const categoryName = categoryElement.textContent.trim().toLowerCase();
-            categoryImage.src = `img/${categoryName}ImageWhite.png`;
+            const categoryName = categoryElement.textContent.trim().toLowerCase().replace(/ /g, '');
+            categoryImage.src = `img/${categoryName}ImageWhite.svg`;
         }
     });
 }
@@ -125,7 +124,7 @@ function returnRenderSidebar() {
         <div class="sideBarCategory">
             <a class="sidebar-text" href="./summary.html">
                 <div class="sidebar-text-sub">
-                    <img src="img/SummaryIcon.svg">
+                    <img src="img/summaryImage.svg">
                     <div class="fontSize16 fontAtMobile">Summary</div>
                 </div>
             </a>
@@ -133,7 +132,7 @@ function returnRenderSidebar() {
         <div class="sideBarCategory">
             <a class="sidebar-text" href="./addTask.html">
                 <div class="sidebar-text-sub">
-                    <img src="img/add.task.icons.svg">
+                <img src="img/addtaskImage.svg">
                     <div class="fontSize16 fontAtMobile">Add Task</div>
                 </div>
             </a>
@@ -141,7 +140,7 @@ function returnRenderSidebar() {
         <div class="sideBarCategory">
             <a class="sidebar-text" href="./board.html">
                 <div class="sidebar-text-sub">
-                    <img src="img/board-icon.svg">
+                    <img src="img/boardImage.svg">
                     <div class="fontSize16 fontAtMobile">Board</div>
                 </div>
             </a>
@@ -149,7 +148,7 @@ function returnRenderSidebar() {
         <div class="sideBarCategory">
             <a class="sidebar-text" href="./contacts.html">
                 <div class="sidebar-text-sub">
-                    <img src="img/contacts-icon.svg">
+                    <img src="img/contactsImage.svg">
                     <div class="fontSize16 fontAtMobile">Contacts</div>
                 </div>
             </a>

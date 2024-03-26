@@ -37,7 +37,7 @@ function showSubtasksInProgress(i) {
         renderSubtaskHeadline()
         inProgress += /*html*/ ` 
         <div class="task-detail-flex margin-bottom10">
-            <img onclick="switchSubtaskStatusToFinished(${i}, ${k})" class="task-box" src="img/addTaskBox.svg" alt="">
+            <img onclick="switchSubtaskStatusToFinished(${i}, ${k})" class="task-box" src="img/subtask-checkbox-unchecked.svg" alt="">
             ${subtaskProgress}
             <img onclick="deleteSubtaskInProgress(${i}, ${k})" class="subtask-delete" src="img/iconoir_cancel.svg" alt="">
         </div>
