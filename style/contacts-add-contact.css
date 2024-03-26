@@ -1,4 +1,4 @@
-.center-popup{
+.center-popup {
     display: flex;
     margin-left: 92px;
     margin-right: 92px;
@@ -13,13 +13,13 @@
     z-index: 1;
 }
 
-#join_logo_add_contact{
+#join_logo_add_contact {
     display: block;
     height: 66.48px;
     width: 55.6px;
 }
 
-.profile-edit-img{
+.profile-edit-img {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -57,9 +57,17 @@
     z-index: 3;
     background: rgba(0, 0, 0, 0.4);
 }
-#close_popup_mobile{
+
+#close_popup {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 32px;
+}
+
+#close_popup_mobile {
     display: none;
 }
+
 .addContactPopup {
     /* width: 1212px; */
     height: 592px;
@@ -119,7 +127,6 @@
     flex-direction: column;
     width: 422px;
     height: 215px;
-    margin-top: 66px;
     gap: 32px;
     z-index: 1;
 }
@@ -160,19 +167,22 @@ input:focus {
 
 input[type=text] {
     background: url('../img/lock.svg') no-repeat scroll;
-    background-position: center right; /* 16px */
+    background-position: center right;
+    /* 16px */
     background-origin: content-box;
 }
 
 input[type=email] {
     background: url('../img/mail.svg') no-repeat scroll;
-    background-position: center right -2px; /* DON'T DELETE IMPORTANT FOR SYMETRY! */
+    background-position: center right -2px;
+    /* DON'T DELETE IMPORTANT FOR SYMETRY! */
     background-origin: content-box;
 }
 
 input[type=tel] {
     background: url('../img/call.svg') no-repeat scroll;
-    background-position: center right; /* 20px */
+    background-position: center right;
+    /* 20px */
     background-origin: content-box;
 }
 
@@ -194,5 +204,5 @@ input[type=tel] {
 
 .addContactButtonContainer {
     gap: 24px;
-    margin-top: 16px;
+    margin-top: 32px;
 }
