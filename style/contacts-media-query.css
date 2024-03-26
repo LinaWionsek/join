@@ -1,393 +1,407 @@
  @media (max-width: 1345px) {
-    .contactsTitle {
-        gap: 8px;
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        margin: 0px 55px 32px;
-        align-items: flex-start;
-    }
 
-    #blueLineIdDesktopViewId {
-        display: none;
-    }
 
-    /* .left-container {
+     .contactsTitle {
+         gap: 8px;
+         height: auto;
+         display: flex;
+         flex-direction: column;
+         margin: 0px 55px 32px;
+         align-items: flex-start;
+     }
+
+     #blueLineIdDesktopViewId {
+         display: none;
+     }
+
+     /* .left-container {
         max-width: 375px !important;
         min-width: 375px !important;
     } */
 
-    .profilePicAndNameBig {
-        flex-direction: column;
-        align-items: flex-start !important;
-    }
+     .profilePicAndNameBig {
+         flex-direction: column;
+         align-items: flex-start !important;
+     }
 
-    .center-popup {
-        margin-left: 46px;
-        margin-right: 46px;
-    }
-} 
+     .center-popup {
+         margin-left: 46px;
+         margin-right: 46px;
+     }
+ }
 
-@media (max-width: 1000px) {
-    .contentContact {
-        padding-left: calc(243px - 83px);
-    }
-}
+ @media (max-width: 1000px) {
+     .contentContact {
+         padding-left: calc(243px - 83px);
+     }
+ }
 
 
-@media (max-width: 1150px) {
+ @media (max-width: 1150px) {
 
-    #join_logo_add_contact{
-        display: none;
-    }
+     #join_logo_add_contact {
+         display: none;
+     }
 
-    .left-container::-webkit-scrollbar {
-        display:none !important;
-    }
+     .left-container::-webkit-scrollbar {
+         display: none !important;
+     }
 
-    .addContactPopup {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center;
-        height: calc(100vh - 20px) !important;
-        width: 600px !important;
-    }
+     #close_popup_mobile {
+         width: 100%;
+         display: flex;
+         justify-content: flex-end;
+     }
 
-    .leftSideAddContactPopup {
-        border-top-right-radius: 30px !important;
-        border-bottom-left-radius: 0 !important;
-        height: calc(100vh * 0.4) !important;
-        width: 600px !important;
-        padding: 66px 24px !important;
-    }
+     .addContactPopup {
+         display: flex !important;
+         flex-direction: column !important;
+         align-items: center;
+         height: calc(100vh - 20px) !important;
+         width: 600px !important;
+     }
 
-    .rightSidePopup {
-        padding: 0px 24px 66px 24px;
-        flex-direction: column;
-        align-items: center !important;
-        justify-content: center !important;
-        width: 100% !important;
-        height: calc(100vh * 0.6) !important;
-    }
+     .leftSideAddContactPopup {
+         display: flex;
+         flex-direction: column;
+         border-top-right-radius: 30px !important;
+         border-bottom-left-radius: 0 !important;
+         height: calc(100vh * 0.4) !important;
+         width: 600px !important;
+         padding: 66px 24px !important;
+     }
 
-    .center-popup {
-       margin-top: -60px;
-       margin-bottom: 0px;
-    }
+     .rightSidePopup {
+         padding: 0px 24px 66px 24px;
+         flex-direction: column;
+         align-items: center !important;
+         justify-content: center !important;
+         width: 100% !important;
+         height: calc(100vh * 0.6) !important;
+     }
 
-    .contactInfo {
-        height: auto !important;
-        margin: 0 !important;
-        align-items: center !important;
-        width: 90% !important;
-        gap: 15px !important;
-    }
+     .center-popup {
+         margin-top: -60px;
+         margin-bottom: 0px;
+     }
 
-    .contactInfo input {
-        width: 100%;
-    }
+     .contactInfo {
+         height: auto !important;
+         margin: 0 !important;
+         align-items: center !important;
+         width: 90% !important;
+         gap: 15px !important;
+     }
 
-    .addContactButtonContainer {
-        width: 100%;
-        z-index: 0 !important;
-        justify-content: center;
-    }
+     .contactInfo input {
+         width: 100%;
+     }
 
-    .cancelBtn {
-        margin-right: 20px !important;
-    }
+     .addContactButtonContainer {
+         width: 100%;
+         z-index: 0 !important;
+         justify-content: center;
+     }
 
-    .inputName input,
-    .register_email_container input,
-    .inputPhone input {
-        width: calc(600px - 64px) !important;
-        height: calc(26px + 15px) !important;
-    }
+     .cancelBtn {
+         margin-right: 20px !important;
+     }
 
-    .closePopupCross path {
-        fill: white !important;
-    }
-    /* top: calc(0px -(100vh* 0.4) + 2px) !important; */
-    .closePopupCross {
-        position: absolute;
-        top: calc(0px - (100vh * 0.4) + -16px);
-        right: 16px !important;
-    }
+     .inputName input,
+     .register_email_container input,
+     .inputPhone input {
+         width: calc(600px - 64px) !important;
+         height: calc(26px + 15px) !important;
+     }
 
-    .cancelBtn,
-    .createContactButton {
-        padding: 18px 10px !important;
-        width: auto !important;
-    }
+     .closePopupCross path {
+         fill: white !important;
+     }
 
-    .leftSideAddContactPopup img {
-        top: 100px !important;
-        left: 20px !important;
-    }
-} 
+     /* top: calc(0px -(100vh* 0.4) + 2px) !important; */
+     .closePopupCross {
+         position: absolute;
+         top: calc(0px - (100vh * 0.4) + -16px);
+         right: 16px !important;
+     }
 
-@media (max-width: 1100px) {
-  
-    .scrollingContainer {
-        width: auto;
-    }
+     .cancelBtn,
+     .createContactButton {
+         padding: 18px 10px !important;
+         width: auto !important;
+     }
 
-    .contactsTitle {
-        margin: 0px 12px 32px !important;
-    }
+     .leftSideAddContactPopup img {
+         top: 100px !important;
+         left: 20px !important;
+     }
+ }
 
-    .contactInfoBig {
-        margin: 0 12px;
-    }
+ @media (max-width: 1100px) {
 
-    /* .contactsInfo {
+     .scrollingContainer {
+         width: auto;
+     }
+
+     .contactsTitle {
+         margin: 0px 12px 32px !important;
+     }
+
+     .contactInfoBig {
+         margin: 0 12px;
+     }
+
+     /* .contactsInfo {
         max-width: 352px !important;
         min-width: 352px !important;
     } */
 
-    /* .left-container {
+     /* .left-container {
         width: auto;
         min-width: 230px;
         max-width: 230px;
     } */
 
-   
-}
 
-@media (max-width: 768px) {
+ }
 
-    .mobileDelete {
-        display: none !important;
-    }
+ @media (max-width: 768px) {
 
-    .mobileDelete,
-    .mobileEdit {
-        align-items: center;
-    }
+     .mobileDelete {
+         display: none !important;
+     }
 
-    .scrollingContainer {
-        margin-top: 0 !important;
-    }
+     .mobileDelete,
+     .mobileEdit {
+         align-items: center;
+     }
 
-    .profilePicAndNameBig {
-        flex-direction: row !important;
-        align-items: center !important;
-    }
+     .scrollingContainer {
+         margin-top: 0 !important;
+     }
 
-    .contactPage {
-        width: 100% !important;
-    }
+     .profilePicAndNameBig {
+         flex-direction: row !important;
+         align-items: center !important;
+     }
 
-    .contactsInfo {
-        max-width: 100% !important;
-        min-width: 50vw !important;
-        padding: 15px 24px !important;
-        /* flex-direction: row !important; */
-        text-align: start !important;
-    }
+     .contactPage {
+         width: 100% !important;
+     }
 
-    .contentContact {
-        display: flex;
-        flex-direction: row !important;
-        padding-left: 0px !important;
-        width: 100vw !important;
-        margin-top: 80px !important;
-    }
+     .contactsInfo {
+         max-width: 100% !important;
+         min-width: 50vw !important;
+         padding: 15px 24px !important;
+         /* flex-direction: row !important; */
+         text-align: start !important;
+     }
 
-    .left-container {
-        width: 100% !important;
-        min-width: 100vw !important;
-        max-width: 100vw !important;
-        height: calc(100vh - 160px) !important;
-    }
+     .contentContact {
+         display: flex;
+         flex-direction: row !important;
+         padding-left: 0px !important;
+         width: 100vw !important;
+         margin-top: 80px !important;
+     }
 
-    .initial{
-        width: 100% !important;
-        justify-content: flex-start !important;
-    }
+     .left-container {
+         width: 100% !important;
+         min-width: 100vw !important;
+         max-width: 100vw !important;
+         height: calc(100vh - 160px) !important;
+     }
 
-    #contact_list {
-        width: 100vw !important;
-        padding-left: 38px !important;
-        padding-right: 38px !important;
-    }
+     .initial {
+         width: 100% !important;
+         justify-content: flex-start !important;
+     }
 
-    /* popup */
+     #contact_list {
+         width: 100vw !important;
+         padding-left: 38px !important;
+         padding-right: 38px !important;
+     }
 
-    .addContactPopup {
-        width: calc(100vw - 32px) !important;
-    }
+     /* popup */
 
-    .leftSideAddContactPopup {
-        width: calc(100vw - 32px) !important;
-    }
+     .addContactPopup {
+         height: calc(100vh - 96px) !important;
+         width: calc(100vw - 32px) !important;
 
-    .inputName input,
-    .register_email_container input,
-    .inputPhone input {
-        width: calc(100vw - 64px) !important;
-    }
+     }
 
-    .leftSideAddContactPopup img {
-        top: 154px !important;
-        left: 48px !important;
-    }
+     .leftSideAddContactPopup {
+         width: calc(100vw - 32px) !important;
+     }
 
-    /* popup ende */
+     .inputName input,
+     .register_email_container input,
+     .inputPhone input {
+         width: calc(100vw - 64px) !important;
+     }
 
-    .mobileAddContact {
-        position: absolute;
-        bottom: calc(80px + 32px);
-        right: 16px;
-        background-color: #2A3647;
-        width: 56px;
-        height: 56px;
-        border-radius: 100%;
-        box-shadow: -2px 0 6px 0 rgb(0, 0, 0, 0.2);
-    }
+     .leftSideAddContactPopup img {
+         top: 154px !important;
+         left: 48px !important;
+     }
 
-    .mobileAddContact img {
-        width: 32px;
-        height: 32px;
-    }
+     /* popup ende */
 
-    .mobileAddContact:hover {
-        background-color: #29ABE2;
-    }
+     .mobileAddContact {
+         position: absolute;
+         bottom: calc(80px + 32px);
+         right: 16px;
+         background-color: #2A3647;
+         width: 56px;
+         height: 56px;
+         border-radius: 100%;
+         box-shadow: -2px 0 6px 0 rgb(0, 0, 0, 0.2);
+     }
 
-    .contact-details-mobile {
-        position: absolute;
-        top: 80px;
-        bottom: 80px;
-        left: 0;
-        background-color: white;
-        width: 100vw;
-        height: 100vh;
-    }
+     .mobileAddContact img {
+         width: 32px;
+         height: 32px;
+     }
 
-    .contactsTitle {
-        gap: 8px;
-        height: auto;
-        flex-direction: column;
-        margin: 48px 16px 48px;
-    }
+     .mobileAddContact:hover {
+         background-color: #29ABE2;
+     }
 
-    .contactsTitle img {
-        margin: 0 !important;
-    }
+     .contact-details-mobile {
+         position: absolute;
+         top: 80px;
+         bottom: 80px;
+         left: 0;
+         background-color: white;
+         width: 100vw;
+         height: 100vh;
+     }
 
-    #blueLineId {
-        margin-top: 8px;
-        font-size: 0 !important;
-    }
+     .contactsTitle {
+         gap: 8px;
+         height: auto;
+         flex-direction: column;
+         margin: 48px 16px 48px;
+     }
 
-    .contactInfoBig {
-        margin: 0 16px;
-        width: calc(100vw - 32px) !important;
-    }
+     .contactsTitle img {
+         margin: 0 !important;
+     }
 
-    .contactInfoTextBlock {
-        height: auto !important;
-    }
+     #blueLineId {
+         margin-top: 8px;
+         font-size: 0 !important;
+     }
 
-    .successfullyBtn {
-        bottom: 195px !important;
-    }
+     .contactInfoBig {
+         margin: 0 16px;
+         width: calc(100vw - 32px) !important;
+     }
 
-    .profilePictureBig {
-        width: 80px !important;
-        height: 80px !important;
-        margin: 0 20px 0 0 !important;
-    }
-}
-@media (max-width: 450px){
-    .addContactButtonContainer {
-        gap: 12px;
-    }
+     .contactInfoTextBlock {
+         height: auto !important;
+     }
 
-    .contactInfo {
-        width: 100% !important;
-    }
-}
+     .successfullyBtn {
+         bottom: 195px !important;
+     }
 
-@media (max-width: 374px) {
+     .profilePictureBig {
+         width: 80px !important;
+         height: 80px !important;
+         margin: 0 20px 0 0 !important;
+     }
+ }
 
-    .contactInfo {
-        
-        gap: 15px !important;
-    }
+ @media (max-width: 450px) {
+     .addContactButtonContainer {
+         gap: 12px;
+     }
 
-    .profile-edit-img,
-    .circle {
-        /* width: 70px;
+     .contactInfo {
+         width: 100% !important;
+     }
+ }
+
+ @media (max-width: 374px) {
+
+     .contactInfo {
+
+         gap: 15px !important;
+     }
+
+     .profile-edit-img,
+     .circle {
+         /* width: 70px;
         height: 70px; */
-        /* margin-top: -35px !important; */
-    }
+         /* margin-top: -35px !important; */
+     }
 
-    .personInCircle {
-        /* width: 30px;
+     .personInCircle {
+         /* width: 30px;
         height: 30px; */
-    }
-    .closePopupCross{
+     }
+
+     /* .closePopupCross{
         top: calc(0px -(100vh* 0.4) + -36px) !important;
-    }
-    /* .center-popup {
+    } */
+     /* .center-popup {
         margin-top: -40px;
      } */
 
-    .profilePicAndNameBig {
-        flex-direction: column !important;
-        align-items: start !important;
-    }
+     .profilePicAndNameBig {
+         flex-direction: column !important;
+         align-items: start !important;
+     }
 
-    .contactsInfo {
-        display: flex;
-        /* flex-direction: column !important; */
-        padding: 15px 24px 15px 24px !important;
-        align-items: flex-start !important;
-    }
+     .contactsInfo {
+         display: flex;
+         /* flex-direction: column !important; */
+         padding: 15px 24px 15px 24px !important;
+         align-items: flex-start !important;
+     }
 
-    .initial{
-        padding: 15px 36px 15px 24px !important;
-    }
-}
+     .initial {
+         padding: 15px 36px 15px 24px !important;
+     }
+ }
 
-@media (max-height: 1150px) {
-}
+ @media (max-height: 1150px) {}
 
-@media (max-height: 700px) {
-    .contactInfoBig {
-        overflow-y: scroll !important;
-        height: calc(100vh - 319.5px) !important;
-    }
+ @media (max-height: 700px) {
+     .contactInfoBig {
+         overflow-y: scroll !important;
+         height: calc(100vh - 319.5px) !important;
+     }
 
-    #phoneId {
-        padding-bottom: 8px;
-    }
+     #phoneId {
+         padding-bottom: 8px;
+     }
 
-    .contactsTitle {
-        margin: 32px 16px 32px !important;
-    }
+     .contactsTitle {
+         margin: 32px 16px 32px !important;
+     }
 
-    .profilePictureBig {
-        width: 60px !important;
-        height: 60px !important
-    }
-}
+     .profilePictureBig {
+         width: 60px !important;
+         height: 60px !important
+     }
+ }
 
-@media (max-height: 860px) and (min-width: 769px) {
- 
+ @media (max-height: 860px) and (min-width: 769px) {
 
-    .contactInfoTextBlock {
-        height: auto;
-    }
 
-    .profilePictureBig {
-        width: 80px;
-        height: 80px;
-    }
+     .contactInfoTextBlock {
+         height: auto;
+     }
 
-    .contact-details-mobile {
-        margin-top: -100px;
-    }
-}
+     .profilePictureBig {
+         width: 80px;
+         height: 80px;
+     }
+
+     .contact-details-mobile {
+         margin-top: -100px;
+     }
+ }
