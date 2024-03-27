@@ -313,19 +313,19 @@ function returnPrioBox() {
         id="prioUrgentBtn" class="prioBtn">Urgent
         <img id="prioUrgentIcon" class="prioBtnIcons" src="./img/prioUrgent.svg">
         <img id="prioUrgentIconActiv" class="prioBtnIcons d-none"
-            src="./img/PrioUrgentWhite.svg">
+            src="./img/prioUrgentWhite.svg">
     </div>
     <div onclick="prioSelectedToggle('prioMediumBtn', 'prioMediumIcon', 'prioMediumIconActiv', 'prioBtnActivMedium', './img/prioMedium.svg', true)"
         id="prioMediumBtn" class="prioBtn">Medium
         <img id="prioMediumIcon" class="prioBtnIcons" src="./img/prioMedium.svg">
         <img id="prioMediumIconActiv" class="prioBtnIcons d-none"
-            src="./img/PrioMediumWhite.svg">
+            src="./img/prioMediumWhite.svg">
     </div>
     <div onclick="prioSelectedToggle('prioLowBtn', 'prioLowIcon', 'prioLowIconActiv', 'prioBtnActivLow', './img/prioLow.svg', true)"
         id="prioLowBtn" class="prioBtn">Low
         <img id="prioLowIcon" class="prioBtnIcons" src="./img/prioLow.svg">
         <img id="prioLowIconActiv" class="prioBtnIcons d-none"
-            src="./img/PrioLowWhite.svg">
+            src="./img/prioLowWhite.svg">
     </div>
     `;
 }
