@@ -57,7 +57,7 @@
          justify-content: flex-end;
      }
 
-     .addContactPopup {
+     .contact-popup {
          display: flex !important;
          flex-direction: column !important;
          align-items: center;
@@ -65,7 +65,7 @@
          width: 600px !important;
      }
 
-     .leftSideAddContactPopup {
+     .left-popup {
          display: flex;
          flex-direction: column;
          border-top-right-radius: 30px !important;
@@ -75,7 +75,7 @@
          padding: 24px 24px 0px 24px;
      }
 
-     .rightSidePopup {
+     .right-popup {
          padding: 0px 24px 24px 24px;
          flex-direction: column;
          align-items: center !important;
@@ -89,7 +89,7 @@
          margin-bottom: 0px;
      }
 
-     .contactInfo {
+     #contact_form {
          height: auto !important;
          margin: 0 !important;
          align-items: center !important;
@@ -97,11 +97,11 @@
          gap: 15px !important;
      }
 
-     .contactInfo input {
+     #contact_form input {
          width: 100%;
      }
 
-     .addContactButtonContainer {
+     .contact-popup-buttons {
          width: 100%;
          z-index: 0 !important;
          justify-content: center;
@@ -111,9 +111,9 @@
          margin-right: 20px !important;
      }
 
-     .inputName input,
-     .register_email_container input,
-     .inputPhone input {
+     /* .inputName input, */
+     /* .inputPhone input, */
+     .register_email_container input {
          width: calc(600px - 64px) !important;
          height: calc(26px + 15px) !important;
      }
@@ -135,7 +135,7 @@
          width: auto !important;
      }
 
-     .leftSideAddContactPopup img {
+     .left-popup img {
          top: 100px !important;
          left: 20px !important;
      }
@@ -229,23 +229,23 @@
 
      /* popup */
 
-     .addContactPopup {
+     .contact-popup {
          height: calc(100vh - 96px) !important;
          width: calc(100vw - 32px) !important;
 
      }
 
-     .leftSideAddContactPopup {
+     .left-popup {
          width: calc(100vw - 32px) !important;
      }
 
-     .inputName input,
-     .register_email_container input,
-     .inputPhone input {
+
+     /* .inputPhone input */
+     .register_email_container input {
          width: calc(100vw - 64px) !important;
      }
 
-     .leftSideAddContactPopup img {
+     .left-popup img {
          top: 154px !important;
          left: 48px !important;
      }
@@ -319,18 +319,18 @@
  }
 
  @media (max-width: 550px) {
-     .contactInfo {
+     #contact_form {
          width: 100% !important;
      }
 
-     .addContactButtonContainer {
+     .contact-popup-buttons {
          gap: 12px;
      }
  }
 
  @media (max-width: 374px) {
 
-     .contactInfo {
+     #contact_form {
 
          gap: 15px !important;
      }
@@ -342,7 +342,7 @@
          /* margin-top: -35px !important; */
      }
 
-     .personInCircle {
+     .person-in-circle {
          /* width: 30px;
         height: 30px; */
      }

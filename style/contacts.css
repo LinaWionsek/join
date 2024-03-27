@@ -159,7 +159,7 @@ body {
 }
 
 /* all pictures of right popup side */
-.contactInfo img {
+#contact_form img {
     width: 24px;
     height: 24px;
 }

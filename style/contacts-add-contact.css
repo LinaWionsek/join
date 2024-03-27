@@ -39,7 +39,7 @@
     box-shadow: -2px 0 6px 0 rgb(0, 0, 0, 0.2);
 }
 
-.personInCircle {
+.person-in-circle {
     position: absolute;
     width: 64px;
     height: 64px;
@@ -48,7 +48,7 @@
     transform: translate(-50%, -50%); */
 }
 
-.addContactBackground {
+.contact-popup-bg {
     position: absolute;
     top: 0;
     left: 0;
@@ -68,7 +68,7 @@
     display: none;
 }
 
-.addContactPopup {
+.contact-popup {
     /* width: 1212px; */
     height: 592px;
     border-bottom-right-radius: 30px;
@@ -78,7 +78,7 @@
     background: #FFF;
 }
 
-.leftSideAddContactPopup {
+.left-popup {
     position: relative;
     height: 100%;
     width: 476px;
@@ -93,7 +93,7 @@
 }
 
 
-.addContactLeftText {
+.left-popup-content {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -102,11 +102,11 @@
     margin-top: 66px;
 }
 
-.textUnderAddContactTitle {
+#add_contact_underline {
     margin-bottom: 17.5px;
 }
 
-.blueLine {
+.blue-line {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -116,13 +116,13 @@
     border-radius: 1.5px;
 }
 
-.rightSidePopup {
+.right-popup {
     position: relative;
     justify-content: flex-end;
     padding: 66px 46px 66px 0px;
 }
 
-.contactInfo {
+#contact_form {
     display: flex;
     flex-direction: column;
     width: 422px;
@@ -131,9 +131,10 @@
     z-index: 1;
 }
 
-.inputName input,
-.register_email_container input,
-.inputPhone input {
+/* .inputName input, */
+/* .inputPhone input, */
+.register_email_container input
+{
     width: calc(41px + 380px);
     height: calc(26px + 24px);
     padding: 13px 21px;
@@ -142,9 +143,9 @@
     background: #FFF;
 }
 
-.inputName,
-.register_email_container,
-.inputPhone {
+/* .inputName, */
+/* .inputPhone, */
+.register_email_container {
     position: relative;
 }
 
@@ -186,15 +187,15 @@ input[type=tel] {
     background-origin: content-box;
 }
 
-.inputName input:hover,
-.register_email_container input:hover,
-.inputPhone input:hover {
+/* .inputName input:hover, */
+/* .inputPhone input:hover */
+.register_email_container input:hover {
     border: 1px solid #29ABE2;
 }
 
-.inputName img,
-.register_email_container img,
-.inputPhone img {
+/* .inputName img, */
+/* .inputPhone img */
+.register_email_container img {
     position: absolute;
     top: 50%;
     bottom: 50%;
@@ -202,7 +203,7 @@ input[type=tel] {
     right: calc(21px - 12px);
 }
 
-.addContactButtonContainer {
+.contact-popup-buttons {
     gap: 24px;
     margin-top: 32px;
 }

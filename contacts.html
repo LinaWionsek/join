@@ -53,22 +53,22 @@
                 </div>
             </section>
 
-            <section class="addContactBackground horicontalAndVertical d-none" id="contact_popup_section"
+            <section class="contact-popup-bg horicontalAndVertical d-none" id="contact_popup_section"
                 onclick="slideOut('contact_popup', 'contact_popup_section', 200)">
 
-                <div class="addContactPopup d-flex" onclick="doNotClose(event)" id="contact_popup">
+                <div class="contact-popup d-flex" onclick="doNotClose(event)" id="contact_popup">
 
-                    <div class="leftSideAddContactPopup">
+                    <div class="left-popup">
                         <div id="close_popup_mobile" class="pointer"
                             onclick="slideOut('contact_popup', 'contact_popup_section', 200)">
                             <img src="./img/close-white.svg" alt="">
                         </div>
-                        <div class="addContactLeftText">
+                        <div class="left-popup-content">
                             <img src="./img/join-logo-white.svg" id="join_logo_add_contact">
                             <spline class="fontSize61"><b id="textChangeToEditContactId">Add contact</b></spline>
-                            <spline class="fontSize27 textUnderAddContactTitle" id="add_contact_underline">Tasks are
+                            <spline class="fontSize27" id="add_contact_underline">Tasks are
                                 better with a team!</spline>
-                            <div class="blueLine">
+                            <div class="blue-line">
                             </div>
                         </div>
                     </div>
@@ -77,13 +77,13 @@
                         <div id="profile_img"></div>
                         <div id="no_profile_img">
                             <img class="circle" src="./img/circle.svg">
-                            <img class="personInCircle" src="./img/person.svg">
+                            <img class="person-in-circle" src="./img/person.svg">
                         </div>
                     </div>
 
-                    <div class="rightSidePopup d-flex">
+                    <div class="right-popup d-flex">
 
-                        <form class="contactInfo" onsubmit="createContact(); return false;" id="contact_form">
+                        <form onsubmit="createContact(); return false;" id="contact_form">
                             <div id="close_popup" class="pointer"
                                 onclick="slideOut('contact_popup', 'contact_popup_section', 200)">
                                 <img src="./img/close.svg" alt="">
@@ -96,7 +96,7 @@
                                 oninput="this.setCustomValidity('')" required>
 
 
-                            <div class="d-flex textHorizontal addContactButtonContainer fontSize20">
+                            <div class="d-flex textHorizontal contact-popup-buttons fontSize20">
                                 <button class="button outline-btn"
                                     onclick="slideOut('contact_popup', 'contact_popup_section', 200)"
                                     id="cancelBtnMobileId">
@@ -119,7 +119,7 @@
                             </div>
 
                         </form>
-                        <div id="deleteButtonEditMode"></div>
+                
                     </div>
                 </div>
             </section>
