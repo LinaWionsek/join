@@ -120,6 +120,7 @@ function refreshContactDialogUI() {
 
 /** * This function is to reset the changeText() */
 function setAddContactTextElements() {
+    toggleVisibility('add_contact_underline', true);
     document.querySelector('#editCancelButtonId').textContent = "Cancel";
     document.querySelector('#textChangeToEditContactId').textContent = "Add contact";
     document.querySelector('#textChangeToSaveId').textContent = "Add contact";
@@ -276,7 +277,6 @@ async function saveContact(i) {
     contactsArray[i].email = document.getElementById('inputEmailId').value;
     contactsArray[i].phone = document.getElementById('inputPhoneId').value;
     contactsArray[i].nameAbbreviation = document.getElementById('nameAbbreviationId').innerHTML;
-
     await currentUserContactsSave();
 
     document.getElementById('nameId').innerHTML = contactsArray[i].name;
