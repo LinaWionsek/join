@@ -103,11 +103,11 @@ body {
 }
 
 .data-panel:hover .penHover img {
-    content: url('../img/stiftweiss.png');
+    content: url('../img/pen-round-white.png');
 }
 
 .data-panel:hover .doneHover img {
-    content: url('../img/hackenweiss.png');
+    content: url('../img/check-round-white.png');
 }
 
 .data-panel-big:hover,

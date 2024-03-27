@@ -117,7 +117,7 @@ function returnRenderSidebar() {
 <div class="sidebar">
 
     <div class="logo-container">
-        <img src="img/join.logo-white.svg" alt="">
+        <img src="img/join-logo-white.svg" alt="">
     </div>
 
     <div id="sidebarLinks" class="sidebar-text-area">
@@ -176,10 +176,10 @@ function renderHeader() {
 function returnRenderHeader() {
     return /*html*/`
     <div class="header">
-    <img class="headImgLeft" src="./img/headIconLeft.svg">
+    <img class="headImgLeft" src="./img/head-icon-mobile.svg">
     <div class="headerHeadlineBox fontSize20">Kanban Projekt Managment Tool</div>
     <div onclick="openHeaderMenu(event)" id="userCircleHeader" class="headBoxRight">
-        <a href="help.html"> <img class="headBoxRightImg" src="./img/helpIcon.svg" alt=""></a>
+        <a href="help.html"> <img class="headBoxRightImg" src="./img/help.svg" alt=""></a>
         <div  id="header-user-img" class="headBoxRightUserCircle fontSize16"></div>
     </div>
 </div>

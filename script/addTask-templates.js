@@ -55,7 +55,7 @@ function returnRenderAllCategorys(name, color, i) {
         <div onclick='selectCategory("all", ${i})' id='categoryAllList${i}' class="categoryRow">
             <span>${name}</span>
             <div class='categoryRowLeft'>
-                <img onclick='deleteCategory(${i})' src="img/subTaskDelete.svg">
+                <img onclick='deleteCategory(${i})' src="img/delete.svg">
                 <div class="colorCircle" style="${color}"></div>
             </div>
         </div>
@@ -192,7 +192,7 @@ function returnEditContainer(i) {
     return /*html*/ `
     <input id="editInput" type="text">
     <img onclick="stopSubEdit()" class="editAbsolutCross" src="img/close.svg">
-    <img onclick="confirmSubEdit(${i})" class="editAbsolutCheck" src="img/Subtaskscheck-white.svg">
+    <img onclick="confirmSubEdit(${i})" class="editAbsolutCheck" src="img/check-blue.svg">
     `;
 }
 
@@ -203,7 +203,7 @@ function returnEditContact(i) {
     return /*html*/`
     <input id="editSelectedContact" readonly type="text">
     <img onclick="stopEditContact()" class="editAbsolutCrossContact" src="img/close.svg">
-    <img onclick="clearSelectedContact(${i})" class="editAbsolutDelete" src="img/subTaskDelete.svg">
+    <img onclick="clearSelectedContact(${i})" class="editAbsolutDelete" src="img/delete.svg">
     `;
 }
 
@@ -218,8 +218,8 @@ function returnSubTaskCollection(subCollection, i) {
     <ul ondblclick="editSubtask(${i})" class="dFlex spaceBtw">
         <li>${subCollection}</li>
         <div>
-            <img class="close-hover" onclick="editSubtask(${i})" src="img/PenAddTask 1=edit.svg">
-            <img class="close-hover" onclick="deleteSubtaskCollection(${i})" src="img/subTaskDelete.svg">
+            <img class="close-hover" onclick="editSubtask(${i})" src="img/pen.svg">
+            <img class="close-hover" onclick="deleteSubtaskCollection(${i})" src="img/delete.svg">
         </div>
     </ul>
     `;

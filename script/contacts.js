@@ -140,7 +140,7 @@ function initializeAddContactFormActions() {
 
 /** * This function is to reset the changeImage() */
 function updateMobileAddButtonIcon() {
-    let newImage = './img/person_add.svg';
+    let newImage = './img/person-add.svg';
     let switchImage = document.querySelector('#mobile_add_contact_button img');
     switchImage.src = newImage;
 }
@@ -374,7 +374,7 @@ function contactImageEdit(i) {
 function mobileEditMenu(i) {
     return /*html*/`
     <div class="mobileAddContact horicontalAndVertical pointer" onclick="slideOneObject('mobileEditDeleteBoxId')">
-    <img src="./img/more_vert.svg">
+    <img src="./img/more-vert.svg">
     </div>
     `
 }

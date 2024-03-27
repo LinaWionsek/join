@@ -82,7 +82,7 @@ function showSubtasksFinished(i) {
         renderSubtaskHeadline()
         finished += /*html*/ ` 
        <div class="task-detail-flex margin-bottom10 text-line-through">
-           <img onclick="switchSubtaskStatusToUndone(${i},${l})" class="task-box" src="img/done.svg" alt="">
+           <img onclick="switchSubtaskStatusToUndone(${i},${l})" class="task-box" src="img/subtask-done.svg" alt="">
            ${subtaskDone}
            <img onclick="deleteSubtaskFinished(${i},${l})" class="subtask-delete"  src="img/iconoir_cancel.svg" alt="">
        </div>`
@@ -152,7 +152,7 @@ function createHTML(i) {
             <div class="task-detail-content-container">
                 <div class="task-detail-top">
                     <div class="task-detail-category" style="${tasks[i]['categoryColor']}"> ${tasks[i]['category']}</div>
-                    <img onclick="closeTask()" src="img/crossAddTask.svg" alt="close" class="close-hover">
+                    <img onclick="closeTask()" src="img/close.svg" alt="close" class="close-hover">
                 </div>
                 <div class="task-detail-content">
                     <div class="task-detail-title">
@@ -187,11 +187,11 @@ function createHTML(i) {
             </div>
             <div class="task-detail-bottom">
                 <div onclick="deleteTask(${i})" class="delete-edit-buttons">
-                    <img  src="img/subTaskDelete.svg" alt="">Delete
+                    <img  src="img/delete.svg" alt="">Delete
                 </div>
-                <img src="img/vector_detail_card.svg" alt="">
+                <img src="img/vector-detail-card.svg" alt="">
                 <div onclick="editTaskNew(${i})" class="delete-edit-buttons">
-                    <img  src="img/PenAddTask 1=edit.svg" alt="">Edit
+                    <img  src="img/pen.svg" alt="">Edit
                 </div>
             </div>
         </div>

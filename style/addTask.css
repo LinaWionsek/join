@@ -183,7 +183,7 @@ textarea:focus {
 }
 
 #datepicker {
-    background-image: url('../img/kalenderJoin.svg') !important;
+    background-image: url('../img/calendar.svg') !important;
     background-repeat: no-repeat !important;
     background-position-x: calc(96%) !important;
     background-position-y: center !important;

@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./style/style.css">
     <link rel="stylesheet" href="./style/board.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="shortcut icon" href="img/Logo for Favicon construction.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="img/favicon.svg" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
 
     <script src="./script/saveAndLoad.js"></script>
@@ -50,7 +50,7 @@
                     <input id="searchInput" onkeyup="renderSearchResults()" aria-label="Search" placeholder="Find Task"
                         class="fontSize20">
                     <div class="vectorAndSearchIcon">
-                        <img class="search-vector" src="img/VectorSearchbar.svg">
+                        <img class="search-vector" src="img/vector-searchbar.svg">
                         <img class="searchbar-symbol" id="searchLogo" src="img/search.svg">
                         <img onclick="clearSearchInput(), updateBoardHTML();" src="img/close.svg"
                             class="searchbar-symbol d-none" id="searchClose">
@@ -60,7 +60,7 @@
                     onclick="toggleVisibilityAddTask('', 'addTaskPop'), renderAddTaskContent(), statusSelected('toDo'), slide('addTaskPopupPositionFront', 'addTaskPop')"
                     id="button-ad-task" type="button" class="button fontSize20">
                     <span class="addTaskText">Add task</span>
-                    <img src="img/plusAddTaskWhite.svg">
+                    <img src="img/plus-white.svg">
                 </button>
             </form>
         </div>
@@ -75,7 +75,7 @@
                     <div class="statusheadline">
                         <span class="fontSize20"><b>To do</b></span>
                         <img onclick="toggleVisibilityAddTask('', 'addTaskPop'), renderAddTaskContent(), statusSelected('toDo'), slide('addTaskPopupPositionFront', 'addTaskPop')"
-                            src="img/Property 1=Default.svg" alt="Not found">
+                            src="img/plus-box.svg" alt="Not found">
                     </div>
 
                     <div id="toDo" class="drag-area show-scrollbar" ondrop="moveTo('toDo')"
@@ -87,7 +87,7 @@
                     <div class="statusheadline">
                         <span class="fontSize20"><b>In progress</b></span>
                         <img onclick="toggleVisibilityAddTask('', 'addTaskPop'), renderAddTaskContent(), statusSelected('in-progress'), slide('addTaskPopupPositionFront', 'addTaskPop')"
-                            src="img/Property 1=Default.svg" alt="Not found">
+                            src="img/plus-box.svg" alt="Not found">
                     </div>
 
                     <div id="in-progress" class="drag-area show-scrollbar" ondrop="moveTo('in-progress')"
@@ -103,7 +103,7 @@
                             <span class="fontSize20"><b>Await Feedback</b></span>
                         </div>
                         <img onclick="toggleVisibilityAddTask('', 'addTaskPop'), renderAddTaskContent(), statusSelected('awaiting-feedback'), slide('addTaskPopupPositionFront', 'addTaskPop')"
-                            src="img/Property 1=Default.svg" alt="Not found ">
+                            src="img/plus-box.svg" alt="Not found ">
                     </div>
 
 
@@ -117,7 +117,7 @@
                     <div class="statusheadline">
                         <span class="fontSize20"><b>Done</b></span>
                         <img onclick="toggleVisibilityAddTask('', 'addTaskPop'), renderAddTaskContent(), statusSelected('done'), slide('addTaskPopupPositionFront', 'addTaskPop')"
-                            src="img/Property 1=Default.svg" alt="Not found ">
+                            src="img/plus-box.svg" alt="Not found ">
                     </div>
 
                     <div id="done" class="drag-area show-scrollbar" ondrop="moveTo('done')"
@@ -135,7 +135,7 @@
                 <div class="addTaskPopupHeadlineContainer">
                     <span id="addTaskHeadline" class="fw-bold fontSize61">Add Task</span>
                     <img onclick="slideOut('addTaskPopupPositionFront', 'addTaskPop', 200), resetAllAddTaskElementsBoard()"
-                        class="click close-hover" src="img/crossAddTask.svg" alt="">
+                        class="click close-hover" src="img/close.svg" alt="">
                 </div>
 
                 <form onsubmit="return false" id="myForm">
@@ -196,7 +196,7 @@
                                         <input type="text" class="click" placeholder="Add new subtask"
                                             id="subTaskSelectInput">
                                         <img onclick="addSubTaskToCollection()" class="inputAbsolut"
-                                            src="img/plusAddTask.svg">
+                                            src="img/plus.svg">
                                     </div>
                                     <div class="selectedSubTask show-scrollbar" id="selectedSubTaskContainer">
                                     </div>
@@ -217,7 +217,7 @@
         <div class="addContactPopupBox">
             <div class="addContactPopupBoxLeft">
                 <div class="addContactPopupBoxLeftPosition">
-                    <img class="logoContactPopup" src="./img/join.logo-white.svg">
+                    <img class="logoContactPopup" src="./img/join-logo-white.svg">
                     <spline class="addContactPopupBoxLeftHeadline"><b>Add contact</b>
                     </spline>
                     <spline class="addContactPopupBoxLeftText">Tasks are better with a team!</spline>
@@ -262,14 +262,14 @@
                 </div>
             </div>
             <img onclick="clearContactPopup()" class="closePopup" src="img/close-white.svg">
-            <img onclick="clearContactPopup()" class="closePopupBlue" src="img/crossAddTask.svg">
+            <img onclick="clearContactPopup()" class="closePopupBlue" src="img/close.svg">
         </div>
     </section>
     <section id="createCategoryPopupByAddTask" class="popupContainer d-none">
         <div class="addContactPopupBox">
             <div class="addContactPopupBoxLeft">
                 <div class="addContactPopupBoxLeftPosition">
-                    <img class="logoContactPopup" src="./img/join.logo-white.svg">
+                    <img class="logoContactPopup" src="./img/join-logo-white.svg">
                     <spline class="addContactPopupBoxLeftHeadline"><b>Add new category</b>
                     </spline>
                     <spline class="addContactPopupBoxLeftText">Tasks are better with a category!</spline>
@@ -303,7 +303,7 @@
                 </div>
             </div>
             <img onclick="stopCreateCategory()" class="closePopup" src="img/close-white.svg">
-            <img onclick="stopCreateCategory()" class="closePopupBlue" src="img/crossAddTask.svg">
+            <img onclick="stopCreateCategory()" class="closePopupBlue" src="img/close.svg">
         </div>
     </section>
     <section class="successfullyBtn horicontalAndVertical fontSize20 d-none" id="successfullyCreatedId">
