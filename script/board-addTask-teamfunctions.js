@@ -1,4 +1,4 @@
-//AddTask//
+//----------------------------------------------------/AddTask/----------------------------------------------------/
 /**
  * Validates the form and adds a task if the form is valid.
  */
@@ -191,7 +191,7 @@ function resetAllAddTaskElementsBoard() {
     resetInputs();
     saveTaskElements();
 }
-//Contact popup//
+//----------------------------------------------------/Contact popup/----------------------------------------------------/
 
 /**
  * If the contact form is valid, creates a new contact and adds it to the `contactsArray`.
@@ -228,7 +228,7 @@ function clearContactPopup() {
 /**
  * Re-renders the contacts list based on a filter text from an input field.
  */
-function handleInputChange() {
+function renderFilteredContacts() {
     let filterText = document.getElementById('assignedToInput').value;
     renderAllContactsForSearch(filterText);
 }
@@ -365,7 +365,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-//category container add d-none by body-click//
+//----------------------------------------------------/category container add d-none by body-click/----------------------------------------------------/
 /**
  * Event listener to hide the category dropdown upon a click outside the dropdown area.
  */

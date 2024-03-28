@@ -7,7 +7,7 @@ async function initSummary() {
     await currentUserTaskLoad();
     loadTimeOfDay();
     loadText();
-    markCategory();
+    markActivePage ();
     addAnimationOnResize();
     animationAdded = false;
 }

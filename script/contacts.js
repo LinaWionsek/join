@@ -21,7 +21,7 @@ async function initContacts() {
     renderContacts();
     toggleBlueLineOnNarrowDesktop();
     adjustLayoutForScreenSize();
-    markCategory();
+    markActivePage ();
 }
 
 /** * This function us used to render the contact informations and sort it */

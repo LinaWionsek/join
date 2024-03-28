@@ -55,7 +55,7 @@ function openHeaderMenu(event) {
  * This function is used to mark the active .html page
  *
  */
-function markCategory() {
+function markActivePage () {
     const currentPage = window.location.href.split('/').pop().trim() || 'index.html';
     const links = document.querySelectorAll(`.sidebar-text[href*="${currentPage}"]`);
     links.forEach(link => {
