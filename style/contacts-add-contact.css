@@ -1,12 +1,37 @@
-.profilePictureArea {
-    position: relative;
-    width: 275px;
-    height: 100%;
-    width: 100%;
+.center-popup {
+    display: flex;
+    margin-left: 92px;
+    margin-right: 92px;
+    margin-bottom: 100px;
+}
+
+#profile_img,
+#no_profile_img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+#join_logo_add_contact {
+    display: block;
+    height: 66.48px;
+    width: 55.6px;
+}
+
+.profile-edit-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    width: 120px;
+    border-radius: 100%;
+    color: white;
+    border: 3px solid white;
+    box-shadow: -2px 0 6px 0 rgb(0, 0, 0, 0.2);
 }
 
 .circle {
-    margin-top: 204px;
     width: 120px;
     height: 120px;
     border: #FFFFFF solid 2px;
@@ -14,16 +39,16 @@
     box-shadow: -2px 0 6px 0 rgb(0, 0, 0, 0.2);
 }
 
-.personInCircle {
+.person-in-circle {
     position: absolute;
     width: 64px;
     height: 64px;
-    top: 264px;
+    /* top: 264px;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
 }
 
-.addContactBackground {
+.contact-popup-bg {
     position: absolute;
     top: 0;
     left: 0;
@@ -33,8 +58,23 @@
     background: rgba(0, 0, 0, 0.4);
 }
 
-.addContactPopup {
-    width: 1212px;
+#close_popup {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 32px;
+}
+#close_popup img:hover {
+    background: #EEEEEE;
+    border-radius: 100%;
+}
+
+
+#close_popup_mobile {
+    display: none;
+}
+
+.contact-popup {
+    /* width: 1212px; */
     height: 592px;
     border-bottom-right-radius: 30px;
     border-top-right-radius: 30px;
@@ -43,7 +83,7 @@
     background: #FFF;
 }
 
-.leftSideAddContactPopup {
+.left-popup {
     position: relative;
     height: 100%;
     width: 476px;
@@ -57,28 +97,21 @@
     padding: 66px 46px;
 }
 
-.leftSideAddContactPopup img {
-    position: absolute;
-    top: 154px;
-    left: 48px;
-    width: 55.6px;
-    height: 66.483px;
-    display: flex;
-}
 
-.addContactLeftText {
+.left-popup-content {
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    gap: 8px;
+    gap: 16px;
+    margin-top: 66px;
 }
 
-.textUnderAddContactTitle {
-    margin-bottom: 17.5px !important;
+#add_contact_underline {
+    margin-bottom: 17.5px;
 }
 
-.blueLine {
+.blue-line {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -88,22 +121,25 @@
     border-radius: 1.5px;
 }
 
-.rightSidePopup {
+.right-popup {
     position: relative;
-    width: 745px;
     justify-content: flex-end;
+    padding: 66px 46px 66px 0px;
 }
 
-.contactInfo {
+#contact_form {
+    display: flex;
+    flex-direction: column;
     width: 422px;
     height: 215px;
-    margin: 137px 48px 0 0;
     gap: 32px;
+    z-index: 1;
 }
 
-.inputName input,
-.inputEmail input,
-.inputPhone input {
+/* .inputName input, */
+/* .inputPhone input, */
+.register_email_container input
+{
     width: calc(41px + 380px);
     height: calc(26px + 24px);
     padding: 13px 21px;
@@ -112,9 +148,9 @@
     background: #FFF;
 }
 
-.inputName,
-.inputEmail,
-.inputPhone {
+/* .inputName, */
+/* .inputPhone, */
+.register_email_container {
     position: relative;
 }
 
@@ -123,19 +159,48 @@ input:focus {
     outline: 1px solid #29ABE2;
 }
 
+
 input {
-    border: none;
+    outline: none;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    padding: 12px 20px;
 }
 
-.inputName input:hover,
-.inputEmail input:hover,
-.inputPhone input:hover {
+input:focus {
+    border-color: #29ABE2;
+}
+
+input[type=text] {
+    background: url('../img/lock.svg') no-repeat scroll;
+    background-position: center right;
+    /* 16px */
+    background-origin: content-box;
+}
+
+input[type=email] {
+    background: url('../img/mail.svg') no-repeat scroll;
+    background-position: center right -2px;
+    /* DON'T DELETE IMPORTANT FOR SYMETRY! */
+    background-origin: content-box;
+}
+
+input[type=tel] {
+    background: url('../img/call.svg') no-repeat scroll;
+    background-position: center right;
+    /* 20px */
+    background-origin: content-box;
+}
+
+/* .inputName input:hover, */
+/* .inputPhone input:hover */
+.register_email_container input:hover {
     border: 1px solid #29ABE2;
 }
 
-.inputName img,
-.inputEmail img,
-.inputPhone img {
+/* .inputName img, */
+/* .inputPhone img */
+.register_email_container img {
     position: absolute;
     top: 50%;
     bottom: 50%;
@@ -143,6 +208,7 @@ input {
     right: calc(21px - 12px);
 }
 
-.addContactButtonContainer {
-    margin-top: 16px;
+.contact-popup-buttons {
+    gap: 24px;
+    margin-top: 32px;
 }

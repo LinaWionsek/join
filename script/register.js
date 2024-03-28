@@ -1,28 +1,20 @@
 let registerBtn = document.getElementById('registerBtn');
-let checkbox = document.getElementById("myCheckbox");
-
+let checkbox = document.getElementById('myCheckbox');
 
 /**
  * Initializes the registration functionality by loading existing user data.
  */
 async function initRegister() {
-    await loadUserGroup698()
-}
-
-/**
- * Initiates the sign-up process by loading the respective template into the dialog.
- */
-function signUp() {
-    dialog.innerHTML = loadTemplateSignUp();
+    await loadUsers();
 }
 
 /**
  * Validates user inputs, checks for email duplicates, and proceeds with the registration process.
  */
 async function registUser() {
-    let emailControl = document.getElementById('email');
+    let emailControl = document.getElementById('register_email');
     if (!arePasswordsMatching()) return handlePasswordMismatch();
-    if (user.some(u => u.email === emailControl.value)) return handleEmailExists();
+    if (allUsers.some(u => u.email === emailControl.value)) return handleEmailExists();
     if (checkbox.checked) await handleRegistration();
 }
 
@@ -38,8 +30,8 @@ function handlePasswordMismatch() {
  * Handles a scenario when the entered email already exists in the system.
  */
 function handleEmailExists() {
-    document.getElementById('inputEmail').classList.add("red-border");
-    document.getElementById('warning-email').classList.remove("d-none");
+    document.getElementById('register_email').classList.add('red-border');
+    document.getElementById('warning-email').classList.remove('d-none');
     resetForm();
 }
 
@@ -48,12 +40,12 @@ function handleEmailExists() {
  */
 async function handleRegistration() {
     registerBtn.disabled = true;
-    user.push({
-        name: userName.value,
-        email: email.value,
-        password: password.value,
+    allUsers.push({
+        'name': register_name.value,
+        'email': register_email.value,
+        'password': register_password.value,
     });
-    await setItem('userGroup698', JSON.stringify(user));
+    await setItem('users', JSON.stringify(allUsers));
     changesSaved('You Signed Up successfully');
     setTimeout(() => {
         resetForm();
@@ -65,9 +57,9 @@ async function handleRegistration() {
  * Highlights password fields in red.
  */
 function loadRedBorderPassword() {
-    let inputIds = ["inputPassword", "inputConfirmPassword"];
+    let inputIds = ['register_password', 'register_password_confirm'];
     for (let id of inputIds) {
-        document.getElementById(id).classList.add("red-border");
+        document.getElementById(id).classList.add('red-border');
     }
 }
 
@@ -75,9 +67,9 @@ function loadRedBorderPassword() {
  * Displays warning messages for password fields.
  */
 function loadWarningTextTamplate() {
-    let warningIds = ["warning-password", "warning-confirmPassword"];
+    let warningIds = ['warning-password', 'warning-confirmPassword'];
     for (let id of warningIds) {
-        document.getElementById(id).classList.remove("d-none");
+        document.getElementById(id).classList.remove('d-none');
     }
 }
 
@@ -85,17 +77,17 @@ function loadWarningTextTamplate() {
  * Checks if the entered password and confirmation password are matching.
  */
 function arePasswordsMatching() {
-    const password = document.getElementById('password').value;
-    const confirmPassword = document.getElementById('confirmPassword').value;
+    const password = document.getElementById('register_password').value;
+    const confirmPassword = document.getElementById('register_password_confirm').value;
     return password === confirmPassword;
 }
 
 /**
  * Loads existing users from the storage.
  */
-async function loadUserGroup698() {
+async function loadUsers() {
     try {
-        user = JSON.parse(await getItem('userGroup698'));
+        allUsers = JSON.parse(await getItem('users'));
     } catch (e) {
         console.error('Loading error:', e);
     }
@@ -105,18 +97,17 @@ async function loadUserGroup698() {
  * Resets the registration form by clearing inputs and enabling the register button.
  */
 function resetForm() {
-    email.value = '';
-    password.value = '';
-    confirmPassword.value = '';
+    register_email.value = '';
+    register_password.value = '';
+    register_password_confirm.value = '';
     registerBtn.disabled = false;
 }
 
-
-/* NICHT AKTUELL! WEIL FALSCHER KEY! */
 /**
  * Resets all users in the backend storage.
  */
-// async function resetAllBackendUser() {
-//     users.splice(0, users.length);
-//     await setItem('users', JSON.stringify(users));
-// }
+async function resetAllBackendUser() {
+    await loadUsers();
+    allUsers.splice(0, allUsers.length);
+    await setItem('users', JSON.stringify(allUsers));
+}

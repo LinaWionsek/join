@@ -5,9 +5,9 @@ loadTaskElements();
  * Initializes the task addition process.
  */
 async function initAddTask() {
-    loadActivUser();
+    loadActiveUser();
     userCircle();
-    markCategory();
+    markActivePage ();
     await currentUserTaskLoad();
     await currentUserIdLoad();
     await currentUserCategorysLoad();
@@ -34,7 +34,7 @@ function renderAddTaskContent() {
     setInnerHTML("categoryAreaV2", returnCategoryBox2);
     setInnerHTML("prioBox", returnPrioBox);
     setInnerHTML("buttonAreaAddTask", returnButtonAreaAddTask);
-    addInputFieldAndListener();
+    setupContactSearchListener();
     borderColorCheck();
     renderAllSelectedContacts();
     renderAllContactsForSearch();
@@ -44,12 +44,12 @@ function renderAddTaskContent() {
 /**
  * Adds an input field and an event listener to handle input changes.
  */
-function addInputFieldAndListener() {
+function setupContactSearchListener() {
     let inputField = document.getElementById('assignedToInput');
-    inputField.addEventListener('input', handleInputChange);
+    inputField.addEventListener('input', renderFilteredContacts);
 }
 
-//SubTaskFunctions//
+//----------------------------------------------------/SubTaskFunctions/----------------------------------------------------/
 /**
  * Adds a sub-task to the collection.
  */
@@ -141,8 +141,7 @@ function hideEditContainer() {
     let inputContainer = document.getElementById('editContainer');
     inputContainer.classList.add('d-none');
 }
-
-
+//----------------------------------------------------/Clear functions/----------------------------------------------------/
 /**
  * Resets all elements and data structures related to adding a task.
  */
@@ -177,7 +176,7 @@ function clearAddTaskInputs() {
     dueDateAddTask.value = '';
 }
 
-//Hide and Show functions//
+//----------------------------------------------------/Hide and Show functions/----------------------------------------------------/
 /**
  * Toggles the visibility of two DOM elements.
  * @param {string} id - ID of the first DOM element.
@@ -196,7 +195,7 @@ function toggleVisibilityAddTask(id, id2, event) {
     document.getElementById('selectedContactsDeselect').classList.add('d-none');
 }
 
-//Contact functions//
+//----------------------------------------------------/Contact functions/----------------------------------------------------/
 /**
  * Renders all selected contacts to the DOM.
  */
@@ -286,7 +285,7 @@ function stopEditContact() {
     input.value = '';
 }
 
-//Category functions//
+//----------------------------------------------------/Category functions/----------------------------------------------------/
 /**
  * Renders the categories into the specified container.
  */
@@ -387,7 +386,7 @@ function resetInputValueAndColor(inputElem) {
     inputElem.style.borderColor = '#D1D1D1';
 }
 
-//Prio Buttons class-change//
+//----------------------------------------------------/Prio Buttons class-change/----------------------------------------------------/
 /**
  * Updates visual representation of priority buttons (activ).
  */

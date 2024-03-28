@@ -1,13 +1,13 @@
 body {
-    background-color: var(--main-background-color) !important;
+    background-color: var(--main-background-color);
     height: 100vh;
     display: flex;
     margin: 0;
     width: 100vw;
-    font-family: 'Inter' !important;
+    font-family: 'Inter';
 }
 
-.contactPage {
+.contact-content {
     margin-top: 110px;
 }
 
@@ -15,35 +15,34 @@ body {
     height: 59px;
     border-radius: 8px;
     width: 4px;
-    background-color: var(--headline) !important;
+    background-color: var(--headline);
     margin-right: 30px;
     margin-left: 30px;
 }
 
-#contactsId {
+#contact_list {
     height: calc(100vh - 160px);
 }
 
-.profilePicture {
+.profile-picture {
     height: 42px;
     width: 42px;
     border-radius: 100%;
-    margin-right: 35px !important;
     color: white;
     border: 2px solid white;
     box-shadow: -2px 0 6px 0 rgb(0, 0, 0, 0.2);
 }
 
-.btnBackground {
+/* .btnBackground {
     position: fixed;
     width: auto;
     height: 101px;
     background: white;
-}
+} */
 
-.createContactButton,
+/* .createContactButton,
 .addNewContactButton {
-    background: #2A3647 !important;
+    background: #2A3647;
     color: white;
     border: none;
     border-radius: 10px;
@@ -52,35 +51,35 @@ body {
 .addNewContactButton:hover {
     background: #29ABE2;
     box-shadow: -2px 0 6px 0 rgb(0, 0, 0, 0.2);
-}
+} */
 
-.addNewContactButton {
+/* .addNewContactButton {
     position: relative;
-    width: 352px;
-    height: 56px !important;
-    padding: 0 !important;
-    gap: 16px;
-}
-
+    /* width: 352px; */
+    /* height: 56px;
+    padding: 0;
+    gap: 16px; 
+} */
+/* 
 .button:hover {
-    background: #29ABE2 !important;
-}
+    background: #29ABE2;
+} */
 
-.addNewContactButton img {
+/* .addNewContactButton img {
     width: 32px;
     height: 32px;
-}
+} */
 
 .form-control:focus {
-    border-color: inherit !important;
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 
-.contacts-container {
+.left-container {
     top: 300px;
-    width: 456px;
-    min-width: 456px;
+    /* width: 456px;
+    min-width: 456px; */
     height: calc(100vh - 96px);
     margin-top: -110px;
     display: flex;
@@ -90,31 +89,69 @@ body {
     overflow-y: scroll;
 }
 
-.emptyContainer {
+/* scroll-bar contacts */
+.left-container::-webkit-scrollbar-button:start:decrement {
+    background-position: center;
+    background-image: url('../img/arrow-up.svg');
+    border-top-right-radius: 100%;
+    border-top-left-radius: 100%;
+}
+
+.left-container::-webkit-scrollbar-button:end:increment {
+    background-position: center;
+    background-image: url('../img/arrow-down.svg');
+    border-bottom-right-radius: 100%;
+    border-bottom-left-radius: 100%;
+}
+
+.left-container::-webkit-scrollbar {
+    display: block;
+    width: 8px;
+    padding: 20px 0;
+}
+
+.left-container::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.left-container::-webkit-scrollbar-thumb {
+    background-color: #909090;
+    border-radius: 10px;
+}
+
+/* .emptyContainer {
     height: 78px;
-}
+} */
 
-.scrollingContainer {
+.scrolling-container {
+    width: 400px;
     margin-top: 101px;
+    padding: 0px 20px 0px 20px;
 }
 
-.contactsInfo {
+.contact-quickinfo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 35px;
     padding: 15px 24px;
     cursor: pointer;
     border-radius: 10px;
 }
 
-.contactsInfo:hover {
+.contact-quickinfo:hover {
     background: #F2F2F2;
 }
 
-.firstLetterOverContact {
-    width: 352px;
-    padding: 17px 36px !important;
+.initial{
+    display: flex;
+    align-items: center;
+    /* width: 352px; */
+    padding: 15px 36px;
     height: 58px;
 }
 
-.partingLine {
+.parting-line {
     height: 1px;
     background: #D1D1D1;
     margin: 8px 0 8px;
@@ -122,12 +159,12 @@ body {
 }
 
 /* all pictures of right popup side */
-.contactInfo img {
+#contact_form img {
     width: 24px;
     height: 24px;
 }
 
-.createContactButton {
+/* .createContactButton {
     width: calc(32px + 182px);
     height: calc(32px + 25px);
     padding: 16px;
@@ -135,11 +172,11 @@ body {
 }
 
 .createContactButton:hover {
-    background: #29ABE2 !important;
+    background: #29ABE2;
     box-shadow: -2px 0 6px 0 rgb(0, 0, 0, 0.5);
-}
+} */
 
-.cancelBtn {
+/* .cancelBtn {
     width: calc(32px + 94px);
     height: calc(32px + 24px);
     padding: 16px;
@@ -163,12 +200,12 @@ body {
 .cancelBtn:hover,
 .createContactButton:hover {
     box-shadow: 2px 0 6px 0 rgb(0, 0, 0, 0.5);
-}
+} */
 
-.closePopupCross {
+/* .closePopupCross {
     position: absolute;
-    top: 48px;
-    right: 48px;
+    top: 66px;
+    right: 46px;
     width: 32px;
     height: 32px;
 }
@@ -176,83 +213,78 @@ body {
 .closePopupCross:hover {
     background: #EEEEEE;
     border-radius: 100%;
-}
+} */
 
 /* Text on right side */
-.contactInfoBig,
-.contactsTitle {
+.contact-detail-container,
+.right-container-headline {
     margin: 0 55px;
     height: auto;
     width: auto;
 }
 
-.contactsTitle {
+.contact-detail-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.right-container-headline {
+    display: flex;
+    align-items: center;
     gap: 30px;
     height: 73px;
     margin-bottom: 32px;
 }
 
-.profilePictureBig {
+.big-profile-picture {
     width: 120px;
     height: 120px;
     border-radius: 100%;
     color: white;
-    margin: 0 54px 0 0 !important;
     border: 3px solid white;
     box-shadow: -2px 0 6px 0 rgb(0, 0, 0, 0.2);
 }
 
-.contactInfoTextBlock {
+.contact-information-text-block {
+    display: flex;
+    align-items: center;
     height: 74px;
-    margin-bottom: 21px !important;
-    margin-top: 21px !important;
+    margin-bottom: 21px;
+    margin-top: 21px;
 }
 
-.emailText {
-    margin-bottom: 15px !important;
+.email-text {
+    margin-bottom: 15px;
 }
 
-.emailScrollMenu,
+.mail-quickinfo,
 #emailid a {
     color: #007CEE;
 }
 
 #emailid a {
-    width: 400px !important;
+    width: 400px;
 }
 
 #emailid,
-.phoneNumber {
-    width: 100% !important;
+.phone-number {
+    width: 100%;
 }
 
-.phoneNumber {
-    color: black !important;
+.phone-number {
+    color: black;
 }
 
-.phoneText {
-    margin: 22px 0 15px !important;
+.phone-text {
+    margin: 22px 0 15px;
 }
 
-.pencilBigView {
-    width: 30px;
-}
-
-.editDeleteContact {
-    gap: 8px;
-}
-
-.editDeleteContact:hover {
+.edit-delete-contact:hover {
     color: #29ABE2;
-    font-weight: bold !important;
+    font-weight: bold;
 }
 
-.editDeleteContact svg {
-    width: 24px;
-    height: 24px;
-}
-
-.mobileEditDeleteBox {
+#mobile_edit_delete_box {
     position: absolute;
     bottom: calc(80px + 32px);
     right: 16px;
@@ -266,47 +298,52 @@ body {
     border-top-right-radius: 10px;
 }
 
-.mobileDeleteText:hover,
-.mobileEditText:hover,
-.mobileEdit:hover,
-.mobileDelete:hover {
+.mobile-delete-text:hover,
+.mobile-edit-text:hover,
+.mobile-edit:hover,
+.mobile-delete:hover {
     color: #29ABE2;
     font-weight: bold;
     background-color: #EEEEEE;
     border-radius: 5px;
 }
 
-#mobileBackArrowId {
+#mobile_backarrow_id {
     position: absolute;
-    top: 124.97px !important;
-    left: calc(100vw - 63.13px) !important;
+    top: 124.97px;
+    left: calc(100vw - 63.13px);
 }
 
-#mobileBackArrowId:hover {
+#mobile_backarrow_id:hover {
     width: 36.901px;
     height: 36.901px;
     background-color: #F7F7F7;
     border-radius: 100%;
 }
 
-#mobileBackArrowId img {
+#mobile_backarrow_id img {
     width: 36.901px;
     height: 36.901px;
 }
-
-#nameId {
-    margin-bottom: 4px;
+.contact-detail-top{
+    display: flex;
+    gap: 54px;
 }
 
-#deleteEditId {
+#contact_name {
+    margin-bottom: 4px;
+    font-size: 47px;
+}
+
+#delete_edit {
     margin-top: 4px;
 }
 
-.nameAbbreviation {
-    margin-top: 2px !important;
-}
+/* .nameAbbreviation {
+    margin-top: 2px;
+} */
 
-.contentContact {
+.contact-container {
     display: flex;
     flex-direction: column;
     padding-left: 243px;
@@ -317,8 +354,8 @@ body {
 }
 
 .content {
-    display: none !important;
-    z-index: 0 !important;
+    display: none;
+    z-index: 0;
 }
 
 .d-none {

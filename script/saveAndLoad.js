@@ -2,8 +2,8 @@ const STORAGE_TOKEN = '7RNGNHOIRRY7RSZAG9040DSCH7N4JNMMZ3I48MJN';
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 
 let tasks = [];
-let user = [];
-let activUser = {
+let allUsers = [];
+let activeUser = {
     'name': '',
 }
 
@@ -124,11 +124,11 @@ async function initializeStorage(key, initialValue) {
 
 /**
  * Asynchronously saves the current user's tasks. 
- * If the active user is 'Guest698', the tasks are saved to local storage. 
+ * If the active user is 'Guest', the tasks are saved to local storage. 
  * Otherwise, they are saved to remote storage.
  */
 async function currentUserTaskSave() {
-    if (activUser.name === 'Guest698') {
+    if (activeUser.name === 'Guest') {
         localStorage.setItem('tasksAsText', JSON.stringify(tasks));
     } else {
         await setItem('tasks', JSON.stringify(tasks));
@@ -137,11 +137,11 @@ async function currentUserTaskSave() {
 
 /**
  * Asynchronously loads the current user's tasks. 
- * If the active user is 'Guest698', the tasks are loaded from local storage. 
+ * If the active user is 'Guest', the tasks are loaded from local storage. 
  * Otherwise, they are fetched from remote storage.
  */
 async function currentUserTaskLoad() {
-    if (activUser.name === 'Guest698') {
+    if (activeUser.name === 'Guest') {
         let tasksLoad = localStorage.getItem('tasksAsText');
         if (tasksLoad) {
             tasks = JSON.parse(tasksLoad);
@@ -158,11 +158,11 @@ async function currentUserTaskLoad() {
 //current id
 /**
  * Asynchronously saves the current user's ID. 
- * If the active user is 'Guest698', the ID is saved to local storage. 
+ * If the active user is 'Guest', the ID is saved to local storage. 
  * Otherwise, it is saved to remote storage.
  */
 async function currentUserIdSave() {
-    if (activUser.name === 'Guest698') {
+    if (activeUser.name === 'Guest') {
         localStorage.setItem('currentIdAsText', JSON.stringify(currentId));
     } else {
         await setItem('currentId', JSON.stringify(currentId));
@@ -171,11 +171,11 @@ async function currentUserIdSave() {
 
 /**
  * Asynchronously loads the current user's ID. 
- * If the active user is 'Guest698', the ID is loaded from local storage. 
+ * If the active user is 'Guest', the ID is loaded from local storage. 
  * Otherwise, it is fetched from remote storage.
  */
 async function currentUserIdLoad() {
-    if (activUser.name === 'Guest698') {
+    if (activeUser.name === 'Guest') {
         let currentIdLoad = localStorage.getItem('currentIdAsText');
         if (currentIdLoad) {
             currentId = JSON.parse(currentIdLoad);
@@ -192,11 +192,11 @@ async function currentUserIdLoad() {
 //Categorys
 /**
  * Asynchronously saves the current user's categories. 
- * If the active user is 'Guest698', the categories are saved to local storage. 
+ * If the active user is 'Guest', the categories are saved to local storage. 
  * Otherwise, they are saved to remote storage.
  */
 async function currentUserCategorysSave() {
-    if (activUser.name === 'Guest698') {
+    if (activeUser.name === 'Guest') {
         localStorage.setItem('categorysAsText', JSON.stringify(allCategorys));
     } else {
         await setItem('allCategorys', JSON.stringify(allCategorys));
@@ -205,11 +205,11 @@ async function currentUserCategorysSave() {
 
 /**
  * Asynchronously loads the current user's categories. 
- * If the active user is 'Guest698', the categories are loaded from local storage. 
+ * If the active user is 'Guest', the categories are loaded from local storage. 
  * Otherwise, they are fetched from remote storage.
  */
 async function currentUserCategorysLoad() {
-    if (activUser.name === 'Guest698') {
+    if (activeUser.name === 'Guest') {
         let categorysLoad = localStorage.getItem('categorysAsText');
         if (categorysLoad) {
             allCategorys = JSON.parse(categorysLoad);
@@ -226,11 +226,11 @@ async function currentUserCategorysLoad() {
 //Contacts
 /**
  * Asynchronously saves the current user's contacts. 
- * If the active user is 'Guest698', the contacts are saved to local storage. 
+ * If the active user is 'Guest', the contacts are saved to local storage. 
  * Otherwise, they are saved to remote storage.
  */
 async function currentUserContactsSave() {
-    if (activUser.name === 'Guest698') {
+    if (activeUser.name === 'Guest') {
         localStorage.setItem('contactsAsText', JSON.stringify(contactsArray));
         localStorage.setItem('nextColorAsText', JSON.stringify(nextColorIndex));
     } else {
@@ -241,7 +241,7 @@ async function currentUserContactsSave() {
 
 /** * This function is to load contacts or display a error message */
 async function currentUserContactsLoad() {
-    if (activUser.name === 'Guest698') {
+    if (activeUser.name === 'Guest') {
         let contactsLoad = localStorage.getItem('contactsAsText');
         let nextColorLoad = localStorage.getItem('nextColorAsText');
         if (contactsLoad && nextColorLoad) {
@@ -262,17 +262,17 @@ async function currentUserContactsLoad() {
 /**
  * Saves the current active user to local storage.
  */
-function saveActivUser() {
-    localStorage.setItem('activUserAsText', JSON.stringify(activUser));
+function saveActiveUser() {
+    localStorage.setItem('activeUserAsText', JSON.stringify(activeUser));
 }
 
 /**
  * Loads the current active user from local storage.
  */
-function loadActivUser() {
-    let activUserLoad = localStorage.getItem('activUserAsText');
-    if (activUserLoad) {
-        activUser = JSON.parse(activUserLoad);
+function loadActiveUser() {
+    let activeUserLoad = localStorage.getItem('activeUserAsText');
+    if (activeUserLoad) {
+        activeUser = JSON.parse(activeUserLoad);
     }
 }
 

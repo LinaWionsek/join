@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join</title>
-
-    <link rel="shortcut icon" href="img/Logo for Favicon construction.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="img/favicon.svg" type="image/x-icon">
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/register.css">
     <link rel="stylesheet" href="style/help.css">
@@ -19,7 +18,7 @@
 </head>
 
 <body onload="initRegister()">
-    <div>
+    <!-- <div> -->
         <header>
             <div class="logo-container">
                 <img src="./img/join-logo.svg" alt="">
@@ -27,68 +26,63 @@
         </header>
 
         <div class="section">
-            <div id="dialog" class="dialogSignUp">
-                <a href="index.html" id="mobileBackArrowId">
+
+            <div id="dialog" class="dialog-sign-up">
+                <a href="index.html" id="mobile_backarrow_id">
                     <img src="img/arror-left.svg" alt="">
                 </a>
-                <div class="signUpUnderlineContainer">
-                    <span class="fontSize61"><b>Sign up</b></span>
-                    <div class="underline"></div>
-                </div>
+                
+                <form onsubmit="registUser(); return false;" action="" class="fontSize20">
 
-                <form onsubmit="registUser(); return false;" action="" class="fontSize20 form">
-                    <div class="input-field" id="containerUserName">
-                        <input required type="text" minlength="4" placeholder="Name" id="userName">
-                        <img src="./img/user.svg" alt="Bild user" class="input-suffix">
+                    <div class="sign-up-underline-container">
+                        <span class="fontSize61"><b>Sign up</b></span>
+                        <div class="underline"></div>
                     </div>
 
-                    <div class="input-field" id="inputEmail">
-                        <input required type="email" minlength="4" placeholder="Email" id="email">
-                        <img src="./img/letter.svg" alt="Bild letter" class="input-suffix">
-                    </div>
-                    <div class="warning-field">
-                        <span id="warning-email" class="d-none">
-                            This email address already exists.
-                        </span>
-                    </div>
-
-                    <div class="input-field" id="inputPassword">
-                        <input required type="password" minlength="4" placeholder="Password" id="password">
-                        <img src="./img/lock.svg" alt="Bild lock" class="input-suffix">
-                    </div>
-                    <div class="warning-field">
-                        <span id="warning-password" class="d-none">
-                            Password do not Match.
-                        </span>
-                    </div>
-
-                    <div class="input-field" id="inputConfirmPassword">
-                        <input required type="password" minlength="4" placeholder="Confirm Password"
-                            id="confirmPassword">
-                        <img src="./img/lock.svg" alt="Bild lock" class="input-suffix">
-                    </div>
-                    <div class="warning-field">
-                        <span id="warning-confirmPassword" class="d-none">
-                            Password do not Match.
-                        </span>
+                    <div class="input-fields fontSize20">
+                        <input required type="text" minlength="4" placeholder="Name" id="register_name">
+                        <input class="mt-24" required type="email" minlength="4" placeholder="Email" id="register_email">
+                        <div class="warning-field">
+                            <span id="warning-email" class="d-none">
+                                This email address already exists.
+                            </span>
+                        </div>
+                        <input class="mt-24" required type="password" minlength="4" placeholder="Password" id="register_password">
+                        <div class="warning-field">
+                            <span id="warning-password" class="d-none">
+                                Password do not Match.
+                            </span>
+                        </div>    
+                        <input class="mt-24" required type="password" minlength="4" placeholder="Confirm Password"
+                                id="register_password_confirm">
+                        <div class="warning-field">
+                            <span id="warning-confirmPassword" class="d-none">
+                                Password do not Match.
+                            </span>
+                        </div>
                     </div>
 
-
-
-                    <div class="checkboxSignUp fontSize16">
-                        <input type="checkbox" name="myCheckbox" id="myCheckbox" value="yes" required>
-                        <label for="myCheckbox">I accept the</label>
-                        <a onclick="" href="./privacy-police.html">Privacy policy</a>
+                    <div class="width-100P">
+                        <div class="checkboxRememberMeContainer fontSize16">
+                            <input type="checkbox" name="myCheckbox" id="register_checkbox" value="yes" required>
+                            <label for="myCheckbox">I accept the</label><br>
+                            <a onclick="" href="./privacy-police.html">Privacy policy</a>
+                        </div>
                     </div>
+                   
                     <div class="button-div">
-                        <button type="submit" type="button" id="registerBtn" class="signUpBtnRegister">Sign
+                        <button type="submit" type="button" id="registerBtn" class="button blue-btn">Sign
                             up</button>
                     </div>
                 </form>
 
+
+                
             </div>
+
         </div>
-    </div>
+
+    <!-- </div> -->
     <div class="police">
         <div class="police-link">
             <a href="./privacy-police.html">Privacy Policy</a>
@@ -97,7 +91,7 @@
             <a href="./legalNotice.html">Legal Notice</a>
         </div>
     </div>
-    <section class="successfullyBtn horicontalAndVertical fontSize20 d-none" id="successfullyCreatedId">
+    <section class="success-info horicontalAndVertical fontSize20 d-none" id="successfullyCreatedId">
     </section>
 
 

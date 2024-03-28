@@ -18,7 +18,7 @@ body {
     font-family: 'Inter' !important;
 }
 
-#mobileBackArrowId {
+#mobile_backarrow_id {
     position: absolute;
     top: 20px;
     right: 98px;
@@ -27,11 +27,11 @@ body {
     transition: transform 0.4s ease;
 }
 
-#mobileBackArrowId img:hover {
+#mobile_backarrow_id img:hover {
     transform: scale(1.05);
 }
 
-#mobileBackArrowId:hover {
+#mobile_backarrow_id:hover {
 
     background-color: #F7F7F7;
     border-radius: 100%;
@@ -39,7 +39,7 @@ body {
     cursor: pointer;
 }
 
-.emptyContainer {
+/* .emptyContainer {
     width: 170px;
     height: 80px;
     background-color: white;
@@ -47,18 +47,18 @@ body {
     position: absolute;
     top: 0;
     right: 0;
-}
+} */
 
 .quicklinksContainer::-webkit-scrollbar-button:start:decrement {
     background-position: center !important;
-    background-image: url('../img/arrow_drop_up.svg') !important;
+    background-image: url('../img/arrow-up.svg') !important;
     border-top-right-radius: 100% !important;
     border-top-left-radius: 100% !important;
 }
 
 .quicklinksContainer::-webkit-scrollbar-button:end:increment {
     background-position: center !important;
-    background-image: url('../img/arrow_drop_downaa.svg') !important;
+    background-image: url('../img/arrow-down.svg') !important;
     border-bottom-right-radius: 100% !important;
     border-bottom-left-radius: 100% !important;
 }
@@ -135,7 +135,7 @@ td {
         padding-bottom: 30px;
     }
 
-    #mobileBackArrowId {
+    #mobile_backarrow_id {
         position: absolute;
         top: 46px;
         right: 6px;

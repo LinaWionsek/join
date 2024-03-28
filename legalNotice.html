@@ -9,7 +9,7 @@
     <script defer src="templates/templates.js"></script>
     <script defer src="script/saveAndLoad.js"></script>
 
-    <link rel="shortcut icon" href="img/Logo for Favicon construction.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="img/favicon.svg" type="image/x-icon">
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="templates/header_sidebar.css">
     <link rel="stylesheet" href="style/legalNotice.css">
@@ -20,7 +20,7 @@
 
 </head>
 
-<body onclick="hideMenuHeader()" onload="renderSidebarHeader(), loadActivUser(), userCircle(), hideSidebarLinks()">
+<body onclick="hideMenuHeader()" onload="renderSidebarHeader(), loadActiveUser(), userCircle(), hideSidebarLinks()">
     <header>
         <div id="sidebarArea"></div>
         <div id="headerArea"></div>
@@ -121,12 +121,12 @@
             Join.
         </span>
 
-        <div class="pointer" id="mobileBackArrowId" onclick="goBack()">
+        <div class="pointer" id="mobile_backarrow_id" onclick="goBack()">
             <img src="./img/arror-left.svg">
         </div>
     </div>
 
-    <div class="emptyContainer" id="emptyContainer"></div>
+    <!-- <div class="emptyContainer" id="emptyContainer"></div> -->
 </body>
 
 </html>

@@ -1,123 +1,115 @@
-body {
+/* body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    font-family: 'Inter' !important;
+    font-family: 'Inter';
+} */
+
+#warning-email {
+        color: var(--color-red);
+        font-size: 16px;
 }
 
 .form {
-    display: flex !important;
+    display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
 }
 
-.dialogSignUp {
-    position: relative;
+.dialog-sign-up {
     background-color: var(--text-white);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: auto;
-    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04) !important;
-    border-radius: 30px !important;
-    width: auto;
+    height: 630px;
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+    border-radius: 30px;
+    width: 600px;
     padding: 48px 88px;
+    position: relative;
 }
 
-.signUpUnderlineContainer {
+.sign-up-underline-container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#mobileBackArrowId {
+#mobile_backarrow_id {
+    display: none;
     position: absolute;
     top: 60px;
     left: 88px;
 }
 
-.button {
-    background-color: var(--main-color) !important;
-    color: var(--text-white) !important;
+/* .button {
+    background-color: var(--main-color);
+    color: var(--text-white);
 }
 
 .button:hover {
-    background-color: var(--headline) !important;
+    background-color: var(--headline);
+} */
+
+
+#register_name {
+    background-image: url('../img/user.svg');
+    background-position: center right -4px;
 }
 
-.button-guest-login {
-    background-color: var(--text-white) !important;
-    color: var(--main-color) !important;
-    margin: 35px;
-    height: 51px !important;
-    min-width: 161 !important;
-    padding-top: 4px !important;
-    padding-right: 16px !important;
-    padding-bottom: 4px !important;
-    padding-left: 16px !important;
-}
-
-.button-log-in {
-    width: 145px !important;
-    height: 51px !important;
-    display: flex;
-}
-
-
-input {
-    border: none;
-    outline: none;
-}
-
-.input-field {
+/* .input-field {
     justify-content: space-between;
     display: flex;
     width: 422px;
     background-color: var(--text-white);
     border: 1px solid var(--border-grey);
     border-radius: 10px;
-    margin-top: 24px !important;
+    margin-top: 24px;
     padding: 12px 21px;
 }
 
 .input-field img {
     width: 24px;
     height: 24px;
-}
+} */
 
-#myCheckbox {
+#register_checkbox {
     width: 16px;
     height: 16px;
     margin-right: 8px;
 }
 
-.checkboxSignUp a {
+.register-checkbox-container a {
     padding: 3px;
     text-decoration: none;
     margin-left: 4px;
     color: var(--headline);
 }
 
-.checkboxSignUp a:hover {
-    text-decoration: underline !important;
+.register-checkbox-container a:hover {
+    text-decoration: underline;
 }
 
-.checkboxSignUp {
-    display: flex !important;
-    align-content: center !important;
-    align-items: center !important;
-    justify-content: center !important;
+.register-checkbox-container {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
     height: auto;
     width: 100%;
     padding: 0 39px;
-    margin: 34px 0 32px !important;
+    margin: 34px 0 32px;
 }
 
-.signUpBtnRegister {
+.register-checkbox-container label {
+    color: #A8A8A8;
+}
+
+.sign-up-btn-register {
     border-radius: 8px;
-    background: #2A3647;
+    background: #2A3647; 
     font-weight: 700;
     font-size: 21px;
     color: white;
@@ -126,17 +118,17 @@ input {
     cursor: pointer;
 }
 
-.logo-container {
+/* .logo-container {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
-}
+} */
 
-.logo-container img {
+/* .logo-container img {
     width: 100.034px;
     height: 121.966px;
     flex-shrink: 0;
-}
+} */
 
 .button-div {
     display: flex;
@@ -144,7 +136,7 @@ input {
     justify-content: center;
 }
 
-.dialog-warning {
+/* .dialog-warning {
     background-color: rgba(0, 0, 0, 0.761);
     position: fixed;
     width: 100%;
@@ -153,9 +145,9 @@ input {
     align-items: center;
     justify-content: center;
     z-index: 997;
-}
+} */
 
-#dialog-window {
+/* #dialog-window {
     z-index: 999;
     background-color: aliceblue;
     padding: 10%;
@@ -163,54 +155,50 @@ input {
     justify-content: center;
     border-radius: 30px;
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04)
-}
+} */
 
-header {
+/* header {
     display: flex;
     justify-content: space-between;
     z-index: 1;
     padding-right: 77px;
     padding-left: 77px;
     padding-top: 40px;
-}
+} */
 
 .d-none {
     display: none !important;
 }
 
-@media (max-width: 768px) {
-    .dialogSignUp {
+@media (max-width: 900px){
+    .dialog-sign-up {
         padding: 32px 0;
         margin: 30px 16px 0;
-        width: auto;
     }
+}
+@media (max-width: 768px) {
 
     .fontSize61 {
-        font-size: 47 !important;
+        font-size: 47;
     }
 
-    .input-field {
-        margin: 0 16px;
-        width: auto;
+    .dialog-sign-up {
+        width: 90vw;
     }
-
-    .input-fields {
-        width: 100%;
-        margin: 0 !important;
-    }
-
+    
     .registerBtn {
         width: 180px;
         height: 21px;
         padding: 0;
-        margin-bottom: 16px !important;
+        margin-bottom: 16px;
     }
 
-    .checkboxSignUp {
-        margin: 38px 0 32px !important;
+    .register-checkbox-container {
+        margin: 38px 0 32px;
     }
 
-    #mobileBackArrowId {
+    #mobile_backarrow_id {
+        display: block;
         top: 36px;
         left: 15px;
     }
@@ -219,10 +207,6 @@ header {
 @media(max-width: 375px) {
     body {
         height: 100vh;
-    }
-
-    .input-field {
-        width: auto;
     }
 
     header {
@@ -239,16 +223,13 @@ header {
         margin-bottom: 0px;
     }
 
-    .dialog {
-        margin-top: 25px;
-    }
 }
 
 @media (max-height: 900px) {
-    .dialogSignUp {
-        margin-top: 5px !important;
+    .dialog-sign-up {
+        margin-top: 5px;
         padding: 32px 16px;
-        width: auto;
+        /* width: auto; */
     }
 
     .logo-container img {
@@ -263,22 +244,22 @@ header {
 
 @media (max-height: 700px) {
     .fontSize61 {
-        font-size: 34px !important;
+        font-size: 34px;
     }
 
-    #mobileBackArrowId {
+    #mobile_backarrow_id {
         top: 16px;
         left: 15px;
     }
 
-    #password,
-    #userName,
-    #passwort,
-    #email {
-        font-size: 14px !important;
+    #register_password,
+    #register_name,
+    #login_password,
+    #register_email {
+        font-size: 14px;
     }
 
-    .dialogSignUp {
+    .dialog-sign-up {
         padding: 16px 8px;
     }
 }

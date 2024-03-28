@@ -15,18 +15,18 @@ let nextColorIndex = 0;
 
 /** * This function is to load functions at start */
 async function initContacts() {
-    loadActivUser();
+    loadActiveUser();
     userCircle();
     await currentUserContactsLoad();
     renderContacts();
-    desktopViewSmall();
-    mobileView();
-    markCategory();
+    toggleBlueLineOnNarrowDesktop();
+    adjustLayoutForScreenSize();
+    markActivePage ();
 }
 
 /** * This function us used to render the contact informations and sort it */
 function renderContacts() {
-    let userContent = document.getElementById('contactsId');
+    let userContent = document.getElementById('contact_list');
     userContent.innerHTML = '';
     let previousFirstLetter = '';
     contactsArray.sort((a, b) => a.name.localeCompare(b.name, 'de', { sensitivity: 'base' }));
@@ -49,22 +49,39 @@ function pullNameAbbreviation(userContent, previousFirstLetter) {
         nameAbbreviationArray.push(nameAbbreviation);
 
         if (firstLetter !== previousFirstLetter) {
-            userContent.innerHTML += contatcsCategory(firstLetter);
+            userContent.innerHTML += createInitial(firstLetter);
             previousFirstLetter = firstLetter;
         }
 
-        userContent.innerHTML += loadContactInfos(contact, nameAbbreviation, i);
+        userContent.innerHTML += loadContactSummary(contact, nameAbbreviation, i);
         addNameAbbreviationInContactsArray();
     }
 }
 
-/** This function is used to create the first letter of a name for the category */
-function contatcsCategory(firstLetter) {
+function createInitial(firstLetter) {
     return /* html */ `
-    <div class="firstLetterOverContact horicontal fontSize20">
+    <div class="initial fontSize20">
         ${firstLetter}
     </div>
-    <div class="partingLine">
+    <div class="parting-line">
+    </div>
+    `
+}
+
+/** * This function us used to display the contact infos */
+function loadContactSummary(contact, nameAbbreviation, i) {
+    return /* html */ `
+    <div class="contact-quickinfo pointer"
+        onclick="openContactBigInfo(contactsArray[${i}], ${i}, '${nameAbbreviation}')">
+        <div class="profile-picture horicontalAndVertical" style="background-color: ${contact.color}">
+            <span class="fontSize12 nameAbbreviation">
+                ${nameAbbreviation}
+            </span>
+        </div>
+        <div class="column gap5">
+            <span class="fontSize20">${maxLetters(contact['name'], 19)}</span>
+            <span class="fontSize16 mail-quickinfo">${maxLetters(contact['email'], 25)}</span>
+        </div>
     </div>
     `
 }
@@ -76,23 +93,6 @@ function addNameAbbreviationInContactsArray() {
     }
 }
 
-/** * This function us used to display the contact infos */
-function loadContactInfos(contact, nameAbbreviation, i) {
-    return /* html */ `
-    <div class="horicontal contactsInfo pointer"
-        onclick="openContactBigInfo(contactsArray[${i}], ${i}, '${nameAbbreviation}')">
-        <div class="profilePicture horicontalAndVertical" style="background-color: ${contact.color}">
-            <span class="fontSize12 nameAbbreviation">
-                ${nameAbbreviation}
-            </span>
-        </div>
-        <div class="column gap5">
-            <span class="fontSize20">${maxLetters(contact['name'], 19)}</span>
-            <span class="fontSize16 emailScrollMenu">${maxLetters(contact['email'], 25)}</span>
-        </div>
-    </div>
-    `
-}
 
 /** * This function is to limit the output letters */
 function maxLetters(text, maxLength) {
@@ -104,11 +104,48 @@ function maxLetters(text, maxLength) {
 }
 
 /** * This function is used to display the adding screen for new contacts */
-function addContact() {
-    resetFunctionImageText();
-    showNotOnMobileView('cancelBtnMobileId');
+function openAddContactWindow() {
+    toggleVisibility('profile_img', false);
+    toggleVisibility('no_profile_img', true);
     clearInputFields();
+    refreshContactDialogUI();
 }
+
+/** * Changes dialog text */
+function refreshContactDialogUI() {
+    setAddContactTextElements();
+    initializeAddContactFormActions();
+    updateMobileAddButtonIcon();
+}
+
+/** * This function is to reset the changeText() */
+function setAddContactTextElements() {
+    toggleVisibility('add_contact_underline', true);
+    document.querySelector('#editCancelButtonId').textContent = "Cancel";
+    document.querySelector('#textChangeToEditContactId').textContent = "Add contact";
+    document.querySelector('#textChangeToSaveId').textContent = "Add contact";
+}
+
+
+function initializeAddContactFormActions() {
+    const editContactForm = document.getElementById('contact_form');
+    editContactForm.onsubmit = function () {
+        createContact();
+        return false;
+    };
+    const editCancelButton = document.getElementById('editCancelButtonId');
+    editCancelButton.onclick = function () {
+        slideOut('contact_popup', 'contact_popup_section', 200);
+    };
+}
+
+/** * This function is to reset the changeImage() */
+function updateMobileAddButtonIcon() {
+    let newImage = './img/person-add.svg';
+    let switchImage = document.querySelector('#mobile_add_contact_button img');
+    switchImage.src = newImage;
+}
+
 
 /** * This function is to save the input in the contact array */
 async function createContact() {
@@ -122,12 +159,23 @@ async function createContact() {
     contactsArray.push(newContact);
     await currentUserContactsSave();
     clearInputFields();
-    slideOut('swipeContactPopupId', 'addContactId', 200);
-    toggleVisibility('mobileBackArrowId', false);
-    toggleVisibility('mobileVisibilityId', true);
+    slideOut('contact_popup', 'contact_popup_section', 200);
+    toggleVisibility('mobile_backarrow_id', false);
+    toggleVisibility('right-container', true);
     renderContacts();
     changesSaved('Contact successfully created');
     hoverNewContact(newContact);
+}
+
+/** * This function is used to create the profile image color */
+function getColor() {
+    if (nextColorIndex >= colorArray.length) {
+        nextColorIndex = 0;
+    }
+    let color = colorArray[nextColorIndex];
+    nextColorIndex++;
+    setItem('nextColorIndex', JSON.stringify(nextColorIndex));
+    return color;
 }
 
 /** * This function is to clear the input fields in a popup */
@@ -143,225 +191,31 @@ function hoverNewContact(newContact) {
     openContactBigInfo(newContact, newIndex, newContact['nameAbbreviation']);
 }
 
-/** * This function is used to create the profile image color */
-function getColor() {
-    if (nextColorIndex >= colorArray.length) {
-        nextColorIndex = 0;
-    }
-    let color = colorArray[nextColorIndex];
-    nextColorIndex++;
-    setItem('nextColorIndex', JSON.stringify(nextColorIndex));
-    return color;
-}
+
+/* CONTACT---------------------------------- DETAIL */
 
 /** * This function is used to display the contact info in a big container */
 function openContactBigInfo(contact, i, nameAbbreviation) {
-    slideOneObject('contactInfoBigId');
+    slideOneObject('contact_details');
     showOnMobileView('mobileDotsSymbol');
-    toggleVisibility('mobileAddContactId', false);
+    toggleVisibility('mobile_add_contact_button', false);
     document.getElementById('mobileDotsSymbol').innerHTML = mobileEditMenu(i);
     showArrowMobileView();
-    changeFunction(i);
+    initializeEditContactBehavior(i);
     highlightContact(i);
 
-    document.getElementById('profilePictureBigId').innerHTML = contactImage(contact, nameAbbreviation);
+    document.getElementById('detail_profile_picture').innerHTML = contactImage(contact, nameAbbreviation);
     contactDescription(contact);
-
     document.getElementById('editMobileButtonId').innerHTML = editContactMobile(i);
     deleteEditContactAtIndex(i);
     document.getElementById('deleteMobileButtonId').innerHTML = deleteContactMobile(i);
     deleteEditContactAtIndex(i);
 }
 
-/** * This function is used to create the button for the mobile view edit contact menu */
-function mobileEditMenu(i) {
-    return /*html*/`
-    <div class="mobileAddContact horicontalAndVertical pointer" onclick="slideOneObject('mobileEditDeleteBoxId')">
-    <img src="./img/more_vert.svg">
-    </div>
-    `
-}
-
-/** * This function is used to show the back button on the mobile view */
-function showArrowMobileView() {
-    showOnMobileView('mobileBackArrowId');
-    document.getElementById('mobileVisibilityId').classList.add('mobileContactOverview');
-    toggleVisibility('mobileVisibilityId', true);
-}
-
-/** * This function is used to show the color image on the contact detail view! */
-function contactImage(contact, nameAbbreviation) {
-    return /*html*/ `
-    <div class="profilePictureBig horicontalAndVertical fontSize47" style="background-color: ${contact.color}" id="nameAbbreviationId">
-        ${nameAbbreviation}
-    </div>
-`;
-}
-
-/** * This function is used to show the contact description on the detail view */
-function contactDescription(contact) {
-    document.getElementById('nameId').innerHTML = /*html*/ `${contact['name']}`;
-    document.getElementById('emailId').innerHTML = /*html*/ `<a href="mailto:${contact['email']}">${contact['email']}</a>`;
-    document.getElementById('phoneId').innerHTML = /*html*/ `<a class="phoneNumber" href="tel:${contact['phone']}">${contact['phone']}</a>`;
-}
-
-/** * This function is used to display the Edit Button on the mobile view */
-function editContactMobile(i) {
-    showOnMobileView('cancelBtnMobileId');
-    return /* html */ `
-    <div class="mobileEdit gap8 d-flex padding8 pointer colorOnHover" onclick="editContact(${i})">
-    ${getPencilSVG()}
-        <span class="fontSize16 mobileEditText">Edit</span>
-    </div>
-`
-}
-
-/** * This function is to delete a contact on mobile view */
-function deleteContactMobile(i) {
-    showOnMobileView('deleteMobileButtonId');
-    return /* html */ `
-    <div class="mobileDelete gap8 d-flex padding8 pointer colorOnHover" onclick="deleteContact(${i}), closePopupMobile()">
-    ${getDeleteSVG()}
-        <span class="fontSize16 mobileDeleteText">Delete</span>
-    </div>
-    `
-}
-
-/** * This function is used to highlight the contact which is onclicked */
-function highlightContact(i) {
-    let highlightContact = document.querySelectorAll('.contactsInfo');
-    highlightContact.forEach((highlightContactElement) => {
-        highlightContactElement.style.backgroundColor = '';
-        highlightContactElement.style.color = '';
-    });
-    highlightContact[i].style.backgroundColor = '#2A3647';
-    highlightContact[i].style.color = 'white';
-}
-
-/** * This function is used to close the popup window on mobile view */
-function closePopupMobile() {
-    toggleVisibility('mobileEditDeleteBoxId', false);
-    toggleVisibility('mobileBackArrowId', false);
-    toggleVisibility('mobileVisibilityId', false);
-    toggleVisibility('mobileDotsSymbol', false);
-    toggleVisibility('mobileAddContactId', true);
-    resetFunctionImageText();
-    highlightContactMobile();
-}
-
-/** * This function is used to reset the highlight of the contact which is onclicked on mobile view*/
-function highlightContactMobile() {
-    let highlightContact = document.querySelectorAll('.contactsInfo');
-    highlightContact.forEach((highlightContactElement) => {
-        highlightContactElement.style.backgroundColor = '';
-        highlightContactElement.style.color = '';
-    });
-}
-
-/** * This function is used to pull the index from the contact and give it to the onclicked person */
-function deleteEditContactAtIndex(i) {
-    let deleteContact = document.getElementById('deleteEditId');
-    deleteContact.innerHTML = /* html */ `
-    <div class="colorOnHover">
-        <div class="editDeleteContact pointer horicontal" onclick="editContact(${i})">
-            ${getPencilSVG()}<span class="pencilBigView">Edit</span>
-        </div>
-    </div>
-    <div class="colorOnHover">
-        <div class="editDeleteContact pointer horicontal" onclick="deleteContact(${i})">
-            ${getDeleteSVG()}Delete
-        </div>
-    </div>
-    `
-}
-
-/** * This function is used to delete a contact */
-async function deleteContact(i) {
-    changesSaved('Contact successfully deleted');
-    resetFunctionImageText();
-    contactsArray.splice(i, 1);
-    await currentUserContactsSave();
-    showHideAfterDeleteContact();
-    changeButtonTextToDeleted();
-    renderContacts();
-}
-
-/** This function is to show or hide objects after deleting a contact */
-function showHideAfterDeleteContact() {
-    toggleVisibility('mobileEditDeleteBoxId', false);
-    toggleVisibility('mobileBackArrowId', false);
-    toggleVisibility('contactInfoBigId', false);
-    toggleVisibility('contactsTitleId', true);
-    toggleVisibility('mobileDotsSymbol', false);
-    toggleVisibility('mobileAddContactId', true);
-    showNotOnMobileView('mobileVisibilityId');
-}
-
-/** * This function is used to edit a contact */
-async function editContact(i) {
-    slide('swipeContactPopupId', 'addContactId');
-    toggleVisibility('cancelBtnMobileId', true);
-    toggleVisibility('addContactId', true);
-    toggleVisibility('mobileEditDeleteBoxId', false);
-
-    document.getElementById('inputNameId').value = contactsArray[i]['name'];
-    document.getElementById('inputEmailId').value = contactsArray[i]['email'];
-    document.getElementById('inputPhoneId').value = contactsArray[i]['phone'];
-
-    changeText();
-    changeFunction(i);
-    await currentUserContactsSave();
-    renderContacts();
-    highlightContact(i);
-}
-
-/** * This function is used to save the changes by editing a contact */
-async function saveContact(i) {
-    contactsArray[i].name = document.getElementById('inputNameId').value;
-    contactsArray[i].email = document.getElementById('inputEmailId').value;
-    contactsArray[i].phone = document.getElementById('inputPhoneId').value;
-    contactsArray[i].nameAbbreviation = document.getElementById('nameAbbreviationId').innerHTML;
-
-    await currentUserContactsSave();
-
-    document.getElementById('nameId').innerHTML = contactsArray[i].name;
-    document.getElementById('emailId').innerHTML = contactsArray[i].email;
-    document.getElementById('phoneId').innerHTML = contactsArray[i].phone;
-
-    changesSaved('Contact successfully saved');
-    showHideAfterSaveContact();
-    resetFunctionImageText();
-    changeText();
-    highlightContact(i);
-    renderContacts();
-}
-
-/** * This function is to show or hide objects after saving a contact */
-function showHideAfterSaveContact() {
-    showNotOnMobileView('mobileVisibilityId');
-    toggleVisibility('mobileDotsSymbol', false);
-    toggleVisibility('mobileAddContactId', true);
-    toggleVisibility('mobileBackArrowId', false);
-    toggleVisibility('contactInfoBigId', false);
-    toggleVisibility('contactsTitleId', true);
-    slideOut('swipeContactPopupId', 'addContactId', 200);
-}
-
-/** * This function is used to change the text in a container */
-function changeText() {
-    document.querySelector('#editCancelButtonId').textContent = "Delete";
-    document.querySelector('#textChangeToEditContactId').textContent = "Edit contact";
-    document.querySelector('#textChangeToSaveId').textContent = "Save";
-}
-
-/** * This function is to change the text in a button */
-function changeButtonTextToDeleted() {
-    document.querySelector('#successfullyCreatedId').textContent = "Contact successfully deleted";
-}
 
 /** * This function is used to change a function */
-function changeFunction(id) {
-    const editContactForm = document.getElementById('editContactFormId');
+function initializeEditContactBehavior(id) {
+    const editContactForm = document.getElementById('contact_form');
     editContactForm.onsubmit = function () {
         saveContact(id);
         return false;
@@ -372,57 +226,223 @@ function changeFunction(id) {
     };
 }
 
-/** * This function is to reset the changeText() */
-function originalText() {
+/** * This function is used to highlight the contact which is onclicked */
+function highlightContact(i) {
+    let highlightContact = document.querySelectorAll('.contact-quickinfo');
+    highlightContact.forEach((highlightContactElement) => {
+        highlightContactElement.style.backgroundColor = '';
+        highlightContactElement.style.color = '';
+    });
+    highlightContact[i].style.backgroundColor = '#2A3647';
+    highlightContact[i].style.color = 'white';
+}
+
+/** * This function is used to show the color image on the contact detail view! */
+function contactImage(contact, nameAbbreviation) {
+    return /*html*/ `
+    <div class="big-profile-picture horicontalAndVertical fontSize47" style="background-color: ${contact.color}" id="nameAbbreviationId">
+        ${nameAbbreviation}
+    </div>
+`;
+}
+
+/** * This function is used to show the contact description on the detail view */
+function contactDescription(contact) {
+    document.getElementById('contact_name').innerHTML = /*html*/ `${contact['name']}`;
+    document.getElementById('emailId').innerHTML = /*html*/ `<a href="mailto:${contact['email']}">${contact['email']}</a>`;
+    document.getElementById('phoneId').innerHTML = /*html*/ `<a class="phone-number" href="tel:${contact['phone']}">${contact['phone']}</a>`;
+}
+
+/** * This function is used to pull the index from the contact and give it to the onclicked person */
+function deleteEditContactAtIndex(i) {
+    let deleteContact = document.getElementById('delete_edit');
+    deleteContact.innerHTML = /* html */ `
+    <div class="colorOnHover">
+        <div class="edit-delete-contact pointer" onclick="editContact(${i})">
+            ${getPencilSVG()}<span>Edit</span>
+        </div>
+    </div>
+    <div class="colorOnHover">
+        <div class="edit-delete-contact pointer" onclick="deleteContact(${i})">
+            ${getDeleteSVG()}Delete
+        </div>
+    </div>
+    `
+}
+
+
+/** * This function is used to save the changes by editing a contact */
+async function saveContact(i) {
+    contactsArray[i].name = document.getElementById('inputNameId').value;
+    contactsArray[i].email = document.getElementById('inputEmailId').value;
+    contactsArray[i].phone = document.getElementById('inputPhoneId').value;
+    contactsArray[i].nameAbbreviation = document.getElementById('nameAbbreviationId').innerHTML;
+    await currentUserContactsSave();
+
+    document.getElementById('contact_name').innerHTML = contactsArray[i].name;
+    document.getElementById('emailId').innerHTML = contactsArray[i].email;
+    document.getElementById('phoneId').innerHTML = contactsArray[i].phone;
+
+    changesSaved('Contact successfully saved');
+    showHideAfterSaveContact();
+    refreshContactDialogUI();
+    editContactText();
+    highlightContact(i);
+    renderContacts();
+}
+
+/** * This function is to show or hide objects after saving a contact */
+function showHideAfterSaveContact() {
+    showNotOnMobileView('right-container');
+    toggleVisibility('mobileDotsSymbol', false);
+    toggleVisibility('mobile_add_contact_button', true);
+    toggleVisibility('mobile_backarrow_id', false);
+    toggleVisibility('contact_details', false);
+    toggleVisibility('contactsTitleId', true);
+    slideOut('contact_popup', 'contact_popup_section', 200);
+}
+
+/** * This function is used to change the text in a container */
+function editContactText() {
     document.querySelector('#editCancelButtonId').textContent = "Cancel";
-    document.querySelector('#textChangeToEditContactId').textContent = "Add contact";
-    document.querySelector('#textChangeToSaveId').textContent = "Add contact";
+    document.querySelector('#textChangeToEditContactId').textContent = "Edit contact";
+    document.querySelector('#textChangeToSaveId').textContent = "Save";
 }
 
-/** * This function is to reset the changeFunction(i) */
-function originalFunction() {
-    const editContactForm = document.getElementById('editContactFormId');
-    editContactForm.onsubmit = function () {
-        createContact();
-        return false;
-    };
-    const editCancelButton = document.getElementById('editCancelButtonId');
-    editCancelButton.onclick = function () {
-        slideOut('swipeContactPopupId', 'addContactId', 200);
-    };
+
+/** * This function is used to delete a contact */
+async function deleteContact(i) {
+    changesSaved('Contact successfully deleted');
+    refreshContactDialogUI();
+    contactsArray.splice(i, 1);
+    await currentUserContactsSave();
+    showHideAfterDeleteContact();
+    changeButtonTextToDeleted();
+    renderContacts();
 }
 
-/** * This function is to reset the changeImage() */
-function originalImage() {
-    let newImage = './img/person_add.svg';
-    let switchImage = document.querySelector('#mobileAddContactId img');
-    switchImage.src = newImage;
+/** This function is to show or hide objects after deleting a contact */
+function showHideAfterDeleteContact() {
+    toggleVisibility('mobile_edit_delete_box', false);
+    toggleVisibility('mobile_backarrow_id', false);
+    toggleVisibility('contact_details', false);
+    toggleVisibility('contactsTitleId', true);
+    toggleVisibility('mobileDotsSymbol', false);
+    toggleVisibility('mobile_add_contact_button', true);
+    showNotOnMobileView('right-container');
 }
 
-/** * This function is switch multiply objects to the original function */
-function resetFunctionImageText() {
-    originalImage();
-    originalText();
-    originalFunction();
+/** * This function is to change the text in a button */
+function changeButtonTextToDeleted() {
+    document.querySelector('#successfullyCreatedId').textContent = "Contact successfully deleted";
+}
+
+
+/** * This function is used to edit a contact */
+async function editContact(i) {
+    console.log(contactsArray[i]['color'],
+	contactsArray[i]['nameAbbreviation'])
+    slide('contact_popup', 'contact_popup_section');
+    toggleVisibility('cancelBtnMobileId', true);
+    toggleVisibility('contact_popup_section', true);
+    toggleVisibility('mobile_edit_delete_box', false);
+    toggleVisibility('add_contact_underline', false);
+    toggleVisibility('profile_img', true);
+    toggleVisibility('no_profile_img', false);
+    document.getElementById('profile_img').innerHTML = contactImageEdit(i)
+    document.getElementById('inputNameId').value = contactsArray[i]['name'];
+    document.getElementById('inputEmailId').value = contactsArray[i]['email'];
+    document.getElementById('inputPhoneId').value = contactsArray[i]['phone'];
+    
+    editContactText();
+    initializeEditContactBehavior(i);
+    await currentUserContactsSave();
+    renderContacts();
+    highlightContact(i);
+}
+/** * This function is used to show the color image on the contact detail view! */
+function contactImageEdit(i) {
+    return /*html*/ `
+    <div class="profile-edit-img fontSize47" style="background-color: ${contactsArray[i]['color']}" id="nameAbbreviationId">
+        ${contactsArray[i]['nameAbbreviation']}
+    </div>
+`;
+}
+
+
+/** * This function is used to create the button for the mobile view edit contact menu */
+function mobileEditMenu(i) {
+    return /*html*/`
+    <div class="mobile-add-contact  horicontalAndVertical pointer" onclick="slideOneObject('mobile_edit_delete_box')">
+    <img src="./img/more-vert.svg">
+    </div>
+    `
+}
+
+/** * This function is used to display the Edit Button on the mobile view */
+function editContactMobile(i) {
+    showOnMobileView('cancelBtnMobileId');
+    return /* html */ `
+    <div class="mobile-edit gap8 d-flex padding8 pointer colorOnHover" onclick="editContact(${i})">
+    ${getPencilSVG()}
+        <span class="fontSize16 mobile-edit-text">Edit</span>
+    </div>
+`
+}
+
+/** * This function is to delete a contact on mobile view */
+function deleteContactMobile(i) {
+    showOnMobileView('deleteMobileButtonId');
+    return /* html */ `
+    <div class="mobile-delete gap8 d-flex padding8 pointer colorOnHover" onclick="deleteContact(${i}), closePopupMobile()">
+    ${getDeleteSVG()}
+        <span class="fontSize16 mobile-delete-text">Delete</span>
+    </div>
+    `
+}
+
+/** * This function is used to close the popup window on mobile view */
+function closePopupMobile() {
+    toggleVisibility('mobile_edit_delete_box', false);
+    toggleVisibility('mobile_backarrow_id', false);
+    toggleVisibility('right-container', false);
+    toggleVisibility('mobileDotsSymbol', false);
+    toggleVisibility('mobile_add_contact_button', true);
+    refreshContactDialogUI();
+    highlightContactMobile();
+}
+
+/** * This function is used to reset the highlight of the contact which is onclicked on mobile view*/
+function highlightContactMobile() {
+    let highlightContact = document.querySelectorAll('.contact-quickinfo');
+    highlightContact.forEach((highlightContactElement) => {
+        highlightContactElement.style.backgroundColor = '';
+        highlightContactElement.style.color = '';
+    });
+}
+
+/** * This function is used to show the back button on the mobile view */
+function showArrowMobileView() {
+    showOnMobileView('mobile_backarrow_id');
+    document.getElementById('right-container').classList.add('contact-details-mobile');
+    toggleVisibility('right-container', true);
 }
 
 /** * This function is used to disable and enable some id's on the mobile view */
-function mobileView() {
+function adjustLayoutForScreenSize() {
     const isMobile = window.innerWidth <= 768;
-    toggleVisibility('mobileVisibilityId', !isMobile);
+    toggleVisibility('right-container', !isMobile);
     toggleVisibility('btnBackgroundId', !isMobile);
-    toggleVisibility('joinLogoAddContactId', !isMobile);
-    toggleVisibility('mobileAddContactId', isMobile);
-    toggleVisibility('blueLineId', isMobile);
-    toggleVisibility('deleteEditId', !isMobile);
-    document.getElementById('contactsTitleId').classList.toggle('horicontal', !isMobile);
-    document.getElementById('mobileVisibilityId').classList.toggle('mobileEditDeleteBoxId', isMobile);
+    toggleVisibility('mobile_add_contact_button', isMobile);
+    toggleVisibility('blue_line_horicontal', isMobile);
+    toggleVisibility('delete_edit', !isMobile);
+    document.getElementById('right-container').classList.toggle('mobile_edit_delete_box', isMobile);
 }
 
 /** * This function is used to disable and enable some id's on the mobile view */
-function desktopViewSmall() {
+function toggleBlueLineOnNarrowDesktop() {
     const is1345px = window.innerWidth <= 1345;
-    toggleVisibility('blueLineId', is1345px);
+    toggleVisibility('blue_line_horicontal', is1345px);
 }
 
 /** * This function is to toggle the visibility (mobile view = yes) */

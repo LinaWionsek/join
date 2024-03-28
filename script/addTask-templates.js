@@ -55,7 +55,7 @@ function returnRenderAllCategorys(name, color, i) {
         <div onclick='selectCategory("all", ${i})' id='categoryAllList${i}' class="categoryRow">
             <span>${name}</span>
             <div class='categoryRowLeft'>
-                <img onclick='deleteCategory(${i})' src="img/subTaskDelete.svg">
+                <img onclick='deleteCategory(${i})' src="img/delete.svg">
                 <div class="colorCircle" style="${color}"></div>
             </div>
         </div>
@@ -101,8 +101,8 @@ function returnRenderAllContactsForSearch(contactColor, contactNamesAbbreviation
             </div>
             <span>${contactNames}</span>
         </div>
-        <img src="img/addTaskBox.svg" id="assignedBox${index}" class="${firstSecondaryClass}">
-        <img src="img/addTaskCheckBox.svg" class="${secondSecondaryClass}" id="assignedBoxChecked${index}">
+        <img src="img/subtask-checkbox-unchecked.svg" id="assignedBox${index}" class="${firstSecondaryClass}">
+        <img src="img/add-task-selected-contact-checkbox.svg" class="${secondSecondaryClass}" id="assignedBoxChecked${index}">
     </div>
     `;
 }
@@ -192,7 +192,7 @@ function returnEditContainer(i) {
     return /*html*/ `
     <input id="editInput" type="text">
     <img onclick="stopSubEdit()" class="editAbsolutCross" src="img/close.svg">
-    <img onclick="confirmSubEdit(${i})" class="editAbsolutCheck" src="img/SubtasksCheck.svg">
+    <img onclick="confirmSubEdit(${i})" class="editAbsolutCheck" src="img/check-blue.svg">
     `;
 }
 
@@ -203,7 +203,7 @@ function returnEditContact(i) {
     return /*html*/`
     <input id="editSelectedContact" readonly type="text">
     <img onclick="stopEditContact()" class="editAbsolutCrossContact" src="img/close.svg">
-    <img onclick="clearSelectedContact(${i})" class="editAbsolutDelete" src="img/subTaskDelete.svg">
+    <img onclick="clearSelectedContact(${i})" class="editAbsolutDelete" src="img/delete.svg">
     `;
 }
 
@@ -218,8 +218,8 @@ function returnSubTaskCollection(subCollection, i) {
     <ul ondblclick="editSubtask(${i})" class="dFlex spaceBtw">
         <li>${subCollection}</li>
         <div>
-            <img class="close-hover" onclick="editSubtask(${i})" src="img/PenAddTask 1=edit.svg">
-            <img class="close-hover" onclick="deleteSubtaskCollection(${i})" src="img/subTaskDelete.svg">
+            <img class="close-hover" onclick="editSubtask(${i})" src="img/pen.svg">
+            <img class="close-hover" onclick="deleteSubtaskCollection(${i})" src="img/delete.svg">
         </div>
     </ul>
     `;
@@ -244,7 +244,7 @@ function returnButtonAreaAddTask() {
         </svg>
     </button>
     <button type="submit" id="createTaskButton" onclick="createTask()" class="createBtn blueBtn">Create Task<img class="createImg"
-            src="./img/check.svg"></button>
+            src="./img/check-white.svg"></button>
 </div>
     `;
 }
@@ -261,7 +261,7 @@ function returnButtonAreaEditTask() {
     </div>
     <div class="addTaskBottomBtnArea">
         <button onclick="addEditTask(), slideOut('addTaskPopupPositionFront', 'addTaskPop', 200)" class="createBtn blueBtn"><b>Ok</b><img class="createImg"
-            src="./img/check.svg"></button>
+            src="./img/check-white.svg"></button>
     </div>
     `;
 }
@@ -275,7 +275,7 @@ function returnCategoryBox1() {
         class="click" id="categoryInputV1" type="text" readonly
         value="Select task category">
     <img onclick="toggleVisibilityAddTask('categoryAreaV1', 'categoryAreaV2')"
-        class="inputAbsolut" src="img/arrow_drop_downaa.svg">
+        class="inputAbsolut" src="img/arrow-down.svg">
     `;
 }
 
@@ -288,7 +288,7 @@ function returnCategoryBox2() {
         class="click" id="categoryInputV2" type="text" readonly
         value="Select task category">
     <img onclick="toggleVisibilityAddTask('categoryAreaV2', 'categoryAreaV1')"
-        class="inputAbsolut" src="img/arrow_drop_up.svg">
+        class="inputAbsolut" src="img/arrow-up.svg">
     <div class="selectContactsPositionContainer" id="categoryContainer">
         <div class="categoryRenderContainer show-scrollbar"
             id="categoryRenderContainer">
@@ -298,7 +298,7 @@ function returnCategoryBox2() {
         <div onclick="toggleVisibilityAddTask('', 'createCategoryPopupByAddTask')"
             class="addNewContactBtn blueBtn">
             <span>Add new category</span>
-            <img class="addNewContactBtnIcon" src="img/addTaskCategory.svg">
+            <img class="addNewContactBtnIcon" src="img/add-task-category.svg">
         </div>
     </div>
     `;
@@ -313,19 +313,19 @@ function returnPrioBox() {
         id="prioUrgentBtn" class="prioBtn">Urgent
         <img id="prioUrgentIcon" class="prioBtnIcons" src="./img/prioUrgent.svg">
         <img id="prioUrgentIconActiv" class="prioBtnIcons d-none"
-            src="./img/PrioUrgentWhite.svg">
+            src="./img/prioUrgentWhite.svg">
     </div>
     <div onclick="prioSelectedToggle('prioMediumBtn', 'prioMediumIcon', 'prioMediumIconActiv', 'prioBtnActivMedium', './img/prioMedium.svg', true)"
         id="prioMediumBtn" class="prioBtn">Medium
         <img id="prioMediumIcon" class="prioBtnIcons" src="./img/prioMedium.svg">
         <img id="prioMediumIconActiv" class="prioBtnIcons d-none"
-            src="./img/PrioMediumWhite.svg">
+            src="./img/prioMediumWhite.svg">
     </div>
     <div onclick="prioSelectedToggle('prioLowBtn', 'prioLowIcon', 'prioLowIconActiv', 'prioBtnActivLow', './img/prioLow.svg', true)"
         id="prioLowBtn" class="prioBtn">Low
         <img id="prioLowIcon" class="prioBtnIcons" src="./img/prioLow.svg">
         <img id="prioLowIconActiv" class="prioBtnIcons d-none"
-            src="./img/PrioLowWhite.svg">
+            src="./img/prioLowWhite.svg">
     </div>
     `;
 }
@@ -339,7 +339,7 @@ function returnAssignToBox1() {
             onclick="toggleVisibilityAddTask('assignedToInputContainer', 'assignedToContactsInputContainer', event)"
             type="text" readonly value="Select contacts to assign">
         <img onclick="toggleVisibilityAddTask('assignedToInputContainer', 'assignedToContactsInputContainer', event)"
-            class="inputAbsolut" src="img/arrow_drop_downaa.svg">
+            class="inputAbsolut" src="img/arrow-down.svg">
         <div id="selectedContactsContainer">
         </div>
         <div class="custom-select d-none" id="selectedContactsDeselect">
@@ -355,14 +355,14 @@ function returnAssignToBox2() {
     <input class="click" id="assignedToInput" type="text" placeholder="An:">
     <img class="inputAbsolut"
     onclick="toggleVisibilityAddTask('assignedToContactsInputContainer', 'assignedToInputContainer')"
-    src="img/arrow_drop_up.svg">
+    src="img/arrow-up.svg">
     <div class="selectContactsPositionContainer">
         <div class="ContactsRenderContainer show-scrollbar"
             id="contactsRenderContainer">
         </div>
         <div onclick="toggleVisibilityAddTask('', 'contactPopupByAddTask', event)" class="addNewContactBtn blueBtn">
             <span>Add new contact</span>
-            <img class="addNewContactBtnIcon" src="img/addTaskperson_add.svg">
+            <img class="addNewContactBtnIcon" src="img/add-task-person-add.svg">
         </div>
     </div>
     `;

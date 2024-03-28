@@ -55,18 +55,17 @@ function openHeaderMenu(event) {
  * This function is used to mark the active .html page
  *
  */
-function markCategory() {
+function markActivePage () {
     const currentPage = window.location.href.split('/').pop().trim() || 'index.html';
     const links = document.querySelectorAll(`.sidebar-text[href*="${currentPage}"]`);
-
     links.forEach(link => {
         const categoryElement = link.querySelector('.sidebar-text-sub');
         categoryElement.classList.add('htmlActive');
         categoryElement.style.color = 'white';
         const categoryImage = link.querySelector('img');
         if (categoryImage) {
-            const categoryName = categoryElement.textContent.trim().toLowerCase();
-            categoryImage.src = `img/${categoryName}ImageWhite.png`;
+            const categoryName = categoryElement.textContent.trim().toLowerCase().replace(/ /g, '');
+            categoryImage.src = `img/${categoryName}ImageWhite.svg`;
         }
     });
 }
@@ -78,7 +77,7 @@ function markCategory() {
  */
 function userCircle() {
     let container = document.getElementById('header-user-img');
-    let nameParts = activUser.name.split(' ');
+    let nameParts = activeUser.name.split(' ');
     let firstName = nameParts[0];
     let lastName = nameParts.length > 1 ? nameParts[nameParts.length - 1] : '';
     let nameAbbreviation = `<b>${firstName.charAt(0).toUpperCase()}${lastName.charAt(0).toUpperCase()}</b>`;
@@ -118,14 +117,14 @@ function returnRenderSidebar() {
 <div class="sidebar">
 
     <div class="logo-container">
-        <img src="img/join.logo-white.svg" alt="">
+        <img src="img/join-logo-white.svg" alt="">
     </div>
 
     <div id="sidebarLinks" class="sidebar-text-area">
         <div class="sideBarCategory">
             <a class="sidebar-text" href="./summary.html">
                 <div class="sidebar-text-sub">
-                    <img src="img/SummaryIcon.svg">
+                    <img src="img/summaryImage.svg">
                     <div class="fontSize16 fontAtMobile">Summary</div>
                 </div>
             </a>
@@ -133,7 +132,7 @@ function returnRenderSidebar() {
         <div class="sideBarCategory">
             <a class="sidebar-text" href="./addTask.html">
                 <div class="sidebar-text-sub">
-                    <img src="img/add.task.icons.svg">
+                <img src="img/addtaskImage.svg">
                     <div class="fontSize16 fontAtMobile">Add Task</div>
                 </div>
             </a>
@@ -141,7 +140,7 @@ function returnRenderSidebar() {
         <div class="sideBarCategory">
             <a class="sidebar-text" href="./board.html">
                 <div class="sidebar-text-sub">
-                    <img src="img/board-icon.svg">
+                    <img src="img/boardImage.svg">
                     <div class="fontSize16 fontAtMobile">Board</div>
                 </div>
             </a>
@@ -149,7 +148,7 @@ function returnRenderSidebar() {
         <div class="sideBarCategory">
             <a class="sidebar-text" href="./contacts.html">
                 <div class="sidebar-text-sub">
-                    <img src="img/contacts-icon.svg">
+                    <img src="img/contactsImage.svg">
                     <div class="fontSize16 fontAtMobile">Contacts</div>
                 </div>
             </a>
@@ -177,19 +176,14 @@ function renderHeader() {
 function returnRenderHeader() {
     return /*html*/`
     <div class="header">
-    <img class="headImgLeft" src="./img/headIconLeft.svg">
+    <img class="headImgLeft" src="./img/head-icon-mobile.svg">
     <div class="headerHeadlineBox fontSize20">Kanban Projekt Managment Tool</div>
     <div onclick="openHeaderMenu(event)" id="userCircleHeader" class="headBoxRight">
-        <a href="help.html"> <img class="headBoxRightImg" src="./img/helpIcon.svg" alt=""></a>
+        <a href="help.html"> <img class="headBoxRightImg" src="./img/help.svg" alt=""></a>
         <div  id="header-user-img" class="headBoxRightUserCircle fontSize16"></div>
     </div>
 </div>
     `;
-}
-
-
-function closeDialog() {
-    document.getElementById('dialog-full').classList.add('d-none');
 }
 
 
@@ -266,7 +260,7 @@ function toggleVisibility(id, show) {
  * If the active user's name is an empty string, it hides the sidebar links. Otherwise, it hides the empty container.
  */
 function hideSidebarLinks() {
-    if (activUser.name === '') {
+    if (activeUser.name === '') {
         document.getElementById('sidebarLinks').classList.add('d-none');
     } else {
         document.getElementById('emptyContainer').classList.add('d-none');

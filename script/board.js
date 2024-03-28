@@ -17,7 +17,7 @@ let showUserDiff;
  * 
  */
 async function initBoard() {
-    loadActivUser();
+    loadActiveUser();
     await currentUserTaskLoad();
     updateBoardHTML();
 }
@@ -217,7 +217,7 @@ function renderSmallUserIcons(element) {
             let user = users[j];
             let color = colors[j]
             assignedUser += /*html*/ ` 
-           <div class="profile-picture horicontal-and-vertical fontSize12" style="background-color:${color}">${user}</div>`;
+           <div class="profile-picture fontSize12" style="background-color:${color}">${user}</div>`;
         }
         diff = users.length - 5;
         showUserDiff = /*html*/ ` 
@@ -228,7 +228,7 @@ function renderSmallUserIcons(element) {
             let user = users[j];
             let color = colors[j]
             assignedUser += /*html*/ ` 
-           <div class="profile-picture horicontal-and-vertical fontSize12" style="background-color:${color}">${user}</div>`;
+           <div class="profile-picture fontSize12" style="background-color:${color}">${user}</div>`;
         }
         diff = '';
         showUserDiff = '';

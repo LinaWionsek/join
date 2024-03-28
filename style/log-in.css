@@ -1,133 +1,150 @@
 body {
     display: flex;
     flex-direction: column;
-    background-color: var(--body-background-color) !important;
-    font-family: 'Inter' !important;
+    background-color: var(--body-background-color);
+    font-family: 'Inter';
     margin: 0;
     overflow-y: auto;
     overflow-x: hidden;
+}
+/* -------------------------------------------------OK!------------------------------------------------- */
+.dialog-login {
+    background-color: var(--text-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+    border-radius: 30px;
+    width: 650px;
+    padding: 48px 115px;
+    position: relative;
 }
 
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 300px;
+    gap: 32px;
 }
 
-.button {
-    background-color: var(--main-color) !important;
-    color: var(--text-white) !important;
+input {
+    outline: none;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    padding: 12px 20px;
+}
+
+input:focus {
+    border-color: #29ABE2;
+}
+
+input[type=text] {
+    background: url('../img/lock.svg') no-repeat scroll;
+    background-position: center right; /* 16px */
+    background-origin: content-box;
+}
+
+input[type=email] {
+    background: url('../img/mail.svg') no-repeat scroll;
+    background-position: center right -2px; /* DON'T DELETE IMPORTANT FOR SYMETRY! */
+    background-origin: content-box;
+}
+
+input[type=password] {
+    background: url('../img/lock.svg') no-repeat scroll;
+    background-position: center right; /* 20px */
+    background-origin: content-box;
+}
+
+#register_password_confirm,
+#register_password,
+#register_name,
+#register_email,
+#login_password,
+#login_email {
+    font-size: 14px; /* 20 */
+}
+/* -------------------------------------------------OK!------------------------------------------------- */
+/* .button {
+    background-color: var(--main-color);
+    color: var(--text-white);
 }
 
 .button:hover {
-    background-color: var(--headline) !important;
+    background-color: var(--headline);
+} */
+
+
+.button-log-in {
+    width: 145px;
+    height: 51px;
+    display: flex;
 }
 
 .button-log-in,
 .button-guest-login {
-    height: auto !important;
-    width: auto !important;
-    padding: 15px 24px !important;
-    border-radius: 8px !important;
-    font-weight: 700 !important;
-    cursor: pointer !important;
-    font-family: 'Inter' !important;
+    height: auto;
+    width: auto;
+    padding: 15px 24px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Inter';
 }
 
 .button-guest-login {
-    background-color: var(--text-white) !important;
-    color: var(--main-color) !important;
-    border: 1px solid var(--version-2-main-color, #2A3647) !important;
-    margin-left: calc(35px / 2) !important;
+    background-color: var(--text-white);
+    color: var(--main-color);
+    border: 1px solid var(--version-2-main-color, #2A3647);
+    margin-left: calc(35px / 2);
+}
+
+/* REGISTER */
+.button-guest-login {
+    background-color: var(--text-white);
+    color: var(--main-color);
+    margin: 35px;
+    height: 51px;
+    min-width: 161;
+    padding-top: 4px;
+    padding-right: 16px;
+    padding-bottom: 4px;
+    padding-left: 16px;
 }
 
 .button-guest-login:hover {
-    border-color: var(--headline) !important;
+    border-color: var(--headline);
     /* border-width: 2px; */
-    color: var(--headline) !important;
+    color: var(--headline);
 }
 
 .button-log-in {
-    background-color: #2A3647 !important;
-    color: white !important;
-    border: none !important;
-    margin-right: calc(35px / 2) !important;
+    background-color: #2A3647;
+    color: white;
+    border: none;
+    margin-right: calc(35px / 2);
 }
 
 .button-log-in:hover {
-    background-color: var(--headline) !important;
-}
-
-input {
-    border: none;
-    outline: none;
+    background-color: var(--headline);
 }
 
 .signInBtn {
-    padding: 15px 16px !important;
+    padding: 15px 16px;
     border-radius: 8px;
     background: #2A3647;
     color: white;
     border: none;
-    margin-left: 35px !important;
+    margin-left: 35px;
     cursor: pointer;
-    font-family: 'Inter' !important;
+    font-family: 'Inter';
 }
 
 .signInBtn:hover {
     background-color: var(--headline)
-}
-
-.sendNewPasswordBtn {
-    padding: 15px 16px !important;
-    border-radius: 8px;
-    background: #2A3647;
-    color: white;
-    border: none;
-}
-
-.sendNewPasswordBtn:hover {
-    background-color: var(--headline)
-}
-
-.input-fields {
-    margin: 35px;
-    display: flex;
-    flex-direction: column;
-}
-
-.input-field {
-    display: flex;
-    justify-content: space-between;
-    background-color: var(--text-white);
-    border: 1px solid var(--border-grey);
-    border-radius: 10px;
-    padding: 12px 21px;
-    width: 422px;
-    height: auto;
-}
-
-.input-field img {
-    width: 24px;
-    height: auto;
-}
-
-#containerUserName {
-    margin-top: 0 !important;
-}
-
-#input-passwort {
-    margin-top: 32px;
-}
-
-.rememberMeForgetMyPasswordContainer {
-    display: flex !important;
-    justify-content: space-between;
-    align-content: center !important;
-    align-items: center !important;
-    height: auto;
-    width: 100%;
-    margin: 8px 0 32px;
 }
 
 .logInTitle {
@@ -136,7 +153,22 @@ input {
     align-items: center;
 }
 
-.rememberMeForgetMyPasswordContainer a {
+.input-fields {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.remember-me-container {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    height: auto;
+    width: 100%;
+}
+
+.remember-me-container a {
     text-decoration: none;
     color: var(--headline);
 }
@@ -144,7 +176,15 @@ input {
 .checkboxRememberMeContainer {
     display: flex;
     align-items: center;
-    padding: 0 39px;
+    padding: 0 16px;
+}
+
+.checkboxRememberMeContainer label {
+    margin-right: 4px;
+}
+
+.checkboxRememberMeContainer a {
+    color: var(--light-blue);
 }
 
 #myCheckbox {
@@ -154,20 +194,10 @@ input {
     cursor: pointer;
 }
 
-.checkbox a {
-    padding: 35px;
-}
-
-.buttons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 32px;
-}
-
 .buttonsUnderLogin {
     display: flex;
     justify-content: center;
+    gap: 35px;
 }
 
 header {
@@ -179,7 +209,7 @@ header {
     padding-left: 77px;
 }
 
-.sing-up-mobile {
+.sign-up-mobile {
     display: none;
 }
 
@@ -215,15 +245,6 @@ header {
     font-weight: bold;
 }
 
-#confirmPassword,
-#password,
-#userName,
-#passwort,
-#email {
-    width: 100%;
-    font-size: 20px;
-}
-
 .logo-container {
     display: flex;
     justify-content: center;
@@ -236,15 +257,25 @@ header {
     flex-shrink: 0;
 }
 
+#sign-up {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+/* ----------------------------------------------------------MEDIA---------------------------------------------------------- */
+
 @media (max-width: 900px) {
-    .dialog {
+    .dialog-login {
         padding: 32px 0;
-        margin: 30px 16px 0;
-        width: auto;
+        margin: 30px 16px;
     }
 }
 
 @media (max-width: 700px) {
+    body {
+        justify-content: space-between;
+    }
     header {
         display: flex;
         justify-content: space-between;
@@ -254,18 +285,23 @@ header {
         padding-left: 15px;
     }
 
-    .sing-up-mobile {
-        padding-top: 90px;
-        display: flex;
-        justify-content: space-around;
+    .sign-up-mobile {
         height: 49px;
+        display: flex;
+        justify-content: center;
         z-index: 1;
         align-items: center;
+        gap: 16px;
+    }
+
+    
+    .sign-up-mobile button {
+        height: 46px;
     }
 
     #warning-text-passwort,
     #warning-text-email {
-        font-size: 12px !important;
+        font-size: 12px;
     }
 
     .warning-field {
@@ -279,28 +315,14 @@ header {
         padding: 0 16px;
     }
 
-    #sing-up {
+    #sign-up {
         display: none;
     }
 
-    .dialog {
-        margin: 30px 16px 0;
+    .dialog-login {
+        margin: 0px 16px;
         padding: 32px 16px;
-        width: auto;
-    }
-
-    .btn-dark {
-        margin-right: 0;
-        margin-left: 2%;
-    }
-
-    .checkbox a {
-        padding: 10px;
-    }
-
-    .buttons {
-        display: flex;
-        flex-direction: column;
+        width: 90vw;
     }
 
     .underline {
@@ -311,24 +333,15 @@ header {
         font-size: 47px;
     }
 
-    .fontSize21 {
-        font-size: 16px !important;
-    }
-
     .buttonsUnderLogin {
-        display: flex !important;
-        flex-direction: column !important;
+        display: flex;
+        flex-direction: column;
         gap: 21px;
     }
 
     .button-log-in,
     .button-guest-login {
-        margin: 0 !important;
-    }
-
-    .input-field {
-        margin: 0 16px;
-        width: auto;
+        margin: 0;
     }
 
     .input-fields {
@@ -341,18 +354,17 @@ header {
         flex-shrink: 0;
     }
 
+    .police{
+        flex-grow: unset;
+        padding: 0px 17px 17px 17px;
+    }
+
 }
 
 @media (max-width: 375px) {
-    .sing-up-mobile {
-        display: flex;
-        justify-content: space-around;
-        padding-top: 44px;
-        height: 0;
-    }
 
-    .checkbox {
-        margin: 10px;
+    form {
+        width: 75vw;
     }
 
     body {
@@ -365,60 +377,51 @@ header {
         padding-left: 15px;
     }
 
-    header img {
-        height: 80px;
-    }
 }
 
 @media (max-width: 393px) and (max-height: 786px) {
-    .sing-up-mobile {
+    .sign-up-mobile {
         padding-top: 50px;
     }
 }
 
 @media (max-width: 375px) and (max-height: 812px) {
-    .sing-up-mobile {
+    .sign-up-mobile {
         padding-top: 66px;
     }
 }
 
 @media (max-height: 900px) {
-    .dialog {
-        margin-top: 5px !important;
+    .dialog-login {
+        margin-top: 5px;
         padding: 32px 16px;
-        width: auto;
-    }
-
-    header img {
-        height: 20px;
     }
 }
 
-
-
 @media (max-height: 768px) {
     .fontSize61 {
-        font-size: 34px !important;
+        font-size: 34px;
     }
 
-    #confirmPassword,
-    #password,
-    #userName,
-    #passwort,
-    #email {
-        font-size: 14px !important;
+    #register_password_confirm,
+    #register_password,
+    #register_name,
+    #register_email,
+    #login_password,
+    #login_email {
+        font-size: 14px;
     }
 
-    .dialog {
+    .dialog-login {
         padding: 16px 8px;
     }
 
-    .sing-up-mobile {
+    .sign-up-mobile {
         padding-top: 40px;
         padding-bottom: 30px;
     }
 
-    .rememberMeForgetMyPasswordContainer {
+    .remember-me-container {
         margin: 8px 0 8px;
     }
 

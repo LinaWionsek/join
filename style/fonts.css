@@ -20,10 +20,6 @@
     font-weight: 400;
 }
 
-.fontSize21 {
-    font-size: 21px;
-}
-
 .fontSize20 {
     font-size: 20px;
     font-weight: 400;
@@ -52,7 +48,6 @@
 .fontSize47,
 .fontSize36,
 .fontSize27,
-.fontSize21,
 .fontSize20,
 .fontSize19,
 .fontSize16,
@@ -162,4 +157,16 @@
     font-weight: 900;
     src: url('../fonts/inter-v13-latin-900.woff2') format('woff2');
     /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* @media (max-width: 768px){
+    .fontSize20 {
+        font-size: 17px;
+    }
+} */
+
+@media (max-width: 400px){
+    .fontSize20 {
+        font-size: 16px;
+    }
 }
