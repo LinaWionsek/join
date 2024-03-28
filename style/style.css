@@ -259,7 +259,7 @@ section {
     align-items: center;
 }
 
-.successfullyBtn {
+.success-info {
     position: absolute;
     bottom: 100px;
     left: calc(50% - 326px / 2);

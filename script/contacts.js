@@ -63,7 +63,7 @@ function createInitial(firstLetter) {
     <div class="initial fontSize20">
         ${firstLetter}
     </div>
-    <div class="partingLine">
+    <div class="parting-line">
     </div>
     `
 }
@@ -71,16 +71,16 @@ function createInitial(firstLetter) {
 /** * This function us used to display the contact infos */
 function loadContactSummary(contact, nameAbbreviation, i) {
     return /* html */ `
-    <div class="contactsInfo pointer"
+    <div class="contact-quickinfo pointer"
         onclick="openContactBigInfo(contactsArray[${i}], ${i}, '${nameAbbreviation}')">
-        <div class="profilePicture horicontalAndVertical" style="background-color: ${contact.color}">
+        <div class="profile-picture horicontalAndVertical" style="background-color: ${contact.color}">
             <span class="fontSize12 nameAbbreviation">
                 ${nameAbbreviation}
             </span>
         </div>
         <div class="column gap5">
             <span class="fontSize20">${maxLetters(contact['name'], 19)}</span>
-            <span class="fontSize16 emailScrollMenu">${maxLetters(contact['email'], 25)}</span>
+            <span class="fontSize16 mail-quickinfo">${maxLetters(contact['email'], 25)}</span>
         </div>
     </div>
     `
@@ -228,7 +228,7 @@ function initializeEditContactBehavior(id) {
 
 /** * This function is used to highlight the contact which is onclicked */
 function highlightContact(i) {
-    let highlightContact = document.querySelectorAll('.contactsInfo');
+    let highlightContact = document.querySelectorAll('.contact-quickinfo');
     highlightContact.forEach((highlightContactElement) => {
         highlightContactElement.style.backgroundColor = '';
         highlightContactElement.style.color = '';
@@ -240,7 +240,7 @@ function highlightContact(i) {
 /** * This function is used to show the color image on the contact detail view! */
 function contactImage(contact, nameAbbreviation) {
     return /*html*/ `
-    <div class="profilePictureBig horicontalAndVertical fontSize47" style="background-color: ${contact.color}" id="nameAbbreviationId">
+    <div class="big-profile-picture horicontalAndVertical fontSize47" style="background-color: ${contact.color}" id="nameAbbreviationId">
         ${nameAbbreviation}
     </div>
 `;
@@ -248,22 +248,22 @@ function contactImage(contact, nameAbbreviation) {
 
 /** * This function is used to show the contact description on the detail view */
 function contactDescription(contact) {
-    document.getElementById('nameId').innerHTML = /*html*/ `${contact['name']}`;
+    document.getElementById('contact_name').innerHTML = /*html*/ `${contact['name']}`;
     document.getElementById('emailId').innerHTML = /*html*/ `<a href="mailto:${contact['email']}">${contact['email']}</a>`;
-    document.getElementById('phoneId').innerHTML = /*html*/ `<a class="phoneNumber" href="tel:${contact['phone']}">${contact['phone']}</a>`;
+    document.getElementById('phoneId').innerHTML = /*html*/ `<a class="phone-number" href="tel:${contact['phone']}">${contact['phone']}</a>`;
 }
 
 /** * This function is used to pull the index from the contact and give it to the onclicked person */
 function deleteEditContactAtIndex(i) {
-    let deleteContact = document.getElementById('deleteEditId');
+    let deleteContact = document.getElementById('delete_edit');
     deleteContact.innerHTML = /* html */ `
     <div class="colorOnHover">
-        <div class="editDeleteContact pointer" onclick="editContact(${i})">
-            ${getPencilSVG()}<span class="pencilBigView">Edit</span>
+        <div class="edit-delete-contact pointer" onclick="editContact(${i})">
+            ${getPencilSVG()}<span>Edit</span>
         </div>
     </div>
     <div class="colorOnHover">
-        <div class="editDeleteContact pointer" onclick="deleteContact(${i})">
+        <div class="edit-delete-contact pointer" onclick="deleteContact(${i})">
             ${getDeleteSVG()}Delete
         </div>
     </div>
@@ -279,7 +279,7 @@ async function saveContact(i) {
     contactsArray[i].nameAbbreviation = document.getElementById('nameAbbreviationId').innerHTML;
     await currentUserContactsSave();
 
-    document.getElementById('nameId').innerHTML = contactsArray[i].name;
+    document.getElementById('contact_name').innerHTML = contactsArray[i].name;
     document.getElementById('emailId').innerHTML = contactsArray[i].email;
     document.getElementById('phoneId').innerHTML = contactsArray[i].phone;
 
@@ -323,7 +323,7 @@ async function deleteContact(i) {
 
 /** This function is to show or hide objects after deleting a contact */
 function showHideAfterDeleteContact() {
-    toggleVisibility('mobileEditDeleteBoxId', false);
+    toggleVisibility('mobile_edit_delete_box', false);
     toggleVisibility('mobile_backarrow_id', false);
     toggleVisibility('contact_details', false);
     toggleVisibility('contactsTitleId', true);
@@ -345,7 +345,7 @@ async function editContact(i) {
     slide('contact_popup', 'contact_popup_section');
     toggleVisibility('cancelBtnMobileId', true);
     toggleVisibility('contact_popup_section', true);
-    toggleVisibility('mobileEditDeleteBoxId', false);
+    toggleVisibility('mobile_edit_delete_box', false);
     toggleVisibility('add_contact_underline', false);
     toggleVisibility('profile_img', true);
     toggleVisibility('no_profile_img', false);
@@ -373,7 +373,7 @@ function contactImageEdit(i) {
 /** * This function is used to create the button for the mobile view edit contact menu */
 function mobileEditMenu(i) {
     return /*html*/`
-    <div class="mobileAddContact horicontalAndVertical pointer" onclick="slideOneObject('mobileEditDeleteBoxId')">
+    <div class="mobile-add-contact  horicontalAndVertical pointer" onclick="slideOneObject('mobile_edit_delete_box')">
     <img src="./img/more-vert.svg">
     </div>
     `
@@ -383,9 +383,9 @@ function mobileEditMenu(i) {
 function editContactMobile(i) {
     showOnMobileView('cancelBtnMobileId');
     return /* html */ `
-    <div class="mobileEdit gap8 d-flex padding8 pointer colorOnHover" onclick="editContact(${i})">
+    <div class="mobile-edit gap8 d-flex padding8 pointer colorOnHover" onclick="editContact(${i})">
     ${getPencilSVG()}
-        <span class="fontSize16 mobileEditText">Edit</span>
+        <span class="fontSize16 mobile-edit-text">Edit</span>
     </div>
 `
 }
@@ -394,16 +394,16 @@ function editContactMobile(i) {
 function deleteContactMobile(i) {
     showOnMobileView('deleteMobileButtonId');
     return /* html */ `
-    <div class="mobileDelete gap8 d-flex padding8 pointer colorOnHover" onclick="deleteContact(${i}), closePopupMobile()">
+    <div class="mobile-delete gap8 d-flex padding8 pointer colorOnHover" onclick="deleteContact(${i}), closePopupMobile()">
     ${getDeleteSVG()}
-        <span class="fontSize16 mobileDeleteText">Delete</span>
+        <span class="fontSize16 mobile-delete-text">Delete</span>
     </div>
     `
 }
 
 /** * This function is used to close the popup window on mobile view */
 function closePopupMobile() {
-    toggleVisibility('mobileEditDeleteBoxId', false);
+    toggleVisibility('mobile_edit_delete_box', false);
     toggleVisibility('mobile_backarrow_id', false);
     toggleVisibility('right-container', false);
     toggleVisibility('mobileDotsSymbol', false);
@@ -414,7 +414,7 @@ function closePopupMobile() {
 
 /** * This function is used to reset the highlight of the contact which is onclicked on mobile view*/
 function highlightContactMobile() {
-    let highlightContact = document.querySelectorAll('.contactsInfo');
+    let highlightContact = document.querySelectorAll('.contact-quickinfo');
     highlightContact.forEach((highlightContactElement) => {
         highlightContactElement.style.backgroundColor = '';
         highlightContactElement.style.color = '';
@@ -434,15 +434,15 @@ function adjustLayoutForScreenSize() {
     toggleVisibility('right-container', !isMobile);
     toggleVisibility('btnBackgroundId', !isMobile);
     toggleVisibility('mobile_add_contact_button', isMobile);
-    toggleVisibility('blueLineId', isMobile);
-    toggleVisibility('deleteEditId', !isMobile);
-    document.getElementById('right-container').classList.toggle('mobileEditDeleteBoxId', isMobile);
+    toggleVisibility('blue_line_horicontal', isMobile);
+    toggleVisibility('delete_edit', !isMobile);
+    document.getElementById('right-container').classList.toggle('mobile_edit_delete_box', isMobile);
 }
 
 /** * This function is used to disable and enable some id's on the mobile view */
 function toggleBlueLineOnNarrowDesktop() {
     const is1345px = window.innerWidth <= 1345;
-    toggleVisibility('blueLineId', is1345px);
+    toggleVisibility('blue_line_horicontal', is1345px);
 }
 
 /** * This function is to toggle the visibility (mobile view = yes) */

@@ -7,7 +7,7 @@ body {
     font-family: 'Inter';
 }
 
-.contactPage {
+.contact-content {
     margin-top: 110px;
 }
 
@@ -24,7 +24,7 @@ body {
     height: calc(100vh - 160px);
 }
 
-.profilePicture {
+.profile-picture {
     height: 42px;
     width: 42px;
     border-radius: 100%;
@@ -65,10 +65,10 @@ body {
     background: #29ABE2;
 } */
 
-.addNewContactButton img {
+/* .addNewContactButton img {
     width: 32px;
     height: 32px;
-}
+} */
 
 .form-control:focus {
     border-color: inherit;
@@ -119,17 +119,17 @@ body {
     border-radius: 10px;
 }
 
-.emptyContainer {
+/* .emptyContainer {
     height: 78px;
-}
+} */
 
-.scrollingContainer {
+.scrolling-container {
     width: 400px;
     margin-top: 101px;
     padding: 0px 20px 0px 20px;
 }
 
-.contactsInfo {
+.contact-quickinfo {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -139,7 +139,7 @@ body {
     border-radius: 10px;
 }
 
-.contactsInfo:hover {
+.contact-quickinfo:hover {
     background: #F2F2F2;
 }
 
@@ -151,7 +151,7 @@ body {
     height: 58px;
 }
 
-.partingLine {
+.parting-line {
     height: 1px;
     background: #D1D1D1;
     margin: 8px 0 8px;
@@ -202,7 +202,7 @@ body {
     box-shadow: 2px 0 6px 0 rgb(0, 0, 0, 0.5);
 } */
 
-.closePopupCross {
+/* .closePopupCross {
     position: absolute;
     top: 66px;
     right: 46px;
@@ -213,22 +213,22 @@ body {
 .closePopupCross:hover {
     background: #EEEEEE;
     border-radius: 100%;
-}
+} */
 
 /* Text on right side */
-.contactInfoBig,
-.contactsTitle {
+.contact-detail-container,
+.right-container-headline {
     margin: 0 55px;
     height: auto;
     width: auto;
 }
 
-.contactInfoBig {
+.contact-detail-container {
     display: flex;
     flex-direction: column;
 }
 
-.contactsTitle {
+.right-container-headline {
     display: flex;
     align-items: center;
     gap: 30px;
@@ -236,7 +236,7 @@ body {
     margin-bottom: 32px;
 }
 
-.profilePictureBig {
+.big-profile-picture {
     width: 120px;
     height: 120px;
     border-radius: 100%;
@@ -245,17 +245,19 @@ body {
     box-shadow: -2px 0 6px 0 rgb(0, 0, 0, 0.2);
 }
 
-.contactInfoTextBlock {
+.contact-information-text-block {
+    display: flex;
+    align-items: center;
     height: 74px;
     margin-bottom: 21px;
     margin-top: 21px;
 }
 
-.emailText {
+.email-text {
     margin-bottom: 15px;
 }
 
-.emailScrollMenu,
+.mail-quickinfo,
 #emailid a {
     color: #007CEE;
 }
@@ -265,37 +267,24 @@ body {
 }
 
 #emailid,
-.phoneNumber {
+.phone-number {
     width: 100%;
 }
 
-.phoneNumber {
+.phone-number {
     color: black;
 }
 
-.phoneText {
+.phone-text {
     margin: 22px 0 15px;
 }
 
-.pencilBigView {
-    width: 30px;
-}
-
-.editDeleteContact {
-    gap: 8px;
-}
-
-.editDeleteContact:hover {
+.edit-delete-contact:hover {
     color: #29ABE2;
     font-weight: bold;
 }
 
-.editDeleteContact svg {
-    width: 24px;
-    height: 24px;
-}
-
-.mobileEditDeleteBox {
+#mobile_edit_delete_box {
     position: absolute;
     bottom: calc(80px + 32px);
     right: 16px;
@@ -309,10 +298,10 @@ body {
     border-top-right-radius: 10px;
 }
 
-.mobileDeleteText:hover,
-.mobileEditText:hover,
-.mobileEdit:hover,
-.mobileDelete:hover {
+.mobile-delete-text:hover,
+.mobile-edit-text:hover,
+.mobile-edit:hover,
+.mobile-delete:hover {
     color: #29ABE2;
     font-weight: bold;
     background-color: #EEEEEE;
@@ -336,25 +325,25 @@ body {
     width: 36.901px;
     height: 36.901px;
 }
-.profilePicAndNameBig{
+.contact-detail-top{
     display: flex;
     gap: 54px;
 }
 
-#nameId {
+#contact_name {
     margin-bottom: 4px;
     font-size: 47px;
 }
 
-#deleteEditId {
+#delete_edit {
     margin-top: 4px;
 }
 
-.nameAbbreviation {
+/* .nameAbbreviation {
     margin-top: 2px;
-}
+} */
 
-.contentContact {
+.contact-container {
     display: flex;
     flex-direction: column;
     padding-left: 243px;

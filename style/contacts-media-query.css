@@ -1,7 +1,7 @@
  @media (max-width: 1345px) {
 
 
-     .contactsTitle {
+     .right-container-headline {
          gap: 8px;
          height: auto;
          display: flex;
@@ -10,7 +10,7 @@
          align-items: flex-start;
      }
 
-     #blueLineIdDesktopViewId {
+     #blue_line_vertical {
          display: none;
      }
 
@@ -19,7 +19,7 @@
         min-width: 375px !important;
     } */
 
-     .profilePicAndNameBig {
+     .contact-detail-top {
          flex-direction: column;
          align-items: flex-start !important;
      }
@@ -31,7 +31,7 @@
  }
 
  @media (max-width: 1000px) {
-     .contentContact {
+     .contact-container {
          padding-left: calc(243px - 83px);
      }
  }
@@ -107,9 +107,9 @@
          justify-content: center;
      }
 
-     .cancelBtn {
+     /* .cancelBtn {
          margin-right: 20px !important;
-     }
+     } */
 
      /* .inputName input, */
      /* .inputPhone input, */
@@ -118,22 +118,22 @@
          height: calc(26px + 15px) !important;
      }
 
-     .closePopupCross path {
+     /* .closePopupCross path {
          fill: white !important;
-     }
+     } */
 
      /* top: calc(0px -(100vh* 0.4) + 2px) !important; */
-     .closePopupCross {
+     /* .closePopupCross {
          position: absolute;
          top: calc(0px - (100vh * 0.4) + -16px);
          right: 16px !important;
-     }
+     } */
 
-     .cancelBtn,
-     .createContactButton {
+     /* .cancelBtn, */
+     /* .createContactButton {
          padding: 18px 10px !important;
          width: auto !important;
-     }
+     } */
 
      .left-popup img {
          top: 100px !important;
@@ -143,19 +143,19 @@
 
  @media (max-width: 1100px) {
 
-     .scrollingContainer {
+     .scrolling-container {
          width: auto;
      }
 
-     .contactsTitle {
+     .right-container-headline {
          margin: 0px 12px 32px !important;
      }
 
-     .contactInfoBig {
+     .contact-detail-container {
          margin: 0 12px;
      }
 
-     /* .contactsInfo {
+     /* .contact-quickinfo {
         max-width: 352px !important;
         min-width: 352px !important;
     } */
@@ -171,29 +171,29 @@
 
  @media (max-width: 768px) {
 
-     .mobileDelete {
+     .mobile-delete {
          display: none !important;
      }
 
-     .mobileDelete,
-     .mobileEdit {
+     .mobile-delete,
+     .mobile-edit {
          align-items: center;
      }
 
-     .scrollingContainer {
+     .scrolling-container {
          margin-top: 0 !important;
      }
 
-     .profilePicAndNameBig {
+     .contact-detail-top {
          flex-direction: row !important;
          align-items: center !important;
      }
 
-     .contactPage {
+     .contact-content {
          width: 100% !important;
      }
 
-     .contactsInfo {
+     .contact-quickinfo {
          max-width: 100% !important;
          min-width: 50vw !important;
          padding: 15px 24px !important;
@@ -201,7 +201,7 @@
          text-align: start !important;
      }
 
-     .contentContact {
+     .contact-container {
          display: flex;
          flex-direction: row !important;
          padding-left: 0px !important;
@@ -252,7 +252,7 @@
 
      /* popup ende */
 
-     .mobileAddContact {
+     .mobile-add-contact {
          position: absolute;
          bottom: calc(80px + 32px);
          right: 16px;
@@ -263,12 +263,12 @@
          box-shadow: -2px 0 6px 0 rgb(0, 0, 0, 0.2);
      }
 
-     .mobileAddContact img {
+     .mobile-add-contact img {
          width: 32px;
          height: 32px;
      }
 
-     .mobileAddContact:hover {
+     .mobile-add-contact:hover {
          background-color: #29ABE2;
      }
 
@@ -282,36 +282,36 @@
          height: 100vh;
      }
 
-     .contactsTitle {
+     .right-container-headline {
          gap: 8px;
          height: auto;
          flex-direction: column;
          margin: 48px 16px 48px;
      }
 
-     .contactsTitle img {
+     .right-container-headline img {
          margin: 0 !important;
      }
 
-     #blueLineId {
+     #blue_line_horicontal {
          margin-top: 8px;
          font-size: 0 !important;
      }
 
-     .contactInfoBig {
+     .contact-detail-container {
          margin: 0 16px;
          width: calc(100vw - 32px) !important;
      }
 
-     .contactInfoTextBlock {
+     .contact-information-text-block {
          height: auto !important;
      }
 
-     .successfullyBtn {
+     .success-info {
          bottom: 195px !important;
      }
 
-     .profilePictureBig {
+     .big-profile-picture {
          width: 80px !important;
          height: 80px !important;
          margin: 0 20px 0 0 !important;
@@ -354,12 +354,12 @@
         margin-top: -40px;
      } */
 
-     .profilePicAndNameBig {
+     .contact-detail-top {
          flex-direction: column !important;
          align-items: start !important;
      }
 
-     .contactsInfo {
+     .contact-quickinfo {
          display: flex;
          /* flex-direction: column !important; */
          padding: 15px 24px 15px 24px !important;
@@ -374,7 +374,7 @@
  @media (max-height: 1150px) {}
 
  @media (max-height: 700px) {
-     .contactInfoBig {
+     .contact-detail-container {
          overflow-y: scroll !important;
          height: calc(100vh - 319.5px) !important;
      }
@@ -383,11 +383,11 @@
          padding-bottom: 8px;
      }
 
-     .contactsTitle {
+     .right-container-headline {
          margin: 32px 16px 32px !important;
      }
 
-     .profilePictureBig {
+     .big-profile-picture {
          width: 60px !important;
          height: 60px !important
      }
@@ -396,11 +396,11 @@
  @media (max-height: 860px) and (min-width: 769px) {
 
 
-     .contactInfoTextBlock {
+     .contact-information-text-block {
          height: auto;
      }
 
-     .profilePictureBig {
+     .big-profile-picture {
          width: 80px;
          height: 80px;
      }

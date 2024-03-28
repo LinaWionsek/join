@@ -36,9 +36,9 @@
             <a href="./index.html">Log Out</a>
         </div>
     </div>
-    <div class="contentContact">
+    <div class="contact-container">
 
-        <div class="d-flex contactPage">
+        <div class="d-flex contact-content">
             <section class="left-container">
                 <div class="btnBackground horicontalAndVertical" id="btnBackgroundId">
                     <button type="button" class="button blue-btn fontSize20"
@@ -47,7 +47,7 @@
                         <img src="./img/person-add.svg">
                     </button>
                 </div>
-                <div class="scrollingContainer">
+                <div class="scrolling-container">
                     <div id="contact_list">
                     </div>
                 </div>
@@ -125,17 +125,17 @@
             </section>
 
             <section id="right-container">
-                <div class="contactsTitle" id="contactsTitleId">
+                <div class="right-container-headline" id="contactsTitleId">
                     <div class="fontSize61"><b>Contacts</b></div>
-                    <div id="blueLineIdDesktopViewId">
-                        <svg class="mobileDelete" xmlns="http://www.w3.org/2000/svg" width="3" height="59"
+                    <div id="blue_line_vertical">
+                        <svg class="mobile-delete" xmlns="http://www.w3.org/2000/svg" width="3" height="59"
                             viewBox="0 0 3 59" fill="none" style="min-width: 3px; min-height: 59px;">
                             <path d="M2 2V61" stroke="#29ABE2" stroke-width="3" stroke-linecap="round" />
                         </svg>
                     </div>
                     </svg>
                     <div class="fontSize27 nowrap">Better with a Team</div>
-                    <div id="blueLineId" class="d-none">
+                    <div id="blue_line_horicontal" class="d-none">
                         <svg xmlns="http://www.w3.org/2000/svg" width="90" height="3" viewBox="0 0 90 3" fill="none"
                             style="min-width: 90px; min-height: 3px; height: 3px">
                             <path d="M92 2L2 2" stroke="#29ABE2" stroke-width="3" stroke-linecap="round" />
@@ -143,34 +143,37 @@
                     </div>
                 </div>
 
-                <div class="contactInfoBig d-none" id="contact_details">
+                <div class="contact-detail-container d-none" id="contact_details">
                     <!-- Big Picture / Name / Edit and Delete -->
-                    <div class="profilePicAndNameBig">
+                    <div class="contact-detail-top">
                         <div id="detail_profile_picture">
                         </div>
                         <div>
-                            <div id="nameId">
+                            <div id="contact_name">
                             </div>
-                            <div class="d-flex gap16 fontSize16" id="deleteEditId">
+                            <div class="d-flex gap16 fontSize16" id="delete_edit">
                             </div>
                         </div>
                     </div>
                     <!-- Middle Text -->
-                    <spline class="contactInfoTextBlock fontSize20">
+                    <spline class="contact-information-text-block fontSize20">
                         Contact Information
                     </spline>
-                    <!-- Rest -->
-                    <spline class="emailText fontSize16">
-                        <b>Email</b>
-                    </spline>
-                    <div id="emailId" class="fontSize16">
-
+                    <div> 
+                        <!-- Rest -->
+                        <spline class="email-text fontSize16">
+                            <b>Email</b>
+                        </spline>
+                        <div id="emailId" class="fontSize16">
+    
+                        </div>
+                        <spline class="phone-text fontSize16">
+                            <b>Phone</b>
+                        </spline>
+                        <div id="phoneId" class="fontSize16">
+                        </div>
                     </div>
-                    <spline class="phoneText fontSize16">
-                        <b>Phone</b>
-                    </spline>
-                    <div id="phoneId" class="fontSize16">
-                    </div>
+                    
                 </div>
             </section>
             <!-- mobile -->
@@ -179,7 +182,7 @@
             </div>
 
             <section>
-                <div class="mobileAddContact horicontalAndVertical pointer"
+                <div class="mobile-add-contact  horicontalAndVertical pointer"
                     onclick="openAddContactWindow(), slide('contact_popup', 'contact_popup_section')"
                     id="mobile_add_contact_button">
                     <img src="./img/person-add.svg">
@@ -187,7 +190,7 @@
             </section>
 
             <section>
-                <div class="mobileEditDeleteBox vertical column d-none" id="mobileEditDeleteBoxId">
+                <div class="vertical column d-none" id="mobile_edit_delete_box">
                     <div id="editMobileButtonId">
                     </div>
                     <div id="deleteMobileButtonId">
@@ -198,7 +201,7 @@
                 </div>
             </section>
 
-            <section class="successfullyBtn horicontalAndVertical fontSize20 d-none" id="successfullyCreatedId">
+            <section class="success-info horicontalAndVertical fontSize20 d-none" id="successfullyCreatedId">
             </section>
         </div>
     </div>

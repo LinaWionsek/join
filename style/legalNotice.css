@@ -39,7 +39,7 @@ body {
     cursor: pointer;
 }
 
-.emptyContainer {
+/* .emptyContainer {
     width: 170px;
     height: 80px;
     background-color: white;
@@ -47,7 +47,7 @@ body {
     position: absolute;
     top: 0;
     right: 0;
-}
+} */
 
 .quicklinksContainer::-webkit-scrollbar-button:start:decrement {
     background-position: center !important;
