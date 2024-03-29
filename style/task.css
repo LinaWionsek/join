@@ -8,7 +8,7 @@ body {
 .task-container {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 97%;
     overflow-y: auto;
 
     margin-top: 206px;
@@ -64,17 +64,19 @@ body {
 .left-container {
     display: flex;
     flex-direction: column;
-    padding-right: 50px;
-    width: 100%;
-    /* align-items: center; */
+    padding-right: 24px;
+    gap: 24px;
+    width: 400px;
+    min-width: 400px; 
 }
 
 .right-container {
     display: flex;
     flex-direction: column;
-    padding-left: 50px;
-    width: 100%;
-    /* align-items: center; */
+    padding-left: 24px;
+    gap: 24px;
+    width: 400px;
+    min-width: 400px;
 }
 
 .seperator {
@@ -90,7 +92,7 @@ body {
     background-color: white;
     display: flex;
     padding: 12px 20px;
-
+    margin-top: 8px;
 }
 
 .custom-input input {
@@ -105,24 +107,49 @@ body {
     width: 24px;
 }
 
-.prio-container{
+.prio-container {
+    justify-content: space-between;
     display: flex;
-    gap: 8px;
+    margin-top: 8px;
 }
 
 .prio-btn {
     background-color: white;
 }
 
-.prio-btn img{
+.prio-btn img {
     background-color: white;
 }
 
 .task-bottom {
-
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 100px;
 }
 
-.test {
+.button-group {
     display: flex;
-    flex-direction: column;
+    gap: 8px;
+}
+
+
+@media (max-width: 1280px){
+    .task-contentposition {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+
+@media (max-width: 1160px){
+    .task-contentposition {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+@media (max-width: 768px){
+    .task-contentposition {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
 }
