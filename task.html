@@ -34,14 +34,102 @@
             <a href="./index.html">Log Out</a>
         </div>
     </div>
-<!-- ------------------------------------------------------------------------------------------------------------ -->
-    
+    <!-- ------------------------------------------------------------------------------------------------------------ -->
+    <div id="popup-container" class="dialog-bg d-none"></div>
+    <div class="task-container">
+        <div class="task-header">
+            <div class="fontSize61"><b>Add Task</b></div>
+        </div>
+        <div class="task-contentposition">
+            <div class="left-container">
+                <div>
+                    <div>
+                        Title
+                        <span class="required-star">*</span>
+                    </div>
+                    <input type="text" placeholder="Enter a title" id="inputNameId" class="fontSize20 width-100P"
+                        required>
+                </div>
 
-<!-- ------------------------------------------------------------------------------------------------------------ -->
+                <div>
+                    <div>
+                        Description
+                    </div>
+                    <textarea id="" class="width-100P fontSize20" placeholder="Enter a Description"
+                        type="text"></textarea>
+                </div>
+
+                <div>
+                    <div>
+                        Assigned to
+                    </div>
+                    <div id="assigned_to_input_container" class="custom-input">
+                        <input placeholder="Enter a title" id="" class="fontSize20">
+                        <img src="img/arrow-up.svg" alt="">
+                    </div>
+                </div>
+
+            </div>
+
+            <img src="img/vector-task.svg" alt="">
+
+
+            <div class="right-container">
+
+                <div>
+                    <div>
+                        Due date
+                        <span class="required-star">*</span>
+                    </div>
+
+                    <input type="date" placeholder="Enter a title" id="" class="fontSize20 width-100P" required>
+
+                </div>
+                <div>
+                    <div>
+                        Prio
+                    </div>
+                    <div>
+                        Prio buttons
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        Category
+                        <span class="required-star">*</span>
+                    </div>
+                  
+                    <div id="category_input_container" class="custom-input">
+                        <input placeholder="Select task category" id="" class="fontSize20" required>
+                        <img src="img/arrow-up.svg" alt="">
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        Subtasks
+                    </div>
+                    <div id="category_input_container" class="custom-input">
+                        <input placeholder="Add new subtask" id="" class="fontSize20" required>
+                        <img src="img/plus.svg">
+                    </div>
+                </div>
+
+
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+    <!-- ------------------------------------------------------------------------------------------------------------ -->
     <section class="success-info horicontalAndVertical fontSize20 d-none" id="successfullyCreatedId">
         Contact succesfully created
     </section>
-    
+
 </body>
 
 </html>

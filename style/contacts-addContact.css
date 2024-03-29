@@ -192,6 +192,14 @@ input[type=tel] {
     background-origin: content-box;
 }
 
+input[type=date] {
+    background: url('../img/calendar.png') no-repeat scroll;
+    
+    background-position: center right;
+    /* 20px */
+    background-origin: content-box;
+}
+
 /* .inputName input:hover, */
 /* .inputPhone input:hover */
 .register_email_container input:hover {
