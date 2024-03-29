@@ -84,6 +84,7 @@ textarea {
     height: 56px;
     width: auto; /* fit-content */
     border-radius: 10px;
+    font-size: 17px;
     font-weight: 400; /* 700 */
     gap: 4px;
     white-space: nowrap;

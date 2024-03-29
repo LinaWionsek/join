@@ -30,12 +30,17 @@ body {
     overflow-y: auto; */
 }
 
+.task-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+}
+
+
 .task-contentposition {
     padding-left: 96px;
     padding-right: 96px;
-    display: flex;
-    align-items: flex-start;
-    width: 100%;
 }
 
 .task-header {
@@ -60,6 +65,7 @@ body {
     display: flex;
     flex-direction: column;
     padding-right: 50px;
+    width: 100%;
     /* align-items: center; */
 }
 
@@ -67,6 +73,7 @@ body {
     display: flex;
     flex-direction: column;
     padding-left: 50px;
+    width: 100%;
     /* align-items: center; */
 }
 
@@ -77,6 +84,7 @@ body {
 }
 
 .custom-input {
+    justify-content: space-between;
     border: 1px solid #d1d1d1;
     border-radius: 10px;
     background-color: white;
@@ -86,11 +94,35 @@ body {
 }
 
 .custom-input input {
+    width: 90%;
     padding: 0;
     border: none;
+    border-radius: 0px;
 }
 
 .custom-input img {
     height: 24px;
     width: 24px;
+}
+
+.prio-container{
+    display: flex;
+    gap: 8px;
+}
+
+.prio-btn {
+    background-color: white;
+}
+
+.prio-btn img{
+    background-color: white;
+}
+
+.task-bottom {
+
+}
+
+.test {
+    display: flex;
+    flex-direction: column;
 }
