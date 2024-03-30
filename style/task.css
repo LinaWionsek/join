@@ -43,6 +43,11 @@ body {
     padding-right: 96px;
 }
 
+.task-contentposition form {
+    max-width: 1000px;
+}
+
+
 .task-header {
     display: flex;
     align-items: flex-end;
@@ -67,7 +72,11 @@ body {
     padding-right: 24px;
     gap: 24px;
     width: 400px;
-    min-width: 400px; 
+    min-width: 400px;
+}
+
+.task-vector {
+    display: block;
 }
 
 .right-container {
@@ -134,22 +143,65 @@ body {
 }
 
 
-@media (max-width: 1280px){
+@media (max-width: 1280px) {
+    .task-header {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
     .task-contentposition {
         padding-left: 50px;
         padding-right: 50px;
     }
 }
 
-@media (max-width: 1160px){
+@media (max-width: 1160px) {
+    .task-header {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
     .task-contentposition {
         padding-left: 50px;
         padding-right: 50px;
     }
 }
-@media (max-width: 768px){
+
+@media (max-width: 1130px) {
+    .task-vector {
+        display: none;
+    }
+
+    .task-content {
+        flex-direction: column;
+    }
+
+    .left-container {
+        padding-right: 0px;
+    }
+
+    .right-container {
+        padding-left: 0px;
+        margin-top: 24px;
+    }
+
+
+}
+
+@media (max-width: 768px) {
+    .task-container {
+        width: 100%;
+        padding-left: 0px;
+    }
+
+    .task-header {
+        padding-left: 16px;
+        padding-right: 16px;
+        left: 0px;
+    }
+
     .task-contentposition {
-        padding-left: 12px;
-        padding-right: 12px;
+        padding-left: 16px;
+        padding-right: 16px;
     }
 }
