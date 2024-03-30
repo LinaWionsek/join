@@ -32,12 +32,11 @@ let allCategorys = [{
     'color': [],
 }];
 
+/** Represents the current ID for tasks. */
+let currentId = 0;
+/** Represents the status group for tasks. */
+let statusGroup = ''
 /** * Collection of subtasks associated with tasks. */
-let subTaskCollection = [];
-/** Collection of finished subtasks. */
-let subtasksFinish = [];
-/** Collection of contacts associated with tasks. */
-let contactCollection = [];
 /** Represents the currently selected category with its name and color. */
 let currentCategorySelected = [{
     'name': '',
@@ -45,16 +44,21 @@ let currentCategorySelected = [{
 }];
 /** Represents the currently selected priority. */
 let currentPrioSelected = "";
-/** Represents the current ID for tasks. */
-let currentId = 0;
+
+
+let subTaskCollection = [];
+/** Collection of finished subtasks. */
+let subtasksFinish = [];
+/** Collection of contacts associated with tasks. */
+let contactCollection = [];
+
 /** Task ID for editing tasks. */
 let taskIdForEdit = '';
 /** Represents the status for editing tasks. */
 let statusEdit = '';
 /** Represents the task being edited. */
 let editTask = '';
-/** Represents the status group for tasks. */
-let statusGroup = '';
+;
 
 //save and load task elements
 
