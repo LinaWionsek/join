@@ -234,7 +234,7 @@ function renderSubtasks() {
 function editSubtask(i) {
     let subtaskToEdit = subTaskCollection[i];
     let editContainer = document.getElementById('edit_container');
-    editContainer.classList.remove('d-none');
+    toggleVisibility('edit_container', true);
     editContainer.innerHTML = '';
     editContainer.innerHTML += /*html*/ `
     <div class="subtask-edit-input">
@@ -256,13 +256,13 @@ function confirmSubtaskEdit(i) {
     }
     renderSubtasks();
     input.value = '';
-    document.getElementById('edit_container').classList.add('d-none');
+    toggleVisibility('edit_container', false);
 }
 
 function cancelSubtaskEdit() {
     let input = document.getElementById('edit_input');
     input.value = '';
-    document.getElementById('edit_container').classList.add('d-none');
+    toggleVisibility('edit_container', false);
 }
 
 function deleteSubtask(i) {
