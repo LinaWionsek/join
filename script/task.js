@@ -269,3 +269,91 @@ function deleteSubtask(i) {
     subTaskCollection.splice(i, 1);
     renderSubtasks();
 }
+
+function renderCategories() {
+    toggleVisibility('category_list_container', true);
+    let categoryContainer = document.getElementById('category_list');
+    categoryContainer.innerHTML = '';
+    let customCategory = customCategories[0];
+    let mainCategory = mainCategories[0];
+
+    for (let m = 0; m < mainCategory.name.length; m++) {
+        const mName = mainCategory.name[m];
+        const mColor = mainCategory.color[m];
+        categoryContainer.innerHTML += renderMainCategories(mName, mColor, m);
+    }
+
+    for (let c = 0; c < customCategory.length; m++) {
+        const cName = customCategory.name[m];
+        const cColor = customCategory.color[m];
+        categoryContainer.innerHTML += renderCustomCategories(cName, cColor, c);
+    }
+}
+
+function renderMainCategories(name, color, i) {
+    if (currentCategorySelected[0].name === name && currentCategorySelected[0].color === color) {
+        return /*html*/ `
+        <div onclick='selectCategory("main", ${i})' id='categoryMainList${i}' class="cateogry-list-item selected">
+            <span>${name}</span>
+            <div class="colorCircle" style="${color}"></div>
+        </div>
+        `;
+    } else {
+        return /*html*/ `
+        <div onclick='selectCategory("main", ${i})' id='categoryMainList${i}' class="cateogry-list-item">
+            <span>${name}</span>
+            <div class="colorCircle" style="${color}"></div>
+        </div>
+        `;
+    }
+}
+
+function renderCustomCategories(name, color, i) {
+    if (currentCategorySelected[0].name === name && currentCategorySelected[0].color === color) {
+        return /*html*/ `
+        <div onclick='selectCategory("custom", ${i})' id='categoryCustomList${i}' class="cateogry-list-item selected">
+            <span>${name}</span>
+            <div class="colorCircle" style="${color}"></div>
+        </div>
+        `;
+    } else {
+        return /*html*/ `
+        <div onclick='selectCategory("custom", ${i})' id='categoryCustomList${i}' class="cateogry-list-item">
+            <span>${name}</span>
+            <div class="colorCircle" style="${color}"></div>
+        </div>
+        `;
+    }
+}
+
+function selectCategory(type, index) {
+    let mainCategory = mainCategories[0];
+    let customCategory = customCategories[0];
+    if (type === 'main') {
+        currentCategorySelected[0].name = mainCategory.name[index];
+        currentCategorySelected[0].color = mainCategory.color[index];
+    }
+    if (type === 'custom') {
+        currentCategorySelected[0].name = customCategory.name[index];
+        currentCategorySelected[0].color = customCategory.color[index];
+    }
+    renderCategories();
+    updateSelectedCategory();
+}
+
+function updateSelectedCategory() {
+    if (currentCategorySelected[0].name) {
+        let input = document.getElementById('category_input');
+        input.value = currentCategorySelected[0].name;
+        toggleVisibility('category_list_container', false);
+    } 
+}
+
+function cancelCategorySelection(){
+    toggleVisibility('category_list_container', false);
+    document.getElementById('category_input').value = 'Select task category';
+}
+
+function addCategory() {
+    toggleVisibility('add_category_dialog', true);
+}

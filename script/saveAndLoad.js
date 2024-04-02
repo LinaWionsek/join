@@ -21,13 +21,13 @@ let colorCollection = [
 ];
 
 /** Main categories for tasks, each with a name and associated colors. */
-let mainCategorys = [{
+let mainCategories = [{
     'name': ['Technical Task', 'User Story',],
     'color': ['background: #1FD7C1', 'background: #0038FF',],
 }];
 
 /** All task categories, initially empty. */
-let allCategorys = [{
+let customCategories = [{
     'name': [],
     'color': [],
 }];
@@ -201,9 +201,9 @@ async function currentUserIdLoad() {
  */
 async function currentUserCategorysSave() {
     if (activeUser.name === 'Guest') {
-        localStorage.setItem('categorysAsText', JSON.stringify(allCategorys));
+        localStorage.setItem('categorysAsText', JSON.stringify(customCategories));
     } else {
-        await setItem('allCategorys', JSON.stringify(allCategorys));
+        await setItem('customCategories', JSON.stringify(customCategories));
     }
 }
 
@@ -216,11 +216,11 @@ async function currentUserCategorysLoad() {
     if (activeUser.name === 'Guest') {
         let categorysLoad = localStorage.getItem('categorysAsText');
         if (categorysLoad) {
-            allCategorys = JSON.parse(categorysLoad);
+            customCategories = JSON.parse(categorysLoad);
         }
     } else {
         try {
-            allCategorys = JSON.parse(await getItem('allCategorys'));
+            customCategories = JSON.parse(await getItem('customCategories'));
         } catch (e) {
             console.info('Could not load created categorys. created categorys are empty');
         }
