@@ -41,124 +41,135 @@
             <div class="fontSize61"><b>Add Task</b></div>
         </div>
 
-<div class="task-contentposition">
- <form>
+        <div class="task-contentposition">
+            <form>
 
-            <div class="task-content">
+                <div class="task-content">
 
-                <div class="left-container">
-                    <div>
+                    <div class="left-container">
                         <div>
-                            Title
-                            <span class="required-star">*</span>
-                        </div>
-                        <input type="text" placeholder="Enter a title" id="task_title" class="fontSize20 width-100P"
-                            required>
-                    </div>
-
-                    <div>
-                        <div>
-                            Description
-                        </div>
-                        <textarea id="task_description" class="width-100P fontSize20" placeholder="Enter a Description"
-                            type="text"></textarea>
-                    </div>
-
-                    <div>
-                        <div>
-                            Assigned to
-                        </div>
-                        <div id="assigned_to_input_container" class="custom-input">
-                            <input placeholder="Enter a title" id="" class="fontSize20">
-                            <img src="./img/arrow-up.svg" alt="">
-                        </div>
-                    </div>
-                </div>
-
-                <img class="task-vector" src="./img/vector-task.svg" alt="">
-
-                <div class="right-container">
-
-                    <div>
-                        <div>
-                            Due date
-                            <span class="required-star">*</span>
-                        </div>
-                        <input type="date" placeholder="Enter a title" id="" class="fontSize20 width-100P" required>
-                    </div>
-
-                    <div>
-                        <div>
-                            Prio
-                        </div>
-                        <div class="prio-container">
-                            <div class="button prio-btn">
-                                Urgent
-                                <img src="./img/prioUrgent.svg" alt="">
+                            <div>
+                                Title
+                                <span class="required-star">*</span>
                             </div>
-                            <div class="button prio-btn">
-                                Medium
-                                <img src="./img/prioMedium.svg" alt="">
+                            <input type="text" placeholder="Enter a title" id="task_title" class="fontSize20 width-100P"
+                                required>
+                        </div>
+
+                        <div>
+                            <div>
+                                Description
                             </div>
-                            <div class="button prio-btn">
-                                Low
-                                <img src="./img/prioLow.svg" alt="">
+                            <textarea id="task_description" class="width-100P fontSize20"
+                                placeholder="Enter a Description" type="text"></textarea>
+                        </div>
+
+                        <div>
+                            <div>
+                                Assigned to
+                            </div>
+                            <div id="assigned_to_input_container" class="custom-input">
+                                <input placeholder="Enter a title" id="" class="fontSize20">
+                                <img src="./img/arrow-up.svg" alt="">
                             </div>
                         </div>
                     </div>
 
-                    <div>
+                    <img class="task-vector" src="./img/vector-task.svg" alt="">
+
+                    <div class="right-container">
+
                         <div>
-                            Category
-                            <span class="required-star">*</span>
+                            <div>
+                                Due date
+                                <span class="required-star">*</span>
+                            </div>
+                            <input type="date" placeholder="Enter a title" id="" class="fontSize20 width-100P" required>
                         </div>
 
-                        <div id="category_input_container" class="custom-input">
-                            <input placeholder="Select task category" id="" class="fontSize20" required>
-                            <img src="./img/arrow-up.svg" alt="">
-                        </div>
-                    </div>
-
-                    <div>
                         <div>
-                            Subtasks
+                            <div>
+                                Prio
+                            </div>
+                            <div class="prio-container">
+                                <div class="button prio-btn">
+                                    Urgent
+                                    <img src="./img/prioUrgent.svg" alt="">
+                                </div>
+                                <div class="button prio-btn">
+                                    Medium
+                                    <img src="./img/prioMedium.svg" alt="">
+                                </div>
+                                <div class="button prio-btn">
+                                    Low
+                                    <img src="./img/prioLow.svg" alt="">
+                                </div>
+                            </div>
                         </div>
-                        <div id="category_input_container" class="custom-input">
-                            <input placeholder="Add new subtask" id="" class="fontSize20" required>
-                            <img src="./img/plus.svg">
+
+                        <div>
+                            <div>
+                                Category
+                                <span class="required-star">*</span>
+                            </div>
+
+                            <div id="category_input_container" class="custom-input">
+                                <input placeholder="Select task category" id="category_input" class="fontSize20"
+                                    required>
+                                <img src="./img/arrow-up.svg" alt="">
+                            </div>
+                        </div>
+
+                        <div>
+                            <div>
+                                Subtasks
+                            </div>
+                            <div id="subtasks_input_container" class="custom-input">
+                                <input placeholder="Add new subtask" id="subtasks_input" class="fontSize20" required>
+                                <img onclick="addSubtask()" src="./img/plus.svg">
+                            </div>
+                            <div id="selected_subtasks">
+                                selected_subtasks
+                            </div>
+                            <div id="edit_container" class="d-none">
+
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+
+                <div class="task-bottom">
+                    <div>
+                        <span class="required-star">*</span>
+                        This field is required
+                    </div>
+                    <div class="button-group">
+                        <div class="button outline-btn">
+                            Clear
+                            <svg class="colorOnHover" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 25" fill="none">
+                                <path
+                                    d="M12.001 12.5001L17.244 17.7431M6.758 17.7431L12.001 12.5001L6.758 17.7431ZM17.244 7.25708L12 12.5001L17.244 7.25708ZM12 12.5001L6.758 7.25708L12 12.5001Z"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div onclick="createTask()" class="button blue-btn">
+                            Create Task
+                            <img src="./img/check-white.svg" alt="">
                         </div>
                     </div>
 
                 </div>
-            </div>
 
-            <div class="task-bottom">
-                <div>
-                    <span class="required-star">*</span>
-                    This field is required
-                </div>
-                <div class="button-group">
-                    <div class="button outline-btn">
-                        Clear
-                        <svg class="colorOnHover" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            viewBox="0 0 24 25" fill="none">
-                            <path
-                                d="M12.001 12.5001L17.244 17.7431M6.758 17.7431L12.001 12.5001L6.758 17.7431ZM17.244 7.25708L12 12.5001L17.244 7.25708ZM12 12.5001L6.758 7.25708L12 12.5001Z"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                    <div onclick="createTask()" class="button blue-btn">
-                        Create Task
-                        <img src="./img/check-white.svg" alt="">
-                    </div>
-                </div>
+            </form>
+        </div>
 
-            </div>
 
-        </form>
-</div>
-
-       
 
     </div>
     <!-- ------------------------------------------------------------------------------------------------------------ -->

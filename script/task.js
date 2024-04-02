@@ -5,6 +5,10 @@ async function init() {
 }
 //statusSelected('toDo');
 
+function changeDivColor(id) {
+    document.getElementById(id).style.borderColor = '#29ABE2';
+}
+
 /**
  * Sets the status group to the provided status.
  */
@@ -14,7 +18,7 @@ function statusSelected(status) {
 
 async function createTask() {
     statusSelected('toDo');
-    console.log(currentId)
+    console.log(currentId);
     let task = {
         'id': currentId,
         'status': statusGroup,
@@ -43,7 +47,7 @@ async function createTask() {
     saveTaskElements();
     await currentUserIdSave();
     await currentUserTaskSave();
-    
+
     changesSaved('Task added to board');
     let currentPage = window.location.pathname;
     handleTaskCompletion(currentPage);
@@ -198,6 +202,70 @@ function collectTaskData() {
     };
 }
 
-function changeDivColor(id) {
-    document.getElementById(id).style.borderColor = '#29ABE2';
+//**************************** Subtasks ****************************//
+function addSubtask() {
+    let input = document.getElementById('subtasks_input');
+    if (input.value === '') {
+        return;
+    } else {
+        subTaskCollection.push(input.value);
+        renderSubtasks();
+        input.value = '';
+    }
+}
+
+function renderSubtasks() {
+    let subtasks = document.getElementById('selected_subtasks');
+    subtasks.innerHTML = '';
+    for (let i = 0; i < subTaskCollection.length; i++) {
+        const singleSubtask = subTaskCollection[i];
+        subtasks.innerHTML += /*html*/ `
+        <ul ondblclick="editSubtask(${i})" class="d-flex">
+            <li>${singleSubtask}</li>
+            <div>
+                <img onclick="editSubtask(${i})" src="./img/pen.svg">
+                <img onclick="deleteSubtask(${i})" src="img/delete.svg">
+            </div>
+        </ul>
+        `;
+    }
+}
+
+function editSubtask(i) {
+    let subtaskToEdit = subTaskCollection[i];
+    let editContainer = document.getElementById('edit_container');
+    editContainer.classList.remove('d-none');
+    editContainer.innerHTML = '';
+    editContainer.innerHTML += /*html*/ `
+    <div class="subtask-edit-input">
+        <input id="edit_input" type="text">
+        <img onclick="cancelSubtaskEdit()" class="editAbsolutCross" src="./img/close.svg">
+        <img onclick="confirmSubtaskEdit(${i})" class="editAbsolutCheck" src="./img/check-blue.svg">
+    </div>
+    `;
+    let input = document.getElementById('edit_input');
+    input.value = subtaskToEdit;
+}
+
+function confirmSubtaskEdit(i) {
+    let input = document.getElementById('edit_input');
+    if (input.value == '') {
+        subTaskCollection.splice(i, 1);
+    } else {
+        subTaskCollection[i] = input.value;
+    }
+    renderSubtasks();
+    input.value = '';
+    document.getElementById('edit_container').classList.add('d-none');
+}
+
+function cancelSubtaskEdit() {
+    let input = document.getElementById('edit_input');
+    input.value = '';
+    document.getElementById('edit_container').classList.add('d-none');
+}
+
+function deleteSubtask(i) {
+    subTaskCollection.splice(i, 1);
+    renderSubtasks();
 }

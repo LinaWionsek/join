@@ -5,6 +5,13 @@ body {
     background-color: var(--main-background-color) !important;
 }
 
+ul {
+    margin-bottom: 0px !important;
+    margin-top: 10px !important;
+    display: flex;
+    justify-content: space-between;
+}
+
 .task-container {
     display: flex;
     flex-direction: column;
@@ -19,7 +26,7 @@ body {
     /* position: absolute;
     
     max-width: calc(100vw - 243px);
-     max-height: calc(100vh - 246px);
+    max-height: calc(100vh - 246px);
     
     top: 206px;
     left: 243px;
@@ -129,6 +136,36 @@ body {
 .prio-btn img {
     background-color: white;
 }
+
+#edit_input {}
+
+.subtask-edit-input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    border-bottom: 1px solid #29ABE2;
+    border-radius: 0;
+    gap: 8px;
+    padding: 0px 10px;
+    height: 35px;
+    width: 100%;
+    background-color: white;
+    margin-top: 8px;
+}
+
+.subtask-edit-input input {
+    border: none;
+    border-radius: 0px;
+    padding: 0;
+    width: 100%;
+}
+
+.subtask-edit-input img {
+    height: 24px;
+    width: 24px;
+}
+
 
 .task-bottom {
     display: flex;
