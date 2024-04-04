@@ -80,7 +80,7 @@ async function saveTaskData() {
     resetAllAddTaskElements();
     changesSaved('Task added to board');
 }
-
+//front bg
 
 /**
  * Handles the completion of a task based on the current page.
@@ -316,5 +316,6 @@ function cancelCategorySelection(){
 }
 
 function addCategory() {
-    toggleVisibility('add_category_dialog', true);
+    // toggleVisibility('add_category_dialog', true);
+    slide('task_popup', 'task_popup_section');
 }

@@ -36,15 +36,19 @@
     </div>
     <!-- ------------------------------------------------------------------------------------------------------------ -->
     <div id="popup-container" class="dialog-bg d-none"></div>
-    <div id="add_category_dialog" class="dialog-bg d-none"></div>
+
     <div class="task-container">
         <div class="task-header">
             <div class="fontSize61"><b>Add Task</b></div>
         </div>
-
+   
         <div class="task-contentposition">
-            <form>
 
+            <div id="task_popup_section" class="task-popup-bg d-none">
+                <div id="task_popup" class="task-popup-card"></div>
+            </div>
+           
+            <form>
                 <div class="task-content">
 
                     <div class="left-container">
@@ -85,7 +89,8 @@
                                 Due date
                                 <span class="required-star">*</span>
                             </div>
-                            <input type="date" placeholder="Enter a title" id="date_picker" class="fontSize20 width-100P" required>
+                            <input type="date" placeholder="Enter a title" id="date_picker"
+                                class="fontSize20 width-100P" required>
                         </div>
 
                         <div>
