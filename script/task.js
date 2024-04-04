@@ -1,4 +1,6 @@
 async function init() {
+    loadActiveUser();
+    userCircle();
     await currentUserContactsLoad();
     await currentUserIdLoad();
     await currentUserTaskLoad();
@@ -18,7 +20,7 @@ function statusSelected(status) {
 
 async function createTask() {
     statusSelected('toDo');
-    console.log(currentId);
+    console.log(currentId)
     let task = {
         'id': currentId,
         'status': statusGroup,
@@ -38,13 +40,16 @@ async function createTask() {
         'contactName': '',
         'contactColor': '',
         'contactAbbreviation': '',
-        'subtasksInProgress': subTaskCollection,
-        'subtasksFinish': subtasksFinish,
+        // 'subtasksInProgress': subTaskCollection,
+        // 'subtasksFinish': subtasksFinish,
+        'subtasksInProgress': '',
+        'subtasksFinish': '',
     };
+    console.log(task)
     tasks.push(task);
     currentId++;
     console.log(currentId);
-    saveTaskElements();
+    // saveTaskElements();
     await currentUserIdSave();
     await currentUserTaskSave();
 
@@ -79,21 +84,7 @@ async function saveTaskData() {
     changesSaved('Task added to board');
 }
 
-async function currentUserTaskSave() {
-    if (activeUser.name === 'Guest') {
-        localStorage.setItem('tasksAsText', JSON.stringify(tasks));
-    } else {
-        await setItem('tasks', JSON.stringify(tasks));
-    }
-}
 
-async function currentUserIdSave() {
-    if (activeUser.name === 'Guest') {
-        localStorage.setItem('currentIdAsText', JSON.stringify(currentId));
-    } else {
-        await setItem('currentId', JSON.stringify(currentId));
-    }
-}
 /**
  * Handles the completion of a task based on the current page.
  * If the current page is the board, it hides the add task popup and updates the board HTML.
@@ -110,17 +101,6 @@ function handleTaskCompletion(currentPage) {
     }
 }
 
-// function saveTaskElements() {
-//     localStorage.setItem('categoryCollectionAsText', JSON.stringify(currentCategorySelected));
-//     localStorage.setItem('currentPrioAsText', JSON.stringify(currentPrioSelected));
-//     localStorage.setItem('subTaskCollectionAsText', JSON.stringify(subTaskCollection));
-//     localStorage.setItem('contactCollectionAsText', JSON.stringify(contactCollection));
-//     localStorage.setItem('selectedIndexAsText', JSON.stringify(selectedIndex));
-//     localStorage.setItem('selectedColorIndexAsText', JSON.stringify(selectedColorIndex));
-//     localStorage.setItem('subTaskFinishAsText', JSON.stringify(subtasksFinish));
-//     localStorage.setItem('taskIdAsText', JSON.stringify(taskIdForEdit));
-//     localStorage.setItem('statusAsText', JSON.stringify(statusEdit));
-// }
 
 //AddTask//
 /**
@@ -165,22 +145,6 @@ async function saveTaskData() {
     await currentUserIdSave();
     resetAllAddTaskElements();
     changesSaved('Task added to board');
-}
-
-async function currentUserTaskSave() {
-    if (activeUser.name === 'Guest') {
-        localStorage.setItem('tasksAsText', JSON.stringify(tasks));
-    } else {
-        await setItem('tasks', JSON.stringify(tasks));
-    }
-}
-
-async function currentUserIdSave() {
-    if (activeUser.name === 'Guest') {
-        localStorage.setItem('currentIdAsText', JSON.stringify(currentId));
-    } else {
-        await setItem('currentId', JSON.stringify(currentId));
-    }
 }
 
 /** Collects and returns data for a new task. */
