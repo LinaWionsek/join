@@ -1,8 +1,9 @@
 async function init() {
     loadActiveUser();
     userCircle();
-    await currentUserContactsLoad();
     await currentUserIdLoad();
+    await currentUserCategorysLoad();
+    await currentUserContactsLoad();
     await currentUserTaskLoad();
 }
 //statusSelected('toDo');
@@ -163,7 +164,7 @@ function collectTaskData() {
     };
 }
 
-//**************************** Subtasks ****************************//
+//--------------------------------------------Subtasks--------------------------------------------//
 function addSubtask() {
     let input = document.getElementById('subtasks_input');
     if (input.value === '') {
@@ -231,6 +232,7 @@ function deleteSubtask(i) {
     renderSubtasks();
 }
 
+//--------------------------------------------Categories--------------------------------------------//
 function renderCategories() {
     toggleVisibility('category_list_container', true);
     let categoryContainer = document.getElementById('category_list');
@@ -274,14 +276,20 @@ function renderCustomCategories(name, color, i) {
         return /*html*/ `
         <div onclick='selectCategory("custom", ${i})' id='categoryCustomList${i}' class="cateogry-list-item selected">
             <span>${name}</span>
-            <div class="colorCircle" style="${color}"></div>
+            <div class="delete-category-container">
+                <img onclick="deleteCategory(${i})" src="img/delete.svg" alt="">
+                <div class="colorCircle" style="${color}"></div>
+            </div>
         </div>
         `;
     } else {
         return /*html*/ `
         <div onclick='selectCategory("custom", ${i})' id='categoryCustomList${i}' class="cateogry-list-item">
             <span>${name}</span>
-            <div class="colorCircle" style="${color}"></div>
+            <div class="delete-category-container">
+                <img onclick="deleteCategory(${i})" src="img/delete.svg" alt="">
+                <div class="colorCircle" style="${color}"></div>
+            </div>
         </div>
         `;
     }
@@ -310,6 +318,8 @@ function updateSelectedCategory() {
     } 
 }
 
+
+//--------------------------------------------Category Creation--------------------------------------------//
 function cancelCategorySelection(){
     toggleVisibility('category_list_container', false);
     document.getElementById('category_input').value = 'Select task category';
@@ -350,6 +360,7 @@ function updateSelectedColorIndex(index) {
     selectedColorIndex = selectedColorIndex === index ? null : index;
     // saveTaskElements();
 }
+
 function confirmCreateCategory() {
     if (isValidCategoryInput()) {
         addCategory();
@@ -359,6 +370,7 @@ function confirmCreateCategory() {
     }
     clearCreateWindow();
 }
+
 async function addCategory() {
     let inputElem = document.getElementById('createCategoryInput');
     customCategories[0].name.push(inputElem.value);
@@ -370,14 +382,22 @@ async function addCategory() {
     renderCategories();
     changesSaved('Category successfully created')
 }
+
 function isValidCategoryInput() {
     let inputElem = document.getElementById('createCategoryInput');
     return inputElem.value.length >= 2 && selectedColorIndex !== null;
 }
+
 function alertInvalidInput() {
     alert("Bitte geben Sie einen Kategorienamen mit mindestens 2 Buchstaben ein und wählen Sie eine Farbe aus.");
 }
 
 function closePopup(){
     slideOut('task_popup', 'task_popup_section', 200);
+}
+
+async function deleteCategory(i) {
+    customCategories[0].name.splice(i, 1);
+    customCategories[0].color.splice(i, 1);
+    await currentUserCategorysSave();
 }

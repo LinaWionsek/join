@@ -243,6 +243,17 @@ ul {
     border-radius: 10px !important;
 }
 
+.delete-category-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.delete-category-container img:hover {
+    cursor: pointer;
+    background-color: #EEEEEE;
+    border-radius: 5px;
+}
 .colorCircle {
     width: 20px;
     height: 20px;
