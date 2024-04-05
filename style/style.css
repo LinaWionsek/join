@@ -39,6 +39,13 @@ textarea {
     padding: 12px 20px;
     resize: vertical;
 }
+
+.close-hover:hover {
+    cursor: pointer;
+    background-color: #EEEEEE;
+    border-radius: 5px;
+}
+
 .required-star{
     color: red;
 }

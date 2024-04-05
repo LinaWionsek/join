@@ -391,11 +391,7 @@ body {
     padding: 20px;
 }
 
-.close-hover:hover {
-    cursor: pointer;
-    background-color: #EEE;
-    border-radius: 50%;
-}
+
 
 .task-detail-font-color {
     color: #42526E;

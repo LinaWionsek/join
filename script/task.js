@@ -244,9 +244,9 @@ function renderCategories() {
         categoryContainer.innerHTML += renderMainCategories(mName, mColor, m);
     }
 
-    for (let c = 0; c < customCategory.length; m++) {
-        const cName = customCategory.name[m];
-        const cColor = customCategory.color[m];
+    for (let c = 0; c < customCategory.name.length; c++) {
+        const cName = customCategory.name[c];
+        const cColor = customCategory.color[c];
         categoryContainer.innerHTML += renderCustomCategories(cName, cColor, c);
     }
 }
@@ -315,7 +315,69 @@ function cancelCategorySelection(){
     document.getElementById('category_input').value = 'Select task category';
 }
 
-function addCategory() {
+function openAddCategoryPopup() {
     // toggleVisibility('add_category_dialog', true);
     slide('task_popup', 'task_popup_section');
+    createCategoryColors()
+}
+function createCategoryColors() {
+    let colorContainer = document.getElementById('colorSettingBox');
+    colorContainer.innerHTML = '';
+    for (let index = 0; index < colorCollection.length; index++) {
+        const color = colorCollection[index];
+        colorContainer.innerHTML += returnCreateCategoryColors(color, index);
+    }
+}
+
+function returnCreateCategoryColors(color, index) {
+    if (color === selectedColorIndex) {
+        return /*html*/ `
+        <div onclick='selectColor("${color}")' style="${color}" id='colorCircle${index}' class="colorCircle selectedColor"></div>
+        `;
+    } else {
+        return /*html*/ `
+        <div onclick='selectColor("${color}")' style="${color}" id='colorCircle${index}' class="colorCircle"></div>
+        `;
+    }
+}
+
+function selectColor(color) {
+    updateSelectedColorIndex(color);
+    createCategoryColors();
+}
+
+function updateSelectedColorIndex(index) {
+    selectedColorIndex = selectedColorIndex === index ? null : index;
+    // saveTaskElements();
+}
+function confirmCreateCategory() {
+    if (isValidCategoryInput()) {
+        addCategory();
+        renderCategories();
+    } else {
+        alertInvalidInput();
+    }
+    clearCreateWindow();
+}
+async function addCategory() {
+    let inputElem = document.getElementById('createCategoryInput');
+    customCategories[0].name.push(inputElem.value);
+    customCategories[0].color.push(selectedColorIndex);
+    await currentUserCategorysSave();
+    // document.getElementById('createCategoryPopupByAddTask').classList.add('d-none');
+    selectedColorIndex = null;
+    // saveTaskElements();
+    renderCategories();
+    changesSaved('Category successfully created')
+}
+function isValidCategoryInput() {
+    let inputElem = document.getElementById('createCategoryInput');
+    return inputElem.value.length >= 2 && selectedColorIndex !== null;
+}
+function alertInvalidInput() {
+    alert("Bitte geben Sie einen Kategorienamen mit mindestens 2 Buchstaben ein und wählen Sie eine Farbe aus.");
+}
+
+function closePopup(){
+    slideOut('task_popup', 'task_popup_section', 200);
 }
