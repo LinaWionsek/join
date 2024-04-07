@@ -57,6 +57,12 @@
          justify-content: flex-end;
      }
 
+     #close_popup_mobile img:hover {
+        cursor: pointer;
+        border-radius: 5px;
+        background-color: lightslategray;
+    }
+
      .contact-popup {
          display: flex !important;
          flex-direction: column !important;

@@ -161,7 +161,7 @@ function fillTestArray() {
         },
     ];
 
-    allCategorys[0] = {
+    customCategories[0] = {
         'name': ['New Category'],
         'color': ['background: #FF6347'],
     };

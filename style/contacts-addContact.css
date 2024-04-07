@@ -65,7 +65,7 @@
 }
 #close_popup img:hover {
     background: #EEEEEE;
-    border-radius: 100%;
+    border-radius:5px;
 }
 
 
@@ -187,6 +187,14 @@ input[type=email] {
 
 input[type=tel] {
     background: url('../img/call.svg') no-repeat scroll;
+    background-position: center right;
+    /* 20px */
+    background-origin: content-box;
+}
+
+input[type=date] {
+    background: url('../img/calendar.png') no-repeat scroll;
+    
     background-position: center right;
     /* 20px */
     background-origin: content-box;
