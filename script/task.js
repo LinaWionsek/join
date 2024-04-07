@@ -332,7 +332,20 @@ function cancelCategorySelection(){
 function openAddCategoryPopup() {
     // toggleVisibility('add_category_dialog', true);
     slide('task_popup', 'task_popup_section');
+    renderLeftPopupContent();
     createCategoryColors()
+}
+
+function renderLeftPopupContent(){
+    // right_popup_content
+    document.getElementById('left_popup_content').innerHTML += /*html*/ `
+    <img src="./img/join-logo-white.svg" id="join_logo_add_contact">
+    <spline class="left-popup-text-headline"><b>Add new category</b></spline>
+    <spline class="left-popup-text">Tasks are
+        better with a category!</spline>
+    <div class="blue-line">
+    </div>
+    `;
 }
 function createCategoryColors() {
     let colorContainer = document.getElementById('colorSettingBox');

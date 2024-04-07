@@ -65,13 +65,13 @@
                         <div id="close_popup_mobile">
                             <img onclick="closePopup()" src="./img/close-white.svg">
                         </div>
-                        <div class="left-popup-content">
-                            <img src="./img/join-logo-white.svg" id="join_logo_add_contact">
+                        <div id="left_popup_content">
+                            <!-- <img src="./img/join-logo-white.svg" id="join_logo_add_contact">
                             <spline class="left-popup-text-headline"><b>Add new category</b></spline>
                             <spline class="left-popup-text">Tasks are
                                 better with a category!</spline>
                             <div class="blue-line">
-                            </div>
+                            </div> -->
                         </div>
                     </div>
 
@@ -84,6 +84,7 @@
                     </div>
 
                     <div class="right-popup d-flex">
+                        <div id="right_popup_content"></div>
                         <div id="close_popup" class="pointer">
                             <img onclick="closePopup()" src="./img/close.svg" alt="">
                         </div>
@@ -196,7 +197,8 @@
                             <div onclick="renderCategories()" id="category_input_container" class="custom-input">
                                 <input type="text" readonly value="Select task category" id="category_input"
                                     class="fontSize20 pointer" required>
-                                <img onclick="renderCategories()" class="d-none" id="arrow_up" src="./img/arrow-up.svg" alt="">
+                                <img onclick="renderCategories()" class="d-none" id="arrow_up" src="./img/arrow-up.svg"
+                                    alt="">
                                 <img id="arrow_down" src="./img/arrow-down.svg" alt="">
                             </div>
                             <div id="category_list_container" class="d-none">
