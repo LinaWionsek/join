@@ -80,13 +80,14 @@ ul {
     /* margin-bottom: 100px; */
 }
 
-.center-popup-content {
+.center-popup-category-content {
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.center-popup-content img {
+.center-popup-category-content img {
     height: 70px;
     width: 70px;
     position: absolute;

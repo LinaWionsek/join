@@ -332,13 +332,15 @@ function cancelCategorySelection(){
 function openAddCategoryPopup() {
     // toggleVisibility('add_category_dialog', true);
     slide('task_popup', 'task_popup_section');
-    renderLeftPopupContent();
-    createCategoryColors()
+    renderAddCategoryLeftContent();
+    renderAddCategoryCenterContent();
+    renderAddCategoryRightContent();
+    createCategoryColors();
 }
 
-function renderLeftPopupContent(){
-    // right_popup_content
-    document.getElementById('left_popup_content').innerHTML += /*html*/ `
+function renderAddCategoryLeftContent() {
+    // center_popup_content
+    document.getElementById('left_popup_content').innerHTML = /*html*/ `
     <img src="./img/join-logo-white.svg" id="join_logo_add_contact">
     <spline class="left-popup-text-headline"><b>Add new category</b></spline>
     <spline class="left-popup-text">Tasks are
@@ -346,6 +348,44 @@ function renderLeftPopupContent(){
     <div class="blue-line">
     </div>
     `;
+}
+
+function renderAddCategoryCenterContent() {
+    document.getElementById('center_popup_content').innerHTML = /*html*/ `
+    <div class="center-popup-category-content">
+        <div class="add-category-logo-bg"></div>
+        <img class="person-in-circle" src="./img/add-task-category.svg">
+    </div>
+    `;
+}
+
+function renderAddCategoryRightContent() {
+    document.getElementById('right_popup_content').innerHTML = /*html*/ `  
+    <div class="custom-select">
+    <input id="createCategoryInput" placeholder="New category name..." type="text">
+    <div class="colorSettingBox" id="colorSettingBox">
+    </div>
+    <div class="popup-button-container">
+
+        <button class="button outline-btn"
+            onclick="slideOut('contact_popup', 'contact_popup_section', 200)"
+            id="cancelBtnMobileId">
+            <spline id="editCancelButtonId">Cancel</spline>
+
+            <svg class="colorOnHover" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 25" fill="none">
+                <path
+                    d="M12.001 12.5001L17.244 17.7431M6.758 17.7431L12.001 12.5001L6.758 17.7431ZM17.244 7.25708L12 12.5001L17.244 7.25708ZM12 12.5001L6.758 7.25708L12 12.5001Z"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </button>
+        <button onclick="confirmCreateCategory()" class="button blue-btn">
+            <span id="textChangeToSaveId">Create category</span>
+            <img src="./img/check-white.svg">
+        </button>
+    </div>
+</div>`
 }
 function createCategoryColors() {
     let colorContainer = document.getElementById('colorSettingBox');
@@ -386,7 +426,7 @@ function confirmCreateCategory() {
     } else {
         alertInvalidInput();
     }
-    clearCreateWindow();
+    clearAddCategoryInput();
 }
 
 async function addCategory() {
@@ -421,7 +461,8 @@ async function deleteCategory(i) {
     document.getElementById('category_input').value = 'Select task category';
 }
 
-function clearCreateWindow() {
+function clearAddCategoryInput() {
     document.getElementById('createCategoryInput').value = '';
     selectedColorIndex = null;
 }
+
