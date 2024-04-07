@@ -363,6 +363,7 @@ function updateSelectedColorIndex(index) {
 
 function confirmCreateCategory() {
     if (isValidCategoryInput()) {
+        closePopup();
         addCategory();
         renderCategories();
     } else {
@@ -400,4 +401,9 @@ async function deleteCategory(i) {
     customCategories[0].name.splice(i, 1);
     customCategories[0].color.splice(i, 1);
     await currentUserCategorysSave();
+}
+
+function clearCreateWindow() {
+    document.getElementById('createCategoryInput').value = '';
+    selectedColorIndex = null;
 }

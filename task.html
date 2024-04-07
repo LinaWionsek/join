@@ -61,14 +61,13 @@
                 <div class="task-popup-card d-flex" id="task_popup">
 
                     <div class="left-popup">
-                      
-                        <div id="close_popup_mobile" class="pointer"
-                            onclick="slideOut('contact_popup', 'contact_popup_section', 200)">
-                            <img onclick="closePopup()" class="close-hover" src="img/close.svg">
+
+                        <div id="close_popup_mobile">
+                            <img onclick="closePopup()" src="./img/close-white.svg">
                         </div>
                         <div class="left-popup-content">
                             <img src="./img/join-logo-white.svg" id="join_logo_add_contact">
-                            <spline class="left-popup-text-headline"><b >Add new category</b></spline>
+                            <spline class="left-popup-text-headline"><b>Add new category</b></spline>
                             <spline class="left-popup-text">Tasks are
                                 better with a category!</spline>
                             <div class="blue-line">
@@ -77,7 +76,7 @@
                     </div>
 
                     <div class="center-popup">
-        
+
                         <div class="center-popup-content" id="no_profile_img">
                             <div class="add-category-logo-bg"></div>
                             <img class="person-in-circle" src="./img/add-task-category.svg">
@@ -85,33 +84,35 @@
                     </div>
 
                     <div class="right-popup d-flex">
-
+                        <div id="close_popup" class="pointer">
+                            <img onclick="closePopup()" src="./img/close.svg" alt="">
+                        </div>
                         <div class="custom-select">
                             <input id="createCategoryInput" placeholder="New category name..." type="text">
                             <div class="colorSettingBox" id="colorSettingBox">
                             </div>
                             <div class="popup-button-container">
-                                
-                                    <button class="button outline-btn"
-                                        onclick="slideOut('contact_popup', 'contact_popup_section', 200)"
-                                        id="cancelBtnMobileId">
-                                        <spline id="editCancelButtonId">Cancel</spline>
-    
-                                        <svg class="colorOnHover" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 25" fill="none">
-                                            <path
-                                                d="M12.001 12.5001L17.244 17.7431M6.758 17.7431L12.001 12.5001L6.758 17.7431ZM17.244 7.25708L12 12.5001L17.244 7.25708ZM12 12.5001L6.758 7.25708L12 12.5001Z"
-                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                    </button>
-                                    <button class="button blue-btn">
-                                        <!-- <spline> -->
-                                        <span id="textChangeToSaveId">Create category</span>
-                                        <!-- </spline> -->
-                                        <img src="./img/check-white.svg">
-                                    </button>
-                                
+
+                                <button class="button outline-btn"
+                                    onclick="slideOut('contact_popup', 'contact_popup_section', 200)"
+                                    id="cancelBtnMobileId">
+                                    <spline id="editCancelButtonId">Cancel</spline>
+
+                                    <svg class="colorOnHover" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 25" fill="none">
+                                        <path
+                                            d="M12.001 12.5001L17.244 17.7431M6.758 17.7431L12.001 12.5001L6.758 17.7431ZM17.244 7.25708L12 12.5001L17.244 7.25708ZM12 12.5001L6.758 7.25708L12 12.5001Z"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </button>
+                                <button onclick="confirmCreateCategory()" class="button blue-btn">
+                                    <!-- <spline> -->
+                                    <span id="textChangeToSaveId">Create category</span>
+                                    <!-- </spline> -->
+                                    <img src="./img/check-white.svg">
+                                </button>
+
                             </div>
                         </div>
 
