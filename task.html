@@ -195,8 +195,9 @@
 
                             <div onclick="renderCategories()" id="category_input_container" class="custom-input">
                                 <input type="text" readonly value="Select task category" id="category_input"
-                                    class="fontSize20" required>
-                                <img onclick="renderCategories()" src="./img/arrow-up.svg" alt="">
+                                    class="fontSize20 pointer" required>
+                                <img onclick="renderCategories()" class="d-none" id="arrow_up" src="./img/arrow-up.svg" alt="">
+                                <img id="arrow_down" src="./img/arrow-down.svg" alt="">
                             </div>
                             <div id="category_list_container" class="d-none">
                                 <div id="category_list" class="cateogry-list"></div>

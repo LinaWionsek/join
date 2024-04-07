@@ -185,8 +185,8 @@ function renderSubtasks() {
         <ul ondblclick="editSubtask(${i})" class="d-flex">
             <li>${singleSubtask}</li>
             <div>
-                <img onclick="editSubtask(${i})" src="./img/pen.svg">
-                <img onclick="deleteSubtask(${i})" src="img/delete.svg">
+                <img onclick="editSubtask(${i})" class="edit-icon" src="./img/pen.svg">
+                <img onclick="deleteSubtask(${i})" class="delete-icon" src="./img/delete.svg">
             </div>
         </ul>
         `;
@@ -235,6 +235,8 @@ function deleteSubtask(i) {
 //--------------------------------------------Categories--------------------------------------------//
 function renderCategories() {
     toggleVisibility('category_list_container', true);
+    toggleVisibility('arrow_up', true);
+    toggleVisibility('arrow_down', false);
     let categoryContainer = document.getElementById('category_list');
     categoryContainer.innerHTML = '';
     let customCategory = customCategories[0];
@@ -277,7 +279,7 @@ function renderCustomCategories(name, color, i) {
         <div onclick='selectCategory("custom", ${i})' id='categoryCustomList${i}' class="cateogry-list-item selected">
             <span>${name}</span>
             <div class="delete-category-container">
-                <img onclick="deleteCategory(${i})" src="img/delete.svg" alt="">
+                <img onclick="deleteCategory(${i})" class="delete-icon" src="img/delete.svg" alt="">
                 <div class="colorCircle" style="${color}"></div>
             </div>
         </div>
@@ -287,7 +289,7 @@ function renderCustomCategories(name, color, i) {
         <div onclick='selectCategory("custom", ${i})' id='categoryCustomList${i}' class="cateogry-list-item">
             <span>${name}</span>
             <div class="delete-category-container">
-                <img onclick="deleteCategory(${i})" src="img/delete.svg" alt="">
+                <img onclick="deleteCategory(${i})" class="delete-icon" src="img/delete.svg" alt="">
                 <div class="colorCircle" style="${color}"></div>
             </div>
         </div>
@@ -315,6 +317,8 @@ function updateSelectedCategory() {
         let input = document.getElementById('category_input');
         input.value = currentCategorySelected[0].name;
         toggleVisibility('category_list_container', false);
+        toggleVisibility('arrow_up', false);
+        toggleVisibility('arrow_down', true);
     } 
 }
 
@@ -401,6 +405,7 @@ async function deleteCategory(i) {
     customCategories[0].name.splice(i, 1);
     customCategories[0].color.splice(i, 1);
     await currentUserCategorysSave();
+    document.getElementById('category_input').value = 'Select task category';
 }
 
 function clearCreateWindow() {
