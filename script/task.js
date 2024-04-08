@@ -1,3 +1,6 @@
+let categoryListOpen = false;
+let contactListOpen = false;
+
 async function init() {
     loadActiveUser();
     userCircle();
@@ -10,6 +13,10 @@ async function init() {
 
 function changeDivColor(id) {
     document.getElementById(id).style.borderColor = '#29ABE2';
+}
+
+function resetDivColor(id) {
+    document.getElementById(id).style.borderColor = '#d1d1d1';
 }
 
 /**
@@ -234,25 +241,36 @@ function deleteSubtask(i) {
 
 //--------------------------------------------Categories--------------------------------------------//
 function renderCategories() {
-    toggleVisibility('category_list_container', true);
-    toggleVisibility('arrow_up', true);
-    toggleVisibility('arrow_down', false);
-    let categoryContainer = document.getElementById('category_list');
-    categoryContainer.innerHTML = '';
-    let customCategory = customCategories[0];
-    let mainCategory = mainCategories[0];
-
-    for (let m = 0; m < mainCategory.name.length; m++) {
-        const mName = mainCategory.name[m];
-        const mColor = mainCategory.color[m];
-        categoryContainer.innerHTML += renderMainCategories(mName, mColor, m);
+    if (categoryListOpen) {
+        toggleVisibility('category_list_container', true);
+        toggleVisibility('category_select_arrow_up', true);
+        toggleVisibility('category_select_arrow_down', false);
+        let categoryContainer = document.getElementById('category_list');
+        categoryContainer.innerHTML = '';
+        let customCategory = customCategories[0];
+        let mainCategory = mainCategories[0];
+        changeDivColor('category_input_container');
+    
+        for (let m = 0; m < mainCategory.name.length; m++) {
+            const mName = mainCategory.name[m];
+            const mColor = mainCategory.color[m];
+            categoryContainer.innerHTML += renderMainCategories(mName, mColor, m);
+        }
+    
+        for (let c = 0; c < customCategory.name.length; c++) {
+            const cName = customCategory.name[c];
+            const cColor = customCategory.color[c];
+            categoryContainer.innerHTML += renderCustomCategories(cName, cColor, c);
+        }
+    } else {
+        toggleVisibility('category_list_container', false);
+        toggleVisibility('category_select_arrow_up', false);
+        toggleVisibility('category_select_arrow_down', true);
+        resetDivColor('category_input_container');
     }
+   
+    categoryListOpen = !categoryListOpen;
 
-    for (let c = 0; c < customCategory.name.length; c++) {
-        const cName = customCategory.name[c];
-        const cColor = customCategory.color[c];
-        categoryContainer.innerHTML += renderCustomCategories(cName, cColor, c);
-    }
 }
 
 function renderMainCategories(name, color, i) {
@@ -466,3 +484,19 @@ function clearAddCategoryInput() {
     selectedColorIndex = null;
 }
 
+
+//--------------------------------------------Contacts--------------------------------------------//
+function openContactList(){
+    if (contactListOpen) {
+        toggleVisibility('contact_list_container', true);
+        toggleVisibility('contact_select_arrow_up', true);
+        toggleVisibility('contact_select_arrow_down', false);
+    } else {
+        toggleVisibility('contact_list_container', false);
+        toggleVisibility('contact_select_arrow_up', false);
+        toggleVisibility('contact_select_arrow_down', true);
+    }
+    contactListOpen = !contactListOpen;
+}
+//--------------------------------------------Contact Creation--------------------------------------------//
+// categoryListOpen = !categoryListOpen;

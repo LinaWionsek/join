@@ -149,9 +149,18 @@
                             <div>
                                 Assigned to
                             </div>
-                            <div id="assigned_to_input_container" class="custom-input">
-                                <input placeholder="Enter a title" id="" class="fontSize20">
-                                <img src="./img/arrow-up.svg" alt="">
+                            <div onclick="openContactList()" id="assigned_to_input_container" class="custom-input">
+                                <input placeholder="Select contacts to assign" id="" class="fontSize20">
+                                <img id="contact_select_arrow_up" class="d-none" src="./img/arrow-up.svg" alt="">
+                                <img id="contact_select_arrow_down" src="./img/arrow-down.svg" alt="">
+                            </div>
+                            <div id="contact_list_container" class="d-none">
+                                <div id="contact_list"></div>
+                                <div id="selected_contacts"></div>
+                                <div onclick="openAddContactPopup()" class="button blue-btn">
+                                    Add contact
+                                    <img src="./img/add-task-person-add.svg" alt="">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -198,9 +207,9 @@
                             <div onclick="renderCategories()" id="category_input_container" class="custom-input">
                                 <input type="text" readonly value="Select task category" id="category_input"
                                     class="fontSize20 pointer" required>
-                                <img onclick="renderCategories()" class="d-none" id="arrow_up" src="./img/arrow-up.svg"
+                                <img onclick="renderCategories()" class="d-none" id="category_select_arrow_up" src="./img/arrow-up.svg"
                                     alt="">
-                                <img id="arrow_down" src="./img/arrow-down.svg" alt="">
+                                <img id="category_select_arrow_down" src="./img/arrow-down.svg" alt="">
                             </div>
                             <div id="category_list_container" class="d-none">
                                 <div id="category_list" class="cateogry-list"></div>
