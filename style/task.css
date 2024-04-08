@@ -338,12 +338,12 @@ input::-webkit-calendar-picker-indicator {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 4px;
+    padding-bottom: 4px;
     border-bottom: 1px solid #D1D1D1;
-    border-radius: 10px !important;
+    border-radius: 10px;
 }
 
 .cateogry-list-item:hover {
@@ -457,6 +457,17 @@ input::-webkit-calendar-picker-indicator {
 .contact-box {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-radius: 10px;
+}
+
+.contact {
+    display: flex;
+    gap: 16px;
 }
 
 

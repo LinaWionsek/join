@@ -28,7 +28,7 @@ function statusSelected(status) {
 
 async function createTask() {
     statusSelected('toDo');
-    console.log(currentId)
+    console.log(currentId);
     let task = {
         'id': currentId,
         'status': statusGroup,
@@ -50,7 +50,7 @@ async function createTask() {
         'subtasksInProgress': '',
         'subtasksFinish': '',
     };
-    console.log(task)
+    console.log(task);
     tasks.push(task);
     currentId++;
     console.log(currentId);
@@ -105,7 +105,6 @@ function handleTaskCompletion(currentPage) {
         }, 3000);
     }
 }
-
 
 //AddTask//
 /**
@@ -250,13 +249,13 @@ function toggleCategoryList() {
         let customCategory = customCategories[0];
         let mainCategory = mainCategories[0];
         changeDivColor('category_input_container');
-    
+
         for (let m = 0; m < mainCategory.name.length; m++) {
             const mName = mainCategory.name[m];
             const mColor = mainCategory.color[m];
             categoryContainer.innerHTML += renderMainCategories(mName, mColor, m);
         }
-    
+
         for (let c = 0; c < customCategory.name.length; c++) {
             const cName = customCategory.name[c];
             const cColor = customCategory.color[c];
@@ -268,9 +267,8 @@ function toggleCategoryList() {
         toggleVisibility('category_select_arrow_down', true);
         resetDivColor('category_input_container');
     }
-   
-    categoryListOpen = !categoryListOpen;
 
+    categoryListOpen = !categoryListOpen;
 }
 
 function renderMainCategories(name, color, i) {
@@ -316,11 +314,11 @@ function renderCustomCategories(name, color, i) {
 }
 
 function changeDeleteImg(i) {
-    document.getElementById('delete_icon').src = "img/delete-white.svg";
+    document.getElementById('delete_icon').src = 'img/delete-white.svg';
 }
 
 function resetDeleteImg() {
-    document.getElementById('delete_icon').src = "img/delete.svg";
+    document.getElementById('delete_icon').src = 'img/delete.svg';
 }
 
 function selectCategory(type, index) {
@@ -345,12 +343,11 @@ function updateSelectedCategory() {
         toggleVisibility('category_list_container', false);
         toggleVisibility('arrow_up', false);
         toggleVisibility('arrow_down', true);
-    } 
+    }
 }
 
-
 //--------------------------------------------Category Creation--------------------------------------------//
-function cancelCategorySelection(){
+function cancelCategorySelection() {
     toggleVisibility('category_list_container', false);
     document.getElementById('category_input').value = 'Select task category';
 }
@@ -411,7 +408,7 @@ function renderAddCategoryRightContent() {
             <img src="./img/check-white.svg">
         </button>
     </div>
-</div>`
+</div>`;
 }
 function createCategoryColors() {
     let colorContainer = document.getElementById('colorSettingBox');
@@ -464,7 +461,7 @@ async function addCategory() {
     selectedColorIndex = null;
     // saveTaskElements();
     toggleCategoryList();
-    changesSaved('Category successfully created')
+    changesSaved('Category successfully created');
 }
 
 function isValidCategoryInput() {
@@ -473,10 +470,10 @@ function isValidCategoryInput() {
 }
 
 function alertInvalidInput() {
-    alert("Bitte geben Sie einen Kategorienamen mit mindestens 2 Buchstaben ein und wählen Sie eine Farbe aus.");
+    alert('Bitte geben Sie einen Kategorienamen mit mindestens 2 Buchstaben ein und wählen Sie eine Farbe aus.');
 }
 
-function closePopup(){
+function closePopup() {
     slideOut('task_popup', 'task_popup_section', 200);
 }
 
@@ -492,9 +489,8 @@ function clearAddCategoryInput() {
     selectedColorIndex = null;
 }
 
-
 //--------------------------------------------Contacts--------------------------------------------//
-function toggleContactList(){
+function toggleContactList() {
     if (contactListOpen) {
         toggleVisibility('contact_list_container', true);
         toggleVisibility('contact_select_arrow_up', true);
@@ -505,9 +501,7 @@ function toggleContactList(){
             const contactColor = contactsArray[i]['color'];
             const contactNameAbbreviation = contactsArray[i]['nameAbbreviation'];
             const contactName = contactsArray[i]['name'];
-            contactContainer.innerHTML += renderContacts(contactColor, contactNameAbbreviation, contactName, i)
-            
-            
+            contactContainer.innerHTML += renderContacts(contactColor, contactNameAbbreviation, contactName, i);
         }
     } else {
         toggleVisibility('contact_list_container', false);
@@ -517,19 +511,24 @@ function toggleContactList(){
     contactListOpen = !contactListOpen;
 }
 
-function renderContacts(color, abbreviation, name, i){
+function renderContacts(color, abbreviation, name, i) {
     return /*html*/ `
     <div class="contact-box">
-    <div style="background-color:${color}" class="contact-logo">
-    <div>${abbreviation}</div>
-    </div>
-    <div>${name}</div>
+        <div class="contact">
+            <div style="background-color:${color}" class="contact-logo">
+                ${abbreviation}
+            </div>
+            <div>${name}</div>
+        </div>
+        <div>
+            <img src="./img/subtask-checkbox-unchecked.svg">
+            <img class="d-none" src="./img/add-task-selected-contact-checkbox.svg">
+        </div>
     </div>
     
     `;
 }
 //--------------------------------------------Contact Creation--------------------------------------------//
-
 
 // contactsaArray[i][nameAbbreviation]
 //contactsaArray[i][color]
