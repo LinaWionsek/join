@@ -39,16 +39,15 @@ async function createTask() {
         'dueDate': document.getElementById('date_picker').value,
         // 'priority': currentPrioSelected,
         // 'contactName': contactCollection.map(contact => contact.name),
-        // 'contactColor': contactCollection.map(contact => contact.color),
-        // 'contactAbbreviation': contactCollection.map(contact => contact.nameAbbreviation),
+        'contactName': contactCollection.map(contact => {
+            console.log(contact.name);
+            return contact.name;
+        }),
+        'contactColor': contactCollection.map(contact => contact.color),
+        'contactAbbreviation': contactCollection.map(contact => contact.nameAbbreviation),
         'priority': '',
-        'contactName': '',
-        'contactColor': '',
-        'contactAbbreviation': '',
-        // 'subtasksInProgress': subTaskCollection,
-        // 'subtasksFinish': subtasksFinish,
-        'subtasksInProgress': '',
-        'subtasksFinish': '',
+        'subtasksInProgress': subTaskCollection,
+        'subtasksFinish': subtasksFinish,
     };
     console.log(task);
     tasks.push(task);
@@ -313,7 +312,7 @@ function renderCustomCategories(name, color, i) {
     }
 }
 
-function changeDeleteImg(i) {
+function changeDeleteImg() {
     document.getElementById('delete_icon').src = 'img/delete-white.svg';
 }
 
@@ -495,38 +494,91 @@ function toggleContactList() {
         toggleVisibility('contact_list_container', true);
         toggleVisibility('contact_select_arrow_up', true);
         toggleVisibility('contact_select_arrow_down', false);
-        let contactContainer = document.getElementById('contact_list');
-        contactContainer.innerHTML = '';
-        for (let i = 0; i < contactsArray.length; i++) {
-            const contactColor = contactsArray[i]['color'];
-            const contactNameAbbreviation = contactsArray[i]['nameAbbreviation'];
-            const contactName = contactsArray[i]['name'];
-            contactContainer.innerHTML += renderContacts(contactColor, contactNameAbbreviation, contactName, i);
-        }
+
+        getContacts();
     } else {
         toggleVisibility('contact_list_container', false);
         toggleVisibility('contact_select_arrow_up', false);
         toggleVisibility('contact_select_arrow_down', true);
     }
     contactListOpen = !contactListOpen;
+    console.log(contactCollection);
+}
+
+function getContacts() {
+    let contactContainer = document.getElementById('contact_list');
+    contactContainer.innerHTML = '';
+    for (let i = 0; i < contactsArray.length; i++) {
+        const contactColor = contactsArray[i]['color'];
+        const contactNameAbbreviation = contactsArray[i]['nameAbbreviation'];
+        const contactName = contactsArray[i]['name'];
+        contactContainer.innerHTML += renderContacts(contactColor, contactNameAbbreviation, contactName, i);
+    }
 }
 
 function renderContacts(color, abbreviation, name, i) {
-    return /*html*/ `
-    <div class="contact-box">
-        <div class="contact">
-            <div style="background-color:${color}" class="contact-logo">
-                ${abbreviation}
+    let index = contactCollection.findIndex(c => c['name'] === name);
+    if (index == -1) {
+        return /*html*/ `
+        <div onclick="selectContact(${i})" class="contact-box">
+            <div class="contact">
+                <div style="background-color:${color}" class="contact-logo">
+                    ${abbreviation}
+                </div>
+                <div>${name}</div>
             </div>
-            <div>${name}</div>
+            <div>
+                <img src="./img/subtask-checkbox-unchecked.svg">
+            </div>
         </div>
-        <div>
-            <img src="./img/subtask-checkbox-unchecked.svg">
-            <img class="d-none" src="./img/add-task-selected-contact-checkbox.svg">
+       `;
+        // renderSelectedContacts(i);
+    } else {
+        return /*html*/ `
+        <div onclick="selectContact(${i})" class="contact-box selected">
+            <div class="contact selected">
+                <div style="background-color:${color}" class="contact-logo">
+                    ${abbreviation}
+                </div>
+                <div>${name}</div>
+            </div>
+            <div>
+                <img src="./img/add-task-selected-contact-checkbox.svg">
+            </div>
         </div>
-    </div>
-    
     `;
+    }
+}
+
+function selectContact(i) {
+    let selectedContact = {
+        'name': contactsArray[i]['name'],
+        'nameAbbreviation': contactsArray[i]['nameAbbreviation'],
+        'color': contactsArray[i]['color'],
+    };
+
+    let index = contactCollection.findIndex(c => c['name'] === selectedContact['name']);
+    if (index == -1) {
+        contactCollection.push(selectedContact);
+        console.log(contactCollection);
+        renderSelectedContacts(i);
+    }
+    getContacts();
+}
+
+function renderSelectedContacts() {
+    document.getElementById('selected_contacts').innerHTML = '';
+    for (let k = 0; k < contactCollection.length; k++) {
+        const element = contactCollection[k];
+
+        document.getElementById('selected_contacts').innerHTML += /*html*/ `
+        <div class="contact">
+            <div style="background-color:${element['color']}" class="contact-logo">
+            ${element['nameAbbreviation']}
+            </div>
+        </div>
+        `;
+    }
 }
 //--------------------------------------------Contact Creation--------------------------------------------//
 
