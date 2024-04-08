@@ -347,9 +347,14 @@ input::-webkit-calendar-picker-indicator {
 }
 
 .cateogry-list-item:hover {
-    background-color: #EEEEEE;
+    background-color: #29ABE2;
+    color: white;
     cursor: pointer;
 }
+
+/* .cateogry-list-item:hover img{
+    background-image: url();
+}  */
 
 .delete-category-container {
     display: flex;
@@ -360,7 +365,7 @@ input::-webkit-calendar-picker-indicator {
 
 .delete-category-container img:hover {
     cursor: pointer;
-    background-color: #EEEEEE;
+    background-color: #2A3647;
     border-radius: 5px;
 }
 
@@ -371,10 +376,10 @@ input::-webkit-calendar-picker-indicator {
     border-radius: 50%;
 }
 
-.colorCircle:hover {
+/* .colorCircle:hover {
     cursor: pointer;
     box-shadow: 2px 4px 4px 2px rgba(0, 0, 0, 0.30);
-}
+} */
 
 .delete-icon:hover,
 .edit-icon:hover {
@@ -392,8 +397,6 @@ input::-webkit-calendar-picker-indicator {
 .selected:hover {
     background-color: #2A3647;
 }
-
-#edit_input {}
 
 .subtask-edit-input {
     display: flex;
@@ -434,6 +437,40 @@ input::-webkit-calendar-picker-indicator {
     display: flex;
     gap: 8px;
 }
+
+#contact_list {
+    background-color: white;
+}
+
+.contact-logo{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 12px;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.contact-box {
+    display: flex;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @media (max-width: 1280px) {

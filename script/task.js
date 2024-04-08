@@ -240,7 +240,7 @@ function deleteSubtask(i) {
 }
 
 //--------------------------------------------Categories--------------------------------------------//
-function renderCategories() {
+function toggleCategoryList() {
     if (categoryListOpen) {
         toggleVisibility('category_list_container', true);
         toggleVisibility('category_select_arrow_up', true);
@@ -304,15 +304,23 @@ function renderCustomCategories(name, color, i) {
         `;
     } else {
         return /*html*/ `
-        <div onclick='selectCategory("custom", ${i})' id='categoryCustomList${i}' class="cateogry-list-item">
+        <div onclick='selectCategory("custom", ${i})' id='categoryCustomList${i}' onmouseover="changeDeleteImg()" onmouseout="resetDeleteImg()" class="cateogry-list-item">
             <span>${name}</span>
             <div class="delete-category-container">
-                <img onclick="deleteCategory(${i})" class="delete-icon" src="img/delete.svg" alt="">
+                <img onclick="deleteCategory(${i})" id="delete_icon" class="delete-icon" src="img/delete.svg" alt="">
                 <div class="colorCircle" style="${color}"></div>
             </div>
         </div>
         `;
     }
+}
+
+function changeDeleteImg(i) {
+    document.getElementById('delete_icon').src = "img/delete-white.svg";
+}
+
+function resetDeleteImg() {
+    document.getElementById('delete_icon').src = "img/delete.svg";
 }
 
 function selectCategory(type, index) {
@@ -326,7 +334,7 @@ function selectCategory(type, index) {
         currentCategorySelected[0].name = customCategory.name[index];
         currentCategorySelected[0].color = customCategory.color[index];
     }
-    renderCategories();
+    toggleCategoryList();
     updateSelectedCategory();
 }
 
@@ -440,7 +448,7 @@ function confirmCreateCategory() {
     if (isValidCategoryInput()) {
         closePopup();
         addCategory();
-        renderCategories();
+        toggleCategoryList();
     } else {
         alertInvalidInput();
     }
@@ -455,7 +463,7 @@ async function addCategory() {
     // document.getElementById('createCategoryPopupByAddTask').classList.add('d-none');
     selectedColorIndex = null;
     // saveTaskElements();
-    renderCategories();
+    toggleCategoryList();
     changesSaved('Category successfully created')
 }
 
@@ -486,11 +494,21 @@ function clearAddCategoryInput() {
 
 
 //--------------------------------------------Contacts--------------------------------------------//
-function openContactList(){
+function toggleContactList(){
     if (contactListOpen) {
         toggleVisibility('contact_list_container', true);
         toggleVisibility('contact_select_arrow_up', true);
         toggleVisibility('contact_select_arrow_down', false);
+        let contactContainer = document.getElementById('contact_list');
+        contactContainer.innerHTML = '';
+        for (let i = 0; i < contactsArray.length; i++) {
+            const contactColor = contactsArray[i]['color'];
+            const contactNameAbbreviation = contactsArray[i]['nameAbbreviation'];
+            const contactName = contactsArray[i]['name'];
+            contactContainer.innerHTML += renderContacts(contactColor, contactNameAbbreviation, contactName, i)
+            
+            
+        }
     } else {
         toggleVisibility('contact_list_container', false);
         toggleVisibility('contact_select_arrow_up', false);
@@ -498,5 +516,21 @@ function openContactList(){
     }
     contactListOpen = !contactListOpen;
 }
+
+function renderContacts(color, abbreviation, name, i){
+    return /*html*/ `
+    <div class="contact-box">
+    <div style="background-color:${color}" class="contact-logo">
+    <div>${abbreviation}</div>
+    </div>
+    <div>${name}</div>
+    </div>
+    
+    `;
+}
 //--------------------------------------------Contact Creation--------------------------------------------//
-// categoryListOpen = !categoryListOpen;
+
+
+// contactsaArray[i][nameAbbreviation]
+//contactsaArray[i][color]
+// contactsaArray[i][name]
