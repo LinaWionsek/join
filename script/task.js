@@ -663,3 +663,11 @@ function renderSelectedContacts() {
 // contactsaArray[i][name]
 
 // #endregion
+// #region Edit Task
+//--------------------------------------------Edit Task--------------------------------------------//
+
+function editTask(i) {
+    slide('edit_popup', 'edit_popup_section');
+    console.log(tasks[i])
+}
+// #endregion

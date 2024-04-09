@@ -57,8 +57,8 @@ let taskIdForEdit = '';
 /** Represents the status for editing tasks. */
 let statusEdit = '';
 /** Represents the task being edited. */
-let editTask = '';
-;
+// let editTask = '';
+// ;
 
 //save and load task elements
 

@@ -206,7 +206,7 @@ function createHTML(i) {
                     <img  src="img/delete.svg" alt="">Delete
                 </div>
                 <img src="img/vector-detail-card.svg" alt="">
-                <div onclick="editTaskNew(${i})" class="delete-edit-buttons">
+                <div onclick="editTask(${i})" class="delete-edit-buttons">
                     <img  src="img/pen.svg" alt="">Edit
                 </div>
             </div>
@@ -262,3 +262,4 @@ async function deleteTask(i) {
     closeTask();
     updateBoardHTML();
 }
+

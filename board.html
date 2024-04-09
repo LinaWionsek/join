@@ -18,9 +18,9 @@
     <script src="./script/saveAndLoad.js"></script>
     <script src="script/contacts.js"></script>
     <script defer src="templates/templates.js"></script>
-    <script defer src="script/task.js"></script>
-    <script defer src="script/addTask-templates.js"></script>
-    <script defer src="script/board-addTask-teamfunctions.js"></script>
+    <script defer src="/script/task.js"></script>
+    <!-- 
+    <script defer src="script/board-addTask-teamfunctions.js"></script> -->
     <script defer src="./script/board.js"></script>
     <script defer src="./script/board-openTask.js"></script>
 </head>
@@ -127,185 +127,234 @@
             </div>
         </div>
     </div>
-    <section id="addTaskPop" class="popupContainer d-none"
-        onclick="slideOut('addTaskPopupPositionFront', 'addTaskPop', 200), resetAllAddTaskElementsBoard()">
-        <div class="addTaskPopupPosition" id="addTaskPopupPositionFront"
-            onclick="doNotClose(event), hideAddTaskDropDowns()">
-            <div class="contentPositionAddTaskPopup show-scrollbarTaskWindow">
-                <div class="addTaskPopupHeadlineContainer">
-                    <span id="addTaskHeadline" class="fw-bold fontSize61">Add Task</span>
-                    <img onclick="slideOut('addTaskPopupPositionFront', 'addTaskPop', 200), resetAllAddTaskElementsBoard()"
-                        class="click close-hover" src="img/close.svg" alt="">
+
+
+
+
+
+
+    <!-- ------------------------------------------------------------------------->
+    <!-- ----------------------------EDIT-------------------------------------- -->
+    <!-- EDIT -->
+
+
+    <section class="task-popup-bg d-none" id="edit_popup_section">
+
+        <div class="task-popup-card d-flex" id="edit_popup">
+
+
+            <div class="task-container">
+                <div class="task-header">
+                    <div class="fontSize61"><b>Add Task</b></div>
                 </div>
-
-                <form onsubmit="return false" id="myForm">
-                    <div class="taskArea">
-
-                        <div class="boxLeft fontSize20">
-                            <div id="titelBox" class="marginBottom16">
-                                <span class="marginTop24">Title<spline class="requiredStar">*</spline></span>
-                                <input class="click" id="addTitel" required placeholder="Enter a title" type="text"
-                                    maxlength="40">
-                            </div>
-
-                            <div class="column">
-                                <span class="marginTop24">Description</span>
-                                <textarea class="click" id="addDescription" placeholder="Enter a Description"
-                                    type="text"></textarea>
-                            </div>
-
-                            <div>
-                                <span>Assigned to</span>
-                                <div id="assignTo">
-                                    <div class="custom-select marginBottom16" id="assignedToInputContainer">
-                                    </div>
-                                    <div class="custom-select d-none" id="assignedToContactsInputContainer">
-                                    </div>
+        
+                <div class="task-contentposition">
+                
+                    <section class="task-popup-bg d-none" id="task_popup_section">
+        
+                        <div class="task-popup-card d-flex" id="task_popup">
+        
+                            <div class="left-popup">
+        
+                                <div id="close_popup_mobile">
+                                    <img onclick="closePopup()" src="./img/close-white.svg">
+                                </div>
+                                <div id="left_popup_content">
+                                
                                 </div>
                             </div>
-
+        
+                            <div class="center-popup">
+                                <div id="center_popup_content"></div>
+                            
+                            </div>
+        
+                            <div class="right-popup d-flex">
+        
+                                <div id="close_popup" class="pointer">
+                                    <img onclick="closePopup()" src="./img/close.svg" alt="">
+                                </div>
+                                <div id="right_popup_content"></div>
+                            </div>
                         </div>
-                        <div class="boxRight fontSize20">
-                            <div>
+                    </section>
+        
+        
+        
+                    <form>
+                        <div class="task-content">
+        
+                            <div class="left-container">
                                 <div>
-                                    <span class="marginTop24">Due date<spline class="requiredStar">*</spline></span>
                                     <div>
-                                        <input class="click" required placeholder="dd/mm/yyyy" type="text"
-                                            id="datepicker">
+                                        Title
+                                        <span class="required-star">*</span>
+                                    </div>
+                                    <input type="text" placeholder="Enter a title" id="task_title" class="fontSize20 width-100P"
+                                        required>
+                                </div>
+        
+                                <div>
+                                    <div>
+                                        Description
+                                    </div>
+                                    <textarea id="task_description" class="width-100P fontSize20"
+                                        placeholder="Enter a Description" type="text"></textarea>
+                                </div>
+        
+        
+                                <div>
+                                    <div>
+                                        Assigned to
+                                    </div>
+                                    <div onclick="toggleContactList()" id="assigned_to_input_container" class="custom-input">
+                                        <input placeholder="Select contacts to assign" id="" class="fontSize20">
+                                        <img id="contact_select_arrow_up" class="d-none" src="./img/arrow-up.svg" alt="">
+                                        <img id="contact_select_arrow_down" src="./img/arrow-down.svg" alt="">
+                                    </div>
+                                    <div id="contact_list_container" class="d-none">
+                                        <div id="contact_list"></div>
+                                        <div onclick="openAddContactPopup()" class="button blue-btn">
+                                            Add contact
+                                            <img src="./img/add-task-person-add.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div id="selected_contacts"></div>
+                                </div>
+                            </div>
+        
+                            <img class="task-vector" src="./img/vector-task.svg" alt="">
+        
+                            <div class="right-container">
+        
+                                <div>
+                                    <div>
+                                        Due date
+                                        <span class="required-star">*</span>
+                                    </div>
+                                    <input type="date" placeholder="Enter a title" id="date_picker"
+                                        class="fontSize20 width-100P" required>
+                                </div>
+        
+                                <div>
+                                    <div>
+                                        Prio
+                                    </div>
+                                    <div class="prio-container">
+                                        <div id="button_urgent" onclick="selectPriority('urgent')" class="button prio-btn">
+                                            <span>Urgent</span>
+                                            <img id="prio_urgent" src="./img/prio-urgent.svg" alt="">
+                                        </div>
+                                        <div id="button_medium" onclick="selectPriority('medium')" class="button prio-btn">
+                                            Medium
+                                            <img id="prio_medium" src="./img/prio-medium.svg" alt="">
+                                        </div>
+                                        <div id="button_low" onclick="selectPriority('low')" class="button prio-btn">
+                                            Low
+                                            <img id="prio_low" src="./img/prio-low.svg" alt="">
+                                        </div>
                                     </div>
                                 </div>
-
-                                <div class="column marginTop16">
-                                    <span class="marginTop24">Prio</span>
-                                    <div id="prioBox" class="prioButtonContainer">
+        
+                                <div>
+                                    <div>
+                                        Category
+                                        <span class="required-star">*</span>
                                     </div>
+        
+                                    <div onclick="toggleCategoryList()" id="category_input_container" class="custom-input">
+                                        <input type="text" readonly value="Select task category" id="category_input"
+                                            class="fontSize20 pointer" required>
+                                        <img onclick="renderCategories()" class="d-none" id="category_select_arrow_up" src="./img/arrow-up.svg"
+                                            alt="">
+                                        <img id="category_select_arrow_down" src="./img/arrow-down.svg" alt="">
+                                    </div>
+                                    <div id="category_list_container" class="d-none">
+                                        <div id="category_list" class="cateogry-list"></div>
+                                        <div onclick="openAddCategoryPopup()" class="button blue-btn">
+                                            Add new category
+                                            <img src="./img/add-task-category.svg" alt="">
+                                        </div>
+                                    </div>
+        
                                 </div>
-
-                                <div id="categorySection" class="column">
-                                    <span class="marginTop32">Category<spline class="requiredStar">*</spline></span>
-                                    <div class="custom-select marginBottom16" id="categoryAreaV1">
+        
+                                <div>
+                                    <div>
+                                        Subtasks
                                     </div>
-
-                                    <div class="custom-select marginBottom16 d-none" id="categoryAreaV2">
+                                    <div id="subtasks_input_container" class="custom-input">
+                                        <input placeholder="Add new subtask" id="subtasks_input" class="fontSize20" required>
+                                        <img onclick="addSubtask()" src="./img/plus.svg">
                                     </div>
-                                </div>
-
-                                <div class="column">
-                                    <span class="marginTop24">Subtasks</span>
-                                    <div class="custom-select">
-                                        <input type="text" class="click" placeholder="Add new subtask"
-                                            id="subTaskSelectInput">
-                                        <img onclick="addSubTaskToCollection()" class="inputAbsolut"
-                                            src="img/plus.svg">
-                                    </div>
-                                    <div class="selectedSubTask show-scrollbar" id="selectedSubTaskContainer">
-                                    </div>
-                                    <div id="editContainer" class="d-none custom-select">
-                                    </div>
+                                    <div id="selected_subtasks"></div>
+                                    <div id="edit_container" class="d-none"></div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div id="buttonAreaAddTask" class="selectBtnArea selectBtnAreaPopup gap16">
-                    </div>
-                </form>
-            </div>
-
-        </div>
-    </section>
-    <section id="contactPopupByAddTask" class="popupContainer d-none">
-        <div class="addContactPopupBox">
-            <div class="addContactPopupBoxLeft">
-                <div class="addContactPopupBoxLeftPosition">
-                    <img class="logoContactPopup" src="./img/join-logo-white.svg">
-                    <spline class="addContactPopupBoxLeftHeadline"><b>Add contact</b>
-                    </spline>
-                    <spline class="addContactPopupBoxLeftText">Tasks are better with a team!</spline>
-                    <div class="blueUnderline"></div>
-                </div>
-            </div>
-            <div class="addContactPopupBoxRight">
-                <div class="addContactPopupBoxRightImgPosition">
-                    <img class="addContactPopupBoxRightImg" src="./img/person.svg">
-                </div>
-                <div class="addContactPopupBoxRightFormPosition">
-                    <form onsubmit="createContactByPopup();return false">
-                        <div class="custom-select">
-                            <input required id="inputNameId" class="fontSize20" placeholder="Name" type="text">
-                            <img class="inputAbsolut" src="img/person-white.svg" alt="">
+        
+                        <div class="task-bottom">
+                            <div>
+                                <span class="required-star">*</span>
+                                This field is required
+                            </div>
+                            <div class="button-group">
+                                <div class="button outline-btn">
+                                    Clear
+                                    <svg class="colorOnHover" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 25" fill="none">
+                                        <path
+                                            d="M12.001 12.5001L17.244 17.7431M6.758 17.7431L12.001 12.5001L6.758 17.7431ZM17.244 7.25708L12 12.5001L17.244 7.25708ZM12 12.5001L6.758 7.25708L12 12.5001Z"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <div onclick="createTask()" class="button blue-btn">
+                                    Create Task
+                                    <img src="./img/check-white.svg" alt="">
+                                </div>
+                            </div>
+        
                         </div>
-                        <div class="custom-select">
-                            <input required id="inputEmailId" placeholder="Email" class="fontSize20" type="email">
-                            <img class="inputAbsolut" src="img/mail.svg" alt="">
-                        </div>
-                        <div class="custom-select">
-                            <input required id="inputPhoneId" placeholder="Phone" class="fontSize20" type="tel">
-                            <img class="inputAbsolut" src="img/call.svg" alt="">
-                            <p id="errorMessage" style="color: red;"></p>
-                        </div>
-                        <div class="addContactPopupBoxRightBtnPosition">
-                            <button type="reset" onclick="clearContactPopup()" class="clearBtn">
-                                <spline class="fontSize20">Cancel</spline>
-                                <svg class="clearSvg" xmlns="http://www.w3.org/2000/svg" width="25" height="24"
-                                    viewBox="0 0 25 24" fill="none">
-                                    <path
-                                        d="M12.2496 11.9998L17.4926 17.2428M7.00659 17.2428L12.2496 11.9998L7.00659 17.2428ZM17.4926 6.75684L12.2486 11.9998L17.4926 6.75684ZM12.2486 11.9998L7.00659 6.75684L12.2486 11.9998Z"
-                                        stroke="#2A3647" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                            </button>
-                            <button type="submit" class="createBtn blueBtn fontSize20">Create contact<img
-                                    class="createImg" src="./img/check-white.svg">
-                            </button>
-                        </div>
+        
                     </form>
                 </div>
+        
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ------------------------------------------------------------------------->
+
+
+
+    <section class="task-popup-bg d-none" id="task_at_board_popup_section">
+        <div class="task-popup-card d-flex" id="task_at_board_popup">
+            <div class="left-popup">
+
+                <div id="close_popup_mobile">
+                    <img onclick="closePopup()" src="./img/close-white.svg">
+                </div>
+                <div id="left_popup_content">
+                </div>
             </div>
-            <img onclick="clearContactPopup()" class="closePopup" src="img/close-white.svg">
-            <img onclick="clearContactPopup()" class="closePopupBlue" src="img/close.svg">
+
+            <div class="center-popup">
+                <div id="center_popup_content"></div>
+            </div>
+            <div class="right-popup d-flex">
+
+                <div id="close_popup" class="pointer">
+                    <img onclick="closePopup()" src="./img/close.svg" alt="">
+                </div>
+                <div id="right_popup_content"></div>
+            </div>
         </div>
     </section>
-    <section id="createCategoryPopupByAddTask" class="popupContainer d-none">
-        <div class="addContactPopupBox">
-            <div class="addContactPopupBoxLeft">
-                <div class="addContactPopupBoxLeftPosition">
-                    <img class="logoContactPopup" src="./img/join-logo-white.svg">
-                    <spline class="addContactPopupBoxLeftHeadline"><b>Add new category</b>
-                    </spline>
-                    <spline class="addContactPopupBoxLeftText">Tasks are better with a category!</spline>
-                    <div class="blueUnderline"></div>
-                </div>
-            </div>
-            <div class="addContactPopupBoxRight">
-                <div class="addContactPopupBoxRightImgPosition">
-                    <img class="addCategoryPopupBoxRightImg" src="./img/add-task-category.svg">
-                </div>
-                <div class="addContactPopupBoxRightFormPosition">
-                    <div class="custom-select">
-                        <input id="createCategoryInput" placeholder="New category name..." type="text">
-                        <div class="colorSettingBox" id="colorSettingBox">
-                        </div>
-                        <div class="addContactPopupBoxRightBtnPosition">
-                            <button onclick="stopCreateCategory()" class="clearBtn">
-                                <spline class="fontSize20">Cancel</spline>
-                                <svg class="clearSvg" xmlns="http://www.w3.org/2000/svg" width="25" height="24"
-                                    viewBox="0 0 25 24" fill="none">
-                                    <path
-                                        d="M12.2496 11.9998L17.4926 17.2428M7.00659 17.2428L12.2496 11.9998L7.00659 17.2428ZM17.4926 6.75684L12.2486 11.9998L17.4926 6.75684ZM12.2486 11.9998L7.00659 6.75684L12.2486 11.9998Z"
-                                        stroke="#2A3647" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                            </button>
-                            <button onclick="confirmCreateCategory()" class="createBtn blueBtn">Create category<img
-                                    class="createImg" src="./img/check-white.svg"></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <img onclick="stopCreateCategory()" class="closePopup" src="img/close-white.svg">
-            <img onclick="stopCreateCategory()" class="closePopupBlue" src="img/close.svg">
-        </div>
-    </section>
+
     <section class="success-info horicontalAndVertical fontSize20 d-none" id="successfullyCreatedId">
         Contact succesfully created
     </section>
