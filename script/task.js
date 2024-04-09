@@ -240,40 +240,72 @@ function deleteSubtask(i) {
 // #endregion
 // #region Priority
 //--------------------------------------------Priory--------------------------------------------//
-// function selectLowPriority() {
-//     if (prioLowSelected) {
-//         document.getElementById('prio_low').src = './img/prio-low.svg';
-//         document.getElementById('button_low').classList.remove('prio-low');
-//         currentPrioSelected = '';
-//         // getContacts();
-//     } else {
-//         document.getElementById('prio_low').src = './img/prio-low-white.svg';
-//         document.getElementById('button_low').classList.add('prio-low');
-//         currentPrioSelected = 'low';
-//     }
-
-//     prioLowSelected = !prioLowSelected;
-//     console.log(currentPrioSelected);
-// }
-let oneSelected = false;
-
 function selectPriority(prio) {
-    if (prioLowSelected) {
-        document.getElementById(`prio_${prio}`).src = `./img/prio-${prio}.svg`;
-        document.getElementById(`button_${prio}`).classList.remove(`prio-${prio}`);
-        currentPrioSelected = '';
-        oneSelected = false;
-        // getContacts();
+    if (currentPrioSelected != prio) {
+        if (prio == 'low') {
+            selectLowPriority(prio);
+        } else if (prio == 'medium') {
+            selectMediumPriority(prio);
+        } else if (prio == 'urgent') {
+            selectUrgentPriority(prio);
+        }
     } else {
-        document.getElementById(`prio_${prio}`).src = `./img/prio-${prio}-white.svg`;
-        document.getElementById(`button_${prio}`).classList.add(`prio-${prio}`);
-        currentPrioSelected = prio;
-        oneSelected = true;
+        noPrioritySelected();
     }
-
-    prioLowSelected = !prioLowSelected;
-    console.log(currentPrioSelected);
 }
+
+function noPrioritySelected() {
+    console.log('no prio');
+    currentPrioSelected = '';
+    document.getElementById('prio_low').src = `./img/prio-low.svg`;
+    document.getElementById('button_low').classList.remove('prio-low');
+
+    document.getElementById('prio_medium').src = `./img/prio-medium.svg`;
+    document.getElementById('button_medium').classList.remove('prio-medium');
+
+    document.getElementById('prio_urgent').src = `./img/prio-urgent.svg`;
+    document.getElementById('button_urgent').classList.remove('prio-urgent');
+}
+
+function selectLowPriority(prio) {
+    currentPrioSelected = prio;
+    console.log(currentPrioSelected);
+    document.getElementById('prio_low').src = `./img/prio-low-white.svg`;
+    document.getElementById('button_low').classList.add('prio-low');
+
+    document.getElementById('prio_medium').src = `./img/prio-medium.svg`;
+    document.getElementById('button_medium').classList.remove('prio-medium');
+
+    document.getElementById('prio_urgent').src = `./img/prio-urgent.svg`;
+    document.getElementById('button_urgent').classList.remove('prio-urgent');
+}
+
+function selectMediumPriority(prio) {
+    currentPrioSelected = prio;
+    console.log(currentPrioSelected);
+    document.getElementById('prio_medium').src = `./img/prio-medium-white.svg`;
+    document.getElementById('button_medium').classList.add('prio-medium');
+
+    document.getElementById('prio_low').src = `./img/prio-low.svg`;
+    document.getElementById('button_low').classList.remove('prio-low');
+
+    document.getElementById('prio_urgent').src = `./img/prio-urgent.svg`;
+    document.getElementById('button_urgent').classList.remove('prio-urgent');
+}
+
+function selectUrgentPriority(prio) {
+    currentPrioSelected = prio;
+    console.log(currentPrioSelected);
+    document.getElementById('prio_urgent').src = `./img/prio-urgent-white.svg`;
+    document.getElementById('button_urgent').classList.add('prio-urgent');
+
+    document.getElementById('prio_low').src = `./img/prio-low.svg`;
+    document.getElementById('button_low').classList.remove('prio-low');
+
+    document.getElementById('prio_medium').src = `./img/prio-medium.svg`;
+    document.getElementById('button_medium').classList.remove('prio-medium');
+}
+
 
 // #endregion
 // #region Categories
@@ -380,8 +412,8 @@ function updateSelectedCategory() {
         let input = document.getElementById('category_input');
         input.value = currentCategorySelected[0].name;
         toggleVisibility('category_list_container', false);
-        toggleVisibility('arrow_up', false);
-        toggleVisibility('arrow_down', true);
+        toggleVisibility('category_select_arrow_up', false);
+        toggleVisibility('category_select_arrow_down', true);
     }
 }
 // #endregion
