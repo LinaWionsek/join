@@ -185,16 +185,16 @@
                             </div>
                             <div class="prio-container">
                                 <div class="button prio-btn">
-                                    Urgent
-                                    <img src="./img/prioUrgent.svg" alt="">
+                                    <span>Urgent</span>
+                                    <img id="prio_urgent" src="./img/prio-urgent.svg" alt="">
                                 </div>
                                 <div onclick="renderCategories(), updateSelectedCategory()" class="button prio-btn">
                                     Medium
-                                    <img src="./img/prioMedium.svg" alt="">
+                                    <img id="prio_medium" src="./img/prio-medium.svg" alt="">
                                 </div>
-                                <div class="button prio-btn">
+                                <div id="button_low" onclick="selectPriority()" class="button prio-btn">
                                     Low
-                                    <img src="./img/prioLow.svg" alt="">
+                                    <img id="prio_low" src="./img/prio-low.svg" alt="">
                                 </div>
                             </div>
                         </div>

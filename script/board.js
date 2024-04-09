@@ -245,9 +245,15 @@ function renderSmallUserIcons(element) {
  * @returns {string} - The generated HTML string representing the task
  */
 function generateTaskHTML(element) {
+    console.log(element)
     updateProgressbar(element);
     let i = element['id']
     let assignedUser = renderSmallUserIcons(element)
+    let imageUrl;
+    if(element['priority'] == 'low'){
+        imageUrl = './img/prio-low.svg';
+    }
+
     let mover = /*html*/ `  
     <div id="move-dropup">
         <div class="dropup">
@@ -276,7 +282,7 @@ function generateTaskHTML(element) {
                     ${assignedUser}
                     </div>
                     ${showUserDiff}
-                    <img src="${element['priority']}">
+                    <img src="${imageUrl}">
                 </div>
             </div>
             ${mover}

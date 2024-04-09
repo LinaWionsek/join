@@ -313,10 +313,23 @@ input::-webkit-calendar-picker-indicator {
 
 .prio-btn {
     background-color: white;
+    gap: 8px !important;
 }
 
-.prio-btn img {
-    background-color: white;
+.prio-btn:hover {
+    cursor: pointer;
+} 
+
+.prio-low{
+    color: white;
+    background-color: #7AE229;
+    font-weight: bold !important;
+}
+.prio-medium{
+    color: white;
+}
+.prio-urgent{
+    color: white;
 }
 
 #category_list_container {

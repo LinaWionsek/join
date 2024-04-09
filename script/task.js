@@ -1,5 +1,6 @@
 let categoryListOpen = false;
 let contactListOpen = false;
+let prioLowSelected = false;
 
 async function init() {
     loadActiveUser();
@@ -37,15 +38,15 @@ async function createTask() {
         'title': document.getElementById('task_title').value,
         'description': document.getElementById('task_description').value,
         'dueDate': document.getElementById('date_picker').value,
-        // 'priority': currentPrioSelected,
-        // 'contactName': contactCollection.map(contact => contact.name),
+        'priority': currentPrioSelected,
+        'contactName': contactCollection.map(contact => contact.name),
         'contactName': contactCollection.map(contact => {
             console.log(contact.name);
             return contact.name;
         }),
         'contactColor': contactCollection.map(contact => contact.color),
         'contactAbbreviation': contactCollection.map(contact => contact.nameAbbreviation),
-        'priority': '',
+        // 'priority': '',
         'subtasksInProgress': subTaskCollection,
         'subtasksFinish': subtasksFinish,
     };
@@ -168,7 +169,7 @@ function collectTaskData() {
         'subtasksFinish': subtasksFinish,
     };
 }
-
+// #region Subtasks
 //--------------------------------------------Subtasks--------------------------------------------//
 function addSubtask() {
     let input = document.getElementById('subtasks_input');
@@ -236,7 +237,26 @@ function deleteSubtask(i) {
     subTaskCollection.splice(i, 1);
     renderSubtasks();
 }
+// #endregion
+// #region Priority
+//--------------------------------------------Priory--------------------------------------------//
+function selectPriority() {
+    if (prioLowSelected) {
+        document.getElementById('prio_low').src = './img/prio-low.svg';
+        document.getElementById('button_low').classList.remove('prio-low');
+        currentPrioSelected = '';
+        // getContacts();
+    } else {
+        document.getElementById('prio_low').src = './img/prio-low-white.svg';
+        document.getElementById('button_low').classList.add('prio-low');
+        currentPrioSelected = 'low';
+    }
 
+    prioLowSelected = !prioLowSelected;
+    console.log(currentPrioSelected);
+}
+// #endregion
+// #region Categories
 //--------------------------------------------Categories--------------------------------------------//
 function toggleCategoryList() {
     if (categoryListOpen) {
@@ -344,7 +364,8 @@ function updateSelectedCategory() {
         toggleVisibility('arrow_down', true);
     }
 }
-
+// #endregion
+// #region Category Creation
 //--------------------------------------------Category Creation--------------------------------------------//
 function cancelCategorySelection() {
     toggleVisibility('category_list_container', false);
@@ -487,7 +508,8 @@ function clearAddCategoryInput() {
     document.getElementById('createCategoryInput').value = '';
     selectedColorIndex = null;
 }
-
+// #endregion
+// #region Contacts
 //--------------------------------------------Contacts--------------------------------------------//
 function toggleContactList() {
     if (contactListOpen) {
@@ -580,8 +602,12 @@ function renderSelectedContacts() {
         `;
     }
 }
+// #endregion
+// #region Contact Creation
 //--------------------------------------------Contact Creation--------------------------------------------//
 
 // contactsaArray[i][nameAbbreviation]
 //contactsaArray[i][color]
 // contactsaArray[i][name]
+
+// #endregion
