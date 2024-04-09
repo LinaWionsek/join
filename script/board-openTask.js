@@ -153,6 +153,15 @@ function createHTML(i) {
         imageUrl = './img/prio-low.svg';
         priorityText = 'Low';
     }
+    if (priority == 'medium') {
+        imageUrl = './img/prio-medium.svg';
+        priorityText = 'Medium';
+    }
+    if (priority == 'urgent') {
+        imageUrl = './img/prio-urgent.svg';
+        priorityText = 'Urgent';
+    }
+   
     document.getElementById('popup-container').innerHTML = /*html*/ `
 
     <div onclick="stopBody(event)" class="task-detail" id="task-card">

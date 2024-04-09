@@ -327,9 +327,13 @@ input::-webkit-calendar-picker-indicator {
 }
 .prio-medium{
     color: white;
+    background-color: #7AE229;
+    font-weight: bold !important;
 }
 .prio-urgent{
     color: white;
+    background-color: #7AE229;
+    font-weight: bold !important;
 }
 
 #category_list_container {

@@ -184,15 +184,15 @@
                                 Prio
                             </div>
                             <div class="prio-container">
-                                <div class="button prio-btn">
+                                <div id="button_urgent" onclick="selectPriority('urgent')" class="button prio-btn">
                                     <span>Urgent</span>
                                     <img id="prio_urgent" src="./img/prio-urgent.svg" alt="">
                                 </div>
-                                <div onclick="renderCategories(), updateSelectedCategory()" class="button prio-btn">
+                                <div id="button_medium" onclick="selectPriority('medium')" class="button prio-btn">
                                     Medium
                                     <img id="prio_medium" src="./img/prio-medium.svg" alt="">
                                 </div>
-                                <div id="button_low" onclick="selectPriority()" class="button prio-btn">
+                                <div id="button_low" onclick="selectPriority('low')" class="button prio-btn">
                                     Low
                                     <img id="prio_low" src="./img/prio-low.svg" alt="">
                                 </div>

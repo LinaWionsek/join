@@ -253,6 +253,12 @@ function generateTaskHTML(element) {
     if(element['priority'] == 'low'){
         imageUrl = './img/prio-low.svg';
     }
+    if(element['priority'] == 'medium'){
+        imageUrl = './img/prio-medium.svg';
+    }
+    if(element['priority'] == 'urgent'){
+        imageUrl = './img/prio-urgent.svg';
+    }
 
     let mover = /*html*/ `  
     <div id="move-dropup">
