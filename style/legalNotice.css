@@ -50,15 +50,15 @@ body {
 } */
 
 .quicklinksContainer::-webkit-scrollbar-button:start:decrement {
-    background-position: center !important;
-    background-image: url('../img/arrow-up.svg') !important;
+    /* background-position: center !important;
+    background-image: url('../img/arrow-up.svg') !important; */
     border-top-right-radius: 100% !important;
     border-top-left-radius: 100% !important;
 }
 
 .quicklinksContainer::-webkit-scrollbar-button:end:increment {
-    background-position: center !important;
-    background-image: url('../img/arrow-down.svg') !important;
+    /* background-position: center !important;
+    background-image: url('../img/arrow-down.svg') !important; */
     border-bottom-right-radius: 100% !important;
     border-bottom-left-radius: 100% !important;
 }

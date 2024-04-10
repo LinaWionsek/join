@@ -78,7 +78,7 @@
                             src="img/plus-box.svg" alt="Not found">
                     </div>
 
-                    <div id="toDo" class="drag-area show-scrollbar" ondrop="moveTo('toDo')"
+                    <div id="toDo" class="drag-area" ondrop="moveTo('toDo')"
                         ondragleave="removeHighlight('toDo')" ondragover="allowDrop(event); highlight('toDo')">
                     </div>
                 </section>
@@ -140,37 +140,37 @@
 
     <section class="task-popup-bg d-none" id="edit_popup_section">
 
-        <div class="task-popup-card d-flex" id="edit_popup">
+        <div class="addTaskPopupPosition d-flex" id="edit_popup">
 
 
-            <div class="task-container">
-                <div class="task-header">
-                    <div class="fontSize61"><b>Add Task</b></div>
+            <div class="contentPositionAddTaskPopup">
+                <div class="addTaskPopupHeadlineContainer">
+                    <div class="fontSize61"><b>Edit Task</b></div>
                 </div>
-        
-                <div class="task-contentposition">
-                
+
+                <!-- <div class="task-contentposition"> -->
+
                     <section class="task-popup-bg d-none" id="task_popup_section">
-        
+
                         <div class="task-popup-card d-flex" id="task_popup">
-        
+
                             <div class="left-popup">
-        
+
                                 <div id="close_popup_mobile">
                                     <img onclick="closePopup()" src="./img/close-white.svg">
                                 </div>
                                 <div id="left_popup_content">
-                                
+
                                 </div>
                             </div>
-        
+
                             <div class="center-popup">
                                 <div id="center_popup_content"></div>
-                            
+
                             </div>
-        
+
                             <div class="right-popup d-flex">
-        
+
                                 <div id="close_popup" class="pointer">
                                     <img onclick="closePopup()" src="./img/close.svg" alt="">
                                 </div>
@@ -178,22 +178,22 @@
                             </div>
                         </div>
                     </section>
-        
-        
-        
+
+
+
                     <form>
                         <div class="task-content">
-        
+
                             <div class="left-container">
                                 <div>
                                     <div>
                                         Title
                                         <span class="required-star">*</span>
                                     </div>
-                                    <input type="text" placeholder="Enter a title" id="task_title" class="fontSize20 width-100P"
-                                        required>
+                                    <input type="text" placeholder="Enter a title" id="task_title"
+                                        class="fontSize20 width-100P" required>
                                 </div>
-        
+
                                 <div>
                                     <div>
                                         Description
@@ -201,15 +201,17 @@
                                     <textarea id="task_description" class="width-100P fontSize20"
                                         placeholder="Enter a Description" type="text"></textarea>
                                 </div>
-        
-        
+
+
                                 <div>
                                     <div>
                                         Assigned to
                                     </div>
-                                    <div onclick="toggleContactList()" id="assigned_to_input_container" class="custom-input">
+                                    <div onclick="toggleContactList()" id="assigned_to_input_container"
+                                        class="custom-input">
                                         <input placeholder="Select contacts to assign" id="" class="fontSize20">
-                                        <img id="contact_select_arrow_up" class="d-none" src="./img/arrow-up.svg" alt="">
+                                        <img id="contact_select_arrow_up" class="d-none" src="./img/arrow-up.svg"
+                                            alt="">
                                         <img id="contact_select_arrow_down" src="./img/arrow-down.svg" alt="">
                                     </div>
                                     <div id="contact_list_container" class="d-none">
@@ -222,11 +224,11 @@
                                     <div id="selected_contacts"></div>
                                 </div>
                             </div>
-        
+
                             <img class="task-vector" src="./img/vector-task.svg" alt="">
-        
+
                             <div class="right-container">
-        
+
                                 <div>
                                     <div>
                                         Due date
@@ -235,17 +237,19 @@
                                     <input type="date" placeholder="Enter a title" id="date_picker"
                                         class="fontSize20 width-100P" required>
                                 </div>
-        
+
                                 <div>
                                     <div>
                                         Prio
                                     </div>
                                     <div class="prio-container">
-                                        <div id="button_urgent" onclick="selectPriority('urgent')" class="button prio-btn">
+                                        <div id="button_urgent" onclick="selectPriority('urgent')"
+                                            class="button prio-btn">
                                             <span>Urgent</span>
                                             <img id="prio_urgent" src="./img/prio-urgent.svg" alt="">
                                         </div>
-                                        <div id="button_medium" onclick="selectPriority('medium')" class="button prio-btn">
+                                        <div id="button_medium" onclick="selectPriority('medium')"
+                                            class="button prio-btn">
                                             Medium
                                             <img id="prio_medium" src="./img/prio-medium.svg" alt="">
                                         </div>
@@ -255,18 +259,19 @@
                                         </div>
                                     </div>
                                 </div>
-        
+
                                 <div>
                                     <div>
                                         Category
                                         <span class="required-star">*</span>
                                     </div>
-        
-                                    <div onclick="toggleCategoryList()" id="category_input_container" class="custom-input">
+
+                                    <div onclick="toggleCategoryList()" id="category_input_container"
+                                        class="custom-input">
                                         <input type="text" readonly value="Select task category" id="category_input"
                                             class="fontSize20 pointer" required>
-                                        <img onclick="renderCategories()" class="d-none" id="category_select_arrow_up" src="./img/arrow-up.svg"
-                                            alt="">
+                                        <img onclick="renderCategories()" class="d-none" id="category_select_arrow_up"
+                                            src="./img/arrow-up.svg" alt="">
                                         <img id="category_select_arrow_down" src="./img/arrow-down.svg" alt="">
                                     </div>
                                     <div id="category_list_container" class="d-none">
@@ -276,15 +281,16 @@
                                             <img src="./img/add-task-category.svg" alt="">
                                         </div>
                                     </div>
-        
+
                                 </div>
-        
+
                                 <div>
                                     <div>
                                         Subtasks
                                     </div>
                                     <div id="subtasks_input_container" class="custom-input">
-                                        <input placeholder="Add new subtask" id="subtasks_input" class="fontSize20" required>
+                                        <input placeholder="Add new subtask" id="subtasks_input" class="fontSize20"
+                                            required>
                                         <img onclick="addSubtask()" src="./img/plus.svg">
                                     </div>
                                     <div id="selected_subtasks"></div>
@@ -292,7 +298,7 @@
                                 </div>
                             </div>
                         </div>
-        
+
                         <div class="task-bottom">
                             <div>
                                 <span class="required-star">*</span>
@@ -314,14 +320,15 @@
                                     <img src="./img/check-white.svg" alt="">
                                 </div>
                             </div>
-        
+
                         </div>
-        
+
                     </form>
-                </div>
-        
+                <!-- </div> -->
 
 
+
+            </div>
         </div>
 
     </section>

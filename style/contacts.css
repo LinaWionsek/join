@@ -91,15 +91,15 @@ body {
 
 /* scroll-bar contacts */
 .left-container::-webkit-scrollbar-button:start:decrement {
-    background-position: center;
-    background-image: url('../img/arrow-up.svg');
+    /* background-position: center;
+    background-image: url('../img/arrow-up.svg'); */
     border-top-right-radius: 100%;
     border-top-left-radius: 100%;
 }
 
 .left-container::-webkit-scrollbar-button:end:increment {
-    background-position: center;
-    background-image: url('../img/arrow-down.svg');
+    /* background-position: center;
+    background-image: url('../img/arrow-down.svg'); */
     border-bottom-right-radius: 100%;
     border-bottom-left-radius: 100%;
 }

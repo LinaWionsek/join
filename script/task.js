@@ -668,6 +668,7 @@ function renderSelectedContacts() {
 
 function editTask(i) {
     slide('edit_popup', 'edit_popup_section');
+    closeTask();
     console.log(tasks[i])
 }
 // #endregion
