@@ -669,6 +669,49 @@ function renderSelectedContacts() {
 function editTask(i) {
     slide('edit_popup', 'edit_popup_section');
     closeTask();
-    console.log(tasks[i])
+    let taskToEdit = tasks[i];
+    // document.getElementById("addTaskHeadline").innerHTML = 'Edit Task';
+    document.getElementById('task_title').value = taskToEdit.title;
+    document.getElementById('task_description').value = taskToEdit.description;
+    document.getElementById('date_picker').value = taskToEdit.dueDate;
+    for (let contactNumber = 0; contactNumber < taskToEdit.contactName.length; contactNumber++) {
+        const cName = taskToEdit.contactName[contactNumber];
+        const cColor = taskToEdit.contactColor[contactNumber];
+        const cAbbreviation = taskToEdit.contactAbbreviation[contactNumber];
+        contactCollection[contactNumber] = {
+            'nameAbbreviation': cAbbreviation,
+            'color': cColor,
+            'name': cName,
+        }
+    }
+    currentCategorySelected[0].color = taskToEdit.categoryColor;
+    currentCategorySelected[0].name = taskToEdit.category;
+    statusEdit = taskToEdit.status;
+    currentPrioSelected = taskToEdit.priority;
+    subTaskCollection = taskToEdit.subtasksInProgress;
+    subtasksFinish = taskToEdit.subtasksFinish;
+    taskIdForEdit = taskToEdit.id;
+    // saveTaskElements();
+    editTaskWindow();
+}
+
+function editTaskWindow() {
+    // loadTaskElements();
+    // setInnerHTML("buttonAreaAddTask", returnButtonAreaEditTask);
+    // setInnerHTML("assignedToInputContainer", returnAssignToBox1);
+    // setInnerHTML("assignedToContactsInputContainer", returnAssignToBox2);
+    // setInnerHTML("categoryAreaV1", returnCategoryBox1);
+    // setInnerHTML("categoryAreaV2", returnCategoryBox2);
+    // setInnerHTML("prioBox", returnPrioBox);
+    // borderColorCheck();
+    // renderCategorys();
+    toggleCategoryList();
+    updateSelectedCategory();
+    // document.getElementById('category_input').value = 
+    // renderAllSelectedContacts();
+    // renderAllContactsForSearch();
+    // renderSubTaskCollection();
+    // createCategoryWindow();
+    // initializePrioButtons();
 }
 // #endregion
