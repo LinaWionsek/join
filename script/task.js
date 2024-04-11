@@ -576,7 +576,6 @@ function toggleContactList() {
         toggleVisibility('contact_select_arrow_down', true);
     }
     contactListOpen = !contactListOpen;
-    console.log(contactCollection);
 }
 
 function getContacts() {
@@ -666,7 +665,10 @@ function renderSelectedContacts() {
 // #region Edit Task
 //--------------------------------------------Edit Task--------------------------------------------//
 
-function editTask(i) {
+async function editTask(i) {
+    await currentUserCategorysLoad();
+    await currentUserContactsLoad();
+    console.log('i', i)
     slide('edit_popup', 'edit_popup_section');
     closeTask();
     let taskToEdit = tasks[i];
@@ -691,6 +693,7 @@ function editTask(i) {
     subTaskCollection = taskToEdit.subtasksInProgress;
     subtasksFinish = taskToEdit.subtasksFinish;
     taskIdForEdit = taskToEdit.id;
+    console.log(taskIdForEdit)
     // saveTaskElements();
     editTaskWindow();
 }
@@ -704,14 +707,47 @@ function editTaskWindow() {
     // setInnerHTML("categoryAreaV2", returnCategoryBox2);
     // setInnerHTML("prioBox", returnPrioBox);
     // borderColorCheck();
-    // renderCategorys();
+    
     toggleCategoryList();
     updateSelectedCategory();
-    // document.getElementById('category_input').value = 
+    toggleContactList();
+    renderSelectedContacts();
     // renderAllSelectedContacts();
+
     // renderAllContactsForSearch();
+    renderSubtasks();
     // renderSubTaskCollection();
+
     // createCategoryWindow();
+
     // initializePrioButtons();
 }
+
+
+async function submitEdit() {
+    const getValue = id => document.getElementById(id).value;
+    const getContactInfo = prop => contactCollection.map(contact => contact[prop]);
+    let taskEdit = {
+        'id': taskIdForEdit,
+        'status': statusEdit,
+        'category': currentCategorySelected[0].name, 
+        'categoryColor': currentCategorySelected[0].color,
+        'title': getValue("task_title"), 
+        'description': getValue("task_description"), 
+        'dueDate': getValue("date_picker"),
+        'priority': currentPrioSelected, 
+        'contactName': getContactInfo('name'), 
+        'contactColor': getContactInfo('color'),
+        'contactAbbreviation': getContactInfo('nameAbbreviation'), 
+        'subtasksInProgress': subTaskCollection, 
+        'subtasksFinish': subtasksFinish
+    };
+    tasks[tasks.findIndex(task => task.id === taskIdForEdit)] = taskEdit;
+    await currentUserTaskSave();
+    // resetAllAddTaskElementsBoard();
+    slideOut('edit_popup', 'edit_popup_section', 200);
+    changesSaved('Task edited');
+    updateBoardHTML();
+}
+
 // #endregion

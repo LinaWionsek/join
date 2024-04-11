@@ -1,5 +1,5 @@
 body {
-    overflow-y: hidden;
+    overflow-x: hidden;
 }
 :root {
     --main-color: #2A3647;
@@ -295,7 +295,7 @@ a {
 }
 
 section {
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 
 .vertical {

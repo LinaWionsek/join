@@ -328,19 +328,16 @@ input::-webkit-calendar-picker-indicator {
     color: white;
     background-color: #7AE229;
     font-weight: bold !important;
-    box-shadow: 5px 5px 12px rgba(202, 202, 202, 0);
 }
 .prio-medium{
     color: white;
     background-color: #FFA800;
     font-weight: bold !important;
-    box-shadow: 5px 5px 12px rgba(202, 202, 202, 0);
 }
 .prio-urgent{
     color: white;
     background-color: #FF3D00;
     font-weight: bold !important;
-    box-shadow: 5px 5px 12px rgba(202, 202, 202, 0);
 }
 
 #category_list_container {
