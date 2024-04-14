@@ -591,20 +591,35 @@ function toggleContactList() {
 
 function getContacts() {
     let contactContainer = document.getElementById('contact_list');
-    contactContainer.innerHTML = '';
-    for (let i = 0; i < contactsArray.length; i++) {
-        const contactColor = contactsArray[i]['color'];
-        const contactNameAbbreviation = contactsArray[i]['nameAbbreviation'];
-        const contactName = contactsArray[i]['name'];
-        contactContainer.innerHTML += renderContacts(contactColor, contactNameAbbreviation, contactName, i);
+    let text = document.getElementById('assigned_to_input').value;
+    let searchedResult = contactsArray.filter(t => t['name'].toLowerCase().includes(text.toLowerCase()));
+    // contactContainer.innerHTML = '';
+
+    if (text === '') {
+        contactContainer.innerHTML = '';
+        for (let i = 0; i < contactsArray.length; i++) {
+            const contactColor = contactsArray[i]['color'];
+            const contactNameAbbreviation = contactsArray[i]['nameAbbreviation'];
+            const contactName = contactsArray[i]['name'];
+            contactContainer.innerHTML += renderContacts(contactColor, contactNameAbbreviation, contactName);
+        }
+    } else {
+        contactContainer.innerHTML = '';
+        for (let j = 0; j < searchedResult.length; j++) {
+            const colorResult = searchedResult[j]['color'];
+            const nameAbbreviationResult = searchedResult[j]['nameAbbreviation'];
+            const nameResult = searchedResult[j]['name'];
+            contactContainer.innerHTML += renderContacts(colorResult, nameAbbreviationResult, nameResult);
+        }
     }
 }
 
-function renderContacts(color, abbreviation, name, i) {
+function renderContacts(color, abbreviation, name) {
+    console.log(name);
     let index = contactCollection.findIndex(c => c['name'] === name);
     if (index == -1) {
         return /*html*/ `
-        <div onclick="selectContact(${i})" class="contact-box">
+        <div onclick="selectContact('${name}')" class="contact-box">
             <div class="contact">
                 <div style="background-color:${color}" class="contact-logo">
                     ${abbreviation}
@@ -619,7 +634,7 @@ function renderContacts(color, abbreviation, name, i) {
         // renderSelectedContacts(i);
     } else {
         return /*html*/ `
-        <div onclick="selectContact(${i})" class="contact-box selected">
+        <div onclick="selectContact('${name}')" class="contact-box selected">
             <div class="contact selected">
                 <div style="background-color:${color}" class="contact-logo">
                     ${abbreviation}
@@ -634,7 +649,10 @@ function renderContacts(color, abbreviation, name, i) {
     }
 }
 
-function selectContact(i) {
+function selectContact(name) {
+    let i = contactsArray.findIndex(c => c['name'] === name);
+    console.log(contactsArray);
+    console.log(i);
     let selectedContact = {
         'name': contactsArray[i]['name'],
         'nameAbbreviation': contactsArray[i]['nameAbbreviation'],
