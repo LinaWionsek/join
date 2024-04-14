@@ -255,17 +255,16 @@ function selectPriority(prio) {
 }
 
 function detectPriority() {
-        if (currentPrioSelected == 'low') {
-            selectLowPriority(currentPrioSelected);
-        } else if (currentPrioSelected == 'medium') {
-            selectMediumPriority(currentPrioSelected);
-        } else if (currentPrioSelected == 'urgent') {
-            selectUrgentPriority(currentPrioSelected);
-        } else {
+    if (currentPrioSelected == 'low') {
+        selectLowPriority(currentPrioSelected);
+    } else if (currentPrioSelected == 'medium') {
+        selectMediumPriority(currentPrioSelected);
+    } else if (currentPrioSelected == 'urgent') {
+        selectUrgentPriority(currentPrioSelected);
+    } else {
         noPrioritySelected();
     }
 }
-
 
 function noPrioritySelected() {
     console.log('no prio');
@@ -318,7 +317,6 @@ function selectUrgentPriority(prio) {
     document.getElementById('prio_medium').src = `./img/prio-medium.svg`;
     document.getElementById('button_medium').classList.remove('prio-medium');
 }
-
 
 // #endregion
 // #region Categories
@@ -646,10 +644,13 @@ function selectContact(i) {
     let index = contactCollection.findIndex(c => c['name'] === selectedContact['name']);
     if (index == -1) {
         contactCollection.push(selectedContact);
-        console.log(contactCollection);
+        renderSelectedContacts(i);
+    } else {
+        contactCollection.splice(index, 1);
         renderSelectedContacts(i);
     }
     getContacts();
+    console.log(contactCollection);
 }
 
 function renderSelectedContacts() {
@@ -681,7 +682,7 @@ function renderSelectedContacts() {
 async function editTask(i) {
     await currentUserCategorysLoad();
     await currentUserContactsLoad();
-    console.log('i', i)
+    console.log('i', i);
     slide('edit_popup', 'edit_popup_section');
     closeTask();
     let taskToEdit = tasks[i];
@@ -697,7 +698,7 @@ async function editTask(i) {
             'nameAbbreviation': cAbbreviation,
             'color': cColor,
             'name': cName,
-        }
+        };
     }
     currentCategorySelected[0].color = taskToEdit.categoryColor;
     currentCategorySelected[0].name = taskToEdit.category;
@@ -706,8 +707,8 @@ async function editTask(i) {
     subTaskCollection = taskToEdit.subtasksInProgress;
     subtasksFinish = taskToEdit.subtasksFinish;
     taskIdForEdit = taskToEdit.id;
-    console.log(taskIdForEdit)
-   
+    console.log(taskIdForEdit);
+
     // saveTaskElements();
     editTaskWindow();
 }
@@ -722,7 +723,7 @@ function editTaskWindow() {
     // setInnerHTML("categoryAreaV2", returnCategoryBox2);
     // setInnerHTML("prioBox", returnPrioBox);
     // borderColorCheck();
-    
+
     toggleCategoryList();
     updateSelectedCategory();
     toggleContactList();
@@ -738,24 +739,23 @@ function editTaskWindow() {
     // initializePrioButtons();
 }
 
-
 async function submitEdit() {
     const getValue = id => document.getElementById(id).value;
     const getContactInfo = prop => contactCollection.map(contact => contact[prop]);
     let taskEdit = {
         'id': taskIdForEdit,
         'status': statusEdit,
-        'category': currentCategorySelected[0].name, 
+        'category': currentCategorySelected[0].name,
         'categoryColor': currentCategorySelected[0].color,
-        'title': getValue("task_title"), 
-        'description': getValue("task_description"), 
-        'dueDate': getValue("date_picker"),
-        'priority': currentPrioSelected, 
-        'contactName': getContactInfo('name'), 
+        'title': getValue('task_title'),
+        'description': getValue('task_description'),
+        'dueDate': getValue('date_picker'),
+        'priority': currentPrioSelected,
+        'contactName': getContactInfo('name'),
         'contactColor': getContactInfo('color'),
-        'contactAbbreviation': getContactInfo('nameAbbreviation'), 
-        'subtasksInProgress': subTaskCollection, 
-        'subtasksFinish': subtasksFinish
+        'contactAbbreviation': getContactInfo('nameAbbreviation'),
+        'subtasksInProgress': subTaskCollection,
+        'subtasksFinish': subtasksFinish,
     };
     tasks[tasks.findIndex(task => task.id === taskIdForEdit)] = taskEdit;
     await currentUserTaskSave();
