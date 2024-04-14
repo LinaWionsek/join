@@ -254,6 +254,19 @@ function selectPriority(prio) {
     }
 }
 
+function detectPriority() {
+        if (currentPrioSelected == 'low') {
+            selectLowPriority(currentPrioSelected);
+        } else if (currentPrioSelected == 'medium') {
+            selectMediumPriority(currentPrioSelected);
+        } else if (currentPrioSelected == 'urgent') {
+            selectUrgentPriority(currentPrioSelected);
+        } else {
+        noPrioritySelected();
+    }
+}
+
+
 function noPrioritySelected() {
     console.log('no prio');
     currentPrioSelected = '';
@@ -694,11 +707,13 @@ async function editTask(i) {
     subtasksFinish = taskToEdit.subtasksFinish;
     taskIdForEdit = taskToEdit.id;
     console.log(taskIdForEdit)
+   
     // saveTaskElements();
     editTaskWindow();
 }
 
 function editTaskWindow() {
+    detectPriority();
     // loadTaskElements();
     // setInnerHTML("buttonAreaAddTask", returnButtonAreaEditTask);
     // setInnerHTML("assignedToInputContainer", returnAssignToBox1);
