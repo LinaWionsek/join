@@ -732,36 +732,17 @@ async function editTask(i) {
     subTaskCollection = taskToEdit.subtasksInProgress;
     subtasksFinish = taskToEdit.subtasksFinish;
     taskIdForEdit = taskToEdit.id;
-    console.log(taskIdForEdit);
-
-    // saveTaskElements();
+    console.log("task id for edit", taskIdForEdit);
     editTaskWindow();
 }
 
 function editTaskWindow() {
     detectPriority();
-    // loadTaskElements();
-    // setInnerHTML("buttonAreaAddTask", returnButtonAreaEditTask);
-    // setInnerHTML("assignedToInputContainer", returnAssignToBox1);
-    // setInnerHTML("assignedToContactsInputContainer", returnAssignToBox2);
-    // setInnerHTML("categoryAreaV1", returnCategoryBox1);
-    // setInnerHTML("categoryAreaV2", returnCategoryBox2);
-    // setInnerHTML("prioBox", returnPrioBox);
-    // borderColorCheck();
-
     toggleCategoryList();
     updateSelectedCategory();
     toggleContactList();
     renderSelectedContacts();
-    // renderAllSelectedContacts();
-
-    // renderAllContactsForSearch();
     renderSubtasks();
-    // renderSubTaskCollection();
-
-    // createCategoryWindow();
-
-    // initializePrioButtons();
 }
 
 async function submitEdit() {
@@ -788,6 +769,16 @@ async function submitEdit() {
     slideOut('edit_popup', 'edit_popup_section', 200);
     changesSaved('Task edited');
     updateBoardHTML();
+    resetEditForm();
+}
+
+function resetEditForm(){
+    document.getElementById('category_input').value = 'Select task category';
+    contactCollection = [];
+    taskIdForEdit = '';
+    statusEdit = '';
+    selectedIndex = null;
+    selectedColorIndex = null;
 }
 
 // #endregion
