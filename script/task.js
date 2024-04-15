@@ -1,5 +1,6 @@
 let categoryListOpen = false;
 let contactListOpen = false;
+let searchingContact = false;
 let prioLowSelected = false;
 
 async function init() {
@@ -575,7 +576,7 @@ function clearAddCategoryInput() {
 // #region Contacts
 //--------------------------------------------Contacts--------------------------------------------//
 function toggleContactList() {
-    if (contactListOpen) {
+    if (contactListOpen || searchingContact) {
         toggleVisibility('contact_list_container', true);
         toggleVisibility('contact_select_arrow_up', true);
         toggleVisibility('contact_select_arrow_down', false);
@@ -593,9 +594,9 @@ function getContacts() {
     let contactContainer = document.getElementById('contact_list');
     let text = document.getElementById('assigned_to_input').value;
     let searchedResult = contactsArray.filter(t => t['name'].toLowerCase().includes(text.toLowerCase()));
-    // contactContainer.innerHTML = '';
 
     if (text === '') {
+        searchingContact = false;
         contactContainer.innerHTML = '';
         for (let i = 0; i < contactsArray.length; i++) {
             const contactColor = contactsArray[i]['color'];
@@ -604,6 +605,7 @@ function getContacts() {
             contactContainer.innerHTML += renderContacts(contactColor, contactNameAbbreviation, contactName);
         }
     } else {
+        searchingContact = true;
         contactContainer.innerHTML = '';
         for (let j = 0; j < searchedResult.length; j++) {
             const colorResult = searchedResult[j]['color'];
@@ -684,6 +686,11 @@ function renderSelectedContacts() {
         </div>
         `;
     }
+}
+
+function searchContacts() {
+    searchingContact = true;
+    toggleContactList();
 }
 // #endregion
 // #region Contact Creation
