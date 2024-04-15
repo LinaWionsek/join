@@ -37,9 +37,9 @@ function showSubtasksInProgress(i) {
         renderSubtaskHeadline();
         inProgress += /*html*/ ` 
         <div class="task-detail-flex margin-bottom10">
-            <img onclick="switchSubtaskStatusToFinished(${i}, ${k})" class="task-box" src="img/subtask-checkbox-unchecked.svg" alt="">
+            <img onclick="switchSubtaskStatusToFinished(${i}, ${k})" class="task-box" src="./img/subtask-checkbox-unchecked.svg" alt="">
             ${subtaskProgress}
-            <img onclick="deleteSubtaskInProgress(${i}, ${k})" class="subtask-delete" src="img/iconoir_cancel.svg" alt="">
+            <img onclick="deleteSubtaskInProgress(${i}, ${k})" class="subtask-delete" src="./img/close.svg" alt="">
         </div>
         `;
     }
@@ -82,9 +82,9 @@ function showSubtasksFinished(i) {
         renderSubtaskHeadline();
         finished += /*html*/ ` 
        <div class="task-detail-flex margin-bottom10 text-line-through">
-           <img onclick="switchSubtaskStatusToUndone(${i},${l})" class="task-box" src="img/subtask-done.svg" alt="">
+           <img onclick="switchSubtaskStatusToUndone(${i},${l})" class="task-box" src="./img/subtask-done.svg" alt="">
            ${subtaskDone}
-           <img onclick="deleteSubtaskFinished(${i},${l})" class="subtask-delete"  src="img/iconoir_cancel.svg" alt="">
+           <img onclick="deleteSubtaskFinished(${i},${l})" class="subtask-delete"  src="img/close.svg" alt="">
        </div>`;
     }
     updateBoardHTML();
