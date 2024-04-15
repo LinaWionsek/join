@@ -29,56 +29,44 @@ function statusSelected(status) {
 }
 
 async function createTask() {
-    statusSelected('toDo');
-    console.log(currentId);
-    let task = {
-        'id': currentId,
-        'status': statusGroup,
-        'category': currentCategorySelected[0].name,
-        'categoryColor': currentCategorySelected[0].color,
-        'title': document.getElementById('task_title').value,
-        'description': document.getElementById('task_description').value,
-        'dueDate': document.getElementById('date_picker').value,
-        'priority': currentPrioSelected,
-        'contactName': contactCollection.map(contact => contact.name),
-        'contactName': contactCollection.map(contact => {
-            console.log(contact.name);
-            return contact.name;
-        }),
-        'contactColor': contactCollection.map(contact => contact.color),
-        'contactAbbreviation': contactCollection.map(contact => contact.nameAbbreviation),
-        // 'priority': '',
-        'subtasksInProgress': subTaskCollection,
-        'subtasksFinish': subtasksFinish,
-    };
-    console.log(task);
-    tasks.push(task);
-    currentId++;
-    console.log(currentId);
-    // saveTaskElements();
-    await currentUserIdSave();
-    await currentUserTaskSave();
-
-    changesSaved('Task added to board');
-    let currentPage = window.location.pathname;
-    handleTaskCompletion(currentPage);
-    // document.getElementById('task_title')
-    // document.getElementById('task_title')
-    // document.getElementById('task_title')
-    // document.getElementById('task_title')
+    if (currentCategorySelected[0].name === '') {
+        document.getElementById('category_input_container').classList.add('red-border');
+    } else {
+        statusSelected('toDo');
+        let task = {
+            'id': currentId,
+            'status': statusGroup,
+            'category': currentCategorySelected[0].name,
+            'categoryColor': currentCategorySelected[0].color,
+            'title': document.getElementById('task_title').value,
+            'description': document.getElementById('task_description').value,
+            'dueDate': document.getElementById('date_picker').value,
+            'priority': currentPrioSelected,
+            'contactName': contactCollection.map(contact => contact.name),
+            'contactName': contactCollection.map(contact => {
+                console.log(contact.name);
+                return contact.name;
+            }),
+            'contactColor': contactCollection.map(contact => contact.color),
+            'contactAbbreviation': contactCollection.map(contact => contact.nameAbbreviation),
+            'subtasksInProgress': subTaskCollection,
+            'subtasksFinish': subtasksFinish,
+        };
+    
+        tasks.push(task);
+        currentId++;
+        await currentUserIdSave();
+        await currentUserTaskSave();
+        changesSaved('Task added to board');
+        let currentPage = window.location.pathname;
+        handleTaskCompletion(currentPage);
+    }
 }
 
-/**
- * Retrieves data from form elements and adds a new task.
- */
-async function addTask() {
-    let currentPage = window.location.pathname;
-    let task = collectTaskData();
-    tasks.push(task);
-    currentId++;
-    await saveTaskData();
-    handleTaskCompletion(currentPage);
+function getTaskTemplate(){
+    //der inhalt von let task
 }
+
 
 /**
  * Saves task-related data.
@@ -129,6 +117,7 @@ function handleTaskCompletion(currentPage) {
 //         }
 //     }
 // }
+
 
 /**
  * Retrieves data from form elements and adds a new task.
@@ -732,7 +721,7 @@ async function editTask(i) {
     subTaskCollection = taskToEdit.subtasksInProgress;
     subtasksFinish = taskToEdit.subtasksFinish;
     taskIdForEdit = taskToEdit.id;
-    console.log("task id for edit", taskIdForEdit);
+    console.log('task id for edit', taskIdForEdit);
     editTaskWindow();
 }
 
@@ -772,7 +761,7 @@ async function submitEdit() {
     resetEditForm();
 }
 
-function resetEditForm(){
+function resetEditForm() {
     document.getElementById('category_input').value = 'Select task category';
     contactCollection = [];
     taskIdForEdit = '';
