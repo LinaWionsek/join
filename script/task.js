@@ -44,7 +44,18 @@ async function submitForm() {
 
 async function addTask(){
     statusSelected('toDo');
-    let task = {
+    let task = getTaskTemplate();
+    tasks.push(task);
+    currentId++;
+    await currentUserIdSave();
+    await currentUserTaskSave();
+    changesSaved('Task added to board');
+    let currentPage = window.location.pathname;
+    handleTaskCompletion(currentPage);
+}
+
+function getTaskTemplate(){
+    return {
         'id': currentId,
         'status': statusGroup,
         'category': currentCategorySelected[0].name,
@@ -62,19 +73,7 @@ async function addTask(){
         'contactAbbreviation': contactCollection.map(contact => contact.nameAbbreviation),
         'subtasksInProgress': subTaskCollection,
         'subtasksFinish': subtasksFinish,
-    };
-
-    tasks.push(task);
-    currentId++;
-    await currentUserIdSave();
-    await currentUserTaskSave();
-    changesSaved('Task added to board');
-    let currentPage = window.location.pathname;
-    handleTaskCompletion(currentPage);
-}
-
-function getTaskTemplate(){
-    //der inhalt von let task
+    }
 }
 
 
