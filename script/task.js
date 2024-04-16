@@ -28,39 +28,49 @@ function statusSelected(status) {
     statusGroup = status;
 }
 
-async function createTask() {
-    if (currentCategorySelected[0].name === '') {
+async function submitForm() {
+    let titleInput =  document.getElementById('task_title');
+    let dateInput = document.getElementById('date_picker');
+    if (titleInput.value == ''){
+        document.getElementById('task_title').classList.add('red-border');
+    } else if (dateInput.value == '') {
+        document.getElementById('date_picker').classList.add('red-border');
+    } else if (currentCategorySelected[0].name === ''){
         document.getElementById('category_input_container').classList.add('red-border');
     } else {
-        statusSelected('toDo');
-        let task = {
-            'id': currentId,
-            'status': statusGroup,
-            'category': currentCategorySelected[0].name,
-            'categoryColor': currentCategorySelected[0].color,
-            'title': document.getElementById('task_title').value,
-            'description': document.getElementById('task_description').value,
-            'dueDate': document.getElementById('date_picker').value,
-            'priority': currentPrioSelected,
-            'contactName': contactCollection.map(contact => contact.name),
-            'contactName': contactCollection.map(contact => {
-                console.log(contact.name);
-                return contact.name;
-            }),
-            'contactColor': contactCollection.map(contact => contact.color),
-            'contactAbbreviation': contactCollection.map(contact => contact.nameAbbreviation),
-            'subtasksInProgress': subTaskCollection,
-            'subtasksFinish': subtasksFinish,
-        };
-    
-        tasks.push(task);
-        currentId++;
-        await currentUserIdSave();
-        await currentUserTaskSave();
-        changesSaved('Task added to board');
-        let currentPage = window.location.pathname;
-        handleTaskCompletion(currentPage);
+        addTask();
     }
+}
+
+async function addTask(){
+    statusSelected('toDo');
+    let task = {
+        'id': currentId,
+        'status': statusGroup,
+        'category': currentCategorySelected[0].name,
+        'categoryColor': currentCategorySelected[0].color,
+        'title': document.getElementById('task_title').value,
+        'description': document.getElementById('task_description').value,
+        'dueDate': document.getElementById('date_picker').value,
+        'priority': currentPrioSelected,
+        'contactName': contactCollection.map(contact => contact.name),
+        'contactName': contactCollection.map(contact => {
+            console.log(contact.name);
+            return contact.name;
+        }),
+        'contactColor': contactCollection.map(contact => contact.color),
+        'contactAbbreviation': contactCollection.map(contact => contact.nameAbbreviation),
+        'subtasksInProgress': subTaskCollection,
+        'subtasksFinish': subtasksFinish,
+    };
+
+    tasks.push(task);
+    currentId++;
+    await currentUserIdSave();
+    await currentUserTaskSave();
+    changesSaved('Task added to board');
+    let currentPage = window.location.pathname;
+    handleTaskCompletion(currentPage);
 }
 
 function getTaskTemplate(){
@@ -122,14 +132,14 @@ function handleTaskCompletion(currentPage) {
 /**
  * Retrieves data from form elements and adds a new task.
  */
-async function addTask() {
-    let currentPage = window.location.pathname;
-    let task = collectTaskData();
-    tasks.push(task);
-    currentId++;
-    await saveTaskData();
-    handleTaskCompletion(currentPage);
-}
+// async function addTask() {
+//     let currentPage = window.location.pathname;
+//     let task = collectTaskData();
+//     tasks.push(task);
+//     currentId++;
+//     await saveTaskData();
+//     handleTaskCompletion(currentPage);
+// }
 
 /**
  * Saves task-related data.
