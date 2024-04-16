@@ -153,6 +153,10 @@ ul {
     margin-top: 20px;
     gap: 24px;
 }
+.close-popup {
+    display: flex;
+    justify-content: flex-end;
+}
 
 .close-popup-container {
     display: flex;
@@ -243,8 +247,8 @@ ul {
     flex-direction: column;
     padding-right: 24px;
     gap: 24px;
-    width: 400px;
-    min-width: 400px;
+    /* width: 400px;
+    min-width: 400px; */
 }
 
 .task-vector {
@@ -256,8 +260,8 @@ ul {
     flex-direction: column;
     padding-left: 24px;
     gap: 24px;
-    width: 400px;
-    min-width: 400px;
+    /* width: 400px;
+    min-width: 400px; */
 }
 
 .seperator {
@@ -493,8 +497,13 @@ input::-webkit-calendar-picker-indicator {
     border-radius: 10px;
 }
 
+.contact-box:hover {
+    cursor: pointer;
+}
+
 .contact {
     display: flex;
+    align-items: center;
     gap: 16px;
 }
 
@@ -506,31 +515,34 @@ input::-webkit-calendar-picker-indicator {
 /* EDIT */
 
 .addTaskPopupPosition {
-    position: absolute;
+    /* position: absolute;
     left: 100px;
     right: 100px;
     top: 100px;
-    bottom: 100px;
+    bottom: 100px; */
     display: flex;
     flex-direction: column;
     max-width: calc(100vw - 200px);
     max-height: calc(100vh - 200px);
-    width: 100%;
-    height: 100%;
+    /* width: 100%; */
+    /* height: 100%; */
     background-color: white;
     border-radius: 30px;
 }
 
 
 .contentPositionAddTaskPopup {
-    position: absolute;
+    /* position: absolute;
     top: 150px;
     left: 0;
     right: 0;
-    bottom: 225px;
-    max-height: calc(100vh - 375px);
-    padding-left: 96px;
-    padding-right: 96px;
+    bottom: 225px; */
+    max-height: 90vh;
+    /* padding-left: 74px;
+    padding-right: 74px;
+    padding-top: 64px;
+    padding-bottom: 64px; */
+    padding: 46px 66px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -538,9 +550,13 @@ input::-webkit-calendar-picker-indicator {
     height: 100%;
     overflow-y: auto;
 }
+
+.contentPositionAddTaskPopup form {
+    width: 100%;
+}
 /* task header */
 .addTaskPopupHeadlineContainer {
-    position: fixed;
+    /* position: fixed; */
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
