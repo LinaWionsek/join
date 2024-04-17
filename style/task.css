@@ -633,7 +633,7 @@ input[type=tel] {
     top: 130px;
     left: 196px;
     right: 196px;
-    max-width: calc(100vw - 392px);
+    /* max-width: calc(100vw - 392px); */
     padding-bottom: 10px;
     width: 100%;
     background-color: white;
@@ -736,7 +736,14 @@ input[type=tel] {
         padding-left: 0px;
         margin-top: 24px;
     }
+    .contentPositionAddTaskPopup {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
 
+    .task-content {
+        align-items: unset;
+    }
 
 }
 
@@ -760,6 +767,13 @@ input[type=tel] {
 
     .left-popup {
         width: 100% !important;
+    }
+
+    .addTaskPopupPosition {
+        max-width: 100vw;
+        max-height: 100vh;
+        height: 100vh;
+        width: 100vw;
     }
 
 }

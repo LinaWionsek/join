@@ -10,6 +10,7 @@ async function init() {
     await currentUserCategorysLoad();
     await currentUserContactsLoad();
     await currentUserTaskLoad();
+    statusSelected('toDo');
 }
 //statusSelected('toDo');
 
@@ -29,21 +30,21 @@ function statusSelected(status) {
 }
 
 async function submitForm() {
-    let titleInput =  document.getElementById('task_title');
+    let titleInput = document.getElementById('task_title');
     let dateInput = document.getElementById('date_picker');
-    if (titleInput.value == ''){
+    if (titleInput.value == '') {
         document.getElementById('task_title').classList.add('red-border');
     } else if (dateInput.value == '') {
         document.getElementById('date_picker').classList.add('red-border');
-    } else if (currentCategorySelected[0].name === ''){
+    } else if (currentCategorySelected[0].name === '') {
         document.getElementById('category_input_container').classList.add('red-border');
     } else {
         addTask();
     }
 }
 
-async function addTask(){
-    statusSelected('toDo');
+async function addTask() {
+    // statusSelected('toDo');
     let task = getTaskTemplate();
     tasks.push(task);
     currentId++;
@@ -54,7 +55,7 @@ async function addTask(){
     handleTaskCompletion(currentPage);
 }
 
-function getTaskTemplate(){
+function getTaskTemplate() {
     return {
         'id': currentId,
         'status': statusGroup,
@@ -73,9 +74,8 @@ function getTaskTemplate(){
         'contactAbbreviation': contactCollection.map(contact => contact.nameAbbreviation),
         'subtasksInProgress': subTaskCollection,
         'subtasksFinish': subtasksFinish,
-    }
+    };
 }
-
 
 /**
  * Saves task-related data.
@@ -126,7 +126,6 @@ function handleTaskCompletion(currentPage) {
 //         }
 //     }
 // }
-
 
 /**
  * Retrieves data from form elements and adds a new task.
@@ -615,7 +614,6 @@ function getContacts() {
 }
 
 function renderContacts(color, abbreviation, name) {
-    console.log(name);
     let index = contactCollection.findIndex(c => c['name'] === name);
     if (index == -1) {
         return /*html*/ `
@@ -691,7 +689,6 @@ function searchContacts() {
     toggleContactList();
 }
 
-
 // #endregion
 // #region Contact Creation
 //--------------------------------------------Contact Creation--------------------------------------------//
@@ -753,18 +750,17 @@ function renderAddContactRightContent() {
         </button>
     </div>
 
-</form>;`
-
+</form>;`;
 }
 
 async function createContact() {
     let newContact = {
-        "name": document.getElementById('inputNameId').value,
-        "nameAbbreviation": makeNameAbbreviation(document.getElementById('inputNameId').value),
-        "email": document.getElementById('inputEmailId').value,
-        "phone": document.getElementById('inputPhoneId').value,
-        "color": getColor()
-    }
+        'name': document.getElementById('inputNameId').value,
+        'nameAbbreviation': makeNameAbbreviation(document.getElementById('inputNameId').value),
+        'email': document.getElementById('inputEmailId').value,
+        'phone': document.getElementById('inputPhoneId').value,
+        'color': getColor(),
+    };
     contactsArray.push(newContact);
     await currentUserContactsSave();
     clearInputFields();
@@ -783,9 +779,6 @@ function getColor() {
     setItem('nextColorIndex', JSON.stringify(nextColorIndex));
     return color;
 }
-
-
-
 
 // contactsaArray[i][nameAbbreviation]
 //contactsaArray[i][color]
@@ -856,7 +849,6 @@ async function submitEdit() {
     };
     tasks[tasks.findIndex(task => task.id === taskIdForEdit)] = taskEdit;
     await currentUserTaskSave();
-    // resetAllAddTaskElementsBoard();
     slideOut('edit_popup', 'edit_popup_section', 200);
     changesSaved('Task edited');
     updateBoardHTML();
@@ -873,3 +865,172 @@ function resetEditForm() {
 }
 
 // #endregion
+
+async function addTaskFromBoard() {
+    // await currentUserCategorysLoad();
+    // await currentUserContactsLoad();
+    // toggleCategoryList();
+    // toggleContactList();
+    // slide('board_add_task_popup', 'board_add_task_popup_section');
+    slide('board_task_popup', 'board_task_popup_section');
+    document.getElementById('board_task_popup').innerHTML = renderAddTaskContent();
+    // renderAddTaskContent();
+    // editTaskWindow();
+}
+
+// board_task_popup;
+// board_task_popup_section;
+function renderAddTaskContent() {
+    return /*html*/ `
+   <div class="contentPositionAddTaskPopup">
+   <div class="addTaskPopupHeadlineContainer">
+       <div class="fontSize61"><b>Edit Task</b></div>
+       <div class="pointer close-popup"
+       onclick="slideOut('edit_popup', 'edit_popup_section', 200)">
+       <img src="./img/close.svg" alt="">
+   </div>
+   </div>
+       <section class="task-popup-bg d-none" id="task_popup_section">
+           <div class="task-popup-card d-flex" id="task_popup">
+               <div class="left-popup">
+                   <div id="close_popup_mobile">
+                       <img onclick="closePopup()" src="./img/close-white.svg">
+                   </div>
+                   <div id="left_popup_content">
+                   </div>
+               </div>
+               <div class="center-popup">
+                   <div id="center_popup_content"></div>
+               </div>
+               <div class="right-popup d-flex">
+                   <div id="close_popup" class="pointer">
+                       <img onclick="closePopup()" src="./img/close.svg" alt="">
+                   </div>
+                   <div id="right_popup_content"></div>
+               </div>
+           </div>
+       </section>
+
+       <form>
+           <div class="task-content">
+               <div class="left-container">
+                   <div>
+                       <div>
+                           Title
+                           <span class="required-star">*</span>
+                       </div>
+                       <input type="text" placeholder="Enter a title" id="task_title"
+                           class="fontSize20 width-100P" required>
+                   </div>
+                   <div>
+                       <div>
+                           Description
+                       </div>
+                       <textarea id="task_description" class="width-100P fontSize20"
+                           placeholder="Enter a Description" type="text"></textarea>
+                   </div>
+                   <div>
+                       <div>
+                           Assigned to
+                       </div>
+                       <div onclick="toggleContactList()" id="assigned_to_input_container"
+                           class="custom-input">
+                           <input placeholder="Select contacts to assign" id="assigned_to_input" class="fontSize20">
+                           <img id="contact_select_arrow_up" class="d-none" src="./img/arrow-up.svg"
+                               alt="">
+                           <img id="contact_select_arrow_down" src="./img/arrow-down.svg" alt="">
+                       </div>
+                       <div id="contact_list_container" class="d-none">
+                           <div id="contact_list"></div>
+                           <div onclick="openAddContactPopup()" class="button blue-btn">
+                               Add contact
+                               <img src="./img/add-task-person-add.svg" alt="">
+                           </div>
+                       </div>
+                       <div id="selected_contacts"></div>
+                   </div>
+               </div>
+               <img class="task-vector" src="./img/vector-task.svg" alt="">
+               <div class="right-container">
+                   <div>
+                       <div>
+                           Due date
+                           <span class="required-star">*</span>
+                       </div>
+                       <input type="date" placeholder="Enter a title" id="date_picker"
+                           class="fontSize20 width-100P" required>
+                   </div>
+                   <div>
+                       <div>
+                           Prio
+                       </div>
+                       <div class="prio-container">
+                           <div id="button_urgent" onclick="selectPriority('urgent')"
+                               class="button prio-btn">
+                               <span>Urgent</span>
+                               <img id="prio_urgent" src="./img/prio-urgent.svg" alt="">
+                           </div>
+                           <div id="button_medium" onclick="selectPriority('medium')"
+                               class="button prio-btn">
+                               Medium
+                               <img id="prio_medium" src="./img/prio-medium.svg" alt="">
+                           </div>
+                           <div id="button_low" onclick="selectPriority('low')" class="button prio-btn">
+                               Low
+                               <img id="prio_low" src="./img/prio-low.svg" alt="">
+                           </div>
+                       </div>
+                   </div>
+                   <div>
+                       <div>
+                           Category
+                           <span class="required-star">*</span>
+                       </div>
+                       <div onclick="toggleCategoryList()" id="category_input_container"
+                           class="custom-input">
+                           <input type="text" readonly value="Select task category" id="category_input"
+                               class="fontSize20 pointer" required>
+                           <img onclick="renderCategories()" class="d-none" id="category_select_arrow_up"
+                               src="./img/arrow-up.svg" alt="">
+                           <img id="category_select_arrow_down" src="./img/arrow-down.svg" alt="">
+                       </div>
+                       <div id="category_list_container" class="d-none">
+                           <div id="category_list" class="cateogry-list"></div>
+                           <div onclick="openAddCategoryPopup()" class="button blue-btn">
+                               Add new category
+                               <img src="./img/add-task-category.svg" alt="">
+                           </div>
+                       </div>
+                   </div>
+                   <div>
+                       <div>
+                           Subtasks
+                       </div>
+                       <div id="subtasks_input_container" class="custom-input">
+                           <input placeholder="Add new subtask" id="subtasks_input" class="fontSize20"
+                               required>
+                           <img onclick="addSubtask()" src="./img/plus.svg">
+                       </div>
+                       <div id="selected_subtasks"></div>
+                       <div id="edit_container" class="d-none"></div>
+                   </div>
+               </div>
+           </div>
+           <div class="task-bottom-edit">
+               <div>
+                   <span class="required-star">*</span>
+                   This field is required
+               </div>
+               <div class="button-group">
+                   <div onclick="submitEdit()" class="button blue-btn">
+                       OK
+                       <img src="./img/check-white.svg" alt="">
+                   </div>
+               </div>
+           </div>
+       </form>
+   <!-- </div> -->
+
+</div>
+   `;
+}
