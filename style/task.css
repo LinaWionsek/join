@@ -75,6 +75,8 @@ ul {
 
 .center-popup {
     display: flex;
+    justify-content: center;
+    align-items: center;
     margin-left: 48px;
     margin-right: 48px;
     /* margin-bottom: 100px; */
@@ -343,6 +345,74 @@ input::-webkit-calendar-picker-indicator {
     background-color: #FF3D00;
     font-weight: bold !important;
 }
+
+
+
+
+#no_profile_img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.circle {
+    width: 120px;
+    height: 120px;
+    border: #FFFFFF solid 2px;
+    border-radius: 100%;
+    box-shadow: -2px 0 6px 0 rgb(0, 0, 0, 0.2);
+}
+
+.person-in-circle {
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    /* top: 264px;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+}
+
+
+#contact_form {
+    display: flex;
+    flex-direction: column;
+    max-width: 310px;
+    width: 310px;
+    height: 215px;
+    gap: 8px;
+    z-index: 1;
+}
+
+input[type=text] {
+    background: url('../img/lock.svg') no-repeat scroll;
+    background-position: center right;
+    /* 16px */
+    background-origin: content-box;
+}
+
+input[type=email] {
+    background: url('../img/mail.svg') no-repeat scroll;
+    background-position: center right -2px;
+    /* DON'T DELETE IMPORTANT FOR SYMETRY! */
+    background-origin: content-box;
+}
+
+input[type=tel] {
+    background: url('../img/call.svg') no-repeat scroll;
+    background-position: center right;
+    /* 20px */
+    background-origin: content-box;
+}
+
+.contact-popup-buttons {
+    margin-top: 8px;
+    justify-content: space-between;
+}
+
+
+
+
 
 #category_list_container {
     display: flex;
@@ -629,7 +699,7 @@ input::-webkit-calendar-picker-indicator {
         align-items: center !important;
         justify-content: center !important;
         width: 100% !important;
-        height: calc(100vh * 0.3) !important;
+        height: calc(100vh * 0.4) !important;
     }
 
     #close_popup {
@@ -671,6 +741,7 @@ input::-webkit-calendar-picker-indicator {
 }
 
 @media (max-width: 768px) {
+
     .task-container {
         width: 100%;
         padding-left: 0px;
@@ -688,7 +759,7 @@ input::-webkit-calendar-picker-indicator {
     }
 
     .left-popup {
-        width: calc(100vw - 32px) !important;
+        width: 100% !important;
     }
 
 }

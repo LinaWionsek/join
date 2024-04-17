@@ -690,9 +690,102 @@ function searchContacts() {
     searchingContact = true;
     toggleContactList();
 }
+
+
 // #endregion
 // #region Contact Creation
 //--------------------------------------------Contact Creation--------------------------------------------//
+function openAddContactPopup() {
+    slide('task_popup', 'task_popup_section');
+    renderAddContactLeftContent();
+    renderAddContactCenterContent();
+    renderAddContactRightContent();
+}
+function renderAddContactLeftContent() {
+    document.getElementById('left_popup_content').innerHTML = /*html*/ `
+    <img src="./img/join-logo-white.svg" id="join_logo_add_contact">
+    <spline class="left-popup-text-headline"><b>Add contact</b></spline>
+    <spline class="left-popup-text">Tasks are
+        better with a team!</spline>
+    <div class="blue-line">
+    </div>
+    `;
+}
+
+function renderAddContactCenterContent() {
+    document.getElementById('center_popup_content').innerHTML = /*html*/ `
+        <div id="no_profile_img">
+            <img class="circle" src="./img/circle.svg">
+            <img class="person-in-circle" src="./img/person.svg">
+        </div>
+    `;
+}
+
+function renderAddContactRightContent() {
+    document.getElementById('right_popup_content').innerHTML = /*html*/ `  
+    <form onsubmit="createContact(); return false;" id="contact_form">
+
+    <input type="text" placeholder="Name" id="inputNameId" class="fontSize20" required>
+    <input type="email" placeholder="Email" id="inputEmailId" class="fontSize20" required>
+    <input type="tel" pattern="[0-9+ ]+" placeholder="Phone" id="inputPhoneId"
+        class="fontSize20"
+        oninvalid="this.setCustomValidity('Invalid input! Only + and numbers from 0-9 are allowed')"
+        oninput="this.setCustomValidity('')" required>
+
+
+    <div class="d-flex textHorizontal contact-popup-buttons fontSize20">
+        <button class="button outline-btn"
+            onclick="slideOut('task_popup', 'task_popup_section', 200)"
+            id="cancelBtnMobileId">
+            <spline id="editCancelButtonId">Cancel</spline>
+
+            <svg class="colorOnHover" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 25" fill="none">
+                <path
+                    d="M12.001 12.5001L17.244 17.7431M6.758 17.7431L12.001 12.5001L6.758 17.7431ZM17.244 7.25708L12 12.5001L17.244 7.25708ZM12 12.5001L6.758 7.25708L12 12.5001Z"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </button>
+        <button class="button blue-btn">
+            <span id="textChangeToSaveId">Create contact</span>
+            <img src="./img/check-white.svg">
+        </button>
+    </div>
+
+</form>;`
+
+}
+
+async function createContact() {
+    let newContact = {
+        "name": document.getElementById('inputNameId').value,
+        "nameAbbreviation": makeNameAbbreviation(document.getElementById('inputNameId').value),
+        "email": document.getElementById('inputEmailId').value,
+        "phone": document.getElementById('inputPhoneId').value,
+        "color": getColor()
+    }
+    contactsArray.push(newContact);
+    await currentUserContactsSave();
+    clearInputFields();
+    slideOut('task_popup', 'task_popup_section', 200);
+    changesSaved('Contact successfully created');
+    getContacts();
+}
+
+/** * This function is used to create the profile image color */
+function getColor() {
+    if (nextColorIndex >= colorArray.length) {
+        nextColorIndex = 0;
+    }
+    let color = colorArray[nextColorIndex];
+    nextColorIndex++;
+    setItem('nextColorIndex', JSON.stringify(nextColorIndex));
+    return color;
+}
+
+
+
 
 // contactsaArray[i][nameAbbreviation]
 //contactsaArray[i][color]
