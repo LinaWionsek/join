@@ -481,7 +481,7 @@ function renderAddCategoryRightContent() {
     <div class="popup-button-container">
 
         <button class="button outline-btn"
-            onclick="slideOut('contact_popup', 'contact_popup_section', 200)"
+            onclick="slideOut('task_popup', 'task_popup_section', 200)"
             id="cancelBtnMobileId">
             <spline id="editCancelButtonId">Cancel</spline>
 
@@ -757,7 +757,7 @@ function renderAddContactRightContent() {
         </button>
     </div>
 
-</form>;`;
+</form>`;
 }
 
 async function createContact() {
@@ -886,7 +886,7 @@ function renderAddTaskContent() {
     return /*html*/ `
    <div class="contentPositionAddTaskPopup">
    <div class="addTaskPopupHeadlineContainer">
-       <div class="fontSize61"><b>Edit Task</b></div>
+       <div class="fontSize61"><b>Add Task</b></div>
        <div class="pointer close-popup"
        onclick="slideOut('board_task_popup', 'board_task_popup_section', 200)">
        <img src="./img/close.svg" alt="">
@@ -1018,7 +1018,7 @@ function renderAddTaskContent() {
                </div>
            </div>
            <div class="task-bottom-edit">
-               <div>
+               <div class="required-info">
                    <span class="required-star">*</span>
                    This field is required
                </div>

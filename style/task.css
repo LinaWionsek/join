@@ -155,6 +155,7 @@ ul {
     margin-top: 20px;
     gap: 24px;
 }
+
 .close-popup {
     display: flex;
     justify-content: flex-end;
@@ -186,13 +187,13 @@ ul {
 .task-container {
     display: flex;
     flex-direction: column;
-    width: 97%;
+    width: 100%;
     overflow-y: auto;
 
-    margin-top: 206px;
+    margin-top: 106px;
     padding-left: 243px;
 
-    height: auto;
+    /* height: auto; */
 
     /* position: absolute;
     
@@ -232,8 +233,8 @@ ul {
     justify-content: space-between;
     width: 100%;
     height: 110px;
-    position: fixed;
-    margin-top: 96px;
+    /* position: fixed; */
+    /* margin-top: 96px; */
     left: 243px;
     top: 0px;
     z-index: 2;
@@ -315,7 +316,9 @@ input::-webkit-calendar-picker-indicator {
     justify-content: space-between;
     display: flex;
     margin-top: 8px;
+    gap: 8px;
 }
+
 /* prio normal*/
 /* box-shadow: 5px 5px 12px #cacaca*/
 /* selected */
@@ -328,19 +331,21 @@ input::-webkit-calendar-picker-indicator {
 
 .prio-btn:hover {
     cursor: pointer;
-} 
+}
 
-.prio-low{
+.prio-low {
     color: white;
     background-color: #7AE229;
     font-weight: bold !important;
 }
-.prio-medium{
+
+.prio-medium {
     color: white;
     background-color: #FFA800;
     font-weight: bold !important;
 }
-.prio-urgent{
+
+.prio-urgent {
     color: white;
     background-color: #FF3D00;
     font-weight: bold !important;
@@ -544,7 +549,7 @@ input[type=tel] {
     background-color: white;
 }
 
-.contact-logo{
+.contact-logo {
     width: 32px;
     height: 32px;
     border-radius: 50%;
@@ -602,16 +607,6 @@ input[type=tel] {
 
 
 .contentPositionAddTaskPopup {
-    /* position: absolute;
-    top: 150px;
-    left: 0;
-    right: 0;
-    bottom: 225px; */
-    max-height: 90vh;
-    /* padding-left: 74px;
-    padding-right: 74px;
-    padding-top: 64px;
-    padding-bottom: 64px; */
     padding: 46px 66px;
     display: flex;
     flex-direction: column;
@@ -624,6 +619,7 @@ input[type=tel] {
 .contentPositionAddTaskPopup form {
     width: 100%;
 }
+
 /* task header */
 .addTaskPopupHeadlineContainer {
     /* position: fixed; */
@@ -736,6 +732,7 @@ input[type=tel] {
         padding-left: 0px;
         margin-top: 24px;
     }
+
     .contentPositionAddTaskPopup {
         padding-left: 24px;
         padding-right: 24px;
@@ -744,19 +741,39 @@ input[type=tel] {
     .task-content {
         align-items: unset;
     }
+}
 
+
+@media (max-width: 1000px) {
+    .task-container {
+        padding-left: calc(243px - 83px);
+    }
 }
 
 @media (max-width: 768px) {
+    #cancelBtnMobileId{
+        display: none;
+    }
+
+    .popup-button-container {
+        justify-content: center;
+    }
+
+    .contact-popup-buttons{
+        justify-content: center;
+    }
 
     .task-container {
         width: 100%;
         padding-left: 0px;
+        margin-top: 0px;
     }
 
     .task-header {
         padding-left: 16px;
         padding-right: 16px;
+        margin-top: 76px;
+        max-width: 100vw;
         left: 0px;
     }
 
@@ -776,10 +793,60 @@ input[type=tel] {
         width: 100vw;
     }
 
+    .task-bottom {
+        display: flex;
+        justify-content: space-between;
+        /* align-items: flex-end; */
+
+        padding-top: 0px;
+        padding-bottom: 81px;
+        margin-top: 48px;
+        gap: 24px;
+        /* align-items: center; */
+        width: 100%;
+        /* background-color: white; */
+    }
+
+    .task-bottom-edit {
+        margin-top: 48px;
+        gap: 24px;
+        width: 100%;
+    }
+
 }
 
 @media (max-width: 400px) {
     .left-popup {
         width: 100% !important;
+    }
+
+    .prio-container {
+        flex-direction: column;
+    }
+
+    .task-bottom {
+        flex-direction: column;
+    }
+
+    .task-bottom-edit {
+        flex-direction: column;
+    }
+
+    .required-info {
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+    }
+    .right-popup {
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .custom-select {
+        width: 280px;
+    }
+
+    #contact_form {
+        width: 280px;
     }
 }
