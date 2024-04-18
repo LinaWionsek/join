@@ -45,8 +45,6 @@ async function submitForm() {
 }
 
 async function addTask() {
-    debugger;
-    // statusSelected('toDo');
     let task = getTaskTemplate();
     tasks.push(task);
     currentId++;
