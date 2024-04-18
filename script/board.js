@@ -19,6 +19,7 @@ let showUserDiff;
 async function initBoard() {
     loadActiveUser();
     userCircle();
+    markActivePage();
     await currentUserTaskLoad();
     await currentUserIdLoad();
     updateBoardHTML();

@@ -132,7 +132,7 @@ function returnRenderSidebar() {
         <div class="sideBarCategory">
             <a class="sidebar-text" href="./task.html">
                 <div class="sidebar-text-sub">
-                <img src="img/addtaskImage.svg">
+                <img src="img/taskImage.svg">
                     <div class="fontSize16 fontAtMobile">Add Task</div>
                 </div>
             </a>

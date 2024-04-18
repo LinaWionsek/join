@@ -6,6 +6,7 @@ let prioLowSelected = false;
 async function init() {
     loadActiveUser();
     userCircle();
+    markActivePage();
     await currentUserIdLoad();
     await currentUserCategorysLoad();
     await currentUserContactsLoad();
