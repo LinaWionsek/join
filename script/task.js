@@ -105,12 +105,15 @@ function resetTaskForm(){
     selectedIndex = null;
     selectedColorIndex = null;
     currentPrioSelected = "";
+
     contactCollection = [];
+    // toggleContactList();
+    renderSelectedContacts();
+
     taskIdForEdit = '';
     statusEdit = '';
 
     noPrioritySelected();
-
     document.getElementById('task_title').value = '';
     document.getElementById('task_description').value = '';
     document.getElementById('date_picker').value = '';
@@ -118,6 +121,7 @@ function resetTaskForm(){
     document.getElementById('selected_contacts').innerHTML = '';
     document.getElementById('selected_subtasks').innerHTML = '';
     document.getElementById('category_input').value = 'Select task category';
+   
 }
 
 function showValues(){
