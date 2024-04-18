@@ -510,6 +510,9 @@ body {
     border-radius: 100%;
     color: white;
     margin-right: -10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 

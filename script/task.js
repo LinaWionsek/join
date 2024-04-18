@@ -12,6 +12,7 @@ async function init() {
     await currentUserContactsLoad();
     await currentUserTaskLoad();
     statusSelected('toDo');
+    resetTaskForm();
 }
 //statusSelected('toDo');
 
@@ -877,6 +878,7 @@ async function addTaskFromBoard() {
     await currentUserContactsLoad();
     slide('board_task_popup', 'board_task_popup_section');
     document.getElementById('board_task_popup').innerHTML = renderAddTaskContent();
+    resetTaskForm();
 }
 
 // board_task_popup;
