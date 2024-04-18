@@ -85,7 +85,7 @@
                 <section>
                     <div class="statusheadline">
                         <span class="fontSize20"><b>In progress</b></span>
-                        <img onclick="toggleVisibilityAddTask('', 'addTaskPop'), renderAddTaskContent(), statusSelected('in-progress'), slide('addTaskPopupPositionFront', 'addTaskPop')"
+                        <img onclick="addTaskFromBoard(), statusSelected('in-progress')"
                             src="img/plus-box.svg" alt="Not found">
                     </div>
 
@@ -101,7 +101,7 @@
                         <div>
                             <span class="fontSize20"><b>Await Feedback</b></span>
                         </div>
-                        <img onclick="toggleVisibilityAddTask('', 'addTaskPop'), renderAddTaskContent(), statusSelected('awaiting-feedback'), slide('addTaskPopupPositionFront', 'addTaskPop')"
+                        <img onclick="addTaskFromBoard(), statusSelected('awaiting-feedback')"
                             src="img/plus-box.svg" alt="Not found ">
                     </div>
 
@@ -115,7 +115,7 @@
                 <section>
                     <div class="statusheadline">
                         <span class="fontSize20"><b>Done</b></span>
-                        <img onclick="toggleVisibilityAddTask('', 'addTaskPop'), renderAddTaskContent(), statusSelected('done'), slide('addTaskPopupPositionFront', 'addTaskPop')"
+                        <img onclick="addTaskFromBoard(), statusSelected('done')"
                             src="img/plus-box.svg" alt="Not found ">
                     </div>
 
@@ -195,8 +195,8 @@ TEST
                                     Title
                                     <span class="required-star">*</span>
                                 </div>
-                                <input type="text" placeholder="Enter a title" id="task_title"
-                                    class="fontSize20 width-100P" required>
+                                <input placeholder="Enter a title" id="task_title"
+                                    class="fontSize20 width-100P">
                             </div>
 
                             <div>
@@ -214,7 +214,7 @@ TEST
                                 </div>
                                 <div onclick="toggleContactList()" id="assigned_to_input_container"
                                     class="custom-input">
-                                    <input placeholder="Select contacts to assign" id="assigned_to_input"
+                                    <input onkeyup="searchContacts()" placeholder="Select contacts to assign" id="assigned_to_input"
                                         class="fontSize20">
                                     <img id="contact_select_arrow_up" class="d-none" src="./img/arrow-up.svg" alt="">
                                     <img id="contact_select_arrow_down" src="./img/arrow-down.svg" alt="">
@@ -240,7 +240,7 @@ TEST
                                     <span class="required-star">*</span>
                                 </div>
                                 <input type="date" placeholder="Enter a title" id="date_picker"
-                                    class="fontSize20 width-100P" required>
+                                    class="fontSize20 width-100P">
                             </div>
 
                             <div>
@@ -270,8 +270,8 @@ TEST
                                 </div>
 
                                 <div onclick="toggleCategoryList()" id="category_input_container" class="custom-input">
-                                    <input type="text" readonly value="Select task category" id="category_input"
-                                        class="fontSize20 pointer" required>
+                                    <input readonly value="Select task category" id="category_input"
+                                        class="fontSize20 pointer">
                                     <img onclick="renderCategories()" class="d-none" id="category_select_arrow_up"
                                         src="./img/arrow-up.svg" alt="">
                                     <img id="category_select_arrow_down" src="./img/arrow-down.svg" alt="">
@@ -292,7 +292,7 @@ TEST
                                 </div>
                                 <div id="subtasks_input_container" class="custom-input">
                                     <input placeholder="Add new subtask" id="subtasks_input" class="fontSize20"
-                                        required>
+                                       >
                                     <img onclick="addSubtask()" src="./img/plus.svg">
                                 </div>
                                 <div id="selected_subtasks"></div>

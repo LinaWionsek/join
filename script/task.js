@@ -822,10 +822,10 @@ async function editTask(i) {
 
 function editTaskWindow() {
     detectPriority();
-    toggleCategoryList();
+    // toggleCategoryList();
     updateSelectedCategory();
-    toggleContactList();
     renderSelectedContacts();
+    // toggleContactList();
     renderSubtasks();
 }
 
@@ -867,15 +867,10 @@ function resetEditForm() {
 // #endregion
 
 async function addTaskFromBoard() {
-    // await currentUserCategorysLoad();
-    // await currentUserContactsLoad();
-    // toggleCategoryList();
-    // toggleContactList();
-    // slide('board_add_task_popup', 'board_add_task_popup_section');
+    await currentUserCategorysLoad();
+    await currentUserContactsLoad();
     slide('board_task_popup', 'board_task_popup_section');
     document.getElementById('board_task_popup').innerHTML = renderAddTaskContent();
-    // renderAddTaskContent();
-    // editTaskWindow();
 }
 
 // board_task_popup;
@@ -886,7 +881,7 @@ function renderAddTaskContent() {
    <div class="addTaskPopupHeadlineContainer">
        <div class="fontSize61"><b>Edit Task</b></div>
        <div class="pointer close-popup"
-       onclick="slideOut('edit_popup', 'edit_popup_section', 200)">
+       onclick="slideOut('board_task_popup', 'board_task_popup_section', 200)">
        <img src="./img/close.svg" alt="">
    </div>
    </div>
@@ -919,8 +914,8 @@ function renderAddTaskContent() {
                            Title
                            <span class="required-star">*</span>
                        </div>
-                       <input type="text" placeholder="Enter a title" id="task_title"
-                           class="fontSize20 width-100P" required>
+                       <input placeholder="Enter a title" id="task_title"
+                           class="fontSize20 width-100P">
                    </div>
                    <div>
                        <div>
@@ -935,7 +930,7 @@ function renderAddTaskContent() {
                        </div>
                        <div onclick="toggleContactList()" id="assigned_to_input_container"
                            class="custom-input">
-                           <input placeholder="Select contacts to assign" id="assigned_to_input" class="fontSize20">
+                           <input onkeyup="searchContacts()" placeholder="Select contacts to assign" id="assigned_to_input" class="fontSize20">
                            <img id="contact_select_arrow_up" class="d-none" src="./img/arrow-up.svg"
                                alt="">
                            <img id="contact_select_arrow_down" src="./img/arrow-down.svg" alt="">
@@ -958,7 +953,7 @@ function renderAddTaskContent() {
                            <span class="required-star">*</span>
                        </div>
                        <input type="date" placeholder="Enter a title" id="date_picker"
-                           class="fontSize20 width-100P" required>
+                           class="fontSize20 width-100P">
                    </div>
                    <div>
                        <div>
@@ -988,8 +983,8 @@ function renderAddTaskContent() {
                        </div>
                        <div onclick="toggleCategoryList()" id="category_input_container"
                            class="custom-input">
-                           <input type="text" readonly value="Select task category" id="category_input"
-                               class="fontSize20 pointer" required>
+                           <input readonly value="Select task category" id="category_input"
+                               class="fontSize20 pointer">
                            <img onclick="renderCategories()" class="d-none" id="category_select_arrow_up"
                                src="./img/arrow-up.svg" alt="">
                            <img id="category_select_arrow_down" src="./img/arrow-down.svg" alt="">
@@ -1007,8 +1002,7 @@ function renderAddTaskContent() {
                            Subtasks
                        </div>
                        <div id="subtasks_input_container" class="custom-input">
-                           <input placeholder="Add new subtask" id="subtasks_input" class="fontSize20"
-                               required>
+                           <input placeholder="Add new subtask" id="subtasks_input" class="fontSize20">
                            <img onclick="addSubtask()" src="./img/plus.svg">
                        </div>
                        <div id="selected_subtasks"></div>
@@ -1022,11 +1016,21 @@ function renderAddTaskContent() {
                    This field is required
                </div>
                <div class="button-group">
-                   <div onclick="submitEdit()" class="button blue-btn">
-                       OK
-                       <img src="./img/check-white.svg" alt="">
-                   </div>
+               <div class="button outline-btn">
+                   Clear
+                   <svg class="colorOnHover" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                       viewBox="0 0 24 25" fill="none">
+                       <path
+                           d="M12.001 12.5001L17.244 17.7431M6.758 17.7431L12.001 12.5001L6.758 17.7431ZM17.244 7.25708L12 12.5001L17.244 7.25708ZM12 12.5001L6.758 7.25708L12 12.5001Z"
+                           stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                           stroke-linejoin="round" />
+                   </svg>
                </div>
+               <div onclick="submitForm()" class="button blue-btn">
+                   Create Task
+                   <img src="./img/check-white.svg" alt="">
+               </div>
+           </div>
            </div>
        </form>
    <!-- </div> -->
