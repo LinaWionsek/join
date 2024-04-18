@@ -259,6 +259,9 @@ function generateTaskHTML(element) {
     if (element['priority'] == 'urgent') {
         imageUrl = './img/prio-urgent.svg';
     }
+    if (element['priority'] == ''){
+        imageUrl = '';
+    }
 
     let mover = /*html*/ `  
     <div id="move-dropup">

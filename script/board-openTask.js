@@ -161,6 +161,10 @@ function createHTML(i) {
         imageUrl = './img/prio-urgent.svg';
         priorityText = 'Urgent';
     }
+    if (priority == ''){
+        imageUrl = '';
+        priorityText = '';
+    }
    
     document.getElementById('popup-container').innerHTML = /*html*/ `
 
