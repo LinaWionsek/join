@@ -30,6 +30,7 @@ function statusSelected(status) {
 }
 
 async function submitForm() {
+    
     let titleInput = document.getElementById('task_title');
     let dateInput = document.getElementById('date_picker');
     if (titleInput.value == '') {
@@ -44,6 +45,7 @@ async function submitForm() {
 }
 
 async function addTask() {
+    debugger;
     // statusSelected('toDo');
     let task = getTaskTemplate();
     tasks.push(task);
@@ -94,23 +96,54 @@ function handleTaskCompletion(currentPage) {
 }
 
 function resetTaskForm(){
-    // document.getElementById('task_title').value = '';
-    // document.getElementById('task_description').value = '';
-    // document.getElementById('date_picker').value = '';
-    // selectedIndex = null;
-    // selectedColorIndex = null;
-    // currentId = 0;
-    // statusGroup = '';
-    // currentCategorySelected = [{
-    //     'name': '',
-    //     'color': '',
-    // }];
-    // currentPrioSelected = "";
-    // subTaskCollection = [];
-    // subtasksFinish = [];
-    // contactCollection = [];
-    // taskIdForEdit = '';
-    // statusEdit = '';
+    currentCategorySelected = [{
+        'name': '',
+        'color': '',
+    }];
+    subtasksFinish = [];
+    subTaskCollection = [];
+    selectedIndex = null;
+    selectedColorIndex = null;
+    currentPrioSelected = "";
+    contactCollection = [];
+    taskIdForEdit = '';
+    statusEdit = '';
+
+    noPrioritySelected();
+
+    document.getElementById('task_title').value = '';
+    document.getElementById('task_description').value = '';
+    document.getElementById('date_picker').value = '';
+
+    document.getElementById('selected_contacts').innerHTML = '';
+    document.getElementById('selected_subtasks').innerHTML = '';
+    document.getElementById('category_input').value = 'Select task category';
+}
+
+function showValues(){
+    let title = document.getElementById('task_title')
+    let description = document.getElementById('task_description')
+    let date = document.getElementById('date_picker')
+    console.log(title.value)
+    console.log(description.value)
+    console.log(date.value)
+    console.log(selectedIndex)
+    console.log(selectedColorIndex)
+    console.log(currentId)
+    console.log(statusGroup)
+    console.log(currentCategorySelected)
+    console.log(currentPrioSelected)
+    console.log(subTaskCollection)
+    console.log(subtasksFinish)
+    console.log(contactCollection)
+    console.log(taskIdForEdit)
+    // console.log(statusEdit)
+    // console.log()
+    // console.log()
+    // console.log()
+    // console.log()
+    // console.log()
+    // console.log()
 }
 
 
@@ -625,8 +658,6 @@ function renderContacts(color, abbreviation, name) {
 
 function selectContact(name) {
     let i = contactsArray.findIndex(c => c['name'] === name);
-    console.log(contactsArray);
-    console.log(i);
     let selectedContact = {
         'name': contactsArray[i]['name'],
         'nameAbbreviation': contactsArray[i]['nameAbbreviation'],
