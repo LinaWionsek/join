@@ -1028,7 +1028,7 @@ function renderAddTaskContent() {
                    This field is required
                </div>
                <div class="button-group">
-               <div class="button outline-btn">
+               <div onclick="resetTaskForm()" class="button outline-btn">
                    Clear
                    <svg class="colorOnHover" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                        viewBox="0 0 24 25" fill="none">

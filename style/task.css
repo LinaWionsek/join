@@ -245,8 +245,8 @@ ul {
     flex-direction: column;
     padding-right: 24px;
     gap: 24px;
-    /* width: 400px;
-    min-width: 400px; */
+    width: 400px;
+    /* min-width: 400px; */
 }
 
 .task-vector {
@@ -258,8 +258,8 @@ ul {
     flex-direction: column;
     padding-left: 24px;
     gap: 24px;
-    /* width: 400px;
-    min-width: 400px; */
+    width: 400px;
+    /* min-width: 400px; */
 }
 
 .seperator {
@@ -715,11 +715,13 @@ input[type=tel] {
 
     .left-container {
         padding-right: 0px;
+        width: 100%;
     }
 
     .right-container {
         padding-left: 0px;
         margin-top: 24px;
+        width: 100%;
     }
 
     .contentPositionAddTaskPopup {
