@@ -889,7 +889,7 @@ async function addTaskFromBoard() {
 // board_task_popup_section;
 function renderAddTaskContent() {
     return /*html*/ `
-   <div class="contentPositionAddTaskPopup">
+   <div onclick="stopBody(event)" class="contentPositionAddTaskPopup">
    <div class="addTaskPopupHeadlineContainer">
        <div class="fontSize61"><b>Add Task</b></div>
        <div class="pointer close-popup"
@@ -1038,7 +1038,7 @@ function renderAddTaskContent() {
                            stroke-linejoin="round" />
                    </svg>
                </div>
-               <div onclick="submitForm()" class="button blue-btn">
+               <div onclick="submitForm(), slideOut('board_task_popup', 'board_task_popup_section', 200)" class="button blue-btn">
                    Create Task
                    <img src="./img/check-white.svg" alt="">
                </div>

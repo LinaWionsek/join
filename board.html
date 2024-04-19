@@ -40,7 +40,7 @@
         </div>
     </div>
 
-    <div id="popup-container" class="dialog-bg d-none"></div>
+    <div id="board_popup_section" class="dialog-bg d-none"></div>
     <div class="content-board show-scrollbarTaskWindow bg-main-color">
 
         <div class="search-board-container">
@@ -143,9 +143,9 @@
 
         <div class="addTaskPopupPosition d-flex" id="edit_popup">
 
+           
 
-
-            <div class="contentPositionAddTaskPopup">
+            <div onclick="stopBody(event)" class="contentPositionAddTaskPopup">
                 <div class="addTaskPopupHeadlineContainer">
                     <div class="fontSize61"><b>Edit Task</b></div>
                     <div class="close-hover close-popup" onclick="slideOut('edit_popup', 'edit_popup_section', 200)">
@@ -307,7 +307,7 @@
                             This field is required
                         </div>
                         <div class="button-group">
-                            <div onclick="submitEdit()" class="button blue-btn">
+                            <div onclick="submitEdit(), slideOut('board_task_popup', 'board_task_popup_section', 200)" class="button blue-btn">
                                 OK
                                 <img src="./img/check-white.svg" alt="">
                             </div>

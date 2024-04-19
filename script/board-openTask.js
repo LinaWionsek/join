@@ -145,7 +145,7 @@ function stopBody(event) {
  * @param {number} i - The id of the task
  */
 function createHTML(i) {
-    document.getElementById('popup-container').classList.remove('d-none');
+    document.getElementById('board_popup_section').classList.remove('d-none');
     let priority = tasks[i]['priority'];
     let imageUrl;
     let priorityText;
@@ -165,10 +165,10 @@ function createHTML(i) {
         imageUrl = '';
         priorityText = '';
     }
-   
-    document.getElementById('popup-container').innerHTML = /*html*/ `
 
-    <div onclick="stopBody(event)" class="task-detail" id="task-card">
+    document.getElementById('board_popup_section').innerHTML = /*html*/ `
+
+    <div onclick="stopBody(event)" class="task-detail" id="task_card">
             <div class="task-detail-content-container">
                 <div class="task-detail-top">
                     <div class="task-detail-category" style="${tasks[i]['categoryColor']}"> ${tasks[i]['category']}</div>
@@ -252,7 +252,7 @@ function findAssignedUser(i) {
  *
  */
 function closeTask() {
-    document.getElementById('popup-container').classList.add('d-none');
+    slideOut('task_card', 'board_popup_section', 200);
 }
 
 /**

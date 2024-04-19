@@ -279,7 +279,7 @@ function generateTaskHTML(element) {
     `;
     return /*html*/ `
         <div id="dragStatus" draggable="true" ondragstart="startDragging(${element['id']})"  class="task">
-            <div class="min-height160" onclick="openTask(${i}, event), slide('task-card', 'popup-container');"> 
+            <div class="min-height160" onclick="openTask(${i}, event), slide('task_card', 'board_popup_section');"> 
                 <div class="task-top fontSize16">
                     <div class="task-category" style="${element['categoryColor']}">${element['category']}</div>
                     <div id="move-container">  </div>
