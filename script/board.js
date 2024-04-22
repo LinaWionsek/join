@@ -267,7 +267,7 @@ function generateTaskHTML(element) {
     let mover = /*html*/ `  
     <div id="move-dropup">
         <div class="dropup">
-            <button class="dropbtn">Move</button>
+            <button class="drop-btn">Move</button>
             <div class="dropup-content">
                 <a href="#" onclick="switchStatusToDo(${i})">To Do</a>
                 <a href="#" onclick="switchStatusToInProgress(${i})">In Progress</a>

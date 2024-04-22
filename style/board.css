@@ -13,19 +13,19 @@ body {
     width: 100%;
     position: relative;
 }
+
 #move-dropup {
     display: none;
 }
 
 .min-height160 {
-
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.dropbtn {
+.drop-btn {
     background: #2A3647;
     border-radius: 10px;
     border: 1px solid #2A3647;
@@ -70,15 +70,11 @@ body {
     display: block;
 }
 
-.dropup:hover .dropbtn {
+.dropup:hover .drop-btn {
     background-color: #29ABE2;
     border: 1px solid #29ABE2;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
-
-
-
-
 
 /* ----------------------------------------------------------------------------------------------------- */
 
@@ -185,12 +181,6 @@ body {
     cursor: pointer;
 }
 
-#searchResults {
-    flex-direction: column;
-    gap: 8px;
-    flex-wrap: wrap;
-}
-
 .search-category-container {
     display: flex;
 }
@@ -258,9 +248,6 @@ body {
     border-radius: 8px;
 }
 
-
-/* --------------------------------------- */
-
 .status-empty {
     display: flex;
     justify-content: center;
@@ -283,7 +270,6 @@ body {
     gap: 10px;
     border-radius: 10px;
     padding: 20px 15px 20px 15px;
-    /* scrollbar-width: thin; */
 }
 
 .drag-area-highlight {
@@ -375,8 +361,6 @@ body {
     padding: 20px;
 }
 
-
-
 .task-detail-font-color {
     color: #42526E;
     width: 100px;
@@ -435,7 +419,6 @@ body {
 .user-details {
     display: flex;
     align-items: center;
-    /* width: 400px; */
 }
 
 .user-name {
@@ -498,14 +481,12 @@ body {
     align-items: center;
 }
 
-
-
-
 @media(max-width:1360px) {
     .contentposition {
         padding-left: 50px;
         padding-right: 50px;
     }
+
     .search-board-container {
         padding-left: 50px;
         padding-right: 50px;
@@ -517,10 +498,10 @@ body {
         padding-left: 30px;
         padding-right: 0px;
     }
+
     .statusheadline {
         width: 240px;
     }
-
 
     .search-board-container {
         padding-left: 30px;
@@ -546,7 +527,6 @@ body {
     .task-detail {
         width: 50vw;
     }
-
 }
 
 @media(max-width:1000px) {
@@ -585,8 +565,6 @@ body {
         max-width: calc(100vw - 180px);
         padding-bottom: 15px;
     }
-
-
 }
 
 @media(max-width:768px) {
@@ -610,6 +588,7 @@ body {
         padding: 0 16px;
         width: 100vw !important;
     }
+
     .search-category-container {
         flex-direction: column;
         height: 50px;
@@ -672,19 +651,9 @@ body {
         display: flex;
     }
 
-    /* .button {
-        padding: 4px 8px;
-    } */
-
     .statusheadline img {
         height: 30px;
         width: 30px;
-    }
-
-    #button-ad-task {
-        /* position: absolute;
-        top: 8px;
-        right: 16px; */
     }
 
     .drag-area {
