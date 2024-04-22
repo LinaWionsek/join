@@ -10,16 +10,16 @@ openMenu = false;
 /**
  * Sets the active state for the provided sidebar item and resets other states.
  */
-function loadHeaderSidebar(boolian) {
-    resetBoolians();
-    switchColorSidebar(boolian);
+function loadHeaderSidebar(boolean) {
+    resetBooleans();
+    switchColorSidebar(boolean);
 }
 
 
 /**
  * Resets all the active states of the sidebar items.
  */
-function resetBoolians() {
+function resetBooleans() {
     issummary = false;
     isAddTask = false;
     isBoard = false;
@@ -32,8 +32,8 @@ function resetBoolians() {
 /**
  * Updates the active state for the specified sidebar item.
  */
-function switchColorSidebar(boolian) {
-    boolian = true;
+function switchColorSidebar(boolean) {
+    boolean = true;
     for (let i = 0; i < classCSS.length; i++) {
         const element = classCSS[i];
     }
@@ -60,7 +60,7 @@ function markActivePage () {
     const links = document.querySelectorAll(`.sidebar-text[href*="${currentPage}"]`);
     links.forEach(link => {
         const categoryElement = link.querySelector('.sidebar-text-sub');
-        categoryElement.classList.add('htmlActive');
+        categoryElement.classList.add('html-active');
         categoryElement.style.color = 'white';
         const categoryImage = link.querySelector('img');
         if (categoryImage) {
@@ -75,7 +75,7 @@ function markActivePage () {
  * Displays the user's initials within the specified HTML container.
  * Extracts the initials from the active user's name and populates them inside the designated container.
  */
-function userCircle() {
+function showUserCircle() {
     let container = document.getElementById('header-user-img');
     let nameParts = activeUser.name.split(' ');
     let firstName = nameParts[0];
@@ -115,13 +115,11 @@ function renderSidebar() {
 function returnRenderSidebar() {
     return /*html*/`
 <div class="sidebar">
-
     <div class="logo-container">
         <img src="img/join-logo-white.svg" alt="">
     </div>
-
-    <div id="sidebarLinks" class="sidebar-text-area">
-        <div class="sideBarCategory">
+    <div id="sidebar_links" class="sidebar-text-area">
+        <div class="sidebar-category">
             <a class="sidebar-text" href="./summary.html">
                 <div class="sidebar-text-sub">
                     <img src="img/summaryImage.svg">
@@ -129,7 +127,7 @@ function returnRenderSidebar() {
                 </div>
             </a>
         </div>
-        <div class="sideBarCategory">
+        <div class="sidebar-category">
             <a class="sidebar-text" href="./task.html">
                 <div class="sidebar-text-sub">
                 <img src="img/taskImage.svg">
@@ -137,7 +135,7 @@ function returnRenderSidebar() {
                 </div>
             </a>
         </div>
-        <div class="sideBarCategory">
+        <div class="sidebar-category">
             <a class="sidebar-text" href="./board.html">
                 <div class="sidebar-text-sub">
                     <img src="img/boardImage.svg">
@@ -145,7 +143,7 @@ function returnRenderSidebar() {
                 </div>
             </a>
         </div>
-        <div class="sideBarCategory">
+        <div class="sidebar-category">
             <a class="sidebar-text" href="./contacts.html">
                 <div class="sidebar-text-sub">
                     <img src="img/contactsImage.svg">
@@ -154,15 +152,13 @@ function returnRenderSidebar() {
             </a>
         </div>
     </div>
-    <div class="quickLinksSidebar fontSize16">
+    <div class="sidebar-quicklinks fontSize16">
         <a href="./privacy-police.html" class="sidebar-bottom">Privacy Policy</a>
         <a href="./legalNotice.html" class="sidebar-bottom">Legal Notice</a>
     </div>
-
 </div>
 `;
 }
-
 
 /**
  * Renders content within the header designated container.
@@ -172,15 +168,14 @@ function renderHeader() {
     container.innerHTML = returnRenderHeader();
 }
 
-
 function returnRenderHeader() {
     return /*html*/`
     <div class="header">
-    <img class="headImgLeft" src="./img/head-icon-mobile.svg">
-    <div class="headerHeadlineBox fontSize20">Kanban Projekt Managment Tool</div>
-    <div onclick="openHeaderMenu(event)" id="userCircleHeader" class="headBoxRight">
-        <a href="help.html"> <img class="headBoxRightImg" src="./img/help.svg" alt=""></a>
-        <div  id="header-user-img" class="headBoxRightUserCircle fontSize16"></div>
+    <img class="headImg-left" src="./img/head-icon-mobile.svg">
+    <div class="header-headline fontSize20">Kanban Projekt Managment Tool</div>
+    <div onclick="openHeaderMenu(event)" id="userCircleHeader" class="header-right-container">
+        <a href="help.html"> <img src="./img/help.svg" alt=""></a>
+        <div  id="header-user-img" class="header-user-circle fontSize16"></div>
     </div>
 </div>
     `;
@@ -237,15 +232,15 @@ function doNotClose(event) {
 
 /** * This function is used to the edit and delete menu on the mobile view */
 function changesSaved(inputText) {
-    document.getElementById('successfullyCreatedId').innerHTML = /* html */ `
+    document.getElementById('success_info_container').innerHTML = /* html */ `
     ${inputText}`;
-    toggleVisibility('successfullyCreatedId', true);
-    slideOneObject('successfullyCreatedId');
+    toggleVisibility('success_info_container', true);
+    slideOneObject('success_info_container');
     setTimeout(function () {
-        slideOutOneObject('successfullyCreatedId');
+        slideOutOneObject('success_info_container');
     }, 2500);
     setTimeout(function () {
-        toggleVisibility('successfullyCreatedId', false);
+        toggleVisibility('success_info_container', false);
     }, 2900);
 }
 
@@ -253,18 +248,6 @@ function changesSaved(inputText) {
 function toggleVisibility(id, show) {
     const showHide = document.getElementById(id);
     showHide.classList.toggle('d-none', !show);
-}
-
-/**
- * Toggles the visibility of sidebar links based on the active user's name.
- * If the active user's name is an empty string, it hides the sidebar links. Otherwise, it hides the empty container.
- */
-function hideSidebarLinks() {
-    if (activeUser.name === '') {
-        document.getElementById('sidebarLinks').classList.add('d-none');
-    } else {
-        document.getElementById('emptyContainer').classList.add('d-none');
-    }
 }
 
 
@@ -278,33 +261,6 @@ function hideMenuHeader() {
         return;
     } else {
         element.classList.add('d-none');
-    }
-}
-
-
-/**
- * Validates the input value of a form's phone field.
- * Checks whether the entered phone number only contains the plus symbol and digits 0-9. 
- * If the validation fails, it displays an error message and prevents form submission. 
- * Otherwise, it allows form submission.
- */
-function validateForm() {
-    var input = document.getElementById('inputPhoneId');
-
-    var regex = /^[+0-9]+$/;
-
-    if (!regex.test(input.value)) {
-        input.style.borderColor = 'red';
-        document.getElementById('errorMessage').innerText = "Invalid input! Only + and numbers from 0-9 are allowed.";
-        setTimeout(function () {
-            input.style.borderColor = '#A8A8A8';
-            document.getElementById('errorMessage').innerText = "";
-        }, 6000);
-
-        return false; // Verhindert das Absenden des Formulars
-    } else {
-        document.getElementById('errorMessage').innerText = "";
-        return true; // Ermöglicht das Absenden des Formulars
     }
 }
 

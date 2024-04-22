@@ -16,7 +16,7 @@ let nextColorIndex = 0;
 /** * This function is to load functions at start */
 async function initContacts() {
     loadActiveUser();
-    userCircle();
+    showUserCircle();
     await currentUserContactsLoad();
     renderContacts();
     toggleBlueLineOnNarrowDesktop();
@@ -153,7 +153,7 @@ async function createContact() {
         "name": document.getElementById('inputNameId').value,
         "nameAbbreviation": makeNameAbbreviation(document.getElementById('inputNameId').value),
         "email": document.getElementById('inputEmailId').value,
-        "phone": document.getElementById('inputPhoneId').value,
+        "phone": document.getElementById('input_phone').value,
         "color": getColor()
     }
     contactsArray.push(newContact);
@@ -182,7 +182,7 @@ function getColor() {
 function clearInputFields() {
     document.getElementById('inputNameId').value = '';
     document.getElementById('inputEmailId').value = '';
-    document.getElementById('inputPhoneId').value = '';
+    document.getElementById('input_phone').value = '';
 }
 
 /** * This function is to hover the contact after the contact is created */
@@ -275,7 +275,7 @@ function deleteEditContactAtIndex(i) {
 async function saveContact(i) {
     contactsArray[i].name = document.getElementById('inputNameId').value;
     contactsArray[i].email = document.getElementById('inputEmailId').value;
-    contactsArray[i].phone = document.getElementById('inputPhoneId').value;
+    contactsArray[i].phone = document.getElementById('input_phone').value;
     contactsArray[i].nameAbbreviation = document.getElementById('nameAbbreviationId').innerHTML;
     await currentUserContactsSave();
 
@@ -334,7 +334,7 @@ function showHideAfterDeleteContact() {
 
 /** * This function is to change the text in a button */
 function changeButtonTextToDeleted() {
-    document.querySelector('#successfullyCreatedId').textContent = "Contact successfully deleted";
+    document.querySelector('#success_info_container').textContent = "Contact successfully deleted";
 }
 
 
@@ -352,7 +352,7 @@ async function editContact(i) {
     document.getElementById('profile_img').innerHTML = contactImageEdit(i)
     document.getElementById('inputNameId').value = contactsArray[i]['name'];
     document.getElementById('inputEmailId').value = contactsArray[i]['email'];
-    document.getElementById('inputPhoneId').value = contactsArray[i]['phone'];
+    document.getElementById('input_phone').value = contactsArray[i]['phone'];
     
     editContactText();
     initializeEditContactBehavior(i);

@@ -5,7 +5,7 @@ let prioLowSelected = false;
 
 async function init() {
     loadActiveUser();
-    userCircle();
+    showUserCircle();
     markActivePage();
     await currentUserIdLoad();
     await currentUserCategorysLoad();
@@ -735,7 +735,7 @@ function renderAddContactRightContent() {
 
     <input type="text" placeholder="Name" id="inputNameId" class="fontSize20" required>
     <input type="email" placeholder="Email" id="inputEmailId" class="fontSize20" required>
-    <input type="tel" pattern="[0-9+ ]+" placeholder="Phone" id="inputPhoneId"
+    <input type="tel" pattern="[0-9+ ]+" placeholder="Phone" id="input_phone"
         class="fontSize20"
         oninvalid="this.setCustomValidity('Invalid input! Only + and numbers from 0-9 are allowed')"
         oninput="this.setCustomValidity('')" required>
@@ -769,7 +769,7 @@ async function createContact() {
         'name': document.getElementById('inputNameId').value,
         'nameAbbreviation': makeNameAbbreviation(document.getElementById('inputNameId').value),
         'email': document.getElementById('inputEmailId').value,
-        'phone': document.getElementById('inputPhoneId').value,
+        'phone': document.getElementById('input_phone').value,
         'color': getColor(),
     };
     contactsArray.push(newContact);
