@@ -253,6 +253,7 @@ function findAssignedUser(i) {
  */
 function closeTask() {
     document.getElementById('task_card').classList.add('d-none');
+    document.getElementById('board_popup_section').classList.add('d-none');
 }
 
 /**
