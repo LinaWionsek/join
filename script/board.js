@@ -91,7 +91,7 @@ document.getElementById('searchInput').addEventListener('blur', revertDivColor);
  *
  */
 function revertDivColor() {
-    document.getElementById('fake-searchbar').style.borderColor = '#A8A8A8';
+    document.getElementById('fake-searchbar').style.borderColor = 'rgb(209, 209, 209';
 }
 
 /**

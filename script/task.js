@@ -153,7 +153,7 @@ document.getElementById('subtasks_input').addEventListener('blur', reverSubtaskt
  *
  */
 function reverSubtasktDivColor() {
-    document.getElementById('subtasks_input_container').style.borderColor = '#A8A8A8';
+    document.getElementById('subtasks_input_container').style.borderColor = 'rgb(209, 209, 209';
 }
 
 function addSubtask() {
