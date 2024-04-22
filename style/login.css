@@ -7,7 +7,7 @@ body {
     overflow-y: auto;
     overflow-x: hidden;
 }
-/* -------------------------------------------------OK!------------------------------------------------- */
+
 .dialog-login {
     background-color: var(--text-white);
     display: flex;
@@ -67,16 +67,6 @@ input[type=password] {
 #login_email {
     font-size: 14px; /* 20 */
 }
-/* -------------------------------------------------OK!------------------------------------------------- */
-/* .button {
-    background-color: var(--main-color);
-    color: var(--text-white);
-}
-
-.button:hover {
-    background-color: var(--headline);
-} */
-
 
 .button-log-in {
     width: 145px;
@@ -117,7 +107,6 @@ input[type=password] {
 
 .button-guest-login:hover {
     border-color: var(--headline);
-    /* border-width: 2px; */
     color: var(--headline);
 }
 
@@ -132,22 +121,7 @@ input[type=password] {
     background-color: var(--headline);
 }
 
-.signInBtn {
-    padding: 15px 16px;
-    border-radius: 8px;
-    background: #2A3647;
-    color: white;
-    border: none;
-    margin-left: 35px;
-    cursor: pointer;
-    font-family: 'Inter';
-}
-
-.signInBtn:hover {
-    background-color: var(--headline)
-}
-
-.logInTitle {
+.login-title {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -173,21 +147,21 @@ input[type=password] {
     color: var(--headline);
 }
 
-.checkboxRememberMeContainer {
+.checkbox-container {
     display: flex;
     align-items: center;
     padding: 0 16px;
 }
 
-.checkboxRememberMeContainer label {
+.checkbox-container label {
     margin-right: 4px;
 }
 
-.checkboxRememberMeContainer a {
+.checkbox-container a {
     color: var(--light-blue);
 }
 
-#myCheckbox {
+#checkbox_id {
     width: 16px;
     height: 16px;
     margin-right: 8px;
@@ -240,7 +214,7 @@ header {
     text-decoration: none;
 }
 
-.police :hover a {
+.police:hover a {
     color: var(--headline);
     font-weight: bold;
 }
@@ -276,6 +250,7 @@ header {
     body {
         justify-content: space-between;
     }
+
     header {
         display: flex;
         justify-content: space-between;
@@ -294,7 +269,6 @@ header {
         gap: 16px;
     }
 
-    
     .sign-up-mobile button {
         height: 46px;
     }
@@ -309,7 +283,7 @@ header {
         justify-content: center;
     }
 
-    .checkboxRememberMeContainer {
+    .checkbox-container {
         display: flex;
         align-items: center;
         padding: 0 16px;
@@ -358,11 +332,9 @@ header {
         flex-grow: unset;
         padding: 0px 17px 17px 17px;
     }
-
 }
 
 @media (max-width: 375px) {
-
     form {
         width: 75vw;
     }
@@ -376,7 +348,6 @@ header {
         padding-right: 12px;
         padding-left: 15px;
     }
-
 }
 
 @media (max-width: 393px) and (max-height: 786px) {
@@ -424,5 +395,4 @@ header {
     .remember-me-container {
         margin: 8px 0 8px;
     }
-
 }

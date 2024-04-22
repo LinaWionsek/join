@@ -21,7 +21,7 @@ function loadLogIn() {
     let rememberedEmail = localStorage.getItem('rememberMe');
     if (rememberedEmail) {
         document.getElementById('login_email').value = rememberedEmail;
-        document.getElementById('myCheckbox').checked = true; // Setzen Sie das "Remember me" Kästchen als angekreuzt
+        document.getElementById('checkbox_id').checked = true; // Setzen Sie das "Remember me" Kästchen als angekreuzt
     }
 }
 
@@ -63,7 +63,7 @@ function verifyLoginCredentials(email, password) {
 }
 
 function handleRememberMe(email) {
-    if (document.getElementById('myCheckbox').checked) {
+    if (document.getElementById('checkbox_id').checked) {
         localStorage.setItem('rememberMe', email.value);
     } else {
         localStorage.removeItem('rememberMe');
@@ -196,7 +196,7 @@ function loadWarningTextTamplate() {
 function loadTempleteLogIn() {
     return /*html*/ `
     <form onsubmit="login(); return false;">
-            <div class="logInTitle">
+            <div class="login-title">
                 <div class="fontSize61"><b>Log in</b></div>
                 <div class="underline"></div>
             </div>
@@ -216,8 +216,8 @@ function loadTempleteLogIn() {
             </div>
 
             <div class="remember-me-container">
-                <div class="checkboxRememberMeContainer">
-                    <input type="checkbox" name="myCheckbox" id="myCheckbox">
+                <div class="checkbox-container">
+                    <input type="checkbox" name="myCheckbox" id="checkbox_id">
                     <label for=" fontSize16">Remember me</label>
                 </div>
 

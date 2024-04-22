@@ -1,5 +1,5 @@
 let registerBtn = document.getElementById('registerBtn');
-let checkbox = document.getElementById('myCheckbox');
+let checkbox = document.getElementById('checkbox_id');
 
 /**
  * Initializes the registration functionality by loading existing user data.
