@@ -782,7 +782,6 @@ async function editTask(i) {
     slide('edit_popup', 'edit_popup_section');
     closeTask();
     let taskToEdit = tasks[i];
-    // document.getElementById("addTaskHeadline").innerHTML = 'Edit Task';
     document.getElementById('task_title').value = taskToEdit.title;
     document.getElementById('task_description').value = taskToEdit.description;
     document.getElementById('date_picker').value = taskToEdit.dueDate;
