@@ -516,11 +516,11 @@ function createCategoryColors() {
 function returnCreateCategoryColors(color, index) {
     if (color === selectedColorIndex) {
         return /*html*/ `
-        <div onclick='selectColor("${color}")' style="${color}" id='color_circle${index}' class="color_circle selected-color"></div>
+        <div onclick='selectColor("${color}")' style="${color}" id='color_circle${index}' class="color-circle selected-color"></div>
         `;
     } else {
         return /*html*/ `
-        <div onclick='selectColor("${color}")' style="${color}" id='color_circle${index}' class="color_circle"></div>
+        <div onclick='selectColor("${color}")' style="${color}" id='color_circle${index}' class="color-circle"></div>
         `;
     }
 }
