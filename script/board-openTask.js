@@ -252,7 +252,6 @@ function findAssignedUser(i) {
  *
  */
 function closeTask() {
-    slideOut('task_card', 'board_popup_section', 200);
     document.getElementById('task_card').classList.add('d-none');
 }
 

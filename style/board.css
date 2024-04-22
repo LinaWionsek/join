@@ -195,44 +195,30 @@ body {
     display: flex;
 }
 
+.add-task-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 16px;
+    gap: 5px;
+    height: 56px;
+    min-width: 120px; 
+    width: auto;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 400;
+    gap: 4px;
+    white-space: nowrap;
+    background-color: #2A3647;
+    color: white;
+}
 
 #button-add-task {
     white-space: nowrap;
     background-color: var(--main-color);
 }
 
-/* .button {
-    display: flex;
-    width: fit-content;
-    padding: 8px 16px;
-    color: white;
-    font-weight: 500;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
-    white-space: nowrap;
-    border-radius: 10px;
-    border: 1px solid #2A3647;
-    background: #2A3647;
-} */
-
-/* .button:hover {
-    background-color: #29ABE2;
-    border: 1px solid #29ABE2;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-} */
-
-/* .button:active {
-    background-color: #091931;
-    border: 1px solid #091931;
-} */
-
-/* .button img {
-    height: 24px;
-    width: 24px;
-} */
-
-/* --------------------------------------- */
 .content-board {
     position: absolute;
     top: 206px; /* 246 */
@@ -244,9 +230,6 @@ body {
     max-height: calc(100vh - 246px);
     overflow-y: auto;
 }
-
-
-
 
 .board-main-section {
     width: 100%;
@@ -630,6 +613,10 @@ body {
     .search-category-container {
         flex-direction: column;
         height: 50px;
+    }
+
+    .add-task-button {
+        min-width: 50px; 
     }
 
     .task {
