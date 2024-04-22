@@ -4,7 +4,7 @@ body {
     font-family: 'Inter' !important;
 }
 
-.quicklinksContainer {
+.quicklinks-container {
     position: absolute;
     left: 243px;
     width: 100%;
@@ -16,6 +16,15 @@ body {
     padding-left: 96px;
     overflow-y: auto;
     font-family: 'Inter' !important;
+}
+
+.quicklinks-container a {
+    text-decoration: none;
+    color: #28abe2;
+}
+
+.quicklinks-container a:hover {
+    text-decoration: underline !important;
 }
 
 #mobile_backarrow_id {
@@ -32,48 +41,37 @@ body {
 }
 
 #mobile_backarrow_id:hover {
-
     background-color: #F7F7F7;
     border-radius: 100%;
     transform: scale(1.05);
     cursor: pointer;
 }
 
-/* .emptyContainer {
-    width: 170px;
-    height: 80px;
-    background-color: white;
-    z-index: 3;
-    position: absolute;
-    top: 0;
-    right: 0;
-} */
-
-.quicklinksContainer::-webkit-scrollbar-button:start:decrement {
+.quicklinks-container::-webkit-scrollbar-button:start:decrement {
     /* background-position: center !important;
     background-image: url('../img/arrow-up.svg') !important; */
     border-top-right-radius: 100% !important;
     border-top-left-radius: 100% !important;
 }
 
-.quicklinksContainer::-webkit-scrollbar-button:end:increment {
+.quicklinks-container::-webkit-scrollbar-button:end:increment {
     /* background-position: center !important;
     background-image: url('../img/arrow-down.svg') !important; */
     border-bottom-right-radius: 100% !important;
     border-bottom-left-radius: 100% !important;
 }
 
-.quicklinksContainer::-webkit-scrollbar {
+.quicklinks-container::-webkit-scrollbar {
     display: block !important;
     width: 8px !important;
     padding: 20px 0 !important;
 }
 
-.quicklinksContainer::-webkit-scrollbar-track {
+.quicklinks-container::-webkit-scrollbar-track {
     background-color: transparent !important;
 }
 
-.quicklinksContainer::-webkit-scrollbar-thumb {
+.quicklinks-container::-webkit-scrollbar-thumb {
     background-color: #909090 !important;
     border-radius: 10px;
 }
@@ -116,14 +114,14 @@ td {
 }
 
 @media(max-width: 1000px) {
-    .quicklinksContainer {
+    .quicklinks-container {
         max-width: calc(100vw - 160px) !important;
         left: 160px;
     }
 }
 
 @media(max-width: 768px) {
-    .quicklinksContainer {
+    .quicklinks-container {
         top: 82px;
         bottom: 81px;
         max-height: calc(100vh - 163px);
