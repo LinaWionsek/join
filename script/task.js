@@ -3,6 +3,7 @@ let contactListOpen = false;
 let searchingContact = false;
 let prioLowSelected = false;
 
+
 async function init() {
     loadActiveUser();
     showUserCircle();
@@ -107,7 +108,7 @@ function resetTaskForm(){
     currentPrioSelected = "";
 
     contactCollection = [];
-    // toggleContactList();
+
     renderSelectedContacts();
 
     taskIdForEdit = '';
@@ -117,73 +118,47 @@ function resetTaskForm(){
     document.getElementById('task_title').value = '';
     document.getElementById('task_description').value = '';
     document.getElementById('date_picker').value = '';
-
     document.getElementById('selected_contacts').innerHTML = '';
     document.getElementById('selected_subtasks').innerHTML = '';
     document.getElementById('category_input').value = 'Select task category';
-   
-}
 
-function showValues(){
-    let title = document.getElementById('task_title')
-    let description = document.getElementById('task_description')
-    let date = document.getElementById('date_picker')
-    console.log(title.value)
-    console.log(description.value)
-    console.log(date.value)
-    console.log(selectedIndex)
-    console.log(selectedColorIndex)
-    console.log(currentId)
-    console.log(statusGroup)
-    console.log(currentCategorySelected)
-    console.log(currentPrioSelected)
-    console.log(subTaskCollection)
-    console.log(subtasksFinish)
-    console.log(contactCollection)
-    console.log(taskIdForEdit)
-    // console.log(statusEdit)
-    // console.log()
-    // console.log()
-    // console.log()
-    // console.log()
-    // console.log()
-    // console.log()
 }
 
 
-/**
- * Saves task-related data.
- */
-// async function saveTaskData() {
-//     await currentUserTaskSave();
-//     await currentUserIdSave();
-//     resetAllAddTaskElements();
-//     changesSaved('Task added to board');
-// }
-//front bg
-
-/** Collects and returns data for a new task. */
-// function collectTaskData() {
-//     return {
-//         'id': currentId,
-//         'status': statusGroup,
-//         'category': currentCategorySelected[0].name,
-//         'categoryColor': currentCategorySelected[0].color,
-//         'title': document.getElementById('addTitel').value,
-//         'description': document.getElementById('addDescription').value,
-//         'dueDate': document.getElementById('datepicker').value,
-//         'priority': currentPrioSelected,
-//         'contactName': contactCollection.map(contact => contact.name),
-//         'contactColor': contactCollection.map(contact => contact.color),
-//         'contactAbbreviation': contactCollection.map(contact => contact.nameAbbreviation),
-//         'subtasksInProgress': subTaskCollection,
-//         'subtasksFinish': subtasksFinish,
-//     };
-// }
 // #region Subtasks
 //--------------------------------------------Subtasks--------------------------------------------//
+
+/**
+ * This eventlistener is fired when the subtask-input is focused
+ *
+ */
+document.getElementById('subtasks_input').addEventListener('focus', changeSubtaskDivColor);
+
+/**
+ * This function changes the bordercolor of the subtask-input-container
+ *
+ */
+function changeSubtaskDivColor() {
+    document.getElementById('subtasks_input_container').style.borderColor = '#29ABE2';
+}
+
+/**
+ * This eventlistener removes the focus of the subtask-input
+ *
+ */
+document.getElementById('subtasks_input').addEventListener('blur', reverSubtasktDivColor);
+
+/**
+ * This function changes the border color of the subtask-input-container back to default
+ *
+ */
+function reverSubtasktDivColor() {
+    document.getElementById('subtasks_input_container').style.borderColor = '#A8A8A8';
+}
+
 function addSubtask() {
     let input = document.getElementById('subtasks_input');
+    resetDivColor('subtasks_input_container');
     if (input.value === '') {
         return;
     } else {
@@ -590,12 +565,13 @@ function toggleContactList() {
         toggleVisibility('contact_list_container', true);
         toggleVisibility('contact_select_arrow_up', true);
         toggleVisibility('contact_select_arrow_down', false);
-
+        changeDivColor('assigned_to_input_container');
         getContacts();
     } else {
         toggleVisibility('contact_list_container', false);
         toggleVisibility('contact_select_arrow_up', false);
         toggleVisibility('contact_select_arrow_down', true);
+        resetDivColor('assigned_to_input_container')
     }
     contactListOpen = !contactListOpen;
 }
