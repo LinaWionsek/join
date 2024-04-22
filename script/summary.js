@@ -7,7 +7,7 @@ async function initSummary() {
     await currentUserTaskLoad();
     loadTimeOfDay();
     loadText();
-    markActivePage ();
+    markActivePage();
     addAnimationOnResize();
     animationAdded = false;
 }
@@ -73,7 +73,7 @@ function searchNumbers() {
     let awaitingFeedback = tasks.filter(t => t['status'] == 'awaiting-feedback').length;
     let done = tasks.filter(t => t['status'] == 'done').length;
     let allTasks = tasks.length
-    let urgent = tasks.filter(t => t['priority'] == './img/prioUrgent.svg').length;
+    let urgent = tasks.filter(t => t['priority'] == 'urgent').length;
     displayNumbers(todo, inProgress, awaitingFeedback, done, allTasks, urgent)
 }
 
@@ -144,8 +144,8 @@ function getTimeOfDay() {
  * 
  */
 function getNextUrgentDueDate(tasks) {
-    const urgentTasks = tasks.filter(task => task.priority === "./img/prioUrgent.svg");
-
+    const urgentTasks = tasks.filter(task => task.priority === "urgent");
+    console.log("urgentTasks", urgentTasks)
     if (urgentTasks.length === 0) return null;
     urgentTasks.sort((a, b) => {
         const dateA = new Date(a.dueDate.split("/").reverse().join("-"));
@@ -165,9 +165,9 @@ function getNextUrgentDueDate(tasks) {
 function convertDateFormat(inputDate) {
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-    const parts = inputDate.split("/");
-    const day = parts[0];
+    const parts = inputDate.split("-");
+    const year = parts[0];
     const monthIndex = parseInt(parts[1], 10) - 1;
-    const year = parts[2];
-    return `${months[monthIndex]} ${day}, ${year}`;
+    const day = parts[2];
+    return `${months[monthIndex]} ${day}th, ${year}`;
 }

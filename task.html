@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AddTask</title>
-    <script src="script/saveAndLoad.js"></script>
+    <script src="./script/saveAndLoad.js"></script>
     <!-- <script defer src="script/addTask-templates.js"></script> -->
     <!-- <script defer src="script/board-addTask-teamfunctions.js"></script> -->
-    <script defer src="templates/templates.js"></script>
-    <script defer src="script/contacts.js"></script>
+    <script defer src="./templates/templates.js"></script>
+    <script defer src="./script/contacts.js"></script>
     <script defer src="./script/task.js"></script>
 
     <link rel="stylesheet" href="style/task.css">
@@ -35,7 +35,7 @@
         </div>
     </div>
     <!-- ------------------------------------------------------------------------------------------------------------ -->
-    <div id="popup-container" class="dialog-bg d-none"></div>
+    <div id="board_popup_section" class="dialog-bg d-none"></div>
 
     <div class="task-container">
         <div class="task-header">
@@ -43,18 +43,6 @@
         </div>
 
         <div class="task-contentposition">
-            <!-- <div id="task_popup_section" class="task-popup-bg d-none">
-                <div id="task_popup" class="task-popup-card">
-                    <div class="close-popup-container">
-                        <img onclick="closePopup()" class="close-hover" src="img/close.svg">
-                    </div>
-                   
-                </div>
-            </div> -->
-
-
-
-
 
             <section class="task-popup-bg d-none" id="task_popup_section">
 
@@ -66,21 +54,13 @@
                             <img onclick="closePopup()" src="./img/close-white.svg">
                         </div>
                         <div id="left_popup_content">
-                            <!-- <img src="./img/join-logo-white.svg" id="join_logo_add_contact">
-                            <spline class="left-popup-text-headline"><b>Add new category</b></spline>
-                            <spline class="left-popup-text">Tasks are
-                                better with a category!</spline>
-                            <div class="blue-line">
-                            </div> -->
+
                         </div>
                     </div>
 
                     <div class="center-popup">
                         <div id="center_popup_content"></div>
-                        <!-- <div class="center-popup-category-content">
-                            <div class="add-category-logo-bg"></div>
-                            <img class="person-in-circle" src="./img/add-task-category.svg">
-                        </div> -->
+
                     </div>
 
                     <div class="right-popup d-flex">
@@ -89,34 +69,6 @@
                             <img onclick="closePopup()" src="./img/close.svg" alt="">
                         </div>
                         <div id="right_popup_content"></div>
-                        <!-- <div class="custom-select">
-                            <input id="createCategoryInput" placeholder="New category name..." type="text">
-                            <div class="colorSettingBox" id="colorSettingBox">
-                            </div>
-                            <div class="popup-button-container">
-
-                                <button class="button outline-btn"
-                                    onclick="slideOut('contact_popup', 'contact_popup_section', 200)"
-                                    id="cancelBtnMobileId">
-                                    <spline id="editCancelButtonId">Cancel</spline>
-
-                                    <svg class="colorOnHover" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 25" fill="none">
-                                        <path
-                                            d="M12.001 12.5001L17.244 17.7431M6.758 17.7431L12.001 12.5001L6.758 17.7431ZM17.244 7.25708L12 12.5001L17.244 7.25708ZM12 12.5001L6.758 7.25708L12 12.5001Z"
-                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-                                </button>
-                                <button onclick="confirmCreateCategory()" class="button blue-btn">
-
-                                    <span id="textChangeToSaveId">Create category</span>
-
-                                    <img src="./img/check-white.svg">
-                                </button>
-
-                            </div>
-                        </div> -->
 
                     </div>
                 </div>
@@ -133,8 +85,8 @@
                                 Title
                                 <span class="required-star">*</span>
                             </div>
-                            <input type="text" placeholder="Enter a title" id="task_title" class="fontSize20 width-100P"
-                                required>
+                            <input placeholder="Enter a title" id="task_title" class="fontSize20 width-100P"
+                                >
                         </div>
 
                         <div>
@@ -145,14 +97,25 @@
                                 placeholder="Enter a Description" type="text"></textarea>
                         </div>
 
+
                         <div>
                             <div>
                                 Assigned to
                             </div>
-                            <div id="assigned_to_input_container" class="custom-input">
-                                <input placeholder="Enter a title" id="" class="fontSize20">
-                                <img src="./img/arrow-up.svg" alt="">
+                            <div onclick="toggleContactList()" id="assigned_to_input_container" class="custom-input">
+                                <input onkeyup="searchContacts()" placeholder="Select contacts to assign"
+                                    id="assigned_to_input" class="fontSize20">
+                                <img id="contact_select_arrow_up" class="d-none" src="./img/arrow-up.svg" alt="">
+                                <img id="contact_select_arrow_down" src="./img/arrow-down.svg" alt="">
                             </div>
+                            <div id="contact_list_container" class="d-none">
+                                <div id="contact_list"></div>
+                                <div onclick="openAddContactPopup()" class="button blue-btn">
+                                    Add contact
+                                    <img src="./img/add-task-person-add.svg" alt="">
+                                </div>
+                            </div>
+                            <div id="selected_contacts"></div>
                         </div>
                     </div>
 
@@ -165,8 +128,7 @@
                                 Due date
                                 <span class="required-star">*</span>
                             </div>
-                            <input type="date" placeholder="Enter a title" id="date_picker"
-                                class="fontSize20 width-100P" required>
+                            <input type="date" id="date_picker" class="fontSize20 width-100P" required>
                         </div>
 
                         <div>
@@ -174,17 +136,17 @@
                                 Prio
                             </div>
                             <div class="prio-container">
-                                <div class="button prio-btn">
-                                    Urgent
-                                    <img src="./img/prioUrgent.svg" alt="">
+                                <div id="button_urgent" onclick="selectPriority('urgent')" class="button prio-btn">
+                                    <span>Urgent</span>
+                                    <img id="prio_urgent" src="./img/prio-urgent.svg" alt="">
                                 </div>
-                                <div onclick="renderCategories(), updateSelectedCategory()" class="button prio-btn">
+                                <div id="button_medium" onclick="selectPriority('medium')" class="button prio-btn">
                                     Medium
-                                    <img src="./img/prioMedium.svg" alt="">
+                                    <img id="prio_medium" src="./img/prio-medium.svg" alt="">
                                 </div>
-                                <div class="button prio-btn">
+                                <div id="button_low" onclick="selectPriority('low')" class="button prio-btn">
                                     Low
-                                    <img src="./img/prioLow.svg" alt="">
+                                    <img id="prio_low" src="./img/prio-low.svg" alt="">
                                 </div>
                             </div>
                         </div>
@@ -195,12 +157,12 @@
                                 <span class="required-star">*</span>
                             </div>
 
-                            <div onclick="renderCategories()" id="category_input_container" class="custom-input">
-                                <input type="text" readonly value="Select task category" id="category_input"
-                                    class="fontSize20 pointer" required>
-                                <img onclick="renderCategories()" class="d-none" id="arrow_up" src="./img/arrow-up.svg"
-                                    alt="">
-                                <img id="arrow_down" src="./img/arrow-down.svg" alt="">
+                            <div onclick="toggleCategoryList()" id="category_input_container" class="custom-input">
+                                <input readonly value="Select task category" id="category_input"
+                                    class="fontSize20 pointer">
+                                <img onclick="renderCategories()" class="d-none" id="category_select_arrow_up"
+                                    src="./img/arrow-up.svg" alt="">
+                                <img id="category_select_arrow_down" src="./img/arrow-down.svg" alt="">
                             </div>
                             <div id="category_list_container" class="d-none">
                                 <div id="category_list" class="cateogry-list"></div>
@@ -217,7 +179,7 @@
                                 Subtasks
                             </div>
                             <div id="subtasks_input_container" class="custom-input">
-                                <input placeholder="Add new subtask" id="subtasks_input" class="fontSize20" required>
+                                <input placeholder="Add new subtask" id="subtasks_input" class="fontSize20">
                                 <img onclick="addSubtask()" src="./img/plus.svg">
                             </div>
                             <div id="selected_subtasks"></div>
@@ -231,12 +193,12 @@
                 </div>
 
                 <div class="task-bottom">
-                    <div>
+                    <div class="required-info">
                         <span class="required-star">*</span>
                         This field is required
                     </div>
                     <div class="button-group">
-                        <div class="button outline-btn">
+                        <div onclick="resetTaskForm()" class="button outline-btn">
                             Clear
                             <svg class="colorOnHover" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                 viewBox="0 0 24 25" fill="none">
@@ -246,12 +208,11 @@
                                     stroke-linejoin="round" />
                             </svg>
                         </div>
-                        <div onclick="createTask()" class="button blue-btn">
+                        <div onclick="submitForm()" class="button blue-btn">
                             Create Task
                             <img src="./img/check-white.svg" alt="">
                         </div>
                     </div>
-
                 </div>
 
             </form>

@@ -1,3 +1,6 @@
+body {
+    overflow-x: hidden;
+}
 :root {
     --main-color: #2A3647;
     --text-white: #FFF;
@@ -17,6 +20,39 @@
     --color-red: #FF3D00;
     --active-sildebar-page: rgba(9, 25, 49, 1);
     --body-background-color: #F6F7F8;
+}
+
+::-webkit-scrollbar-button:start:decrement {
+    /* background-position: center;
+    background-image: url('../img/arrow-up.svg'); */
+    border-top-right-radius: 100%;
+    border-top-left-radius: 100%;
+}
+
+::-webkit-scrollbar-button:end:increment {
+    /* background-position: center;
+    background-image: url('../img/arrow-down.svg'); */
+    border-bottom-right-radius: 100%;
+    border-bottom-left-radius: 100%;
+}
+
+::-webkit-scrollbar {
+    display: block;
+    width: 12px;
+    padding: 20px 0;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+    width: 10px !important;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #909090;
+    border-radius: 10px;
 }
 
 input {
@@ -259,7 +295,7 @@ a {
 }
 
 section {
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 
 .vertical {
