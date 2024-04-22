@@ -369,14 +369,14 @@ function renderMainCategories(name, color, i) {
         return /*html*/ `
         <div onclick='selectCategory("main", ${i})' id='categoryMainList${i}' class="cateogry-list-item selected">
             <span>${name}</span>
-            <div class="colorCircle" style="${color}"></div>
+            <div class="color-circle" style="${color}"></div>
         </div>
         `;
     } else {
         return /*html*/ `
         <div onclick='selectCategory("main", ${i})' id='categoryMainList${i}' class="cateogry-list-item">
             <span>${name}</span>
-            <div class="colorCircle" style="${color}"></div>
+            <div class="color-circle" style="${color}"></div>
         </div>
         `;
     }
@@ -389,7 +389,7 @@ function renderCustomCategories(name, color, i) {
             <span>${name}</span>
             <div class="delete-category-container">
                 <img onclick="deleteCategory(${i})" class="delete-icon" src="img/delete.svg" alt="">
-                <div class="colorCircle" style="${color}"></div>
+                <div class="color-circle" style="${color}"></div>
             </div>
         </div>
         `;
@@ -399,7 +399,7 @@ function renderCustomCategories(name, color, i) {
             <span>${name}</span>
             <div class="delete-category-container">
                 <img onclick="deleteCategory(${i})" id="delete_icon" class="delete-icon" src="img/delete.svg" alt="">
-                <div class="colorCircle" style="${color}"></div>
+                <div class="color-circle" style="${color}"></div>
             </div>
         </div>
         `;
@@ -480,13 +480,13 @@ function renderAddCategoryRightContent() {
     document.getElementById('right_popup_content').innerHTML = /*html*/ `  
     <div class="custom-select">
     <input id="createCategoryInput" placeholder="New category name..." type="text">
-    <div class="colorSettingBox" id="colorSettingBox">
+    <div class="color-settings-container" id="color_settings">
     </div>
     <div class="popup-button-container">
 
         <button class="button outline-btn"
             onclick="slideOut('task_popup', 'task_popup_section', 200)"
-            id="cancelBtnMobileId">
+            id="cancel_btn">
             <spline id="editCancelButtonId">Cancel</spline>
 
             <svg class="colorOnHover" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -505,7 +505,7 @@ function renderAddCategoryRightContent() {
 </div>`;
 }
 function createCategoryColors() {
-    let colorContainer = document.getElementById('colorSettingBox');
+    let colorContainer = document.getElementById('color_settings');
     colorContainer.innerHTML = '';
     for (let index = 0; index < colorCollection.length; index++) {
         const color = colorCollection[index];
@@ -516,11 +516,11 @@ function createCategoryColors() {
 function returnCreateCategoryColors(color, index) {
     if (color === selectedColorIndex) {
         return /*html*/ `
-        <div onclick='selectColor("${color}")' style="${color}" id='colorCircle${index}' class="colorCircle selectedColor"></div>
+        <div onclick='selectColor("${color}")' style="${color}" id='color_circle${index}' class="color_circle selected-color"></div>
         `;
     } else {
         return /*html*/ `
-        <div onclick='selectColor("${color}")' style="${color}" id='colorCircle${index}' class="colorCircle"></div>
+        <div onclick='selectColor("${color}")' style="${color}" id='color_circle${index}' class="color_circle"></div>
         `;
     }
 }
@@ -744,7 +744,7 @@ function renderAddContactRightContent() {
     <div class="d-flex textHorizontal contact-popup-buttons fontSize20">
         <button class="button outline-btn"
             onclick="slideOut('task_popup', 'task_popup_section', 200)"
-            id="cancelBtnMobileId">
+            id="cancel_btn">
             <spline id="editCancelButtonId">Cancel</spline>
 
             <svg class="colorOnHover" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -889,8 +889,8 @@ async function addTaskFromBoard() {
 // board_task_popup_section;
 function renderAddTaskContent() {
     return /*html*/ `
-   <div onclick="stopBody(event)" class="contentPositionAddTaskPopup">
-   <div class="addTaskPopupHeadlineContainer">
+   <div onclick="stopBody(event)" class="task-popup-content">
+   <div class="task-popup-headline-container">
        <div class="fontSize61"><b>Add Task</b></div>
        <div class="pointer close-popup"
        onclick="slideOut('board_task_popup', 'board_task_popup_section', 200)">

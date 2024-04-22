@@ -343,7 +343,7 @@ async function editContact(i) {
     console.log(contactsArray[i]['color'],
 	contactsArray[i]['nameAbbreviation'])
     slide('contact_popup', 'contact_popup_section');
-    toggleVisibility('cancelBtnMobileId', true);
+    toggleVisibility('cancel_btn', true);
     toggleVisibility('contact_popup_section', true);
     toggleVisibility('mobile_edit_delete_box', false);
     toggleVisibility('add_contact_underline', false);
@@ -381,7 +381,7 @@ function mobileEditMenu(i) {
 
 /** * This function is used to display the Edit Button on the mobile view */
 function editContactMobile(i) {
-    showOnMobileView('cancelBtnMobileId');
+    showOnMobileView('cancel_btn');
     return /* html */ `
     <div class="mobile-edit gap8 d-flex padding8 pointer colorOnHover" onclick="editContact(${i})">
     ${getPencilSVG()}
