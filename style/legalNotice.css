@@ -10,9 +10,9 @@ body {
     width: 100%;
     bottom: 0;
     max-width: calc(100vw - 243px) !important;
-    max-height: calc(100vh - 206px);
-    top: 206px;
-    padding-right: 98px;
+    max-height: calc(100vh - 96px);
+    top: 96px;
+    padding-right: 96px;
     padding-left: 96px;
     overflow-y: auto;
     font-family: 'Inter' !important;
@@ -21,6 +21,10 @@ body {
 .quicklinks-container a {
     text-decoration: none;
     color: #28abe2;
+}
+.quicklinks-headline{
+    margin-top: 32px;
+    margin-bottom: 32px;
 }
 
 .quicklinks-container a:hover {
@@ -97,7 +101,7 @@ body {
 }
 
 .mb10 {
-    margin-top: 10px !important;
+    margin-bottom: 10px !important;
 }
 
 .mr35 {
@@ -129,8 +133,7 @@ td {
         max-width: 100vw !important;
         padding-right: 16px;
         padding-left: 16px;
-        padding-top: 40px;
-        padding-bottom: 30px;
+        padding-bottom: 32px;
     }
 
     #mobile_backarrow_id {
