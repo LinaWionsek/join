@@ -330,7 +330,7 @@ a {
 
 .success-info {
     position: absolute;
-    bottom: 100px;
+    bottom: 50px;
     left: calc(50% - 326px / 2);
     background: #2A3647;
     color: white;
@@ -410,6 +410,10 @@ a {
 
     .menu-header-container {
         top: 80px;
+    }
+
+    .success-info {
+        bottom: 100px;
     }
 }
 

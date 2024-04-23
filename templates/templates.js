@@ -9,6 +9,7 @@ openMenu = false;
 
 /**
  * Sets the active state for the provided sidebar item and resets other states.
+ * 
  */
 function loadHeaderSidebar(boolean) {
     resetBooleans();
@@ -18,6 +19,7 @@ function loadHeaderSidebar(boolean) {
 
 /**
  * Resets all the active states of the sidebar items.
+ * 
  */
 function resetBooleans() {
     issummary = false;
@@ -30,7 +32,8 @@ function resetBooleans() {
 
 
 /**
- * Updates the active state for the specified sidebar item.
+ * Sets the active state for the provided sidebar item and resets other states.
+ *
  */
 function switchColorSidebar(boolean) {
     boolean = true;
@@ -42,6 +45,7 @@ function switchColorSidebar(boolean) {
 
 /**
  * Toggles the visibility of the header menu.
+ *
  */
 function openHeaderMenu(event) {
     event.stopPropagation();
@@ -52,7 +56,7 @@ function openHeaderMenu(event) {
 
 
 /**
- * This function is used to mark the active .html page
+ * Marks the active page in the sidebar by adding styling to the corresponding elements.
  *
  */
 function markActivePage () {
@@ -72,8 +76,8 @@ function markActivePage () {
 
 
 /**
- * Displays the user's initials within the specified HTML container.
- * Extracts the initials from the active user's name and populates them inside the designated container.
+ * Updates the user circle in the header with the initials of the active user's first and last name.
+ *
  */
 function showUserCircle() {
     let container = document.getElementById('header-user-img');
@@ -87,6 +91,7 @@ function showUserCircle() {
 
 /**
  * Triggers the browser's back functionality.
+ *
  */
 function goBack() {
     window.history.back();
@@ -94,7 +99,8 @@ function goBack() {
 
 
 /**
- * Renders the header and sidebar UI elements.
+ * Renders the header and sidebar for the sidebar header.
+ *
  */
 function renderSidebarHeader() {
     renderHeader();
@@ -104,7 +110,7 @@ function renderSidebarHeader() {
 
 /**
  * Populates the sidebar with content.
- * Renders content within the sidebar's designated container.
+ *
  */
 function renderSidebar() {
     let container = document.getElementById('sidebarArea');
@@ -112,6 +118,11 @@ function renderSidebar() {
 }
 
 
+/**
+ * Returns the HTML content for the sidebar with links to different pages.
+ *
+ * @return {string} The HTML content for the sidebar.
+ */
 function returnRenderSidebar() {
     return /*html*/`
 <div class="sidebar">
@@ -160,14 +171,23 @@ function returnRenderSidebar() {
 `;
 }
 
+
 /**
  * Renders content within the header designated container.
+ *
+ * @param {type} container - the container element to render the header content into
  */
 function renderHeader() {
     let container = document.getElementById('headerArea');
     container.innerHTML = returnRenderHeader();
 }
 
+
+/**
+ * Function that returns the HTML content for rendering the header section.
+ *
+ * @return {string} The HTML content for the header section.
+ */
 function returnRenderHeader() {
     return /*html*/`
     <div class="header">
@@ -182,7 +202,13 @@ function returnRenderHeader() {
 }
 
 
-/** * This function is used to create a slide in animation */
+/**
+ * Function to perform a slide animation on the specified elements.
+ *
+ * @param {type} frontId - The ID of the front element
+ * @param {type} backgroundId - The ID of the background element
+ * @return {type} Description of what the function returns
+ */
 function slide(frontId, backgroundId) {
     toggleVisibility(frontId, true);
     toggleVisibility(backgroundId, true);
@@ -193,7 +219,13 @@ function slide(frontId, backgroundId) {
 }
 
 
-/** * This function is used to create a slide out animation */
+/**
+ * Function to perform a slide out animation on the specified elements.
+ *
+ * @param {string} frontId - The ID of the front element
+ * @param {string} backgroundId - The ID of the background element
+ * @param {number} time - The time in milliseconds for the slide out animation
+ */
 function slideOut(frontId, backgroundId, time) {
     toggleVisibility(frontId, true);
     toggleVisibility(backgroundId, true);
@@ -207,7 +239,11 @@ function slideOut(frontId, backgroundId, time) {
 }
 
 
-/** * This function is used to create a slide in animation */
+/**
+ * Function to slide one object into view.
+ *
+ * @param {string} frontId - The ID of the front element to slide in
+ */
 function slideOneObject(frontId) {
     toggleVisibility(frontId, true);
     slideInAnimation = document.getElementById(frontId);
@@ -216,7 +252,12 @@ function slideOneObject(frontId) {
     slideInAnimation.classList.add('slide-in');
 }
 
-/** * This function is used to create a slide out animation */
+
+/**
+ * A function to create a slide out animation for a specified element.
+ *
+ * @param {string} frontId - The ID of the front element to slide out
+ */
 function slideOutOneObject(frontId) {
     toggleVisibility(frontId, true);
     slideInAnimation = document.getElementById(frontId);
@@ -225,12 +266,24 @@ function slideOutOneObject(frontId) {
     slideInAnimation.classList.add('slide-out');
 }
 
-/** * This function is used to prevent the popup from closing when clicked. */
+
+/**
+ * Prevents the popup from closing when clicked.
+ *
+ * @param {Event} event - The event object.
+ */
 function doNotClose(event) {
     event.stopPropagation();
 }
 
-/** * This function is used to the edit and delete menu on the mobile view */
+
+/**
+ * A function that updates the success_info_container with the provided inputText,
+ * toggles its visibility to true, performs a slide animation, and then slides it out
+ * after a delay of 2500ms before hiding it again after another delay of 2900ms.
+ *
+ * @param {string} inputText - The text to be displayed in the success_info_container.
+ */
 function changesSaved(inputText) {
     document.getElementById('success_info_container').innerHTML = /* html */ `
     ${inputText}`;
@@ -244,7 +297,13 @@ function changesSaved(inputText) {
     }, 2900);
 }
 
-/** * This function is used to make div-container unvisible or visible */
+
+/**
+ * Toggles the visibility of an element with the given ID.
+ *
+ * @param {string} id - The ID of the element to toggle visibility for.
+ * @param {boolean} show - Whether to show or hide the element.
+ */
 function toggleVisibility(id, show) {
     const showHide = document.getElementById(id);
     showHide.classList.toggle('d-none', !show);
@@ -253,6 +312,7 @@ function toggleVisibility(id, show) {
 
 /**
  * Hides the header menu if it is currently displayed.
+ *
  */
 function hideMenuHeader() {
     let element = document.getElementById('menu-header-container');
@@ -267,6 +327,9 @@ function hideMenuHeader() {
 
 /**
  * Creates a 2-letter abbreviation from a given name (e.g. "John Doe" -> "JD").
+ *
+ * @param {string} name - The full name to create an abbreviation from.
+ * @return {string} The 2-letter abbreviation generated from the input name.
  */
 function makeNameAbbreviation(name) {
     // split first and last name
@@ -279,7 +342,11 @@ function makeNameAbbreviation(name) {
 }
 
 
-/** This function is to display the delete svg image */
+/**
+ * Returns an SVG image of a delete icon.
+ *
+ * @return {string} The SVG code for the delete icon.
+ */
 function getDeleteSVG() {
     return `
     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
@@ -297,7 +364,11 @@ function getDeleteSVG() {
 }
 
 
-/** This function is to display the pencil svg image */
+/**
+ * Returns a string containing an SVG image of a pencil.
+ *
+ * @return {string} The SVG image of a pencil.
+ */
 function getPencilSVG() {
     return `
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
