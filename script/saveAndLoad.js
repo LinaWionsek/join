@@ -272,6 +272,11 @@ function saveActiveUser() {
     localStorage.setItem('activeUserAsText', JSON.stringify(activeUser));
 }
 
+
+
+
+
+
 /**
  * Loads the current active user from local storage.
  */
@@ -303,5 +308,96 @@ async function getItem(key) {
         }
         throw `Could not find data with key "${key}".`;
     });
+}
+
+
+function detectUser() {
+    if (activeUser.name == '') {
+        activeUser.name = 'Guest';
+        saveActiveUser();
+        fillTestArray();
+    }
+}
+
+function fillTestArray() {
+    contactsArray = [
+        {
+            'name': 'Bernhard Sigl',
+            'nameAbbreviation': 'BS',
+            'email': 'B-Test@web.de',
+            'phone': '01631234567',
+            'color': '#006400',
+        },
+        {
+            'name': 'David Peterka',
+            'nameAbbreviation': 'DP',
+            'email': 'test@web.de',
+            'phone': '123456',
+            'color': '#00008B',
+        },
+        {
+            'name': 'Lina Wionsek',
+            'nameAbbreviation': 'LW',
+            'email': 'test2@web.de',
+            'phone': '123456',
+            'color': '#8B0000',
+        },
+    ];
+
+    tasks = [
+        {
+            'id': 3,
+            'status': 'toDo',
+            'category': 'Technical Task',
+            'categoryColor': 'background: #1FD7C1',
+            'title': 'first guest task',
+            'description': 'text for task',
+            'dueDate': '2023-10-22',
+            'priority': 'urgent',
+            'contactName': ['Bernhard Sigl', 'David Peterka', 'Lina Wionsek'],
+            'contactColor': ['#006400', '#00008B', '#8B0000'],
+            'contactAbbreviation': ['BS', 'DP', 'LW'],
+            'subtasksInProgress': ['first subtask', 'second subtask', 'third subtask'],
+            'subtasksFinish': [],
+        },
+        {
+            'id': 4,
+            'status': 'toDo',
+            'category': 'New Category',
+            'categoryColor': 'background: #FF6347',
+            'title': 'second guest task',
+            'description': 'text for task',
+            'dueDate': '2023-10-24',
+            'priority': 'medium',
+            'contactName': ['Bernhard Sigl', 'David Peterka', 'Lina Wionsek'],
+            'contactColor': ['#006400', '#00008B', '#8B0000'],
+            'contactAbbreviation': ['BS', 'DP', 'LW'],
+            'subtasksInProgress': ['first subtask', 'second subtask', 'third subtask'],
+            'subtasksFinish': [],
+        },
+        {
+            'id': 5,
+            'status': 'awaiting-feedback',
+            'category': 'User Story',
+            'categoryColor': 'background: #0038FF',
+            'title': 'third guest task',
+            'description': 'text for task',
+            'dueDate': '2023-10-21',
+            'priority': 'urgent',
+            'contactName': ['Bernhard Sigl', 'David Peterka', 'Lina Wionsek'],
+            'contactColor': ['#006400', '#00008B', '#8B0000'],
+            'contactAbbreviation': ['BS', 'DP', 'LW'],
+            'subtasksInProgress': ['first subtask', 'second subtask', 'third subtask'],
+            'subtasksFinish': [],
+        },
+    ];
+
+    customCategories[0] = {
+        'name': ['New Category'],
+        'color': ['background: #FF6347'],
+    };
+    currentUserTaskSave();
+    currentUserCategorysSave();
+    currentUserContactsSave();
 }
 

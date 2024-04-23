@@ -5,6 +5,7 @@ let prioLowSelected = false;
 
 
 async function init() {
+    detectUser();
     loadActiveUser();
     showUserCircle();
     markActivePage();

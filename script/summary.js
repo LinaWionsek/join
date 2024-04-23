@@ -2,6 +2,7 @@
  * Asynchronously initializes the summary section.
  */
 async function initSummary() {
+    detectUser();
     loadActiveUser();
     showUserCircle();
     await currentUserTaskLoad();
