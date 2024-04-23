@@ -79,8 +79,9 @@ body {
 .left-container {
     top: 300px;
     /* width: 456px;
-    min-width: 456px; */
+    /* min-width: 456px; */
     height: calc(100vh - 96px);
+    padding-top: 32px;
     margin-top: -110px;
     display: flex;
     flex-direction: column;

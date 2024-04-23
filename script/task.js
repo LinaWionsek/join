@@ -18,13 +18,6 @@ async function init() {
 }
 //statusSelected('toDo');
 
-function changeDivColor(id) {
-    document.getElementById(id).style.borderColor = '#29ABE2';
-}
-
-function resetDivColor(id) {
-    document.getElementById(id).style.borderColor = '#d1d1d1';
-}
 
 /**
  * Sets the status group to the provided status.
@@ -129,37 +122,9 @@ function resetTaskForm(){
 // #region Subtasks
 //--------------------------------------------Subtasks--------------------------------------------//
 
-/**
- * This eventlistener is fired when the subtask-input is focused
- *
- */
-document.getElementById('subtasks_input').addEventListener('focus', changeSubtaskDivColor);
-
-/**
- * This function changes the bordercolor of the subtask-input-container
- *
- */
-function changeSubtaskDivColor() {
-    document.getElementById('subtasks_input_container').style.borderColor = '#29ABE2';
-}
-
-/**
- * This eventlistener removes the focus of the subtask-input
- *
- */
-document.getElementById('subtasks_input').addEventListener('blur', reverSubtasktDivColor);
-
-/**
- * This function changes the border color of the subtask-input-container back to default
- *
- */
-function reverSubtasktDivColor() {
-    document.getElementById('subtasks_input_container').style.borderColor = 'rgb(209, 209, 209';
-}
 
 function addSubtask() {
     let input = document.getElementById('subtasks_input');
-    resetDivColor('subtasks_input_container');
     if (input.value === '') {
         return;
     } else {
@@ -317,7 +282,6 @@ function toggleCategoryList() {
         categoryContainer.innerHTML = '';
         let customCategory = customCategories[0];
         let mainCategory = mainCategories[0];
-        changeDivColor('category_input_container');
 
         for (let m = 0; m < mainCategory.name.length; m++) {
             const mName = mainCategory.name[m];
@@ -334,7 +298,6 @@ function toggleCategoryList() {
         toggleVisibility('category_list_container', false);
         toggleVisibility('category_select_arrow_up', false);
         toggleVisibility('category_select_arrow_down', true);
-        resetDivColor('category_input_container');
     }
 
     categoryListOpen = !categoryListOpen;
@@ -371,7 +334,7 @@ function renderCustomCategories(name, color, i) {
         `;
     } else {
         return /*html*/ `
-        <div onclick='selectCategory("custom", ${i})' id='categoryCustomList${i}' onmouseover="changeDeleteImg()" onmouseout="resetDeleteImg()" class="cateogry-list-item">
+        <div onclick='selectCategory("custom", ${i})' id='categoryCustomList${i}' class="cateogry-list-item">
             <span>${name}</span>
             <div class="delete-category-container">
                 <img onclick="deleteCategory(${i})" id="delete_icon" class="delete-icon" src="img/delete.svg" alt="">
@@ -566,13 +529,11 @@ function toggleContactList() {
         toggleVisibility('contact_list_container', true);
         toggleVisibility('contact_select_arrow_up', true);
         toggleVisibility('contact_select_arrow_down', false);
-        changeDivColor('assigned_to_input_container');
         getContacts();
     } else {
         toggleVisibility('contact_list_container', false);
         toggleVisibility('contact_select_arrow_up', false);
         toggleVisibility('contact_select_arrow_down', true);
-        resetDivColor('assigned_to_input_container')
     }
     contactListOpen = !contactListOpen;
 }
@@ -924,7 +885,7 @@ function renderAddTaskContent() {
                            <img id="contact_select_arrow_down" src="./img/arrow-down.svg" alt="">
                        </div>
                        <div id="contact_list_container" class="d-none">
-                           <div id="contact_list"></div>
+                           <div id="contact_list" class="contact-list"></div>
                            <div onclick="openAddContactPopup()" class="button blue-btn">
                                Add contact
                                <img src="./img/add-task-person-add.svg" alt="">

@@ -271,6 +271,10 @@ ul {
     margin-top: 8px;
 }
 
+.custom-input:focus-within {
+    border: 1px solid #29ABE2;
+}
+
 .custom-input input {
     width: 90%;
     height: 100%;
@@ -402,10 +406,14 @@ input[type=tel] {
 }
 
 .cateogry-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
     background-color: white;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    /* margin-bottom: 8px; */
+    margin-top: 4px;
+    margin-bottom: 4px;
 }
 
 .cateogry-list-item {
@@ -414,17 +422,17 @@ input[type=tel] {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    height: 42.2px;
     padding-left: 32px;
     padding-right: 32px;
     padding-top: 4px;
     padding-bottom: 4px;
-    border-bottom: 1px solid #D1D1D1;
+    border: 1px solid #D1D1D1;
     border-radius: 10px;
 }
 
 .cateogry-list-item:hover {
-    background-color: #29ABE2;
-    color: white;
+    background-color: #EEE;
     cursor: pointer;
 }
 
@@ -437,14 +445,13 @@ input[type=tel] {
 
 .delete-category-container img:hover {
     cursor: pointer;
-    background-color: #2A3647;
     border-radius: 5px;
 }
 
 .color-circle {
     width: 20px;
     height: 20px;
-    border: 2px solid rgba(0, 0, 0);
+    /* border: 2px solid rgba(0, 0, 0); */
     border-radius: 50%;
 }
 
@@ -462,7 +469,7 @@ input[type=tel] {
 }
 
 .selected:hover {
-    background-color: #2A3647;
+    background-color: #2A3647 !important;
 }
 
 .subtask-edit-input {
@@ -511,8 +518,12 @@ input[type=tel] {
     gap: 8px;
 }
 
-#contact_list {
+.contact-list {
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin: 4px 0px 4px 0px;
 }
 
 .contact-logo {
@@ -536,21 +547,25 @@ input[type=tel] {
     padding-top: 4px;
     padding-bottom: 4px;
     border-radius: 10px;
+    border: 1px solid #D1D1D1;
 }
 
 .contact-box:hover {
     cursor: pointer;
+    background-color: #EEE;
 }
 
 .contact {
     display: flex;
     align-items: center;
     gap: 16px;
+    margin-right: -10px;
 }
 
 #selected_contacts {
     display: flex;
     flex-wrap: wrap;
+    margin-top: 4px;
 }
 
 /* EDIT */
@@ -717,7 +732,7 @@ input[type=tel] {
 }
 
 @media (max-width: 768px) {
-    #cancel_btn{
+    #cancel_btn {
         display: none;
     }
 
@@ -725,7 +740,7 @@ input[type=tel] {
         justify-content: center;
     }
 
-    .contact-popup-buttons{
+    .contact-popup-buttons {
         justify-content: center;
     }
 
@@ -801,11 +816,13 @@ input[type=tel] {
         justify-content: flex-start;
         width: 100%;
     }
+
     .right-popup {
         width: 100%;
         padding-left: 20px;
         padding-right: 20px;
     }
+
     .custom-select {
         width: 280px;
     }

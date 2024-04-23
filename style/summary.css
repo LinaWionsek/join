@@ -179,10 +179,6 @@ body {
     text-align: start;
 }
 
-.left-container {
-    margin-left: 96px;
-}
-
 .column {
     display: flex;
     flex-direction: column;
@@ -341,10 +337,6 @@ body {
         align-items: flex-start !important;
         gap: calc(16px - 1.5px);
         margin: 8px 0 16px;
-    }
-
-    .left-container {
-        margin: 0 16px !important;
     }
 
     .summary-line {
