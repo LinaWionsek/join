@@ -2,13 +2,12 @@ body {
     margin: 0;
     height: 100vh;
     width: 100vw;
-    /* background-color: var(--main-background-color) !important; */
 }
+
 .contentposition {
     padding-left: 96px;
     padding-right: 96px;
     display: flex;
-    /* flex-direction: column; */
     align-items: flex-start;
     width: 100%;
     position: relative;
@@ -76,9 +75,6 @@ body {
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-/* ----------------------------------------------------------------------------------------------------- */
-
-/* added from summary.html */
 .content {
     display: none !important;
     z-index: 0 !important;
@@ -193,7 +189,7 @@ body {
     padding: 16px;
     gap: 5px;
     height: 56px;
-    min-width: 120px; 
+    min-width: 120px;
     width: auto;
     border-radius: 10px;
     font-size: 17px;
@@ -211,7 +207,7 @@ body {
 
 .content-board {
     position: absolute;
-    top: 206px; /* 246 */
+    top: 206px;
     display: flex;
     flex-direction: column;
     left: 243px;
@@ -481,6 +477,7 @@ body {
     align-items: center;
 }
 
+
 @media(max-width:1360px) {
     .contentposition {
         padding-left: 50px;
@@ -570,7 +567,6 @@ body {
 @media(max-width:768px) {
     .content-board {
         position: absolute;
-        /* top: 300px; */
         top: 150px;
         bottom: 65px;
         display: flex;
@@ -595,7 +591,7 @@ body {
     }
 
     .add-task-button {
-        min-width: 50px; 
+        min-width: 50px;
     }
 
     .task {

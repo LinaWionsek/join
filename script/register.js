@@ -31,7 +31,7 @@ function handlePasswordMismatch() {
  */
 function handleEmailExists() {
     document.getElementById('register_email').classList.add('red-border');
-    document.getElementById('warning-email').classList.remove('d-none');
+    document.getElementById('warning_email').classList.remove('d-none');
     resetForm();
 }
 

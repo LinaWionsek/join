@@ -22,7 +22,8 @@ body {
     text-decoration: none;
     color: #28abe2;
 }
-.quicklinks-headline{
+
+.quicklinks-headline {
     margin-top: 32px;
     margin-bottom: 32px;
 }
@@ -52,15 +53,11 @@ body {
 }
 
 .quicklinks-container::-webkit-scrollbar-button:start:decrement {
-    /* background-position: center !important;
-    background-image: url('../img/arrow-up.svg') !important; */
     border-top-right-radius: 100% !important;
     border-top-left-radius: 100% !important;
 }
 
 .quicklinks-container::-webkit-scrollbar-button:end:increment {
-    /* background-position: center !important;
-    background-image: url('../img/arrow-down.svg') !important; */
     border-bottom-right-radius: 100% !important;
     border-bottom-left-radius: 100% !important;
 }

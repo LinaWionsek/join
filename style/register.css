@@ -1,13 +1,6 @@
-/* body {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    font-family: 'Inter';
-} */
-
-#warning-email {
-        color: var(--color-red);
-        font-size: 16px;
+#warning_email {
+    color: var(--color-red);
+    font-size: 16px;
 }
 
 .form {
@@ -44,36 +37,10 @@
     left: 88px;
 }
 
-/* .button {
-    background-color: var(--main-color);
-    color: var(--text-white);
-}
-
-.button:hover {
-    background-color: var(--headline);
-} */
-
-
 #register_name {
     background-image: url('../img/user.svg');
     background-position: center right -4px;
 }
-
-/* .input-field {
-    justify-content: space-between;
-    display: flex;
-    width: 422px;
-    background-color: var(--text-white);
-    border: 1px solid var(--border-grey);
-    border-radius: 10px;
-    margin-top: 24px;
-    padding: 12px 21px;
-}
-
-.input-field img {
-    width: 24px;
-    height: 24px;
-} */
 
 #register_checkbox {
     width: 16px;
@@ -109,7 +76,7 @@
 
 .sign-up-btn-register {
     border-radius: 8px;
-    background: #2A3647; 
+    background: #2A3647;
     font-weight: 700;
     font-size: 21px;
     color: white;
@@ -118,66 +85,24 @@
     cursor: pointer;
 }
 
-/* .logo-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-} */
-
-/* .logo-container img {
-    width: 100.034px;
-    height: 121.966px;
-    flex-shrink: 0;
-} */
-
 .button-div {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* .dialog-warning {
-    background-color: rgba(0, 0, 0, 0.761);
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 997;
-} */
-
-/* #dialog-window {
-    z-index: 999;
-    background-color: aliceblue;
-    padding: 10%;
-    align-items: center;
-    justify-content: center;
-    border-radius: 30px;
-    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04)
-} */
-
-/* header {
-    display: flex;
-    justify-content: space-between;
-    z-index: 1;
-    padding-right: 77px;
-    padding-left: 77px;
-    padding-top: 40px;
-} */
-
 .d-none {
     display: none !important;
 }
 
-@media (max-width: 900px){
+@media (max-width: 900px) {
     .dialog-sign-up {
         padding: 32px 0;
         margin: 30px 16px 0;
     }
 }
-@media (max-width: 768px) {
 
+@media (max-width: 768px) {
     .fontSize61 {
         font-size: 47;
     }
@@ -185,7 +110,7 @@
     .dialog-sign-up {
         width: 90vw;
     }
-    
+
     .registerBtn {
         width: 180px;
         height: 21px;
@@ -222,7 +147,6 @@
     .logo-container {
         margin-bottom: 0px;
     }
-
 }
 
 @media (max-height: 900px) {

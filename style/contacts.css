@@ -33,43 +33,6 @@ body {
     box-shadow: -2px 0 6px 0 rgb(0, 0, 0, 0.2);
 }
 
-/* .btnBackground {
-    position: fixed;
-    width: auto;
-    height: 101px;
-    background: white;
-} */
-
-/* .createContactButton,
-.addNewContactButton {
-    background: #2A3647;
-    color: white;
-    border: none;
-    border-radius: 10px;
-}
-
-.addNewContactButton:hover {
-    background: #29ABE2;
-    box-shadow: -2px 0 6px 0 rgb(0, 0, 0, 0.2);
-} */
-
-/* .addNewContactButton {
-    position: relative;
-    /* width: 352px; */
-    /* height: 56px;
-    padding: 0;
-    gap: 16px; 
-} */
-/* 
-.button:hover {
-    background: #29ABE2;
-} */
-
-/* .addNewContactButton img {
-    width: 32px;
-    height: 32px;
-} */
-
 .form-control:focus {
     border-color: inherit;
     -webkit-box-shadow: none;
@@ -78,8 +41,6 @@ body {
 
 .left-container {
     top: 300px;
-    /* width: 456px;
-    /* min-width: 456px; */
     height: calc(100vh - 96px);
     padding-top: 32px;
     margin-top: -110px;
@@ -90,17 +51,12 @@ body {
     overflow-y: scroll;
 }
 
-/* scroll-bar contacts */
 .left-container::-webkit-scrollbar-button:start:decrement {
-    /* background-position: center;
-    background-image: url('../img/arrow-up.svg'); */
     border-top-right-radius: 100%;
     border-top-left-radius: 100%;
 }
 
 .left-container::-webkit-scrollbar-button:end:increment {
-    /* background-position: center;
-    background-image: url('../img/arrow-down.svg'); */
     border-bottom-right-radius: 100%;
     border-bottom-left-radius: 100%;
 }
@@ -140,10 +96,9 @@ body {
     background: #F2F2F2;
 }
 
-.initial{
+.initial {
     display: flex;
     align-items: center;
-    /* width: 352px; */
     padding: 15px 36px;
     height: 58px;
 }
@@ -155,64 +110,11 @@ body {
     font-weight: 400;
 }
 
-/* all pictures of right popup side */
 #contact_form img {
     width: 24px;
     height: 24px;
 }
 
-/* .createContactButton {
-    width: calc(32px + 182px);
-    height: calc(32px + 25px);
-    padding: 16px;
-    gap: 4px;
-}
-
-.createContactButton:hover {
-    background: #29ABE2;
-    box-shadow: -2px 0 6px 0 rgb(0, 0, 0, 0.5);
-} */
-
-/* .cancelBtn {
-    width: calc(32px + 94px);
-    height: calc(32px + 24px);
-    padding: 16px;
-    gap: 4px;
-    margin-right: 24px;
-    border-radius: 10px;
-    border: 1px solid var(--version-2-main-color, #2A3647);
-    background: #F8F8F8;
-    text-decoration: none;
-    color: #2A3647;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.cancelBtn:hover {
-    border: 1px solid var(--version-2-main-color, #29ABE2);
-    background: #F8F8F8;
-    color: #29ABE2;
-}
-
-.cancelBtn:hover,
-.createContactButton:hover {
-    box-shadow: 2px 0 6px 0 rgb(0, 0, 0, 0.5);
-} */
-
-/* .closePopupCross {
-    position: absolute;
-    top: 66px;
-    right: 46px;
-    width: 32px;
-    height: 32px;
-}
-
-.closePopupCross:hover {
-    background: #EEEEEE;
-    border-radius: 100%;
-} */
-
-/* Text on right side */
 .contact-detail-container,
 .right-container-headline {
     margin: 0 55px;
@@ -322,7 +224,8 @@ body {
     width: 36.901px;
     height: 36.901px;
 }
-.contact-detail-top{
+
+.contact-detail-top {
     display: flex;
     gap: 54px;
 }
@@ -335,10 +238,6 @@ body {
 #delete_edit {
     margin-top: 4px;
 }
-
-/* .nameAbbreviation {
-    margin-top: 2px;
-} */
 
 .contact-container {
     display: flex;

@@ -243,6 +243,7 @@ body {
     white-space: nowrap;
 }
 
+
 @media (max-width: 1450px) {
     .gap-32 {
         gap: 16px;
@@ -269,7 +270,6 @@ body {
         margin: 0px;
         display: flex;
         align-items: center;
-
     }
 
     @keyframes fadeOut {
@@ -424,12 +424,6 @@ body {
     }
 }
 
-@media(max-width:768px) {
-    /* .fontSize20 {
-        font-size: 14px !important;
-    } */
-}
-
 @media(max-width: 375px) {
     .gap-32 {
         gap: 8px !important;
@@ -447,10 +441,6 @@ body {
     .fontSize27 {
         font-size: 14px !important;
     }
-
-    /* .fontSize20 {
-        font-size: 12px !important;
-    } */
 
     .data-panel-big-background,
     .data-panel-small-img {
