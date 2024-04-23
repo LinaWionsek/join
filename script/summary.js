@@ -1,5 +1,6 @@
 /**
  * Asynchronously initializes the summary section.
+ *
  */
 async function initSummary() {
     detectUser();
@@ -13,9 +14,10 @@ async function initSummary() {
     animationAdded = false;
 }
 
+
 /**
- * Loads and sets specific texts for the summary section.
- * and loads the date for urgent priorities.
+ * Loads various text elements required for the user interface.
+ *
  */
 function loadText() {
     loadUserName();
@@ -23,20 +25,22 @@ function loadText() {
     loadUrgentPrioDate();
 }
 
-//----------------------search function------------------------------
-//---Search User name----------------------------
+
 /**
- * Loads the active user's name and sets it to the corresponding HTML element.
- * It fetches the DOM element with the ID 'name' and updates its inner text with the name of the active user.
+ * Loads the current active user's name into a specified element on the webpage.
+ *
  */
 function loadUserName() {
     userName = document.getElementById('name')
     userName.innerText = activeUser.name;
 }
 
+
 /**
- * This function is used to load a function if someone resize the page
- * 
+ * This function is used to create an animation to fade out the greeting message
+ * when the window is resized to a width less than or equal to 1200 pixels.
+ * If the window is resized to a width greater than 1200 pixels, the animation is removed.
+ *
  */
 function addAnimationOnResize() {
     if (window.innerWidth <= 1200) {
@@ -50,19 +54,20 @@ function addAnimationOnResize() {
     }
 }
 
+
 /**
- * This function is used to create an animation to fade out the greeting message
- * 
+ * This function adds an animation to the greeting text by applying CSS classes and setting a timeout.
+ *
  */
 function addAnimation() {
     const greetingText = document.querySelector('.greeting-text');
     greetingText.classList.add('fade-out');
-
     setTimeout(function () {
         greetingText.classList.add('hidden');
         document.body.style.overflow = 'auto';
     }, 2000);
 }
+
 
 /**
  * This function searches the number of tasks in the respective category
@@ -78,6 +83,7 @@ function searchNumbers() {
     displayNumbers(todo, inProgress, awaitingFeedback, done, allTasks, urgent)
 }
 
+
 /**
  * This function shows the number of tasks in the respective category
  * 
@@ -91,6 +97,7 @@ function displayNumbers(todo, inProgress, awaitingFeedback, done, allTasks, urge
     document.getElementById('urgent').innerHTML = urgent;
 }
 
+
 /**
  * This function loads the next urgent due date
  * 
@@ -98,7 +105,6 @@ function displayNumbers(todo, inProgress, awaitingFeedback, done, allTasks, urge
 function loadUrgentPrioDate() {
     let container = document.getElementById('date');
     const nextUrgentDate = getNextUrgentDueDate(tasks);
-
     if (nextUrgentDate) {
         const convertedDate = convertDateFormat(nextUrgentDate);
         container.innerHTML = convertedDate;
@@ -107,31 +113,30 @@ function loadUrgentPrioDate() {
     }
 }
 
-//----------------- load Time of Day------------------
+
 /**
- * This function shows the greeting for the user
- * 
+ * Loads the current time of day into the HTML element with the ID 'time-of-day'.
+ *
  */
 function loadTimeOfDay() {
     let HoursOfTheDay = document.getElementById('time-of-day');
     HoursOfTheDay.innerHTML = getTimeOfDay();
 }
 
+
 /**
- * This function returns greeting based on the current time of day
- * 
- * @returns {string} the greeting string in HTML format
+ * Returns a greeting based on the current time of day.
+ *
+ * @return {string} The greeting string in HTML format.
  */
 function getTimeOfDay() {
     const currentHour = new Date().getHours();
-
     if (currentHour >= 0 && currentHour < 6) {
         return `<span class="time-of-day">Good&nbsp</span>
         <span></span>
         <span class="time-of-day">night</span>`;
     } else if (currentHour >= 6 && currentHour < 12) {
         return `<span class="time-of-day">Good&nbsp</span><span class="time-of-day">morning</span>`;
-
     } else if (currentHour >= 12 && currentHour < 18) {
         return `<span class="time-of-day">Good&nbsp</span>
         <span class="time-of-day" >afternoon</span>`;
@@ -140,9 +145,14 @@ function getTimeOfDay() {
     }
 }
 
+
 /**
- * This function searches the next urgent due date
- * 
+ * Retrieves the next urgent due date from a given array of tasks.
+ *
+ * @param {Array} tasks - An array of task objects with properties:
+ *                        - priority: a string indicating the task priority
+ *                        - dueDate: a string representing the due date in the format "MM/DD/YYYY"
+ * @return {string|null} The next urgent due date in the format "MM/DD/YYYY", or null if no urgent tasks found.
  */
 function getNextUrgentDueDate(tasks) {
     const urgentTasks = tasks.filter(task => task.priority === "urgent");
@@ -156,12 +166,12 @@ function getNextUrgentDueDate(tasks) {
     return urgentTasks[0].dueDate;
 }
 
+
 /**
- * Converts a date string in the format "DD/MM/YYYY" to a more human-readable format "MonthName DD, YYYY".
- * @param {string} inputDate - The date string to be converted, in the format "DD/MM/YYYY".
- * @example
- * // returns "January 01, 2021"
- * convertDateFormat("01/01/2021");
+ * Converts the input date string into a formatted date string.
+ *
+ * @param {string} inputDate - The date string in the format "YYYY-MM-DD".
+ * @return {string} The formatted date string in the format "Month Dayth, Year".
  */
 function convertDateFormat(inputDate) {
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
