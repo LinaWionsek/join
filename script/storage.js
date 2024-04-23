@@ -33,32 +33,35 @@ let customCategories = [{
 
 /** Represents the current ID for tasks. */
 let currentId = 0;
+
 /** Represents the status group for tasks. */
 let statusGroup = ''
-/** * Collection of subtasks associated with tasks. */
+
 /** Represents the currently selected category with its name and color. */
 let currentCategorySelected = [{
     'name': '',
     'color': '',
 }];
+
 /** Represents the currently selected priority. */
 let currentPrioSelected = "";
 
-
+/** * Collection of subtasks associated with tasks (unfinished). */
 let subTaskCollection = [];
+
 /** Collection of finished subtasks. */
 let subtasksFinish = [];
+
 /** Collection of contacts associated with tasks. */
 let contactCollection = [];
 
 /** Task ID for editing tasks. */
 let taskIdForEdit = '';
+
 /** Represents the status for editing tasks. */
 let statusEdit = '';
 
 
-
-//------------tasks----------------------//
 /**
  * Checks if a certain key exists in storage, if not, sets a default value.
  * @param {string} key - Key to check in storage.
@@ -73,6 +76,7 @@ async function initializeStorage(key, initialValue) {
         await setItem(key, JSON.stringify(initialValue));
     }
 }
+
 
 /**
  * Asynchronously saves the current user's tasks. 
@@ -109,11 +113,12 @@ async function currentUserTaskLoad() {
     }
 }
 
-//current id
+
 /**
  * Asynchronously saves the current user's ID. 
  * If the active user is 'Guest', the ID is saved to local storage. 
  * Otherwise, it is saved to remote storage.
+ *
  */
 async function currentUserIdSave() {
     if (activeUser.name === 'Guest') {
@@ -123,10 +128,12 @@ async function currentUserIdSave() {
     }
 }
 
+
 /**
  * Asynchronously loads the current user's ID. 
  * If the active user is 'Guest', the ID is loaded from local storage. 
  * Otherwise, it is fetched from remote storage.
+ *
  */
 async function currentUserIdLoad() {
     if (activeUser.name === 'Guest') {
@@ -143,7 +150,7 @@ async function currentUserIdLoad() {
     }
 }
 
-//Categorys
+
 /**
  * Asynchronously saves the current user's categories. 
  * If the active user is 'Guest', the categories are saved to local storage. 
@@ -156,6 +163,7 @@ async function currentUserCategorysSave() {
         await setItem('customCategories', JSON.stringify(customCategories));
     }
 }
+
 
 /**
  * Asynchronously loads the current user's categories. 
@@ -177,7 +185,7 @@ async function currentUserCategorysLoad() {
     }
 }
 
-//Contacts
+
 /**
  * Asynchronously saves the current user's contacts. 
  * If the active user is 'Guest', the contacts are saved to local storage. 
@@ -193,7 +201,11 @@ async function currentUserContactsSave() {
     }
 }
 
-/** * This function is to load contacts or display a error message */
+
+/**
+ * Asynchronously loads the contacts of the current user.
+ *
+ */
 async function currentUserContactsLoad() {
     if (activeUser.name === 'Guest') {
         let contactsLoad = localStorage.getItem('contactsAsText');
@@ -212,21 +224,19 @@ async function currentUserContactsLoad() {
     }
 }
 
-//Activ user
+
 /**
  * Saves the current active user to local storage.
+ *
  */
 function saveActiveUser() {
     localStorage.setItem('activeUserAsText', JSON.stringify(activeUser));
 }
 
 
-
-
-
-
 /**
  * Loads the current active user from local storage.
+ * 
  */
 function loadActiveUser() {
     let activeUserLoad = localStorage.getItem('activeUserAsText');
@@ -235,9 +245,13 @@ function loadActiveUser() {
     }
 }
 
-//save and load remote
+
 /**
  * Sets a key-value pair in the remote storage.
+ *
+ * @param {string} key - The key to set in the storage.
+ * @param {*} value - The value to associate with the key.
+ * @return {Promise<any>} A promise that resolves to the response from the server.
  */
 async function setItem(key, value) {
     const payload = { key, value, token: STORAGE_TOKEN };
@@ -245,8 +259,12 @@ async function setItem(key, value) {
         .then(res => res.json());
 }
 
+
 /**
  * Retrieves a value from the remote storage by its key.
+ *
+ * @param {string} key - The key used to retrieve the value.
+ * @return {Promise<any>} A promise that resolves to the retrieved value.
  */
 async function getItem(key) {
     const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
@@ -259,6 +277,10 @@ async function getItem(key) {
 }
 
 
+/**
+ * Detects the user and performs necessary actions if the user is a guest.
+ *
+ */
 function detectUser() {
     if (activeUser.name == '') {
         activeUser.name = 'Guest';
@@ -267,6 +289,11 @@ function detectUser() {
     }
 }
 
+
+/**
+ * Fills default test data including contacts, tasks, and categories.
+ * 
+ */
 function fillTestArray() {
     contactsArray = [
         {
@@ -291,7 +318,6 @@ function fillTestArray() {
             'color': '#8B0000',
         },
     ];
-
     tasks = [
         {
             'id': 3,
@@ -339,7 +365,6 @@ function fillTestArray() {
             'subtasksFinish': [],
         },
     ];
-
     customCategories[0] = {
         'name': ['New Category'],
         'color': ['background: #FF6347'],
