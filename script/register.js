@@ -1,12 +1,15 @@
 let registerBtn = document.getElementById('registerBtn');
 let checkbox = document.getElementById('checkbox_id');
 
+
 /**
- * Initializes the registration functionality by loading existing user data.
+ * Initializes the registration process by loading the users.
+ *
  */
 async function initRegister() {
     await loadUsers();
 }
+
 
 /**
  * Validates user inputs, checks for email duplicates, and proceeds with the registration process.
@@ -18,16 +21,20 @@ async function registUser() {
     if (checkbox.checked) await handleRegistration();
 }
 
+
 /**
  * Handles a scenario when entered passwords don't match.
+ *
  */
 function handlePasswordMismatch() {
     loadRedBorderPassword();
     loadWarningTextTamplate();
 }
 
+
 /**
  * Handles a scenario when the entered email already exists in the system.
+ *
  */
 function handleEmailExists() {
     document.getElementById('register_email').classList.add('red-border');
@@ -35,8 +42,10 @@ function handleEmailExists() {
     resetForm();
 }
 
+
 /**
  * Registers a new user, saves the user's data, and redirects to the homepage after successful registration.
+ *
  */
 async function handleRegistration() {
     registerBtn.disabled = true;
@@ -53,8 +62,11 @@ async function handleRegistration() {
     }, 3000);
 }
 
+
 /**
- * Highlights password fields in red.
+ * Adds the 'red-border' class to the input elements with the IDs 'register_password' and 'register_password_confirm', 
+ * highlighting them in red.
+ *
  */
 function loadRedBorderPassword() {
     let inputIds = ['register_password', 'register_password_confirm'];
@@ -63,8 +75,11 @@ function loadRedBorderPassword() {
     }
 }
 
+
 /**
- * Displays warning messages for password fields.
+ * Loads the warning text template by removing the 'd-none' class from the specified warning elements.
+ *
+ * @param {Array} warningIds - An array of warning element IDs.
  */
 function loadWarningTextTamplate() {
     let warningIds = ['warning-password', 'warning-confirmPassword'];
@@ -73,8 +88,11 @@ function loadWarningTextTamplate() {
     }
 }
 
+
 /**
  * Checks if the entered password and confirmation password are matching.
+ *
+ * @return {boolean} Returns true if the passwords match, false otherwise.
  */
 function arePasswordsMatching() {
     const password = document.getElementById('register_password').value;
@@ -82,8 +100,12 @@ function arePasswordsMatching() {
     return password === confirmPassword;
 }
 
+
 /**
- * Loads existing users from the storage.
+ * Asynchronously loads existing users from the storage.
+ *
+ * @return {Promise<void>} A promise that resolves when the users are successfully loaded.
+ * @throws {Error} If there is an error loading the users.
  */
 async function loadUsers() {
     try {
@@ -93,8 +115,10 @@ async function loadUsers() {
     }
 }
 
+
 /**
  * Resets the registration form by clearing inputs and enabling the register button.
+ *
  */
 function resetForm() {
     register_email.value = '';
@@ -103,8 +127,10 @@ function resetForm() {
     registerBtn.disabled = false;
 }
 
+
 /**
  * Resets all users in the backend storage.
+ *
  */
 async function resetAllBackendUser() {
     await loadUsers();
