@@ -166,6 +166,9 @@ function searchContacts() {
 }
 
 
+//--------------------------------------------Contact Creation--------------------------------------------//
+
+
 /**
  * Opens the add contact popup by sliding the 'task_popup' element into view and rendering the left, center, and right content for the popup.
  *

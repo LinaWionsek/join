@@ -1,3 +1,8 @@
+/**
+ * Selects a priority based on the given priority value.
+ *
+ * @param {string} prio - The priority value to select.
+ */
 function selectPriority(prio) {
     if (currentPrioSelected != prio) {
         if (prio == 'low') {
@@ -12,6 +17,11 @@ function selectPriority(prio) {
     }
 }
 
+
+/**
+ * Detects the priority based on the currentPrioSelected value and calls the corresponding priority selection function.
+ *
+ */
 function detectPriority() {
     if (currentPrioSelected == 'low') {
         selectLowPriority(currentPrioSelected);
@@ -24,6 +34,11 @@ function detectPriority() {
     }
 }
 
+
+/**
+ * Resets the selected priority to none and updates the visual representation of the priorities.
+ *
+ */
 function noPrioritySelected() {
     currentPrioSelected = '';
     document.getElementById('prio_low').src = `./img/prio-low.svg`;
@@ -34,6 +49,12 @@ function noPrioritySelected() {
     document.getElementById('button_urgent').classList.remove('prio-urgent');
 }
 
+
+/**
+ * Selects the low priority and updates the visual representation of the priorities.
+ *
+ * @param {string} prio - The priority value to select.
+ */
 function selectLowPriority(prio) {
     currentPrioSelected = prio;
     document.getElementById('prio_low').src = `./img/prio-low-white.svg`;
@@ -44,6 +65,12 @@ function selectLowPriority(prio) {
     document.getElementById('button_urgent').classList.remove('prio-urgent');
 }
 
+
+/**
+ * Selects the medium priority and updates the visual representation of the priorities.
+ *
+ * @param {string} prio - The priority value to select.
+ */
 function selectMediumPriority(prio) {
     currentPrioSelected = prio;
     document.getElementById('prio_medium').src = `./img/prio-medium-white.svg`;
@@ -54,6 +81,12 @@ function selectMediumPriority(prio) {
     document.getElementById('button_urgent').classList.remove('prio-urgent');
 }
 
+
+/**
+ * Selects the urgent priority and updates the visual representation of the priorities.
+ *
+ * @param {string} prio - The priority value to select.
+ */
 function selectUrgentPriority(prio) {
     currentPrioSelected = prio;
     document.getElementById('prio_urgent').src = `./img/prio-urgent-white.svg`;
