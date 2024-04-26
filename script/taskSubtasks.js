@@ -1,3 +1,7 @@
+/**
+ * Adds a subtask to the subTaskCollection array and renders the updated subtasks.
+ *
+ */
 function addSubtask() {
     let input = document.getElementById('subtasks_input');
     if (input.value === '') {
@@ -9,6 +13,11 @@ function addSubtask() {
     }
 }
 
+
+/**
+ * Renders the subtasks on the webpage based on the subTaskCollection array.
+ *
+ */
 function renderSubtasks() {
     let subtasks = document.getElementById('selected_subtasks');
     subtasks.innerHTML = '';
@@ -26,6 +35,12 @@ function renderSubtasks() {
     }
 }
 
+
+/**
+ * Edits a subtask based on the provided index.
+ *
+ * @param {number} i - The index of the subtask to edit.
+ */
 function editSubtask(i) {
     let subtaskToEdit = subTaskCollection[i];
     let editContainer = document.getElementById('edit_container');
@@ -42,6 +57,12 @@ function editSubtask(i) {
     input.value = subtaskToEdit;
 }
 
+
+/**
+ * Confirms the edit of a subtask and updates the subTaskCollection array accordingly.
+ *
+ * @param {number} i - The index of the subtask to edit.
+ */
 function confirmSubtaskEdit(i) {
     let input = document.getElementById('edit_input');
     if (input.value == '') {
@@ -54,12 +75,23 @@ function confirmSubtaskEdit(i) {
     toggleVisibility('edit_container', false);
 }
 
+
+/**
+ * Cancels the subtask edit by clearing the input value and hiding the edit container.
+ *
+ */
 function cancelSubtaskEdit() {
     let input = document.getElementById('edit_input');
     input.value = '';
     toggleVisibility('edit_container', false);
 }
 
+
+/**
+ * Deletes a subtask from the subTaskCollection array at the specified index and re-renders the subtasks.
+ *
+ * @param {number} i - The index of the subtask to delete.
+ */
 function deleteSubtask(i) {
     subTaskCollection.splice(i, 1);
     renderSubtasks();
