@@ -1,3 +1,9 @@
+/**
+ * Toggles the visibility of the contact list container, contact select arrow up, and contact select arrow down elements.
+ * If the contact list is open or searching is in progress, the elements are made visible and the contacts are fetched.
+ * Otherwise, the elements are hidden.
+ *
+ */
 function toggleContactList() {
     if (contactListOpen || searchingContact) {
         toggleVisibility('contact_list_container', true);
@@ -12,6 +18,11 @@ function toggleContactList() {
     contactListOpen = !contactListOpen;
 }
 
+
+/**
+ * Retrieves contacts based on the input value and updates the contact list accordingly.
+ *
+ */
 function getContacts() {
     let contactContainer = document.getElementById('contact_list');
     let text = document.getElementById('assigned_to_input').value;
@@ -25,6 +36,12 @@ function getContacts() {
     }
 }
 
+
+/**
+ * Renders all contacts in the given contact container.
+ *
+ * @param {HTMLElement} contactContainer - The container element where the contacts will be rendered.
+ */
 function showAllContacts(contactContainer) {
     contactContainer.innerHTML = '';
     for (let i = 0; i < contactsArray.length; i++) {
@@ -34,6 +51,15 @@ function showAllContacts(contactContainer) {
         contactContainer.innerHTML += renderContacts(contactColor, contactNameAbbreviation, contactName);
     }
 }
+
+
+/**
+ * Renders the searched contacts in the given contact container.
+ *
+ * @param {HTMLElement} contactContainer - The container element where the contacts will be rendered.
+ * @param {Array} searchedResult - The array of contacts that match the search criteria.
+ * @return {void} This function does not return anything.
+ */
 function showSearchedContacts(contactContainer, searchedResult) {
     contactContainer.innerHTML = '';
     for (let j = 0; j < searchedResult.length; j++) {
@@ -44,6 +70,15 @@ function showSearchedContacts(contactContainer, searchedResult) {
     }
 }
 
+
+/**
+ * Renders a contact box HTML element with the provided color, abbreviation, and name.
+ *
+ * @param {string} color - The color of the contact logo.
+ * @param {string} abbreviation - The abbreviation of the contact name.
+ * @param {string} name - The full name of the contact.
+ * @return {string} The HTML element representing the contact box.
+ */
 function renderContacts(color, abbreviation, name) {
     let index = contactCollection.findIndex(c => c['name'] === name);
     if (index == -1) {
@@ -77,6 +112,12 @@ function renderContacts(color, abbreviation, name) {
     }
 }
 
+
+/**
+ * Selects a contact from the contactsArray and updates the contactCollection and UI accordingly.
+ *
+ * @param {string} name - The name of the contact to select.
+ */
 function selectContact(name) {
     let i = contactsArray.findIndex(c => c['name'] === name);
     let selectedContact = {
@@ -95,6 +136,11 @@ function selectContact(name) {
     getContacts();
 }
 
+
+/**
+ * Renders the selected contacts.
+ *
+ */
 function renderSelectedContacts() {
     document.getElementById('selected_contacts').innerHTML = '';
     for (let k = 0; k < contactCollection.length; k++) {
@@ -109,11 +155,21 @@ function renderSelectedContacts() {
     }
 }
 
+
+/**
+ * Searches for contacts and toggles the contact list.
+ *
+ */
 function searchContacts() {
     searchingContact = true;
     toggleContactList();
 }
 
+
+/**
+ * Opens the add contact popup by sliding the 'task_popup' element into view and rendering the left, center, and right content for the popup.
+ *
+ */
 function openAddContactPopup() {
     slide('task_popup', 'task_popup_section');
     renderAddContactLeftContent();
@@ -121,6 +177,11 @@ function openAddContactPopup() {
     renderAddContactRightContent();
 }
 
+
+/**
+ * Renders the left content of the add contact popup by setting the innerHTML of the 'left_popup_content' element.
+ *
+ */
 function renderAddContactLeftContent() {
     document.getElementById('left_popup_content').innerHTML = /*html*/ `
     <img src="./img/join-logo-white.svg" id="join_logo_add_contact">
@@ -132,6 +193,11 @@ function renderAddContactLeftContent() {
     `;
 }
 
+
+/**
+ * Renders the center content of the add contact popup by setting the innerHTML of the 'center_popup_content' element.
+ *
+ */
 function renderAddContactCenterContent() {
     document.getElementById('center_popup_content').innerHTML = /*html*/ `
         <div id="no_profile_img">
@@ -141,6 +207,11 @@ function renderAddContactCenterContent() {
     `;
 }
 
+
+/**
+ * Renders the right content of the add contact popup by setting the innerHTML of the 'right_popup_content' element.
+ *
+ */
 function renderAddContactRightContent() {
     document.getElementById('right_popup_content').innerHTML = /*html*/ `  
     <form onsubmit="createContact(); return false;" id="contact_form">
@@ -171,6 +242,11 @@ function renderAddContactRightContent() {
 </form>`;
 }
 
+
+/**
+ * Creates a new contact with the input values, saves it, and performs necessary UI updates.
+ *
+ */
 async function createContact() {
     let newContact = {
         'name': document.getElementById('inputNameId').value,
@@ -187,7 +263,12 @@ async function createContact() {
     getContacts();
 }
 
-/** * This function is used to create the profile image color */
+
+/**
+ * This function retrieves the next color from the colorArray, updates the nextColorIndex, and returns the color.
+ *
+ * @return {string} The color retrieved from the colorArray.
+ */
 function getColor() {
     if (nextColorIndex >= colorArray.length) {
         nextColorIndex = 0;
