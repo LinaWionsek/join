@@ -287,12 +287,6 @@ function renderAllCategories() {
     }
 }
 
-function closeCategoryList() {
-    toggleVisibility('category_list_container', false);
-    toggleVisibility('category_select_arrow_up', false);
-    toggleVisibility('category_select_arrow_down', true);
-}
-
 function renderMainCategories(name, color, i) {
     if (currentCategorySelected[0].name === name && currentCategorySelected[0].color === color) {
         return /*html*/ `
@@ -333,6 +327,12 @@ function renderCustomCategories(name, color, i) {
         </div>
         `;
     }
+}
+
+function closeCategoryList() {
+    toggleVisibility('category_list_container', false);
+    toggleVisibility('category_select_arrow_up', false);
+    toggleVisibility('category_select_arrow_down', true);
 }
 
 function changeDeleteImg() {
@@ -376,7 +376,6 @@ function cancelCategorySelection() {
 }
 
 function openAddCategoryPopup() {
-    // toggleVisibility('add_category_dialog', true);
     slide('task_popup', 'task_popup_section');
     renderAddCategoryLeftContent();
     renderAddCategoryCenterContent();
@@ -385,7 +384,6 @@ function openAddCategoryPopup() {
 }
 
 function renderAddCategoryLeftContent() {
-    // center_popup_content
     document.getElementById('left_popup_content').innerHTML = /*html*/ `
     <img src="./img/join-logo-white.svg" id="join_logo_add_contact">
     <spline class="left-popup-text-headline"><b>Add new category</b></spline>
@@ -412,12 +410,10 @@ function renderAddCategoryRightContent() {
     <div class="color-settings-container" id="color_settings">
     </div>
     <div class="popup-button-container">
-
         <button class="button outline-btn"
             onclick="slideOut('task_popup', 'task_popup_section', 200)"
             id="cancel_btn">
             <spline id="editCancelButtonId">Cancel</spline>
-
             <svg class="colorOnHover" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                 viewBox="0 0 24 25" fill="none">
                 <path
@@ -433,6 +429,7 @@ function renderAddCategoryRightContent() {
     </div>
 </div>`;
 }
+
 function createCategoryColors() {
     let colorContainer = document.getElementById('color_settings');
     colorContainer.innerHTML = '';
@@ -461,7 +458,6 @@ function selectColor(color) {
 
 function updateSelectedColorIndex(index) {
     selectedColorIndex = selectedColorIndex === index ? null : index;
-    // saveTaskElements();
 }
 
 function confirmCreateCategory() {
@@ -480,9 +476,7 @@ async function addCategory() {
     customCategories[0].name.push(inputElem.value);
     customCategories[0].color.push(selectedColorIndex);
     await currentUserCategorysSave();
-    // document.getElementById('createCategoryPopupByAddTask').classList.add('d-none');
     selectedColorIndex = null;
-    // saveTaskElements();
     toggleCategoryList();
     changesSaved('Category successfully created');
 }
@@ -532,25 +526,31 @@ function getContacts() {
     let contactContainer = document.getElementById('contact_list');
     let text = document.getElementById('assigned_to_input').value;
     let searchedResult = contactsArray.filter(t => t['name'].toLowerCase().includes(text.toLowerCase()));
-
     if (text === '') {
         searchingContact = false;
-        contactContainer.innerHTML = '';
-        for (let i = 0; i < contactsArray.length; i++) {
-            const contactColor = contactsArray[i]['color'];
-            const contactNameAbbreviation = contactsArray[i]['nameAbbreviation'];
-            const contactName = contactsArray[i]['name'];
-            contactContainer.innerHTML += renderContacts(contactColor, contactNameAbbreviation, contactName);
-        }
+        showAllContacts(contactContainer);
     } else {
         searchingContact = true;
-        contactContainer.innerHTML = '';
-        for (let j = 0; j < searchedResult.length; j++) {
-            const colorResult = searchedResult[j]['color'];
-            const nameAbbreviationResult = searchedResult[j]['nameAbbreviation'];
-            const nameResult = searchedResult[j]['name'];
-            contactContainer.innerHTML += renderContacts(colorResult, nameAbbreviationResult, nameResult);
-        }
+        showSearchedContacts(contactContainer, searchedResult);
+    }
+}
+
+function showAllContacts(contactContainer) {
+    contactContainer.innerHTML = '';
+    for (let i = 0; i < contactsArray.length; i++) {
+        const contactColor = contactsArray[i]['color'];
+        const contactNameAbbreviation = contactsArray[i]['nameAbbreviation'];
+        const contactName = contactsArray[i]['name'];
+        contactContainer.innerHTML += renderContacts(contactColor, contactNameAbbreviation, contactName);
+    }
+}
+function showSearchedContacts(contactContainer, searchedResult) {
+    contactContainer.innerHTML = '';
+    for (let j = 0; j < searchedResult.length; j++) {
+        const colorResult = searchedResult[j]['color'];
+        const nameAbbreviationResult = searchedResult[j]['nameAbbreviation'];
+        const nameResult = searchedResult[j]['name'];
+        contactContainer.innerHTML += renderContacts(colorResult, nameAbbreviationResult, nameResult);
     }
 }
 
@@ -569,8 +569,7 @@ function renderContacts(color, abbreviation, name) {
                 <img src="./img/subtask-checkbox-unchecked.svg">
             </div>
         </div>
-       `;
-        // renderSelectedContacts(i);
+        `;
     } else {
         return /*html*/ `
         <div onclick="selectContact('${name}')" class="contact-box selected">
@@ -595,7 +594,6 @@ function selectContact(name) {
         'nameAbbreviation': contactsArray[i]['nameAbbreviation'],
         'color': contactsArray[i]['color'],
     };
-
     let index = contactCollection.findIndex(c => c['name'] === selectedContact['name']);
     if (index == -1) {
         contactCollection.push(selectedContact);
@@ -611,7 +609,6 @@ function renderSelectedContacts() {
     document.getElementById('selected_contacts').innerHTML = '';
     for (let k = 0; k < contactCollection.length; k++) {
         const element = contactCollection[k];
-
         document.getElementById('selected_contacts').innerHTML += /*html*/ `
         <div class="contact">
             <div style="background-color:${element['color']}" class="contact-logo">
@@ -636,6 +633,7 @@ function openAddContactPopup() {
     renderAddContactCenterContent();
     renderAddContactRightContent();
 }
+
 function renderAddContactLeftContent() {
     document.getElementById('left_popup_content').innerHTML = /*html*/ `
     <img src="./img/join-logo-white.svg" id="join_logo_add_contact">
@@ -659,21 +657,17 @@ function renderAddContactCenterContent() {
 function renderAddContactRightContent() {
     document.getElementById('right_popup_content').innerHTML = /*html*/ `  
     <form onsubmit="createContact(); return false;" id="contact_form">
-
     <input type="text" placeholder="Name" id="inputNameId" class="fontSize20" required>
     <input type="email" placeholder="Email" id="inputEmailId" class="fontSize20" required>
     <input type="tel" pattern="[0-9+ ]+" placeholder="Phone" id="input_phone"
         class="fontSize20"
         oninvalid="this.setCustomValidity('Invalid input! Only + and numbers from 0-9 are allowed')"
         oninput="this.setCustomValidity('')" required>
-
-
     <div class="d-flex textHorizontal contact-popup-buttons fontSize20">
         <button class="button outline-btn"
             onclick="slideOut('task_popup', 'task_popup_section', 200)"
             id="cancel_btn">
             <spline id="editCancelButtonId">Cancel</spline>
-
             <svg class="colorOnHover" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                 viewBox="0 0 24 25" fill="none">
                 <path
@@ -687,7 +681,6 @@ function renderAddContactRightContent() {
             <img src="./img/check-white.svg">
         </button>
     </div>
-
 </form>`;
 }
 
@@ -717,10 +710,6 @@ function getColor() {
     setItem('nextColorIndex', JSON.stringify(nextColorIndex));
     return color;
 }
-
-// contactsaArray[i][nameAbbreviation]
-//contactsaArray[i][color]
-// contactsaArray[i][name]
 
 // #endregion
 // #region Edit Task
@@ -757,10 +746,8 @@ async function editTask(i) {
 
 function editTaskWindow() {
     detectPriority();
-    // toggleCategoryList();
     updateSelectedCategory();
     renderSelectedContacts();
-    // toggleContactList();
     renderSubtasks();
 }
 
@@ -809,168 +796,155 @@ async function addTaskFromBoard() {
     resetTaskForm();
 }
 
-// board_task_popup;
-// board_task_popup_section;
 function renderAddTaskContent() {
     return /*html*/ `
-   <div onclick="stopBody(event)" class="task-popup-content">
-   <div class="task-popup-headline-container">
-       <div class="fontSize61"><b>Add Task</b></div>
-       <div class="pointer close-popup"
-       onclick="slideOut('board_task_popup', 'board_task_popup_section', 200)">
-       <img src="./img/close.svg" alt="">
-   </div>
-   </div>
-       <section class="task-popup-bg d-none" id="task_popup_section">
-           <div class="task-popup-card d-flex" id="task_popup">
-               <div class="left-popup">
-                   <div id="close_popup_mobile">
-                       <img onclick="closePopup()" src="./img/close-white.svg">
-                   </div>
-                   <div id="left_popup_content">
-                   </div>
-               </div>
-               <div class="center-popup">
-                   <div id="center_popup_content"></div>
-               </div>
-               <div class="right-popup d-flex">
-                   <div id="close_popup" class="pointer">
-                       <img onclick="closePopup()" src="./img/close.svg" alt="">
-                   </div>
-                   <div id="right_popup_content"></div>
-               </div>
-           </div>
-       </section>
+        <div onclick="stopBody(event)" class="task-popup-content">
+            <div class="task-popup-headline-container">
+                <div class="fontSize61"><b>Add Task</b></div>
+                <div class="pointer close-popup" onclick="slideOut('board_task_popup', 'board_task_popup_section', 200)">
+                    <img src="./img/close.svg" alt="">
+                </div>
+            </div>
+            <section class="task-popup-bg d-none" id="task_popup_section">
+                <div class="task-popup-card d-flex" id="task_popup">
+                    <div class="left-popup">
+                        <div id="close_popup_mobile">
+                            <img onclick="closePopup()" src="./img/close-white.svg">
+                        </div>
+                        <div id="left_popup_content"></div>
+                    </div>
+                    <div class="center-popup">
+                        <div id="center_popup_content"></div>
+                    </div>
+                    <div class="right-popup d-flex">
+                        <div id="close_popup" class="pointer">
+                            <img onclick="closePopup()" src="./img/close.svg" alt="">
+                        </div>
+                        <div id="right_popup_content"></div>
+                    </div>
+                </div>
+            </section>
 
-       <form>
-           <div class="task-content">
-               <div class="left-container">
-                   <div>
-                       <div>
-                           Title
-                           <span class="required-star">*</span>
-                       </div>
-                       <input placeholder="Enter a title" id="task_title"
-                           class="fontSize20 width-100P">
-                   </div>
-                   <div>
-                       <div>
-                           Description
-                       </div>
-                       <textarea id="task_description" class="width-100P fontSize20"
-                           placeholder="Enter a Description" type="text"></textarea>
-                   </div>
-                   <div>
-                       <div>
-                           Assigned to
-                       </div>
-                       <div onclick="toggleContactList()" id="assigned_to_input_container"
-                           class="custom-input">
-                           <input onkeyup="searchContacts()" placeholder="Select contacts to assign" id="assigned_to_input" class="fontSize20">
-                           <img id="contact_select_arrow_up" class="d-none" src="./img/arrow-up.svg"
-                               alt="">
-                           <img id="contact_select_arrow_down" src="./img/arrow-down.svg" alt="">
-                       </div>
-                       <div id="contact_list_container" class="d-none">
-                           <div id="contact_list" class="contact-list"></div>
-                           <div onclick="openAddContactPopup()" class="button blue-btn">
-                               Add contact
-                               <img src="./img/add-task-person-add.svg" alt="">
-                           </div>
-                       </div>
-                       <div id="selected_contacts"></div>
-                   </div>
-               </div>
-               <img class="task-vector" src="./img/vector-task.svg" alt="">
-               <div class="right-container">
-                   <div>
-                       <div>
-                           Due date
-                           <span class="required-star">*</span>
-                       </div>
-                       <input type="date" placeholder="Enter a title" id="date_picker"
-                           class="fontSize20 width-100P">
-                   </div>
-                   <div>
-                       <div>
-                           Prio
-                       </div>
-                       <div class="prio-container">
-                           <div id="button_urgent" onclick="selectPriority('urgent')"
-                               class="button prio-btn">
-                               <span>Urgent</span>
-                               <img id="prio_urgent" src="./img/prio-urgent.svg" alt="">
-                           </div>
-                           <div id="button_medium" onclick="selectPriority('medium')"
-                               class="button prio-btn">
-                               Medium
-                               <img id="prio_medium" src="./img/prio-medium.svg" alt="">
-                           </div>
-                           <div id="button_low" onclick="selectPriority('low')" class="button prio-btn">
-                               Low
-                               <img id="prio_low" src="./img/prio-low.svg" alt="">
-                           </div>
-                       </div>
-                   </div>
-                   <div>
-                       <div>
-                           Category
-                           <span class="required-star">*</span>
-                       </div>
-                       <div onclick="toggleCategoryList()" id="category_input_container"
-                           class="custom-input">
-                           <input readonly value="Select task category" id="category_input"
-                               class="fontSize20 pointer">
-                           <img onclick="renderCategories()" class="d-none" id="category_select_arrow_up"
-                               src="./img/arrow-up.svg" alt="">
-                           <img id="category_select_arrow_down" src="./img/arrow-down.svg" alt="">
-                       </div>
-                       <div id="category_list_container" class="d-none">
-                           <div id="category_list" class="cateogry-list"></div>
-                           <div onclick="openAddCategoryPopup()" class="button blue-btn">
-                               Add new category
-                               <img src="./img/add-task-category.svg" alt="">
-                           </div>
-                       </div>
-                   </div>
-                   <div>
-                       <div>
-                           Subtasks
-                       </div>
-                       <div id="subtasks_input_container" class="custom-input">
-                           <input placeholder="Add new subtask" id="subtasks_input" class="fontSize20">
-                           <img onclick="addSubtask()" src="./img/plus.svg">
-                       </div>
-                       <div id="selected_subtasks"></div>
-                       <div id="edit_container" class="d-none"></div>
-                   </div>
-               </div>
-           </div>
-           <div class="task-bottom-edit">
-               <div class="required-info">
-                   <span class="required-star">*</span>
-                   This field is required
-               </div>
-               <div class="button-group">
-               <div onclick="resetTaskForm()" class="button outline-btn">
-                   Clear
-                   <svg class="colorOnHover" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                       viewBox="0 0 24 25" fill="none">
-                       <path
-                           d="M12.001 12.5001L17.244 17.7431M6.758 17.7431L12.001 12.5001L6.758 17.7431ZM17.244 7.25708L12 12.5001L17.244 7.25708ZM12 12.5001L6.758 7.25708L12 12.5001Z"
-                           stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                           stroke-linejoin="round" />
-                   </svg>
-               </div>
-               <div onclick="submitForm(), slideOut('board_task_popup', 'board_task_popup_section', 200)" class="button blue-btn">
-                   Create Task
-                   <img src="./img/check-white.svg" alt="">
-               </div>
-           </div>
-           </div>
-       </form>
-   <!-- </div> -->
-
-</div>
-   `;
+            <form>
+                <div class="task-content">
+                    <div class="left-container">
+                        <div>
+                            <div>
+                                Title
+                                <span class="required-star">*</span>
+                            </div>
+                            <input placeholder="Enter a title" id="task_title" class="fontSize20 width-100P">
+                        </div>
+                        <div>
+                            <div>
+                                Description
+                            </div>
+                            <textarea id="task_description" class="width-100P fontSize20" placeholder="Enter a Description"
+                                type="text"></textarea>
+                        </div>
+                        <div>
+                            <div>
+                                Assigned to
+                            </div>
+                            <div onclick="toggleContactList()" id="assigned_to_input_container" class="custom-input">
+                                <input onkeyup="searchContacts()" placeholder="Select contacts to assign" id="assigned_to_input"
+                                    class="fontSize20">
+                                <img id="contact_select_arrow_up" class="d-none" src="./img/arrow-up.svg" alt="">
+                                <img id="contact_select_arrow_down" src="./img/arrow-down.svg" alt="">
+                            </div>
+                            <div id="contact_list_container" class="d-none">
+                                <div id="contact_list" class="contact-list"></div>
+                                <div onclick="openAddContactPopup()" class="button blue-btn">
+                                    Add contact
+                                    <img src="./img/add-task-person-add.svg" alt="">
+                                </div>
+                            </div>
+                            <div id="selected_contacts"></div>
+                        </div>
+                    </div>
+                    <img class="task-vector" src="./img/vector-task.svg" alt="">
+                    <div class="right-container">
+                        <div>
+                            <div>
+                                Due date
+                                <span class="required-star">*</span>
+                            </div>
+                            <input type="date" placeholder="Enter a title" id="date_picker" class="fontSize20 width-100P">
+                        </div>
+                        <div>
+                            <div>
+                                Prio
+                            </div>
+                            <div class="prio-container">
+                                <div id="button_urgent" onclick="selectPriority('urgent')" class="button prio-btn">
+                                    <span>Urgent</span>
+                                    <img id="prio_urgent" src="./img/prio-urgent.svg" alt="">
+                                </div>
+                                <div id="button_medium" onclick="selectPriority('medium')" class="button prio-btn">
+                                    Medium
+                                    <img id="prio_medium" src="./img/prio-medium.svg" alt="">
+                                </div>
+                                <div id="button_low" onclick="selectPriority('low')" class="button prio-btn">
+                                    Low
+                                    <img id="prio_low" src="./img/prio-low.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                Category
+                                <span class="required-star">*</span>
+                            </div>
+                            <div onclick="toggleCategoryList()" id="category_input_container" class="custom-input">
+                                <input readonly value="Select task category" id="category_input" class="fontSize20 pointer">
+                                <img onclick="renderCategories()" class="d-none" id="category_select_arrow_up"
+                                    src="./img/arrow-up.svg" alt="">
+                                <img id="category_select_arrow_down" src="./img/arrow-down.svg" alt="">
+                            </div>
+                            <div id="category_list_container" class="d-none">
+                                <div id="category_list" class="cateogry-list"></div>
+                                <div onclick="openAddCategoryPopup()" class="button blue-btn">
+                                    Add new category
+                                    <img src="./img/add-task-category.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                Subtasks
+                            </div>
+                            <div id="subtasks_input_container" class="custom-input">
+                                <input placeholder="Add new subtask" id="subtasks_input" class="fontSize20">
+                                <img onclick="addSubtask()" src="./img/plus.svg">
+                            </div>
+                            <div id="selected_subtasks"></div>
+                            <div id="edit_container" class="d-none"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="task-bottom-edit">
+                    <div class="required-info">
+                        <span class="required-star">*</span>
+                        This field is required
+                    </div>
+                    <div class="button-group">
+                        <div onclick="resetTaskForm()" class="button outline-btn">
+                            Clear
+                            <svg class="colorOnHover" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 25" fill="none">
+                                <path
+                                    d="M12.001 12.5001L17.244 17.7431M6.758 17.7431L12.001 12.5001L6.758 17.7431ZM17.244 7.25708L12 12.5001L17.244 7.25708ZM12 12.5001L6.758 7.25708L12 12.5001Z"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div onclick="submitForm(), slideOut('board_task_popup', 'board_task_popup_section', 200)"
+                            class="button blue-btn">
+                            Create Task
+                            <img src="./img/check-white.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    `;
 }
