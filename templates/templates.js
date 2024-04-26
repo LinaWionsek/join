@@ -9,17 +9,19 @@ openMenu = false;
 
 /**
  * Sets the active state for the provided sidebar item and resets other states.
+ * 
  */
-function loadHeaderSidebar(boolian) {
-    resetBoolians();
-    switchColorSidebar(boolian);
+function loadHeaderSidebar(boolean) {
+    resetBooleans();
+    switchColorSidebar(boolean);
 }
 
 
 /**
  * Resets all the active states of the sidebar items.
+ * 
  */
-function resetBoolians() {
+function resetBooleans() {
     issummary = false;
     isAddTask = false;
     isBoard = false;
@@ -30,10 +32,11 @@ function resetBoolians() {
 
 
 /**
- * Updates the active state for the specified sidebar item.
+ * Sets the active state for the provided sidebar item and resets other states.
+ *
  */
-function switchColorSidebar(boolian) {
-    boolian = true;
+function switchColorSidebar(boolean) {
+    boolean = true;
     for (let i = 0; i < classCSS.length; i++) {
         const element = classCSS[i];
     }
@@ -42,6 +45,7 @@ function switchColorSidebar(boolian) {
 
 /**
  * Toggles the visibility of the header menu.
+ *
  */
 function openHeaderMenu(event) {
     event.stopPropagation();
@@ -52,7 +56,7 @@ function openHeaderMenu(event) {
 
 
 /**
- * This function is used to mark the active .html page
+ * Marks the active page in the sidebar by adding styling to the corresponding elements.
  *
  */
 function markActivePage () {
@@ -60,7 +64,7 @@ function markActivePage () {
     const links = document.querySelectorAll(`.sidebar-text[href*="${currentPage}"]`);
     links.forEach(link => {
         const categoryElement = link.querySelector('.sidebar-text-sub');
-        categoryElement.classList.add('htmlActive');
+        categoryElement.classList.add('html-active');
         categoryElement.style.color = 'white';
         const categoryImage = link.querySelector('img');
         if (categoryImage) {
@@ -72,10 +76,10 @@ function markActivePage () {
 
 
 /**
- * Displays the user's initials within the specified HTML container.
- * Extracts the initials from the active user's name and populates them inside the designated container.
+ * Updates the user circle in the header with the initials of the active user's first and last name.
+ *
  */
-function userCircle() {
+function showUserCircle() {
     let container = document.getElementById('header-user-img');
     let nameParts = activeUser.name.split(' ');
     let firstName = nameParts[0];
@@ -87,6 +91,7 @@ function userCircle() {
 
 /**
  * Triggers the browser's back functionality.
+ *
  */
 function goBack() {
     window.history.back();
@@ -94,7 +99,8 @@ function goBack() {
 
 
 /**
- * Renders the header and sidebar UI elements.
+ * Renders the header and sidebar for the sidebar header.
+ *
  */
 function renderSidebarHeader() {
     renderHeader();
@@ -104,7 +110,7 @@ function renderSidebarHeader() {
 
 /**
  * Populates the sidebar with content.
- * Renders content within the sidebar's designated container.
+ *
  */
 function renderSidebar() {
     let container = document.getElementById('sidebarArea');
@@ -112,16 +118,19 @@ function renderSidebar() {
 }
 
 
+/**
+ * Returns the HTML content for the sidebar with links to different pages.
+ *
+ * @return {string} The HTML content for the sidebar.
+ */
 function returnRenderSidebar() {
     return /*html*/`
 <div class="sidebar">
-
     <div class="logo-container">
         <img src="img/join-logo-white.svg" alt="">
     </div>
-
-    <div id="sidebarLinks" class="sidebar-text-area">
-        <div class="sideBarCategory">
+    <div id="sidebar_links" class="sidebar-text-area">
+        <div class="sidebar-category">
             <a class="sidebar-text" href="./summary.html">
                 <div class="sidebar-text-sub">
                     <img src="img/summaryImage.svg">
@@ -129,7 +138,7 @@ function returnRenderSidebar() {
                 </div>
             </a>
         </div>
-        <div class="sideBarCategory">
+        <div class="sidebar-category">
             <a class="sidebar-text" href="./task.html">
                 <div class="sidebar-text-sub">
                 <img src="img/taskImage.svg">
@@ -137,7 +146,7 @@ function returnRenderSidebar() {
                 </div>
             </a>
         </div>
-        <div class="sideBarCategory">
+        <div class="sidebar-category">
             <a class="sidebar-text" href="./board.html">
                 <div class="sidebar-text-sub">
                     <img src="img/boardImage.svg">
@@ -145,7 +154,7 @@ function returnRenderSidebar() {
                 </div>
             </a>
         </div>
-        <div class="sideBarCategory">
+        <div class="sidebar-category">
             <a class="sidebar-text" href="./contacts.html">
                 <div class="sidebar-text-sub">
                     <img src="img/contactsImage.svg">
@@ -154,11 +163,10 @@ function returnRenderSidebar() {
             </a>
         </div>
     </div>
-    <div class="quickLinksSidebar fontSize16">
-        <a href="./privacy-police.html" class="sidebar-bottom">Privacy Policy</a>
+    <div class="sidebar-quicklinks fontSize16">
+        <a href="./privacy-policy.html" class="sidebar-bottom">Privacy Policy</a>
         <a href="./legalNotice.html" class="sidebar-bottom">Legal Notice</a>
     </div>
-
 </div>
 `;
 }
@@ -166,6 +174,8 @@ function returnRenderSidebar() {
 
 /**
  * Renders content within the header designated container.
+ *
+ * @param {type} container - the container element to render the header content into
  */
 function renderHeader() {
     let container = document.getElementById('headerArea');
@@ -173,21 +183,32 @@ function renderHeader() {
 }
 
 
+/**
+ * Function that returns the HTML content for rendering the header section.
+ *
+ * @return {string} The HTML content for the header section.
+ */
 function returnRenderHeader() {
     return /*html*/`
     <div class="header">
-    <img class="headImgLeft" src="./img/head-icon-mobile.svg">
-    <div class="headerHeadlineBox fontSize20">Kanban Projekt Managment Tool</div>
-    <div onclick="openHeaderMenu(event)" id="userCircleHeader" class="headBoxRight">
-        <a href="help.html"> <img class="headBoxRightImg" src="./img/help.svg" alt=""></a>
-        <div  id="header-user-img" class="headBoxRightUserCircle fontSize16"></div>
+    <img class="headImg-left" src="./img/head-icon-mobile.svg">
+    <div class="header-headline fontSize20">Kanban Projekt Managment Tool</div>
+    <div onclick="openHeaderMenu(event)" id="userCircleHeader" class="header-right-container">
+        <a href="help.html"> <img src="./img/help.svg" alt=""></a>
+        <div  id="header-user-img" class="header-user-circle fontSize16"></div>
     </div>
 </div>
     `;
 }
 
 
-/** * This function is used to create a slide in animation */
+/**
+ * Function to perform a slide animation on the specified elements.
+ *
+ * @param {type} frontId - The ID of the front element
+ * @param {type} backgroundId - The ID of the background element
+ * @return {type} Description of what the function returns
+ */
 function slide(frontId, backgroundId) {
     toggleVisibility(frontId, true);
     toggleVisibility(backgroundId, true);
@@ -198,7 +219,13 @@ function slide(frontId, backgroundId) {
 }
 
 
-/** * This function is used to create a slide out animation */
+/**
+ * Function to perform a slide out animation on the specified elements.
+ *
+ * @param {string} frontId - The ID of the front element
+ * @param {string} backgroundId - The ID of the background element
+ * @param {number} time - The time in milliseconds for the slide out animation
+ */
 function slideOut(frontId, backgroundId, time) {
     toggleVisibility(frontId, true);
     toggleVisibility(backgroundId, true);
@@ -212,7 +239,11 @@ function slideOut(frontId, backgroundId, time) {
 }
 
 
-/** * This function is used to create a slide in animation */
+/**
+ * Function to slide one object into view.
+ *
+ * @param {string} frontId - The ID of the front element to slide in
+ */
 function slideOneObject(frontId) {
     toggleVisibility(frontId, true);
     slideInAnimation = document.getElementById(frontId);
@@ -221,7 +252,12 @@ function slideOneObject(frontId) {
     slideInAnimation.classList.add('slide-in');
 }
 
-/** * This function is used to create a slide out animation */
+
+/**
+ * A function to create a slide out animation for a specified element.
+ *
+ * @param {string} frontId - The ID of the front element to slide out
+ */
 function slideOutOneObject(frontId) {
     toggleVisibility(frontId, true);
     slideInAnimation = document.getElementById(frontId);
@@ -230,46 +266,53 @@ function slideOutOneObject(frontId) {
     slideInAnimation.classList.add('slide-out');
 }
 
-/** * This function is used to prevent the popup from closing when clicked. */
+
+/**
+ * Prevents the popup from closing when clicked.
+ *
+ * @param {Event} event - The event object.
+ */
 function doNotClose(event) {
     event.stopPropagation();
 }
 
-/** * This function is used to the edit and delete menu on the mobile view */
+
+/**
+ * A function that updates the success_info_container with the provided inputText,
+ * toggles its visibility to true, performs a slide animation, and then slides it out
+ * after a delay of 2500ms before hiding it again after another delay of 2900ms.
+ *
+ * @param {string} inputText - The text to be displayed in the success_info_container.
+ */
 function changesSaved(inputText) {
-    document.getElementById('successfullyCreatedId').innerHTML = /* html */ `
+    document.getElementById('success_info_container').innerHTML = /* html */ `
     ${inputText}`;
-    toggleVisibility('successfullyCreatedId', true);
-    slideOneObject('successfullyCreatedId');
+    toggleVisibility('success_info_container', true);
+    slideOneObject('success_info_container');
     setTimeout(function () {
-        slideOutOneObject('successfullyCreatedId');
+        slideOutOneObject('success_info_container');
     }, 2500);
     setTimeout(function () {
-        toggleVisibility('successfullyCreatedId', false);
+        toggleVisibility('success_info_container', false);
     }, 2900);
 }
 
-/** * This function is used to make div-container unvisible or visible */
+
+/**
+ * Toggles the visibility of an element with the given ID.
+ *
+ * @param {string} id - The ID of the element to toggle visibility for.
+ * @param {boolean} show - Whether to show or hide the element.
+ */
 function toggleVisibility(id, show) {
     const showHide = document.getElementById(id);
     showHide.classList.toggle('d-none', !show);
 }
 
-/**
- * Toggles the visibility of sidebar links based on the active user's name.
- * If the active user's name is an empty string, it hides the sidebar links. Otherwise, it hides the empty container.
- */
-function hideSidebarLinks() {
-    if (activeUser.name === '') {
-        document.getElementById('sidebarLinks').classList.add('d-none');
-    } else {
-        document.getElementById('emptyContainer').classList.add('d-none');
-    }
-}
-
 
 /**
  * Hides the header menu if it is currently displayed.
+ *
  */
 function hideMenuHeader() {
     let element = document.getElementById('menu-header-container');
@@ -283,34 +326,10 @@ function hideMenuHeader() {
 
 
 /**
- * Validates the input value of a form's phone field.
- * Checks whether the entered phone number only contains the plus symbol and digits 0-9. 
- * If the validation fails, it displays an error message and prevents form submission. 
- * Otherwise, it allows form submission.
- */
-function validateForm() {
-    var input = document.getElementById('inputPhoneId');
-
-    var regex = /^[+0-9]+$/;
-
-    if (!regex.test(input.value)) {
-        input.style.borderColor = 'red';
-        document.getElementById('errorMessage').innerText = "Invalid input! Only + and numbers from 0-9 are allowed.";
-        setTimeout(function () {
-            input.style.borderColor = '#A8A8A8';
-            document.getElementById('errorMessage').innerText = "";
-        }, 6000);
-
-        return false; // Verhindert das Absenden des Formulars
-    } else {
-        document.getElementById('errorMessage').innerText = "";
-        return true; // Ermöglicht das Absenden des Formulars
-    }
-}
-
-
-/**
  * Creates a 2-letter abbreviation from a given name (e.g. "John Doe" -> "JD").
+ *
+ * @param {string} name - The full name to create an abbreviation from.
+ * @return {string} The 2-letter abbreviation generated from the input name.
  */
 function makeNameAbbreviation(name) {
     // split first and last name
@@ -323,7 +342,11 @@ function makeNameAbbreviation(name) {
 }
 
 
-/** This function is to display the delete svg image */
+/**
+ * Returns an SVG image of a delete icon.
+ *
+ * @return {string} The SVG code for the delete icon.
+ */
 function getDeleteSVG() {
     return `
     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
@@ -341,7 +364,11 @@ function getDeleteSVG() {
 }
 
 
-/** This function is to display the pencil svg image */
+/**
+ * Returns a string containing an SVG image of a pencil.
+ *
+ * @return {string} The SVG image of a pencil.
+ */
 function getPencilSVG() {
     return `
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">

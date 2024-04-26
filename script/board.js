@@ -17,13 +17,15 @@ let showUserDiff;
  *
  */
 async function initBoard() {
+    // detectUser();
     loadActiveUser();
-    userCircle();
+    showUserCircle();
     markActivePage();
     await currentUserTaskLoad();
     await currentUserIdLoad();
     updateBoardHTML();
 }
+
 
 /**
  * This eventlistener starts the rotation of a dragged card
@@ -35,6 +37,7 @@ document.addEventListener('dragstart', function (e) {
     }
 });
 
+
 /**
  * This eventlistener stops the rotation of a dragged card
  *
@@ -44,6 +47,7 @@ document.addEventListener('dragend', function (e) {
         e.target.classList.remove('rotating');
     }
 });
+
 
 /**
  * This function is used to clear all values of the tasks array
@@ -56,6 +60,7 @@ async function clearArray() {
     await currentUserIdSave();
 }
 
+
 /**
  * This functions clears the searchinput and switchs the x symbol of it back to searchsymbol
  *
@@ -66,11 +71,13 @@ function clearSearchInput() {
     document.getElementById('searchClose').classList.add('d-none');
 }
 
+
 /**
  * This eventlistener is fired when the textbox is focused
  *
  */
 document.getElementById('searchInput').addEventListener('focus', changeDivColor);
+
 
 /**
  * This function changes the bordercolor of the searchbar
@@ -80,19 +87,22 @@ function changeDivColor() {
     document.getElementById('fake-searchbar').style.borderColor = '#29ABE2';
 }
 
+
 /**
  * This eventlistener removes the focus of the searchbar
  *
  */
 document.getElementById('searchInput').addEventListener('blur', revertDivColor);
 
+
 /**
  * This function changes the border color of the searchbar back to default
  *
  */
 function revertDivColor() {
-    document.getElementById('fake-searchbar').style.borderColor = '#A8A8A8';
+    document.getElementById('fake-searchbar').style.borderColor = 'rgb(209, 209, 209';
 }
+
 
 /**
  * It prevents the default behavior of the browser (which blocks dragging by default)
@@ -102,6 +112,7 @@ function revertDivColor() {
 function allowDrop(ev) {
     ev.preventDefault();
 }
+
 
 /**
  * This function sets the new status of the element when it's dropped and updates the BoardHtml
@@ -116,6 +127,7 @@ async function moveTo(status) {
     clearSearchInput();
 }
 
+
 /**
  * This function highlights the area which the selected element is dragged at or over
  *
@@ -125,6 +137,7 @@ function highlight(id) {
     document.getElementById(id).classList.add('drag-area-highlight');
 }
 
+
 /**
  * This function removes highlight from selected element
  *
@@ -133,6 +146,7 @@ function highlight(id) {
 function removeHighlight(id) {
     document.getElementById(id).classList.remove('drag-area-highlight');
 }
+
 
 /**
  * This function filters the tasks array for title and description
@@ -150,6 +164,7 @@ function renderSearchResults() {
     renderBoard('done', msgDone, text);
 }
 
+
 /**
  * This function updates the board
  *
@@ -160,6 +175,7 @@ function updateBoardHTML() {
     renderBoard('awaiting-feedback', msgFeedback);
     renderBoard('done', msgDone);
 }
+
 
 /**
  * This function renders tasks with their respective status
@@ -205,6 +221,7 @@ function renderBoard(id, msg, text = '') {
     }
 }
 
+
 /**
  * This function render the assigned user icons on the small task card
  * If there are more than 5 users it shows the number of additional users
@@ -220,7 +237,7 @@ function renderSmallUserIcons(element) {
             let user = users[j];
             let color = colors[j];
             assignedUser += /*html*/ ` 
-           <div class="profile-picture fontSize12" style="background-color:${color}">${user}</div>`;
+            <div class="profile-picture fontSize12" style="background-color:${color}">${user}</div>`;
         }
         diff = users.length - 5;
         showUserDiff = /*html*/ ` 
@@ -231,7 +248,7 @@ function renderSmallUserIcons(element) {
             let user = users[j];
             let color = colors[j];
             assignedUser += /*html*/ ` 
-           <div class="profile-picture fontSize12" style="background-color:${color}">${user}</div>`;
+            <div class="profile-picture fontSize12" style="background-color:${color}">${user}</div>`;
         }
         diff = '';
         showUserDiff = '';
@@ -239,18 +256,15 @@ function renderSmallUserIcons(element) {
     return assignedUser;
 }
 
+
 /**
- * This function generates a small task card based on the given element
+ * Retrieves the image URL based on the priority of the element.
  *
- * @param {Object} - The task element
- * @returns {string} - The generated HTML string represFenting the task
+ * @param {Object} element - The element containing priority information.
+ * @return {string} The URL of the image corresponding to the priority.
  */
-function generateTaskHTML(element) {
-    // console.log(element)
-    updateProgressbar(element);
-    let i = element['id'];
-    let assignedUser = renderSmallUserIcons(element);
-    let imageUrl;
+function getPriorityImageUrl(element) {
+    let imageUrl = '';
     if (element['priority'] == 'low') {
         imageUrl = './img/prio-low.svg';
     }
@@ -263,11 +277,25 @@ function generateTaskHTML(element) {
     if (element['priority'] == ''){
         imageUrl = '';
     }
+    return imageUrl;
+}
 
+
+/**
+ * Generates the HTML for a task element.
+ *
+ * @param {Object} element - The task element to generate HTML for.
+ * @return {string} The generated HTML for the task element.
+ */
+function generateTaskHTML(element) {
+    updateProgressbar(element);
+    let i = element['id'];
+    let assignedUser = renderSmallUserIcons(element);
+    let imageUrl = getPriorityImageUrl(element);
     let mover = /*html*/ `  
     <div id="move-dropup">
         <div class="dropup">
-            <button class="dropbtn">Move</button>
+            <button class="drop-btn">Move</button>
             <div class="dropup-content">
                 <a href="#" onclick="switchStatusToDo(${i})">To Do</a>
                 <a href="#" onclick="switchStatusToInProgress(${i})">In Progress</a>
@@ -300,6 +328,7 @@ function generateTaskHTML(element) {
     `;
 }
 
+
 /**
  * Changes the status of a task with the specified ID to "toDo".
  *
@@ -311,6 +340,7 @@ async function switchStatusToDo(i) {
     await currentUserTaskSave();
     updateBoardHTML();
 }
+
 
 /**
  * Changes the status of a task with the specified ID to "in-progress".
@@ -324,6 +354,7 @@ async function switchStatusToInProgress(i) {
     updateBoardHTML();
 }
 
+
 /**
  * Changes the status of a task with the specified ID to "awaiting-feedback".
  *
@@ -336,6 +367,7 @@ async function switchStatusToAwaitFeedback(i) {
     updateBoardHTML();
 }
 
+
 /**
  * Changes the status of a task with the specified ID to "done".
  *
@@ -347,6 +379,7 @@ async function switchStatusToDone(i) {
     await currentUserTaskSave();
     updateBoardHTML();
 }
+
 
 /**
  *This function updates the progress bar based on the finished subtasks
@@ -375,6 +408,7 @@ function updateProgressbar(element) {
     }
 }
 
+
 /**
  * This function sets the global variable 'currentDraggedElement' with the index of the task having the specified ID
  *
@@ -384,6 +418,7 @@ async function startDragging(id) {
     let index = tasks.findIndex(task => task.id === id);
     currentDraggedElement = index;
 }
+
 
 /**
  * This function finds the task by its ID and triggers rendering its detailed view

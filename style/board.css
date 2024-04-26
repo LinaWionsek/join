@@ -2,30 +2,29 @@ body {
     margin: 0;
     height: 100vh;
     width: 100vw;
-    /* background-color: var(--main-background-color) !important; */
 }
+
 .contentposition {
     padding-left: 96px;
     padding-right: 96px;
     display: flex;
-    /* flex-direction: column; */
     align-items: flex-start;
     width: 100%;
     position: relative;
 }
+
 #move-dropup {
     display: none;
 }
 
 .min-height160 {
-
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.dropbtn {
+.drop-btn {
     background: #2A3647;
     border-radius: 10px;
     border: 1px solid #2A3647;
@@ -70,19 +69,12 @@ body {
     display: block;
 }
 
-.dropup:hover .dropbtn {
+.dropup:hover .drop-btn {
     background-color: #29ABE2;
     border: 1px solid #29ABE2;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-
-
-
-
-/* ----------------------------------------------------------------------------------------------------- */
-
-/* added from summary.html */
 .content {
     display: none !important;
     z-index: 0 !important;
@@ -185,57 +177,37 @@ body {
     cursor: pointer;
 }
 
-#searchResults {
-    flex-direction: column;
-    gap: 8px;
-    flex-wrap: wrap;
-}
-
 .search-category-container {
     display: flex;
 }
 
+.add-task-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 16px;
+    gap: 5px;
+    height: 56px;
+    min-width: 120px;
+    width: auto;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 400;
+    gap: 4px;
+    white-space: nowrap;
+    background-color: #2A3647;
+    color: white;
+}
 
 #button-add-task {
     white-space: nowrap;
     background-color: var(--main-color);
 }
 
-/* .button {
-    display: flex;
-    width: fit-content;
-    padding: 8px 16px;
-    color: white;
-    font-weight: 500;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
-    white-space: nowrap;
-    border-radius: 10px;
-    border: 1px solid #2A3647;
-    background: #2A3647;
-} */
-
-/* .button:hover {
-    background-color: #29ABE2;
-    border: 1px solid #29ABE2;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-} */
-
-/* .button:active {
-    background-color: #091931;
-    border: 1px solid #091931;
-} */
-
-/* .button img {
-    height: 24px;
-    width: 24px;
-} */
-
-/* --------------------------------------- */
 .content-board {
     position: absolute;
-    top: 206px; /* 246 */
+    top: 206px;
     display: flex;
     flex-direction: column;
     left: 243px;
@@ -244,9 +216,6 @@ body {
     max-height: calc(100vh - 246px);
     overflow-y: auto;
 }
-
-
-
 
 .board-main-section {
     width: 100%;
@@ -275,9 +244,6 @@ body {
     border-radius: 8px;
 }
 
-
-/* --------------------------------------- */
-
 .status-empty {
     display: flex;
     justify-content: center;
@@ -300,7 +266,6 @@ body {
     gap: 10px;
     border-radius: 10px;
     padding: 20px 15px 20px 15px;
-    /* scrollbar-width: thin; */
 }
 
 .drag-area-highlight {
@@ -392,8 +357,6 @@ body {
     padding: 20px;
 }
 
-
-
 .task-detail-font-color {
     color: #42526E;
     width: 100px;
@@ -452,7 +415,6 @@ body {
 .user-details {
     display: flex;
     align-items: center;
-    /* width: 400px; */
 }
 
 .user-name {
@@ -516,13 +478,12 @@ body {
 }
 
 
-
-
 @media(max-width:1360px) {
     .contentposition {
         padding-left: 50px;
         padding-right: 50px;
     }
+
     .search-board-container {
         padding-left: 50px;
         padding-right: 50px;
@@ -534,10 +495,10 @@ body {
         padding-left: 30px;
         padding-right: 0px;
     }
+
     .statusheadline {
         width: 240px;
     }
-
 
     .search-board-container {
         padding-left: 30px;
@@ -563,7 +524,6 @@ body {
     .task-detail {
         width: 50vw;
     }
-
 }
 
 @media(max-width:1000px) {
@@ -602,14 +562,11 @@ body {
         max-width: calc(100vw - 180px);
         padding-bottom: 15px;
     }
-
-
 }
 
 @media(max-width:768px) {
     .content-board {
         position: absolute;
-        /* top: 300px; */
         top: 150px;
         bottom: 65px;
         display: flex;
@@ -627,9 +584,14 @@ body {
         padding: 0 16px;
         width: 100vw !important;
     }
+
     .search-category-container {
         flex-direction: column;
         height: 50px;
+    }
+
+    .add-task-button {
+        min-width: 50px;
     }
 
     .task {
@@ -685,19 +647,9 @@ body {
         display: flex;
     }
 
-    /* .button {
-        padding: 4px 8px;
-    } */
-
     .statusheadline img {
         height: 30px;
         width: 30px;
-    }
-
-    #button-ad-task {
-        /* position: absolute;
-        top: 8px;
-        right: 16px; */
     }
 
     .drag-area {
@@ -714,7 +666,6 @@ body {
     #move-dropup {
         display: block;
     }
-
 }
 
 @media(max-width:500px) {

@@ -172,7 +172,7 @@ function createHTML(i) {
             <div class="task-detail-content-container">
                 <div class="task-detail-top">
                     <div class="task-detail-category" style="${tasks[i]['categoryColor']}"> ${tasks[i]['category']}</div>
-                    <img onclick="closeTask()" src="img/close.svg" alt="close" class="close-hover">
+                    <img onclick="slideOut('task_card', 'board_popup_section', 200)" src="img/close.svg" alt="close" class="close-hover">
                 </div>
                 <div class="task-detail-content">
                     <div class="task-detail-title">
@@ -252,7 +252,8 @@ function findAssignedUser(i) {
  *
  */
 function closeTask() {
-    slideOut('task_card', 'board_popup_section', 200);
+    document.getElementById('task_card').classList.add('d-none');
+    document.getElementById('board_popup_section').classList.add('d-none');
 }
 
 /**

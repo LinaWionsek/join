@@ -1,7 +1,10 @@
 let dialog = document.getElementById('dialog');
 
+
 /**
  * Initializes the login sequence by setting the active user, starting animations,
+ * loading the login dialog, and loading existing users.
+ *
  */
 async function initLogin() {
     activeUser = {
@@ -13,20 +16,24 @@ async function initLogin() {
     await loadUsers();
 }
 
+
 /**
- * Populates the login dialog with the login template.
+ * Fills the login dialog with the login template.
+ *
  */
 function loadLogIn() {
     dialog.innerHTML = loadTempleteLogIn();
     let rememberedEmail = localStorage.getItem('rememberMe');
     if (rememberedEmail) {
         document.getElementById('login_email').value = rememberedEmail;
-        document.getElementById('myCheckbox').checked = true; // Setzen Sie das "Remember me" Kästchen als angekreuzt
+        document.getElementById('checkbox_id').checked = true; // Setzen Sie das "Remember me" Kästchen als angekreuzt
     }
 }
 
+
 /**
- * Starts the join-logo animation if the document referrer is empty.
+ * Starts the join-logo animation by adding the 'animated' class to the '.join-logo-contain' and '.join-logo' elements.
+ *
  */
 function startAnimation() {
     document.querySelector('.join-logo-contain').classList.add('animated');
@@ -34,15 +41,19 @@ function startAnimation() {
     document.querySelector('.join-logo').classList.add('animated');
 }
 
+
 /**
  * Redirects the user to the registration page.
+ *
  */
 function loadRegister() {
     window.location.href = './register.html';
 }
 
+
 /**
  * Validates user credentials and logs them in if valid.
+ *
  */
 function login() {
     let email = document.getElementById('login_email');
@@ -58,25 +69,47 @@ function login() {
     }
 }
 
+
+/**
+ * Verifies the login credentials of a user.
+ *
+ * @param {Object} email - The email input element.
+ * @param {Object} password - The password input element.
+ * @return {Object|undefined} - The user object if the credentials are valid, undefined otherwise.
+ */
 function verifyLoginCredentials(email, password) {
     return allUsers.find(u => u.email === email.value && u.password === password.value);
 }
 
+
+/**
+ * Handles the remember me feature based on the checkbox status.
+ *
+ * @param {Object} email - The email input element.
+ */
 function handleRememberMe(email) {
-    if (document.getElementById('myCheckbox').checked) {
+    if (document.getElementById('checkbox_id').checked) {
         localStorage.setItem('rememberMe', email.value);
     } else {
         localStorage.removeItem('rememberMe');
     }
 }
 
+
+/**
+ * Sets the active user based on the provided email.
+ *
+ * @param {Object} email - The email input element.
+ */
 function setActiveUser(email) {
     let currentUser = allUsers.findIndex(u => u.email === email.value);
     activeUser['name'] = allUsers[currentUser].name;
 }
 
+
 /**
  * Logs in a user as a guest and fills default data arrays.
+ *
  */
 function guestLogin() {
     activeUser.name = 'Guest';
@@ -85,9 +118,12 @@ function guestLogin() {
     window.location.href = './summary.html';
 }
 
+
 /**
  * Fills default test data for the guest login. This data includes sample contacts, tasks, and categories.
+ *
  */
+
 function fillTestArray() {
     contactsArray = [
         {
@@ -170,8 +206,11 @@ function fillTestArray() {
     currentUserContactsSave();
 }
 
+
 /**
- * Adds a red border to specified input elements indicating an error.
+ * Adds a red border to the specified input elements with the IDs 'login_email' and 'login_password',
+ * indicating an error.
+ *
  */
 function loadRedBorderInput() {
     let inputIds = ['login_email', 'login_password'];
@@ -180,8 +219,10 @@ function loadRedBorderInput() {
     }
 }
 
+
 /**
  * Displays warning text templates for specified elements.
+ *
  */
 function loadWarningTextTamplate() {
     let warningIds = ['warning-text-passwort', 'warning-text-email'];
@@ -190,13 +231,16 @@ function loadWarningTextTamplate() {
     }
 }
 
+
 /**
  * Returns the HTML template for the login form.
+ *
+ * @return {string} The HTML template for the login form.
  */
 function loadTempleteLogIn() {
     return /*html*/ `
     <form onsubmit="login(); return false;">
-            <div class="logInTitle">
+            <div class="login-title">
                 <div class="fontSize61"><b>Log in</b></div>
                 <div class="underline"></div>
             </div>
@@ -216,8 +260,8 @@ function loadTempleteLogIn() {
             </div>
 
             <div class="remember-me-container">
-                <div class="checkboxRememberMeContainer">
-                    <input type="checkbox" name="myCheckbox" id="myCheckbox">
+                <div class="checkbox-container">
+                    <input type="checkbox" name="myCheckbox" id="checkbox_id">
                     <label for=" fontSize16">Remember me</label>
                 </div>
 

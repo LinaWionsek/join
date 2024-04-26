@@ -25,8 +25,6 @@ ul {
 }
 
 .left-popup {
-    /* position: relative; */
-    /* height: 100%; */
     width: 350px;
     background: #2A3647;
     border-radius: 30px;
@@ -46,7 +44,6 @@ ul {
     background: #29ABE2;
     border-radius: 1.5px;
 }
-
 
 #left_popup_content {
     display: flex;
@@ -74,7 +71,6 @@ ul {
     align-items: center;
     margin-left: 48px;
     margin-right: 48px;
-    /* margin-bottom: 100px; */
 }
 
 .center-popup-category-content {
@@ -98,7 +94,6 @@ ul {
 }
 
 .right-popup {
-    /* position: relative; */
     flex-direction: column;
     justify-content: flex-end;
     padding: 66px 46px 66px 0px;
@@ -126,7 +121,7 @@ ul {
     justify-content: center;
 }
 
-.colorSettingBox {
+.color-settings-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -138,7 +133,7 @@ ul {
     border: 1px solid #D1D1D1;
 }
 
-.selectedColor {
+.selected-color {
     width: 25px !important;
     height: 25px !important;
     border: 2px solid #2A3647;
@@ -184,24 +179,8 @@ ul {
     flex-direction: column;
     width: 100%;
     overflow-y: auto;
-
     margin-top: 106px;
     padding-left: 243px;
-
-    /* height: auto; */
-
-    /* position: absolute;
-    
-    max-width: calc(100vw - 243px);
-    max-height: calc(100vh - 246px);
-    
-    top: 206px;
-    left: 243px;
-
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    overflow-y: auto; */
 }
 
 .task-content {
@@ -210,7 +189,6 @@ ul {
     justify-content: space-between;
     width: 100%;
 }
-
 
 .task-contentposition {
     padding-left: 96px;
@@ -221,15 +199,12 @@ ul {
     max-width: 1000px;
 }
 
-
 .task-header {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
     width: 100%;
     height: 110px;
-    /* position: fixed; */
-    /* margin-top: 96px; */
     left: 243px;
     top: 0px;
     z-index: 2;
@@ -246,7 +221,6 @@ ul {
     padding-right: 24px;
     gap: 24px;
     width: 400px;
-    /* min-width: 400px; */
 }
 
 .task-vector {
@@ -259,7 +233,6 @@ ul {
     padding-left: 24px;
     gap: 24px;
     width: 400px;
-    /* min-width: 400px; */
 }
 
 .seperator {
@@ -276,6 +249,10 @@ ul {
     display: flex;
     padding: 12px 20px;
     margin-top: 8px;
+}
+
+.custom-input:focus-within {
+    border: 1px solid #29ABE2;
 }
 
 .custom-input input {
@@ -314,10 +291,6 @@ input::-webkit-calendar-picker-indicator {
     gap: 8px;
 }
 
-/* prio normal*/
-/* box-shadow: 5px 5px 12px #cacaca*/
-/* selected */
-/* box-shadow: 5px 5px 12px rgba(202, 202, 202, 0) */
 .prio-btn {
     background-color: white;
     gap: 8px !important;
@@ -346,9 +319,6 @@ input::-webkit-calendar-picker-indicator {
     font-weight: bold !important;
 }
 
-
-
-
 #no_profile_img {
     display: flex;
     justify-content: center;
@@ -368,11 +338,7 @@ input::-webkit-calendar-picker-indicator {
     position: absolute;
     width: 64px;
     height: 64px;
-    /* top: 264px;
-    left: 50%;
-    transform: translate(-50%, -50%); */
 }
-
 
 #contact_form {
     display: flex;
@@ -387,21 +353,18 @@ input::-webkit-calendar-picker-indicator {
 input[type=text] {
     background: url('../img/lock.svg') no-repeat scroll;
     background-position: center right;
-    /* 16px */
     background-origin: content-box;
 }
 
 input[type=email] {
     background: url('../img/mail.svg') no-repeat scroll;
     background-position: center right -2px;
-    /* DON'T DELETE IMPORTANT FOR SYMETRY! */
     background-origin: content-box;
 }
 
 input[type=tel] {
     background: url('../img/call.svg') no-repeat scroll;
     background-position: center right;
-    /* 20px */
     background-origin: content-box;
 }
 
@@ -410,10 +373,6 @@ input[type=tel] {
     justify-content: space-between;
 }
 
-
-
-
-
 #category_list_container {
     display: flex;
     flex-direction: column;
@@ -421,10 +380,14 @@ input[type=tel] {
 }
 
 .cateogry-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
     background-color: white;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    /* margin-bottom: 8px; */
+    margin-top: 4px;
+    margin-bottom: 4px;
 }
 
 .cateogry-list-item {
@@ -433,23 +396,19 @@ input[type=tel] {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    height: 42.2px;
     padding-left: 32px;
     padding-right: 32px;
     padding-top: 4px;
     padding-bottom: 4px;
-    border-bottom: 1px solid #D1D1D1;
+    border: 1px solid #D1D1D1;
     border-radius: 10px;
 }
 
 .cateogry-list-item:hover {
-    background-color: #29ABE2;
-    color: white;
+    background-color: #EEE;
     cursor: pointer;
 }
-
-/* .cateogry-list-item:hover img{
-    background-image: url();
-}  */
 
 .delete-category-container {
     display: flex;
@@ -460,21 +419,14 @@ input[type=tel] {
 
 .delete-category-container img:hover {
     cursor: pointer;
-    background-color: #2A3647;
     border-radius: 5px;
 }
 
-.colorCircle {
+.color-circle {
     width: 20px;
     height: 20px;
-    border: 2px solid rgba(0, 0, 0);
     border-radius: 50%;
 }
-
-/* .colorCircle:hover {
-    cursor: pointer;
-    box-shadow: 2px 4px 4px 2px rgba(0, 0, 0, 0.30);
-} */
 
 .delete-icon:hover,
 .edit-icon:hover {
@@ -490,7 +442,7 @@ input[type=tel] {
 }
 
 .selected:hover {
-    background-color: #2A3647;
+    background-color: #2A3647 !important;
 }
 
 .subtask-edit-input {
@@ -520,7 +472,6 @@ input[type=tel] {
     width: 24px;
 }
 
-
 .task-bottom {
     display: flex;
     justify-content: space-between;
@@ -540,8 +491,12 @@ input[type=tel] {
     gap: 8px;
 }
 
-#contact_list {
+.contact-list {
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin: 4px 0px 4px 0px;
 }
 
 .contact-logo {
@@ -565,37 +520,38 @@ input[type=tel] {
     padding-top: 4px;
     padding-bottom: 4px;
     border-radius: 10px;
+    border: 1px solid #D1D1D1;
 }
 
 .contact-box:hover {
     cursor: pointer;
+    background-color: #EEE;
 }
 
 .contact {
     display: flex;
     align-items: center;
     gap: 16px;
+    margin-right: -10px;
 }
 
 #selected_contacts {
     display: flex;
     flex-wrap: wrap;
+    margin-top: 4px;
 }
 
-/* EDIT */
-
-.addTaskPopupPosition {
+.task-edit-popup {
     display: flex;
     flex-direction: column;
     max-width: calc(100vw - 200px);
     max-height: calc(100vh - 200px);
-    width: 60vw;
+    width: 70vw;
     background-color: white;
     border-radius: 30px;
 }
 
-
-.contentPositionAddTaskPopup {
+.task-popup-content {
     padding: 46px 66px;
     display: flex;
     flex-direction: column;
@@ -605,32 +561,34 @@ input[type=tel] {
     overflow-y: auto;
 }
 
-.contentPositionAddTaskPopup form {
+.task-popup-content form {
     width: 100%;
 }
 
-/* task header */
-.addTaskPopupHeadlineContainer {
-    /* position: fixed; */
+.task-popup-headline-container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     top: 130px;
     left: 196px;
     right: 196px;
-    /* max-width: calc(100vw - 392px); */
     padding-bottom: 10px;
     width: 100%;
     background-color: white;
 }
 
 
+@media (min-width: 2100px) {
+    .task-edit-popup {
+        width: 40vw !important;
+    }
+}
 
-
-
-
-
-
+@media (min-width: 1600px) {
+    .task-edit-popup {
+        width: 50vw;
+    }
+}
 
 @media (max-width: 1280px) {
     .task-header {
@@ -641,6 +599,10 @@ input[type=tel] {
     .task-contentposition {
         padding-left: 50px;
         padding-right: 50px;
+    }
+
+    .task-edit-popup {
+        width: 80vw;
     }
 }
 
@@ -724,7 +686,7 @@ input[type=tel] {
         width: 100%;
     }
 
-    .contentPositionAddTaskPopup {
+    .task-popup-content {
         padding-left: 24px;
         padding-right: 24px;
     }
@@ -742,7 +704,7 @@ input[type=tel] {
 }
 
 @media (max-width: 768px) {
-    #cancelBtnMobileId{
+    #cancel_btn {
         display: none;
     }
 
@@ -750,7 +712,7 @@ input[type=tel] {
         justify-content: center;
     }
 
-    .contact-popup-buttons{
+    .contact-popup-buttons {
         justify-content: center;
     }
 
@@ -777,7 +739,7 @@ input[type=tel] {
         width: 100% !important;
     }
 
-    .addTaskPopupPosition {
+    .task-edit-popup {
         max-width: 100vw;
         max-height: 100vh;
         height: 100vh;
@@ -787,15 +749,11 @@ input[type=tel] {
     .task-bottom {
         display: flex;
         justify-content: space-between;
-        /* align-items: flex-end; */
-
         padding-top: 0px;
         padding-bottom: 81px;
         margin-top: 48px;
         gap: 24px;
-        /* align-items: center; */
         width: 100%;
-        /* background-color: white; */
     }
 
     .task-bottom-edit {
@@ -803,7 +761,6 @@ input[type=tel] {
         gap: 24px;
         width: 100%;
     }
-
 }
 
 @media (max-width: 400px) {
@@ -828,11 +785,13 @@ input[type=tel] {
         justify-content: flex-start;
         width: 100%;
     }
+
     .right-popup {
         width: 100%;
         padding-left: 20px;
         padding-right: 20px;
     }
+
     .custom-select {
         width: 280px;
     }

@@ -159,13 +159,7 @@
     /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
-/* @media (max-width: 768px){
-    .fontSize20 {
-        font-size: 17px;
-    }
-} */
-
-@media (max-width: 400px){
+@media (max-width: 400px) {
     .fontSize20 {
         font-size: 16px;
     }

@@ -7,7 +7,6 @@ let activeUser = {
     'name': '',
 }
 
-
 /** Represents the currently selected index in the task list. */
 let selectedIndex = null;
 let selectedColorIndex = null;
@@ -34,83 +33,35 @@ let customCategories = [{
 
 /** Represents the current ID for tasks. */
 let currentId = 0;
+
 /** Represents the status group for tasks. */
 let statusGroup = ''
-/** * Collection of subtasks associated with tasks. */
+
 /** Represents the currently selected category with its name and color. */
 let currentCategorySelected = [{
     'name': '',
     'color': '',
 }];
+
 /** Represents the currently selected priority. */
 let currentPrioSelected = "";
 
-
+/** * Collection of subtasks associated with tasks (unfinished). */
 let subTaskCollection = [];
+
 /** Collection of finished subtasks. */
 let subtasksFinish = [];
+
 /** Collection of contacts associated with tasks. */
 let contactCollection = [];
 
 /** Task ID for editing tasks. */
 let taskIdForEdit = '';
+
 /** Represents the status for editing tasks. */
 let statusEdit = '';
-/** Represents the task being edited. */
-// let editTask = '';
-// ;
 
-//save and load task elements
 
-/**
- * Saves various task-related elements to local storage.
- */
-// function saveTaskElements() {
-//     localStorage.setItem('categoryCollectionAsText', JSON.stringify(currentCategorySelected));
-//     localStorage.setItem('currentPrioAsText', JSON.stringify(currentPrioSelected));
-//     localStorage.setItem('subTaskCollectionAsText', JSON.stringify(subTaskCollection));
-//     localStorage.setItem('contactCollectionAsText', JSON.stringify(contactCollection));
-//     localStorage.setItem('selectedIndexAsText', JSON.stringify(selectedIndex));
-//     localStorage.setItem('selectedColorIndexAsText', JSON.stringify(selectedColorIndex));
-//     localStorage.setItem('subTaskFinishAsText', JSON.stringify(subtasksFinish));
-//     localStorage.setItem('taskIdAsText', JSON.stringify(taskIdForEdit));
-//     localStorage.setItem('statusAsText', JSON.stringify(statusEdit));
-// }
-
-/**
- * Loads various task-related elements from local storage and applies them.
- */
-// function loadTaskElements() {
-//     let currentCategoryLoad = localStorage.getItem('categoryCollectionAsText');
-//     let currentPrioLoad = localStorage.getItem('currentPrioAsText');
-//     let subTaskCollectionLoad = localStorage.getItem('subTaskCollectionAsText');
-//     let contactCollectionLoad = localStorage.getItem('contactCollectionAsText');
-//     let selectedIndexLoad = localStorage.getItem('selectedIndexAsText');
-//     let selectedColorLoad = localStorage.getItem('selectedColorIndexAsText');
-//     let subTaskFinishLoad = localStorage.getItem('subTaskFinishAsText');
-//     let taskIdLoad = localStorage.getItem('taskIdAsText');
-//     let statusLoad = localStorage.getItem('statusAsText');
-//     returnLoad(currentCategoryLoad, currentPrioLoad, subTaskCollectionLoad, contactCollectionLoad, selectedIndexLoad, selectedColorLoad, subTaskFinishLoad, taskIdLoad, statusLoad);
-// }
-
-/**
- * Applies loaded task elements values to respective global variables.
- */
-// function returnLoad(currentCategoryLoad, currentPrioLoad, subTaskCollectionLoad, contactCollectionLoad, selectedIndexLoad, selectedColorLoad, subTaskFinishLoad, taskIdLoad, statusLoad) {
-//     if (currentCategoryLoad && currentPrioLoad && subTaskCollectionLoad && contactCollectionLoad && selectedIndexLoad && selectedColorLoad && subTaskFinishLoad && taskIdLoad && statusLoad) {
-//         currentCategorySelected = JSON.parse(currentCategoryLoad);
-//         currentPrioSelected = JSON.parse(currentPrioLoad);
-//         subTaskCollection = JSON.parse(subTaskCollectionLoad);
-//         contactCollection = JSON.parse(contactCollectionLoad);
-//         selectedIndex = JSON.parse(selectedIndexLoad);
-//         selectedColorIndex = JSON.parse(selectedColorLoad);
-//         subtasksFinish = JSON.parse(subTaskFinishLoad);
-//         taskIdForEdit = JSON.parse(taskIdLoad);
-//         statusEdit = JSON.parse(statusLoad);
-//     }
-// }
-
-//------------tasks----------------------//
 /**
  * Checks if a certain key exists in storage, if not, sets a default value.
  * @param {string} key - Key to check in storage.
@@ -125,6 +76,7 @@ async function initializeStorage(key, initialValue) {
         await setItem(key, JSON.stringify(initialValue));
     }
 }
+
 
 /**
  * Asynchronously saves the current user's tasks. 
@@ -161,11 +113,12 @@ async function currentUserTaskLoad() {
     }
 }
 
-//current id
+
 /**
  * Asynchronously saves the current user's ID. 
  * If the active user is 'Guest', the ID is saved to local storage. 
  * Otherwise, it is saved to remote storage.
+ *
  */
 async function currentUserIdSave() {
     if (activeUser.name === 'Guest') {
@@ -175,10 +128,12 @@ async function currentUserIdSave() {
     }
 }
 
+
 /**
  * Asynchronously loads the current user's ID. 
  * If the active user is 'Guest', the ID is loaded from local storage. 
  * Otherwise, it is fetched from remote storage.
+ *
  */
 async function currentUserIdLoad() {
     if (activeUser.name === 'Guest') {
@@ -195,7 +150,7 @@ async function currentUserIdLoad() {
     }
 }
 
-//Categorys
+
 /**
  * Asynchronously saves the current user's categories. 
  * If the active user is 'Guest', the categories are saved to local storage. 
@@ -208,6 +163,7 @@ async function currentUserCategorysSave() {
         await setItem('customCategories', JSON.stringify(customCategories));
     }
 }
+
 
 /**
  * Asynchronously loads the current user's categories. 
@@ -229,7 +185,7 @@ async function currentUserCategorysLoad() {
     }
 }
 
-//Contacts
+
 /**
  * Asynchronously saves the current user's contacts. 
  * If the active user is 'Guest', the contacts are saved to local storage. 
@@ -245,7 +201,11 @@ async function currentUserContactsSave() {
     }
 }
 
-/** * This function is to load contacts or display a error message */
+
+/**
+ * Asynchronously loads the contacts of the current user.
+ *
+ */
 async function currentUserContactsLoad() {
     if (activeUser.name === 'Guest') {
         let contactsLoad = localStorage.getItem('contactsAsText');
@@ -264,16 +224,19 @@ async function currentUserContactsLoad() {
     }
 }
 
-//Activ user
+
 /**
  * Saves the current active user to local storage.
+ *
  */
 function saveActiveUser() {
     localStorage.setItem('activeUserAsText', JSON.stringify(activeUser));
 }
 
+
 /**
  * Loads the current active user from local storage.
+ * 
  */
 function loadActiveUser() {
     let activeUserLoad = localStorage.getItem('activeUserAsText');
@@ -282,9 +245,13 @@ function loadActiveUser() {
     }
 }
 
-//save and load remote
+
 /**
  * Sets a key-value pair in the remote storage.
+ *
+ * @param {string} key - The key to set in the storage.
+ * @param {*} value - The value to associate with the key.
+ * @return {Promise<any>} A promise that resolves to the response from the server.
  */
 async function setItem(key, value) {
     const payload = { key, value, token: STORAGE_TOKEN };
@@ -292,8 +259,12 @@ async function setItem(key, value) {
         .then(res => res.json());
 }
 
+
 /**
  * Retrieves a value from the remote storage by its key.
+ *
+ * @param {string} key - The key used to retrieve the value.
+ * @return {Promise<any>} A promise that resolves to the retrieved value.
  */
 async function getItem(key) {
     const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
@@ -303,5 +274,103 @@ async function getItem(key) {
         }
         throw `Could not find data with key "${key}".`;
     });
+}
+
+
+/**
+ * Detects the user and performs necessary actions if the user is a guest.
+ *
+ */
+function detectUser() {
+    if (activeUser.name == '') {
+        activeUser.name = 'Guest';
+        saveActiveUser();
+        fillTestArray();
+    }
+}
+
+
+/**
+ * Fills default test data including contacts, tasks, and categories.
+ * 
+ */
+function fillTestArray() {
+    contactsArray = [
+        {
+            'name': 'Bernhard Sigl',
+            'nameAbbreviation': 'BS',
+            'email': 'B-Test@web.de',
+            'phone': '01631234567',
+            'color': '#006400',
+        },
+        {
+            'name': 'David Peterka',
+            'nameAbbreviation': 'DP',
+            'email': 'test@web.de',
+            'phone': '123456',
+            'color': '#00008B',
+        },
+        {
+            'name': 'Lina Wionsek',
+            'nameAbbreviation': 'LW',
+            'email': 'test2@web.de',
+            'phone': '123456',
+            'color': '#8B0000',
+        },
+    ];
+    tasks = [
+        {
+            'id': 3,
+            'status': 'toDo',
+            'category': 'Technical Task',
+            'categoryColor': 'background: #1FD7C1',
+            'title': 'first guest task',
+            'description': 'text for task',
+            'dueDate': '2023-10-22',
+            'priority': 'urgent',
+            'contactName': ['Bernhard Sigl', 'David Peterka', 'Lina Wionsek'],
+            'contactColor': ['#006400', '#00008B', '#8B0000'],
+            'contactAbbreviation': ['BS', 'DP', 'LW'],
+            'subtasksInProgress': ['first subtask', 'second subtask', 'third subtask'],
+            'subtasksFinish': [],
+        },
+        {
+            'id': 4,
+            'status': 'toDo',
+            'category': 'New Category',
+            'categoryColor': 'background: #FF6347',
+            'title': 'second guest task',
+            'description': 'text for task',
+            'dueDate': '2023-10-24',
+            'priority': 'medium',
+            'contactName': ['Bernhard Sigl', 'David Peterka', 'Lina Wionsek'],
+            'contactColor': ['#006400', '#00008B', '#8B0000'],
+            'contactAbbreviation': ['BS', 'DP', 'LW'],
+            'subtasksInProgress': ['first subtask', 'second subtask', 'third subtask'],
+            'subtasksFinish': [],
+        },
+        {
+            'id': 5,
+            'status': 'awaiting-feedback',
+            'category': 'User Story',
+            'categoryColor': 'background: #0038FF',
+            'title': 'third guest task',
+            'description': 'text for task',
+            'dueDate': '2023-10-21',
+            'priority': 'urgent',
+            'contactName': ['Bernhard Sigl', 'David Peterka', 'Lina Wionsek'],
+            'contactColor': ['#006400', '#00008B', '#8B0000'],
+            'contactAbbreviation': ['BS', 'DP', 'LW'],
+            'subtasksInProgress': ['first subtask', 'second subtask', 'third subtask'],
+            'subtasksFinish': [],
+        },
+    ];
+    customCategories[0] = {
+        'name': ['New Category'],
+        'color': ['background: #FF6347'],
+    };
+    currentUserTaskSave();
+    currentUserCategorysSave();
+    currentUserContactsSave();
 }
 
