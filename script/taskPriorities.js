@@ -1,5 +1,3 @@
-// #region Priority
-//--------------------------------------------Priory--------------------------------------------//
 function selectPriority(prio) {
     if (currentPrioSelected != prio) {
         if (prio == 'low') {
@@ -65,5 +63,3 @@ function selectUrgentPriority(prio) {
     document.getElementById('prio_medium').src = `./img/prio-medium.svg`;
     document.getElementById('button_medium').classList.remove('prio-medium');
 }
-
-// #endregion

@@ -1,5 +1,3 @@
-// #region Contacts
-//--------------------------------------------Contacts--------------------------------------------//
 function toggleContactList() {
     if (contactListOpen || searchingContact) {
         toggleVisibility('contact_list_container', true);
@@ -116,9 +114,6 @@ function searchContacts() {
     toggleContactList();
 }
 
-// #endregion
-// #region Contact Creation
-//--------------------------------------------Contact Creation--------------------------------------------//
 function openAddContactPopup() {
     slide('task_popup', 'task_popup_section');
     renderAddContactLeftContent();
@@ -202,5 +197,3 @@ function getColor() {
     setItem('nextColorIndex', JSON.stringify(nextColorIndex));
     return color;
 }
-
-// #endregion

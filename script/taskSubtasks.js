@@ -1,6 +1,3 @@
-// #region Subtasks
-//--------------------------------------------Subtasks--------------------------------------------//
-
 function addSubtask() {
     let input = document.getElementById('subtasks_input');
     if (input.value === '') {
@@ -67,4 +64,3 @@ function deleteSubtask(i) {
     subTaskCollection.splice(i, 1);
     renderSubtasks();
 }
-// #endregion

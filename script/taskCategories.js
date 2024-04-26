@@ -1,5 +1,3 @@
-// #region Categories
-//--------------------------------------------Categories--------------------------------------------//
 function toggleCategoryList() {
     if (categoryListOpen) {
         openCategoryList();
@@ -113,9 +111,7 @@ function updateSelectedCategory() {
         toggleVisibility('category_select_arrow_down', true);
     }
 }
-// #endregion
-// #region Category Creation
-//--------------------------------------------Category Creation--------------------------------------------//
+
 function cancelCategorySelection() {
     toggleVisibility('category_list_container', false);
     document.getElementById('category_input').value = 'Select task category';
@@ -251,4 +247,3 @@ function clearAddCategoryInput() {
     document.getElementById('createCategoryInput').value = '';
     selectedColorIndex = null;
 }
-// #endregion

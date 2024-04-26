@@ -16,6 +16,7 @@ async function init() {
     resetTaskForm();
 }
 
+
 /**
  * Sets the status group to the provided status.
  */
@@ -23,6 +24,10 @@ function statusSelected(status) {
     statusGroup = status;
 }
 
+
+/**
+ * Handles the form submission by checking input fields and adding red borders if necessary.
+ */
 async function submitForm() {
     let titleInput = document.getElementById('task_title');
     let dateInput = document.getElementById('date_picker');
@@ -37,6 +42,11 @@ async function submitForm() {
     }
 }
 
+
+/**
+ * Adds a new task to the task list, saves the user ID and task, and handles task completion.
+ *
+ */
 async function addTask() {
     let task = getTaskTemplate();
     tasks.push(task);
@@ -48,6 +58,12 @@ async function addTask() {
     handleTaskCompletion(currentPage);
 }
 
+
+/**
+ * Returns a template object for a new task with various properties filled in from the current state.
+ *
+ * @return {Object} The task template object.
+ */
 function getTaskTemplate() {
     return {
         'id': currentId,
@@ -69,6 +85,7 @@ function getTaskTemplate() {
     };
 }
 
+
 /**
  * Handles the completion of a task based on the current page.
  * If the current page is the board, it hides the add task popup and updates the board HTML.
@@ -76,7 +93,6 @@ function getTaskTemplate() {
  */
 function handleTaskCompletion(currentPage) {
     if (currentPage === '/join/board.html') {
-        // document.getElementById('addTaskPop').classList.add('d-none');
         updateBoardHTML();
     } else {
         setTimeout(() => {
@@ -85,6 +101,11 @@ function handleTaskCompletion(currentPage) {
     }
 }
 
+
+/**
+ * Resets the task form by clearing all the fields and resetting the state variables.
+ *
+ */
 function resetTaskForm() {
     currentCategorySelected = [
         {
@@ -105,6 +126,11 @@ function resetTaskForm() {
     resetTaskInputs();
 }
 
+
+/**
+ * Resets the task inputs by clearing all the fields and resetting the state variables.
+ *
+ */
 function resetTaskInputs() {
     document.getElementById('task_title').value = '';
     document.getElementById('task_description').value = '';
@@ -114,9 +140,15 @@ function resetTaskInputs() {
     document.getElementById('category_input').value = 'Select task category';
 }
 
-// #region Edit Task
+
 //--------------------------------------------Edit Task--------------------------------------------//
 
+
+/**
+ * Asynchronously edits a task based on the provided index.
+ *
+ * @param {number} i - The index of the task to edit.
+ */
 async function editTask(i) {
     await currentUserCategorysLoad();
     await currentUserContactsLoad();
@@ -146,6 +178,11 @@ async function editTask(i) {
     editTaskWindow();
 }
 
+
+/**
+ * Updates the task window by detecting priority, updating selected category, rendering selected contacts, and rendering subtasks.
+ *
+ */
 function editTaskWindow() {
     detectPriority();
     updateSelectedCategory();
@@ -153,6 +190,12 @@ function editTaskWindow() {
     renderSubtasks();
 }
 
+
+/**
+ * Asynchronously submits the edits made to a task, updates the task object, saves the current user's tasks,
+ * slides out the edit popup, marks changes as saved, updates the board HTML, and resets the edit form.
+ *
+ */
 async function submitEdit() {
     const getValue = id => document.getElementById(id).value;
     const getContactInfo = prop => contactCollection.map(contact => contact[prop]);
@@ -179,6 +222,11 @@ async function submitEdit() {
     resetEditForm();
 }
 
+
+/**
+ * Resets the edit form by clearing all fields and setting variables to initial values.
+ *
+ */
 function resetEditForm() {
     document.getElementById('category_input').value = 'Select task category';
     contactCollection = [];
@@ -188,8 +236,14 @@ function resetEditForm() {
     selectedColorIndex = null;
 }
 
-// #endregion
 
+//--------------------------------------------Add Task Board--------------------------------------------//
+
+
+/**
+ * Asynchronously adds a task from the board.
+ *
+ */
 async function addTaskFromBoard() {
     await currentUserCategorysLoad();
     await currentUserContactsLoad();
@@ -198,6 +252,12 @@ async function addTaskFromBoard() {
     resetTaskForm();
 }
 
+
+/**
+ * Renders the content for adding a task.
+ *
+ * @return {string} The HTML string for the task popup content.
+ */
 function renderAddTaskContent() {
     return /*html*/ `
         <div onclick="stopBody(event)" class="task-popup-content">
