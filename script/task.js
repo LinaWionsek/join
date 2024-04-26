@@ -16,7 +16,6 @@ async function init() {
     statusSelected('toDo');
     resetTaskForm();
 }
-//statusSelected('toDo');
 
 
 /**
@@ -27,7 +26,6 @@ function statusSelected(status) {
 }
 
 async function submitForm() {
-    
     let titleInput = document.getElementById('task_title');
     let dateInput = document.getElementById('date_picker');
     if (titleInput.value == '') {
@@ -64,7 +62,6 @@ function getTaskTemplate() {
         'priority': currentPrioSelected,
         'contactName': contactCollection.map(contact => contact.name),
         'contactName': contactCollection.map(contact => {
-            console.log(contact.name);
             return contact.name;
         }),
         'contactColor': contactCollection.map(contact => contact.color),
@@ -219,7 +216,6 @@ function detectPriority() {
 }
 
 function noPrioritySelected() {
-    console.log('no prio');
     currentPrioSelected = '';
     document.getElementById('prio_low').src = `./img/prio-low.svg`;
     document.getElementById('button_low').classList.remove('prio-low');
@@ -233,7 +229,6 @@ function noPrioritySelected() {
 
 function selectLowPriority(prio) {
     currentPrioSelected = prio;
-    console.log(currentPrioSelected);
     document.getElementById('prio_low').src = `./img/prio-low-white.svg`;
     document.getElementById('button_low').classList.add('prio-low');
 
@@ -246,7 +241,6 @@ function selectLowPriority(prio) {
 
 function selectMediumPriority(prio) {
     currentPrioSelected = prio;
-    console.log(currentPrioSelected);
     document.getElementById('prio_medium').src = `./img/prio-medium-white.svg`;
     document.getElementById('button_medium').classList.add('prio-medium');
 
@@ -259,7 +253,6 @@ function selectMediumPriority(prio) {
 
 function selectUrgentPriority(prio) {
     currentPrioSelected = prio;
-    console.log(currentPrioSelected);
     document.getElementById('prio_urgent').src = `./img/prio-urgent-white.svg`;
     document.getElementById('button_urgent').classList.add('prio-urgent');
 
@@ -615,7 +608,6 @@ function selectContact(name) {
         renderSelectedContacts(i);
     }
     getContacts();
-    console.log(contactCollection);
 }
 
 function renderSelectedContacts() {
@@ -740,7 +732,6 @@ function getColor() {
 async function editTask(i) {
     await currentUserCategorysLoad();
     await currentUserContactsLoad();
-    console.log('i', i);
     slide('edit_popup', 'edit_popup_section');
     closeTask();
     let taskToEdit = tasks[i];
@@ -764,7 +755,6 @@ async function editTask(i) {
     subTaskCollection = taskToEdit.subtasksInProgress;
     subtasksFinish = taskToEdit.subtasksFinish;
     taskIdForEdit = taskToEdit.id;
-    console.log('task id for edit', taskIdForEdit);
     editTaskWindow();
 }
 
