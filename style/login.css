@@ -208,12 +208,12 @@ header {
     gap: 16px;
 }
 
-.police a {
+.police-link a {
     color: var(--text-color);
     text-decoration: none;
 }
 
-.police:hover a {
+.police-link:hover a {
     color: var(--headline);
     font-weight: bold;
 }

@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AddTask</title>
     <script src="./script/storage.js"></script>
-
     <script defer src="./templates/templates.js"></script>
     <script defer src="./script/contacts.js"></script>
     <script defer src="./script/task.js"></script>
@@ -14,7 +13,6 @@
     <script defer src="./script/taskContacts.js"></script>
     <script defer src="./script/taskPriorities.js"></script>
     <script defer src="./script/taskSubtasks.js"></script>
-
     <link rel="stylesheet" href="style/task.css">
     <link rel="stylesheet" href="style/addTask_media_query.css">
     <link rel="stylesheet" href="style/fonts.css">
@@ -33,65 +31,46 @@
         <div class="menu-header">
             <a href="./help.html">Help</a>
             <a href="./legalNotice.html">Legal Notice</a>
-            <a href="./privacy-police.html">Privacy Policy</a>
+            <a href="./privacy-policy.html">Privacy Policy</a>
             <a href="./index.html">Log Out</a>
         </div>
     </div>
-    <!-- ------------------------------------------------------------------------------------------------------------ -->
     <div id="board_popup_section" class="dialog-bg d-none"></div>
-
     <div class="task-container">
         <div class="task-header">
             <div class="fontSize61"><b>Add Task</b></div>
         </div>
-
         <div class="task-contentposition">
-
             <section class="task-popup-bg d-none" id="task_popup_section">
-
                 <div class="task-popup-card d-flex" id="task_popup">
-
                     <div class="left-popup">
-
                         <div id="close_popup_mobile">
                             <img onclick="closePopup()" src="./img/close-white.svg">
                         </div>
                         <div id="left_popup_content">
-
                         </div>
                     </div>
-
                     <div class="center-popup">
                         <div id="center_popup_content"></div>
-
                     </div>
-
                     <div class="right-popup d-flex">
-
                         <div id="close_popup" class="pointer">
                             <img onclick="closePopup()" src="./img/close.svg" alt="">
                         </div>
                         <div id="right_popup_content"></div>
-
                     </div>
                 </div>
             </section>
-
-
-
             <form>
                 <div class="task-content">
-
                     <div class="left-container">
                         <div>
                             <div>
                                 Title
                                 <span class="required-star">*</span>
                             </div>
-                            <input placeholder="Enter a title" id="task_title" class="fontSize20 width-100P"
-                                >
+                            <input placeholder="Enter a title" id="task_title" class="fontSize20 width-100P">
                         </div>
-
                         <div>
                             <div>
                                 Description
@@ -99,8 +78,6 @@
                             <textarea id="task_description" class="width-100P fontSize20"
                                 placeholder="Enter a Description" type="text"></textarea>
                         </div>
-
-
                         <div>
                             <div>
                                 Assigned to
@@ -121,11 +98,8 @@
                             <div id="selected_contacts"></div>
                         </div>
                     </div>
-
                     <img class="task-vector" src="./img/vector-task.svg" alt="">
-
                     <div class="right-container">
-
                         <div>
                             <div>
                                 Due date
@@ -133,7 +107,6 @@
                             </div>
                             <input type="date" id="date_picker" class="fontSize20 width-100P" required>
                         </div>
-
                         <div>
                             <div>
                                 Prio
@@ -153,13 +126,11 @@
                                 </div>
                             </div>
                         </div>
-
                         <div>
                             <div>
                                 Category
                                 <span class="required-star">*</span>
                             </div>
-
                             <div onclick="toggleCategoryList()" id="category_input_container" class="custom-input">
                                 <input readonly value="Select task category" id="category_input"
                                     class="fontSize20 pointer">
@@ -174,9 +145,7 @@
                                     <img src="./img/add-task-category.svg" alt="">
                                 </div>
                             </div>
-
                         </div>
-
                         <div>
                             <div>
                                 Subtasks
@@ -188,13 +157,8 @@
                             <div id="selected_subtasks"></div>
                             <div id="edit_container" class="d-none"></div>
                         </div>
-
-
-
-
                     </div>
                 </div>
-
                 <div class="task-bottom">
                     <div class="required-info">
                         <span class="required-star">*</span>
@@ -217,18 +181,12 @@
                         </div>
                     </div>
                 </div>
-
             </form>
         </div>
-
-
-
     </div>
-    <!-- ------------------------------------------------------------------------------------------------------------ -->
     <section class="success-info horicontalAndVertical fontSize20 d-none" id="success_info_container">
         Contact succesfully created
     </section>
-
 </body>
 
 </html>

@@ -164,7 +164,7 @@ function returnRenderSidebar() {
         </div>
     </div>
     <div class="sidebar-quicklinks fontSize16">
-        <a href="./privacy-police.html" class="sidebar-bottom">Privacy Policy</a>
+        <a href="./privacy-policy.html" class="sidebar-bottom">Privacy Policy</a>
         <a href="./legalNotice.html" class="sidebar-bottom">Legal Notice</a>
     </div>
 </div>

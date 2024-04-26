@@ -6,23 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacts</title>
     <link rel="shortcut icon" href="./img/favicon.svg" type="image/x-icon">
-    <!-- sidebar and header -->
     <link rel="stylesheet" href="./templates/header_sidebar.css">
     <link rel="stylesheet" href="./style/style.css">
-    <script defer src="./templates/templates.js"></script>
-    <!-- contacts -->
     <link rel="stylesheet" href="./style/contacts.css">
     <link rel="stylesheet" href="./style/contacts-addContact.css">
     <link rel="stylesheet" href="./style/contacts-mediaQuery.css">
-    <!-- bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./style/fonts.css">
     <link rel="stylesheet" href="./style/summary.css">
-    <!-- token -->
     <script defer src="./script/storage.js"></script>
+    <script defer src="./templates/templates.js"></script>
     <script defer src="./script/contacts.js"></script>
     <script defer src="./script/contactMobile.js"></script>
-
 </head>
 
 <body onclick="hideMenuHeader()" onload="renderSidebarHeader(), initContacts()"
@@ -33,12 +28,11 @@
         <div class="menu-header">
             <a href="./help.html">Help</a>
             <a href="./legalNotice.html">Legal Notice</a>
-            <a href="./privacy-police.html">Privacy Policy</a>
+            <a href="./privacy-policy.html">Privacy Policy</a>
             <a href="./index.html">Log Out</a>
         </div>
     </div>
     <div class="contact-container">
-
         <div class="d-flex contact-content">
             <section class="left-container">
                 <div class="btnBackground horicontalAndVertical" id="btnBackgroundId">
@@ -53,12 +47,9 @@
                     </div>
                 </div>
             </section>
-
             <section class="contact-popup-bg horicontalAndVertical d-none" id="contact_popup_section"
                 onclick="slideOut('contact_popup', 'contact_popup_section', 200)">
-
                 <div class="contact-popup d-flex" onclick="doNotClose(event)" id="contact_popup">
-
                     <div class="left-popup">
                         <div id="close_popup_mobile" class="pointer"
                             onclick="slideOut('contact_popup', 'contact_popup_section', 200)">
@@ -73,7 +64,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="center-popup">
                         <div id="profile_img"></div>
                         <div id="no_profile_img">
@@ -81,9 +71,7 @@
                             <img class="person-in-circle" src="./img/person.svg">
                         </div>
                     </div>
-
                     <div class="right-popup d-flex">
-
                         <form onsubmit="createContact(); return false;" id="contact_form">
                             <div id="close_popup" class="pointer"
                                 onclick="slideOut('contact_popup', 'contact_popup_section', 200)">
@@ -91,18 +79,13 @@
                             </div>
                             <input type="text" placeholder="Name" id="inputNameId" class="fontSize20" required>
                             <input type="email" placeholder="Email" id="inputEmailId" class="fontSize20" required>
-                            <input type="tel" pattern="[0-9+ ]+" placeholder="Phone" id="input_phone"
-                                class="fontSize20"
+                            <input type="tel" pattern="[0-9+ ]+" placeholder="Phone" id="input_phone" class="fontSize20"
                                 oninvalid="this.setCustomValidity('Invalid input! Only + and numbers from 0-9 are allowed')"
                                 oninput="this.setCustomValidity('')" required>
-
-
                             <div class="d-flex textHorizontal contact-popup-buttons fontSize20">
                                 <button class="button outline-btn"
-                                    onclick="slideOut('contact_popup', 'contact_popup_section', 200)"
-                                    id="cancel_btn">
+                                    onclick="slideOut('contact_popup', 'contact_popup_section', 200)" id="cancel_btn">
                                     <spline id="editCancelButtonId">Cancel</spline>
-
                                     <svg class="colorOnHover" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                         viewBox="0 0 24 25" fill="none">
                                         <path
@@ -112,19 +95,14 @@
                                     </svg>
                                 </button>
                                 <button class="button blue-btn">
-                                    <!-- <spline> -->
                                     <span id="textChangeToSaveId">Create contact</span>
-                                    <!-- </spline> -->
                                     <img src="./img/check-white.svg">
                                 </button>
                             </div>
-
                         </form>
-                
                     </div>
                 </div>
             </section>
-
             <section id="right-container">
                 <div class="right-container-headline" id="contactsTitleId">
                     <div class="fontSize61"><b>Contacts</b></div>
@@ -143,9 +121,7 @@
                         </svg>
                     </div>
                 </div>
-
                 <div class="contact-detail-container d-none" id="contact_details">
-                    <!-- Big Picture / Name / Edit and Delete -->
                     <div class="contact-detail-top">
                         <div id="detail_profile_picture">
                         </div>
@@ -156,17 +132,15 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Middle Text -->
                     <spline class="contact-information-text-block fontSize20">
                         Contact Information
                     </spline>
-                    <div> 
-                        <!-- Rest -->
+                    <div>
                         <spline class="email-text fontSize16">
                             <b>Email</b>
                         </spline>
                         <div id="emailId" class="fontSize16">
-    
+
                         </div>
                         <spline class="phone-text fontSize16">
                             <b>Phone</b>
@@ -174,14 +148,11 @@
                         <div id="phoneId" class="fontSize16">
                         </div>
                     </div>
-                    
+
                 </div>
             </section>
-            <!-- mobile -->
             <div id="mobileDotsSymbol">
-
             </div>
-
             <section>
                 <div class="mobile-add-contact  horicontalAndVertical pointer"
                     onclick="openAddContactWindow(), slide('contact_popup', 'contact_popup_section')"
@@ -189,7 +160,6 @@
                     <img src="./img/person-add.svg">
                 </div>
             </section>
-
             <section>
                 <div class="vertical column d-none" id="mobile_edit_delete_box">
                     <div id="editMobileButtonId">
@@ -201,12 +171,9 @@
                     <img src="./img/arror-left.svg">
                 </div>
             </section>
-
-            <section class="success-info horicontalAndVertical fontSize20 d-none" id="success_info_container">
-            </section>
+            <section class="success-info horicontalAndVertical fontSize20 d-none" id="success_info_container"></section>
         </div>
     </div>
-
 </body>
 
 </html>

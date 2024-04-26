@@ -7,45 +7,37 @@
     <title>Board</title>
     <link rel="stylesheet" href="style/fonts.css">
     <link rel="stylesheet" href="style/task.css">
-    <!-- <link rel="stylesheet" href="style/addTask_media_query.css"> -->
     <link rel="stylesheet" href="templates/header_sidebar.css">
     <link rel="stylesheet" href="./style/style.css">
     <link rel="stylesheet" href="./style/board.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="shortcut icon" href="img/favicon.svg" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
-
-    <script src="./script/storage.js"></script>
-    <script src="./script/contacts.js"></script>
+    <script defer src="./script/storage.js"></script>
+    <script defer src="./script/contacts.js"></script>
     <script defer src="./templates/templates.js"></script>
     <script defer src="./script/task.js"></script>
     <script defer src="./script/taskCategories.js"></script>
     <script defer src="./script/taskContacts.js"></script>
     <script defer src="./script/taskPriorities.js"></script>
     <script defer src="./script/taskSubtasks.js"></script>
-
     <script defer src="./script/board.js"></script>
     <script defer src="./script/boardOpenTask.js"></script>
 </head>
 
-
 <body onclick="hideMenuHeader(), closeTask()" onload="renderSidebarHeader(), initBoard()">
-
     <div id="sidebarArea"></div>
     <div id="headerArea"></div>
-
     <div id="menu-header-container" class="menu-header-container d-none">
         <div class="menu-header">
             <a href="./help.html">Help</a>
             <a href="./legalNotice.html">Legal Notice</a>
-            <a href="./privacy-police.html">Privacy Policy</a>
+            <a href="./privacy-policy.html">Privacy Policy</a>
             <a href="./index.html">Log Out</a>
         </div>
     </div>
-
     <div id="board_popup_section" class="dialog-bg d-none"></div>
     <div class="content-board show-scrollbarTaskWindow bg-main-color">
-
         <div class="search-board-container">
             <span class="fontSize61"><b>Board</b></span>
             <form class="searchbox" role="search">
@@ -66,62 +58,48 @@
                 </button>
             </form>
         </div>
-
-
-
         <div id="contentposition" class="contentposition">
-
             <div class="board-main-section">
-
                 <section>
                     <div class="statusheadline">
                         <span class="fontSize20"><b>To do</b></span>
-                        <img onclick="addTaskFromBoard(), statusSelected('toDo')"
-                            src="img/plus-box.svg" alt="Not found">
+                        <img onclick="addTaskFromBoard(), statusSelected('toDo')" src="img/plus-box.svg"
+                            alt="Not found">
                     </div>
-
                     <div id="toDo" class="drag-area" ondrop="moveTo('toDo')" ondragleave="removeHighlight('toDo')"
                         ondragover="allowDrop(event); highlight('toDo')">
                     </div>
                 </section>
-
                 <section>
                     <div class="statusheadline">
                         <span class="fontSize20"><b>In progress</b></span>
-                        <img onclick="addTaskFromBoard(), statusSelected('in-progress')"
-                            src="img/plus-box.svg" alt="Not found">
+                        <img onclick="addTaskFromBoard(), statusSelected('in-progress')" src="img/plus-box.svg"
+                            alt="Not found">
                     </div>
-
                     <div id="in-progress" class="drag-area show-scrollbar" ondrop="moveTo('in-progress')"
                         ondragleave="removeHighlight('in-progress')"
                         ondragover="allowDrop(event); highlight('in-progress')">
                     </div>
                 </section>
-
-
                 <section>
                     <div class="statusheadline">
                         <div>
                             <span class="fontSize20"><b>Await Feedback</b></span>
                         </div>
-                        <img onclick="addTaskFromBoard(), statusSelected('awaiting-feedback')"
-                            src="img/plus-box.svg" alt="Not found ">
+                        <img onclick="addTaskFromBoard(), statusSelected('awaiting-feedback')" src="img/plus-box.svg"
+                            alt="Not found ">
                     </div>
-
-
                     <div id="awaiting-feedback" class="drag-area show-scrollbar" ondrop="moveTo('awaiting-feedback')"
                         ondragleave="removeHighlight('awaiting-feedback')"
                         ondragover="allowDrop(event); highlight('awaiting-feedback')">
                     </div>
                 </section>
-
                 <section>
                     <div class="statusheadline">
                         <span class="fontSize20"><b>Done</b></span>
-                        <img onclick="addTaskFromBoard(), statusSelected('done')"
-                            src="img/plus-box.svg" alt="Not found ">
+                        <img onclick="addTaskFromBoard(), statusSelected('done')" src="img/plus-box.svg"
+                            alt="Not found ">
                     </div>
-
                     <div id="done" class="drag-area show-scrollbar" ondrop="moveTo('done')"
                         ondragleave="removeHighlight('done')" ondragover="allowDrop(event); highlight('done')">
                     </div>
@@ -129,25 +107,14 @@
             </div>
         </div>
     </div>
-
-
-
     <section class="task-popup-bg d-none" id="board_task_popup_section">
-
-        <div class="task-edit-popup d-flex" id="board_task_popup"><div>
-
+        <div class="task-edit-popup d-flex" id="board_task_popup">
+            <div>
     </section>
-    <!-- ------------------------------------------------------------------------->
+
     <!-- ----------------------------EDIT-------------------------------------- -->
-    <!-- EDIT -->
-
-
     <section class="task-popup-bg d-none" id="edit_popup_section">
-
         <div class="task-edit-popup d-flex" id="edit_popup">
-
-           
-
             <div onclick="stopBody(event)" class="task-popup-content">
                 <div class="task-popup-headline-container">
                     <div class="fontSize61"><b>Edit Task</b></div>
@@ -155,30 +122,19 @@
                         <img src="./img/close.svg" alt="">
                     </div>
                 </div>
-
-                <!-- <div class="task-contentposition"> -->
-
                 <section class="task-popup-bg d-none" id="task_popup_section">
-
                     <div class="task-popup-card d-flex" id="task_popup">
-
                         <div class="left-popup">
-
                             <div id="close_popup_mobile">
                                 <img onclick="closePopup()" src="./img/close-white.svg">
                             </div>
                             <div id="left_popup_content">
-
                             </div>
                         </div>
-
                         <div class="center-popup">
                             <div id="center_popup_content"></div>
-
                         </div>
-
                         <div class="right-popup d-flex">
-
                             <div id="close_popup" class="pointer">
                                 <img onclick="closePopup()" src="./img/close.svg" alt="">
                             </div>
@@ -186,22 +142,16 @@
                         </div>
                     </div>
                 </section>
-
-
-
                 <form>
                     <div class="task-content">
-
                         <div class="left-container">
                             <div>
                                 <div>
                                     Title
                                     <span class="required-star">*</span>
                                 </div>
-                                <input placeholder="Enter a title" id="task_title"
-                                    class="fontSize20 width-100P">
+                                <input placeholder="Enter a title" id="task_title" class="fontSize20 width-100P">
                             </div>
-
                             <div>
                                 <div>
                                     Description
@@ -209,16 +159,14 @@
                                 <textarea id="task_description" class="width-100P fontSize20"
                                     placeholder="Enter a Description" type="text"></textarea>
                             </div>
-
-
                             <div>
                                 <div>
                                     Assigned to
                                 </div>
                                 <div onclick="toggleContactList()" id="assigned_to_input_container"
                                     class="custom-input">
-                                    <input onkeyup="searchContacts()" placeholder="Select contacts to assign" id="assigned_to_input"
-                                        class="fontSize20">
+                                    <input onkeyup="searchContacts()" placeholder="Select contacts to assign"
+                                        id="assigned_to_input" class="fontSize20">
                                     <img id="contact_select_arrow_up" class="d-none" src="./img/arrow-up.svg" alt="">
                                     <img id="contact_select_arrow_down" src="./img/arrow-down.svg" alt="">
                                 </div>
@@ -232,11 +180,8 @@
                                 <div id="selected_contacts"></div>
                             </div>
                         </div>
-
                         <img class="task-vector" src="./img/vector-task.svg" alt="">
-
                         <div class="right-container">
-
                             <div>
                                 <div>
                                     Due date
@@ -245,7 +190,6 @@
                                 <input type="date" placeholder="Enter a title" id="date_picker"
                                     class="fontSize20 width-100P">
                             </div>
-
                             <div>
                                 <div>
                                     Prio
@@ -265,13 +209,11 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div>
                                 <div>
                                     Category
                                     <span class="required-star">*</span>
                                 </div>
-
                                 <div onclick="toggleCategoryList()" id="category_input_container" class="custom-input">
                                     <input readonly value="Select task category" id="category_input"
                                         class="fontSize20 pointer">
@@ -286,16 +228,13 @@
                                         <img src="./img/add-task-category.svg" alt="">
                                     </div>
                                 </div>
-
                             </div>
-
                             <div>
                                 <div>
                                     Subtasks
                                 </div>
                                 <div id="subtasks_input_container" class="custom-input">
-                                    <input placeholder="Add new subtask" id="subtasks_input" class="fontSize20"
-                                       >
+                                    <input placeholder="Add new subtask" id="subtasks_input" class="fontSize20">
                                     <img onclick="addSubtask()" src="./img/plus.svg">
                                 </div>
                                 <div id="selected_subtasks"></div>
@@ -303,52 +242,36 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="task-bottom-edit">
                         <div class="required-info">
                             <span class="required-star">*</span>
                             This field is required
                         </div>
                         <div class="button-group">
-                            <div onclick="submitEdit(), slideOut('board_task_popup', 'board_task_popup_section', 200)" class="button blue-btn">
+                            <div onclick="submitEdit(), slideOut('board_task_popup', 'board_task_popup_section', 200)"
+                                class="button blue-btn">
                                 OK
                                 <img src="./img/check-white.svg" alt="">
                             </div>
                         </div>
-
                     </div>
-
                 </form>
-                <!-- </div> -->
-
-
-
             </div>
         </div>
-
     </section>
-
-
-    <!-- ------------------------------------------------------------------------->
-
-
-
     <section class="task-popup-bg d-none" id="task_at_board_popup_section">
         <div class="task-popup-card d-flex" id="task_at_board_popup">
             <div class="left-popup">
-
                 <div id="close_popup_mobile">
                     <img onclick="closePopup()" src="./img/close-white.svg">
                 </div>
                 <div id="left_popup_content">
                 </div>
             </div>
-
             <div class="center-popup">
                 <div id="center_popup_content"></div>
             </div>
             <div class="right-popup d-flex">
-
                 <div id="close_popup" class="pointer">
                     <img onclick="closePopup()" src="./img/close.svg" alt="">
                 </div>
@@ -356,12 +279,10 @@
             </div>
         </div>
     </section>
-
     <section class="success-info horicontalAndVertical fontSize20 d-none" id="success_info_container">
         Contact succesfully created
     </section>
     <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
-
 </body>
 
 </html>

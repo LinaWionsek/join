@@ -3,7 +3,7 @@
  *
  */
 async function initSummary() {
-    detectUser();
+    // detectUser();
     loadActiveUser();
     showUserCircle();
     await currentUserTaskLoad();
