@@ -3,7 +3,6 @@ let contactListOpen = false;
 let searchingContact = false;
 let prioLowSelected = false;
 
-
 async function init() {
     detectUser();
     loadActiveUser();
@@ -16,7 +15,6 @@ async function init() {
     statusSelected('toDo');
     resetTaskForm();
 }
-
 
 /**
  * Sets the status group to the provided status.
@@ -87,38 +85,36 @@ function handleTaskCompletion(currentPage) {
     }
 }
 
-function resetTaskForm(){
-    currentCategorySelected = [{
-        'name': '',
-        'color': '',
-    }];
+function resetTaskForm() {
+    currentCategorySelected = [
+        {
+            'name': '',
+            'color': '',
+        },
+    ];
     subtasksFinish = [];
     subTaskCollection = [];
     selectedIndex = null;
     selectedColorIndex = null;
-    currentPrioSelected = "";
-
+    currentPrioSelected = '';
     contactCollection = [];
-
     renderSelectedContacts();
-
     taskIdForEdit = '';
     statusEdit = '';
-
     noPrioritySelected();
+    resetTaskInputs();
+}
+
+function resetTaskInputs() {
     document.getElementById('task_title').value = '';
     document.getElementById('task_description').value = '';
     document.getElementById('date_picker').value = '';
     document.getElementById('selected_contacts').innerHTML = '';
     document.getElementById('selected_subtasks').innerHTML = '';
     document.getElementById('category_input').value = 'Select task category';
-
 }
-
-
 // #region Subtasks
 //--------------------------------------------Subtasks--------------------------------------------//
-
 
 function addSubtask() {
     let input = document.getElementById('subtasks_input');
@@ -219,10 +215,8 @@ function noPrioritySelected() {
     currentPrioSelected = '';
     document.getElementById('prio_low').src = `./img/prio-low.svg`;
     document.getElementById('button_low').classList.remove('prio-low');
-
     document.getElementById('prio_medium').src = `./img/prio-medium.svg`;
     document.getElementById('button_medium').classList.remove('prio-medium');
-
     document.getElementById('prio_urgent').src = `./img/prio-urgent.svg`;
     document.getElementById('button_urgent').classList.remove('prio-urgent');
 }
@@ -231,10 +225,8 @@ function selectLowPriority(prio) {
     currentPrioSelected = prio;
     document.getElementById('prio_low').src = `./img/prio-low-white.svg`;
     document.getElementById('button_low').classList.add('prio-low');
-
     document.getElementById('prio_medium').src = `./img/prio-medium.svg`;
     document.getElementById('button_medium').classList.remove('prio-medium');
-
     document.getElementById('prio_urgent').src = `./img/prio-urgent.svg`;
     document.getElementById('button_urgent').classList.remove('prio-urgent');
 }
@@ -243,10 +235,8 @@ function selectMediumPriority(prio) {
     currentPrioSelected = prio;
     document.getElementById('prio_medium').src = `./img/prio-medium-white.svg`;
     document.getElementById('button_medium').classList.add('prio-medium');
-
     document.getElementById('prio_low').src = `./img/prio-low.svg`;
     document.getElementById('button_low').classList.remove('prio-low');
-
     document.getElementById('prio_urgent').src = `./img/prio-urgent.svg`;
     document.getElementById('button_urgent').classList.remove('prio-urgent');
 }
@@ -255,10 +245,8 @@ function selectUrgentPriority(prio) {
     currentPrioSelected = prio;
     document.getElementById('prio_urgent').src = `./img/prio-urgent-white.svg`;
     document.getElementById('button_urgent').classList.add('prio-urgent');
-
     document.getElementById('prio_low').src = `./img/prio-low.svg`;
     document.getElementById('button_low').classList.remove('prio-low');
-
     document.getElementById('prio_medium').src = `./img/prio-medium.svg`;
     document.getElementById('button_medium').classList.remove('prio-medium');
 }
@@ -268,32 +256,41 @@ function selectUrgentPriority(prio) {
 //--------------------------------------------Categories--------------------------------------------//
 function toggleCategoryList() {
     if (categoryListOpen) {
-        toggleVisibility('category_list_container', true);
-        toggleVisibility('category_select_arrow_up', true);
-        toggleVisibility('category_select_arrow_down', false);
-        let categoryContainer = document.getElementById('category_list');
-        categoryContainer.innerHTML = '';
-        let customCategory = customCategories[0];
-        let mainCategory = mainCategories[0];
-
-        for (let m = 0; m < mainCategory.name.length; m++) {
-            const mName = mainCategory.name[m];
-            const mColor = mainCategory.color[m];
-            categoryContainer.innerHTML += renderMainCategories(mName, mColor, m);
-        }
-
-        for (let c = 0; c < customCategory.name.length; c++) {
-            const cName = customCategory.name[c];
-            const cColor = customCategory.color[c];
-            categoryContainer.innerHTML += renderCustomCategories(cName, cColor, c);
-        }
+        openCategoryList();
+        renderAllCategories();
     } else {
-        toggleVisibility('category_list_container', false);
-        toggleVisibility('category_select_arrow_up', false);
-        toggleVisibility('category_select_arrow_down', true);
+        closeCategoryList();
     }
-
     categoryListOpen = !categoryListOpen;
+}
+
+function openCategoryList() {
+    toggleVisibility('category_list_container', true);
+    toggleVisibility('category_select_arrow_up', true);
+    toggleVisibility('category_select_arrow_down', false);
+}
+
+function renderAllCategories() {
+    let categoryContainer = document.getElementById('category_list');
+    categoryContainer.innerHTML = '';
+    let customCategory = customCategories[0];
+    let mainCategory = mainCategories[0];
+    for (let m = 0; m < mainCategory.name.length; m++) {
+        const mName = mainCategory.name[m];
+        const mColor = mainCategory.color[m];
+        categoryContainer.innerHTML += renderMainCategories(mName, mColor, m);
+    }
+    for (let c = 0; c < customCategory.name.length; c++) {
+        const cName = customCategory.name[c];
+        const cColor = customCategory.color[c];
+        categoryContainer.innerHTML += renderCustomCategories(cName, cColor, c);
+    }
+}
+
+function closeCategoryList() {
+    toggleVisibility('category_list_container', false);
+    toggleVisibility('category_select_arrow_up', false);
+    toggleVisibility('category_select_arrow_down', true);
 }
 
 function renderMainCategories(name, color, i) {
