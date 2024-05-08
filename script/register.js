@@ -110,7 +110,7 @@ function arePasswordsMatching() {
  */
 async function loadUsers() {
     try {
-        allUsers =await getItem('users');
+        allUsers = JSON.parse(await getItem('users'));
     } catch (e) {
         console.error('Loading error:', e);
     }
