@@ -1,11 +1,11 @@
 const STORAGE_TOKEN = '7RNGNHOIRRY7RSZAG9040DSCH7N4JNMMZ3I48MJN';
-const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
+const STORAGE_URL = 'https://portfolio-join-default-rtdb.europe-west1.firebasedatabase.app/';
 
 let tasks = [];
 let allUsers = [];
 let activeUser = {
     'name': '',
-}
+};
 
 /** Represents the currently selected index in the task list. */
 let selectedIndex = null;
@@ -13,38 +13,60 @@ let selectedColorIndex = null;
 
 /** Collection of background colors used for task categories. */
 let colorCollection = [
-    'background: #006400', 'background: #00008B', 'background: #8B0000', 'background: #800080', 'background: #808080', 'background: #0000CD',
-    'background: #008000', 'background: #FF0000', 'background: #8A2BE2', 'background: #FFA500', 'background: #2E8B57', 'background: #9932CC',
-    'background: #DC143C', 'background: #228B22', 'background: #20B2AA', 'background: #FF1493', 'background: #D2691E', 'background: #00CED1',
-    'background: #008080', 'background: #FF6347'
+    'background: #006400',
+    'background: #00008B',
+    'background: #8B0000',
+    'background: #800080',
+    'background: #808080',
+    'background: #0000CD',
+    'background: #008000',
+    'background: #FF0000',
+    'background: #8A2BE2',
+    'background: #FFA500',
+    'background: #2E8B57',
+    'background: #9932CC',
+    'background: #DC143C',
+    'background: #228B22',
+    'background: #20B2AA',
+    'background: #FF1493',
+    'background: #D2691E',
+    'background: #00CED1',
+    'background: #008080',
+    'background: #FF6347',
 ];
 
 /** Main categories for tasks, each with a name and associated colors. */
-let mainCategories = [{
-    'name': ['Technical Task', 'User Story',],
-    'color': ['background: #1FD7C1', 'background: #0038FF',],
-}];
+let mainCategories = [
+    {
+        'name': ['Technical Task', 'User Story'],
+        'color': ['background: #1FD7C1', 'background: #0038FF'],
+    },
+];
 
 /** All task categories, initially empty. */
-let customCategories = [{
-    'name': [],
-    'color': [],
-}];
+let customCategories = [
+    {
+        'name': [],
+        'color': [],
+    },
+];
 
 /** Represents the current ID for tasks. */
 let currentId = 0;
 
 /** Represents the status group for tasks. */
-let statusGroup = ''
+let statusGroup = '';
 
 /** Represents the currently selected category with its name and color. */
-let currentCategorySelected = [{
-    'name': '',
-    'color': '',
-}];
+let currentCategorySelected = [
+    {
+        'name': '',
+        'color': '',
+    },
+];
 
 /** Represents the currently selected priority. */
-let currentPrioSelected = "";
+let currentPrioSelected = '';
 
 /** * Collection of subtasks associated with tasks (unfinished). */
 let subTaskCollection = [];
@@ -61,7 +83,6 @@ let taskIdForEdit = '';
 /** Represents the status for editing tasks. */
 let statusEdit = '';
 
-
 /**
  * Checks if a certain key exists in storage, if not, sets a default value.
  * @param {string} key - Key to check in storage.
@@ -77,25 +98,23 @@ async function initializeStorage(key, initialValue) {
     }
 }
 
-
 /**
- * Asynchronously saves the current user's tasks. 
- * If the active user is 'Guest', the tasks are saved to local storage. 
+ * Asynchronously saves the current user's tasks.
+ * If the active user is 'Guest', the tasks are saved to local storage.
  * Otherwise, they are saved to remote storage.
  */
 async function currentUserTaskSave() {
     if (activeUser.name === 'Guest') {
         localStorage.setItem('tasksAsText', JSON.stringify(tasks));
-        console.log(tasks)
+        console.log(tasks);
     } else {
         await setItem('tasks', JSON.stringify(tasks));
     }
 }
 
-
 /**
- * Asynchronously loads the current user's tasks. 
- * If the active user is 'Guest', the tasks are loaded from local storage. 
+ * Asynchronously loads the current user's tasks.
+ * If the active user is 'Guest', the tasks are loaded from local storage.
  * Otherwise, they are fetched from remote storage.
  */
 async function currentUserTaskLoad() {
@@ -113,10 +132,9 @@ async function currentUserTaskLoad() {
     }
 }
 
-
 /**
- * Asynchronously saves the current user's ID. 
- * If the active user is 'Guest', the ID is saved to local storage. 
+ * Asynchronously saves the current user's ID.
+ * If the active user is 'Guest', the ID is saved to local storage.
  * Otherwise, it is saved to remote storage.
  *
  */
@@ -128,10 +146,9 @@ async function currentUserIdSave() {
     }
 }
 
-
 /**
- * Asynchronously loads the current user's ID. 
- * If the active user is 'Guest', the ID is loaded from local storage. 
+ * Asynchronously loads the current user's ID.
+ * If the active user is 'Guest', the ID is loaded from local storage.
  * Otherwise, it is fetched from remote storage.
  *
  */
@@ -150,10 +167,9 @@ async function currentUserIdLoad() {
     }
 }
 
-
 /**
- * Asynchronously saves the current user's categories. 
- * If the active user is 'Guest', the categories are saved to local storage. 
+ * Asynchronously saves the current user's categories.
+ * If the active user is 'Guest', the categories are saved to local storage.
  * Otherwise, they are saved to remote storage.
  */
 async function currentUserCategorysSave() {
@@ -164,10 +180,9 @@ async function currentUserCategorysSave() {
     }
 }
 
-
 /**
- * Asynchronously loads the current user's categories. 
- * If the active user is 'Guest', the categories are loaded from local storage. 
+ * Asynchronously loads the current user's categories.
+ * If the active user is 'Guest', the categories are loaded from local storage.
  * Otherwise, they are fetched from remote storage.
  */
 async function currentUserCategorysLoad() {
@@ -185,10 +200,9 @@ async function currentUserCategorysLoad() {
     }
 }
 
-
 /**
- * Asynchronously saves the current user's contacts. 
- * If the active user is 'Guest', the contacts are saved to local storage. 
+ * Asynchronously saves the current user's contacts.
+ * If the active user is 'Guest', the contacts are saved to local storage.
  * Otherwise, they are saved to remote storage.
  */
 async function currentUserContactsSave() {
@@ -200,7 +214,6 @@ async function currentUserContactsSave() {
         await setItem('nextColorIndex', JSON.stringify(nextColorIndex));
     }
 }
-
 
 /**
  * Asynchronously loads the contacts of the current user.
@@ -224,7 +237,6 @@ async function currentUserContactsLoad() {
     }
 }
 
-
 /**
  * Saves the current active user to local storage.
  *
@@ -233,10 +245,9 @@ function saveActiveUser() {
     localStorage.setItem('activeUserAsText', JSON.stringify(activeUser));
 }
 
-
 /**
  * Loads the current active user from local storage.
- * 
+ *
  */
 function loadActiveUser() {
     let activeUserLoad = localStorage.getItem('activeUserAsText');
@@ -245,7 +256,6 @@ function loadActiveUser() {
     }
 }
 
-
 /**
  * Sets a key-value pair in the remote storage.
  *
@@ -253,12 +263,22 @@ function loadActiveUser() {
  * @param {*} value - The value to associate with the key.
  * @return {Promise<any>} A promise that resolves to the response from the server.
  */
-async function setItem(key, value) {
-    const payload = { key, value, token: STORAGE_TOKEN };
-    return fetch(STORAGE_URL, { method: 'POST', body: JSON.stringify(payload) })
-        .then(res => res.json());
-}
+// async function setItem(key, value) {
+//     const payload = { key, value };
+//     return fetch(STORAGE_URL, { method: 'POST', body: JSON.stringify(payload) })
+//         .then(res => res.json());
+// }
 
+async function setItem(path = '', data = {}) {
+    let response = await fetch(STORAGE_URL + path + '/' + '.json', {
+        method: 'PUT',
+        header: {
+            'Content-Type': 'application/json',
+        },
+        body: data,
+    });
+    return (responseToJson = await response.json());
+}
 
 /**
  * Retrieves a value from the remote storage by its key.
@@ -266,16 +286,49 @@ async function setItem(key, value) {
  * @param {string} key - The key used to retrieve the value.
  * @return {Promise<any>} A promise that resolves to the retrieved value.
  */
-async function getItem(key) {
-    const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
-    return fetch(url).then(res => res.json()).then(res => {
-        if (res.data) {
-            return res.data.value;
-        }
-        throw `Could not find data with key "${key}".`;
-    });
+// async function getItem(key) {
+//     const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
+//     return fetch(url).then(res => res.json()).then(res => {
+//         if (res.data) {
+//             return res.data.value;
+//         }
+//         throw `Could not find data with key "${key}".`;
+//     });
+// }
+
+function initArrays() {
+    tasks = [];
+    allUsers = [];
+    activeUser = {
+        'name': '',
+    };
+    customCategories = [
+        {
+            'name': [],
+            'color': [],
+        },
+    ];
+    contactsArray = [];
+    nameAbbreviationArray = [];
+    currentId = 0;
 }
 
+
+
+async function getItem(path = '') {
+    let response = await fetch(STORAGE_URL + path + '/' + '.json');
+    let responseToJson = await response.json();
+    console.log(responseToJson);
+    if (responseToJson == null) {
+        return '[]';
+    } else {
+        return JSON.stringify(responseToJson);
+
+        
+    }
+
+    // return (responseToJson = await response.json());
+}
 
 /**
  * Detects the user and performs necessary actions if the user is a guest.
@@ -289,10 +342,9 @@ function detectUser() {
     }
 }
 
-
 /**
  * Fills default test data including contacts, tasks, and categories.
- * 
+ *
  */
 function fillTestArray() {
     contactsArray = [
@@ -373,4 +425,3 @@ function fillTestArray() {
     currentUserCategorysSave();
     currentUserContactsSave();
 }
-

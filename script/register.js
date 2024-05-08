@@ -17,8 +17,9 @@ async function initRegister() {
 async function registUser() {
     let emailControl = document.getElementById('register_email');
     if (!arePasswordsMatching()) return handlePasswordMismatch();
-    if (allUsers.some(u => u.email === emailControl.value)) return handleEmailExists();
-    if (checkbox.checked) await handleRegistration();
+    // if (allUsers.some(u => u.email === emailControl.value)) return handleEmailExists();
+    // if (checkbox.checked) await handleRegistration();
+    await handleRegistration();
 }
 
 
@@ -109,11 +110,12 @@ function arePasswordsMatching() {
  */
 async function loadUsers() {
     try {
-        allUsers = JSON.parse(await getItem('users'));
+        allUsers =await getItem('users');
     } catch (e) {
         console.error('Loading error:', e);
     }
 }
+
 
 
 /**
