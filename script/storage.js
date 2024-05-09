@@ -1,4 +1,3 @@
-const STORAGE_TOKEN = '7RNGNHOIRRY7RSZAG9040DSCH7N4JNMMZ3I48MJN';
 const STORAGE_URL = 'https://portfolio-join-default-rtdb.europe-west1.firebasedatabase.app/';
 
 let tasks = [];
@@ -383,9 +382,7 @@ async function getItem(path = '') {
  */
 function detectUser() {
     if (activeUser.name == '') {
-        activeUser.name = 'Guest';
-        saveActiveUser();
-        fillTestArray();
+        window.location.href = './index.html';
     }
 }
 

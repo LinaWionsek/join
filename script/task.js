@@ -4,8 +4,8 @@ let searchingContact = false;
 let prioLowSelected = false;
 
 async function init() {
-    // detectUser();
     loadActiveUser();
+    detectUser();
     showUserCircle();
     markActivePage();
     await currentUserIdLoad();

@@ -21,8 +21,8 @@ let nextColorIndex = 0;
  *
  */
 async function initContacts() {
-    // detectUser();
     loadActiveUser();
+    detectUser();
     showUserCircle();
     await currentUserContactsLoad();
     renderContacts();
@@ -513,8 +513,8 @@ async function editContact(i) {
  */
 function handleVisibilitySettingsForEdit() {
     toggleVisibility('cancel_btn', false);
-    toggleVisibility('contact_popup_section', false);
-    toggleVisibility('mobile_edit_delete_box', true);
+    toggleVisibility('contact_popup_section', true);
+    toggleVisibility('mobile_edit_delete_box', false);
     toggleVisibility('add_contact_underline', true);
     toggleVisibility('profile_img', false);
     toggleVisibility('no_profile_img', true);

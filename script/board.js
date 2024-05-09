@@ -17,8 +17,8 @@ let showUserDiff;
  *
  */
 async function initBoard() {
-    // detectUser();
     loadActiveUser();
+    detectUser();
     showUserCircle();
     markActivePage();
     await currentUserTaskLoad();
