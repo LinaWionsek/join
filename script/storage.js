@@ -270,6 +270,32 @@ function loadActiveUser() {
 // }
 
 async function setItem(path = '', data = {}) {
+    if (path == 'tasks') {
+        alert('TASKS');
+        console.log('ALERT', data);
+        let dataAsJSON = JSON.parse(data);
+       Array.from(dataAsJSON).forEach(singleData => {
+        console.log(singleData, "SINGLEDATA");
+            if(singleData.subtasksFinish == undefined ||singleData.subtasksFinish.length == 0){
+                singleData.subtasksFinish = ["-"];
+            }
+            if (singleData.subtasksInProgress == undefined || singleData.subtasksInProgress.length == 0) {
+                singleData.subtasksInProgress = ["-"];
+            }
+            if (singleData.contactName == undefined ||  singleData.contactName.length == 0 ) {
+                singleData.contactName = ["-"];
+            }
+            if (singleData.contactColor == undefined ||  singleData.contactColor.length == 0) {
+                singleData.contactColor = ["-"];
+            }
+            if (singleData.contactAbbreviation == undefined ||  singleData.contactAbbreviation.length == 0) {
+                singleData.contactAbbreviation = ["-"];
+            }
+        });
+        data = JSON.stringify(dataAsJSON);
+    
+    }
+
     let response = await fetch(STORAGE_URL + path + '/' + '.json', {
         method: 'PUT',
         header: {
@@ -313,18 +339,21 @@ function initArrays() {
     currentId = 0;
 }
 
-
-
 async function getItem(path = '') {
+    // b = data.filter(e => e.name === "tc_001");
+        // b.forEach(f => a.splice(a.findIndex(e => e.name === f.name),1));
+        // console.log(a);
+
     let response = await fetch(STORAGE_URL + path + '/' + '.json');
     let responseToJson = await response.json();
     console.log(responseToJson);
     if (responseToJson == null) {
-        return '[]';
+        // return '[]';
+        // alert("Null");
+        // responseToJson = [{}];
+        return;
     } else {
         return JSON.stringify(responseToJson);
-
-        
     }
 
     // return (responseToJson = await response.json());

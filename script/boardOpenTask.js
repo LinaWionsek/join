@@ -228,22 +228,27 @@ function findAssignedUser(i) {
     let userNames = tasks[i]['contactName'];
     let users = tasks[i]['contactAbbreviation'];
     let colors = tasks[i]['contactColor'];
-    assignedUserDetail = '';
-    for (let j = 0; j < users.length; j++) {
-        let user = users[j];
-        let userName = userNames[j];
-        let color = colors[j];
-        assignedUserDetail += /*html*/ ` 
-        <div class="user-details">
-            <div class="profile-picture" style="background-color:${color}">
-                ${user}
+    // if(users == undefined){
+    //     assignedUserDetail = '';
+    // } else {
+        assignedUserDetail = '';
+        for (let j = 0; j < users.length; j++) {
+            let user = users[j];
+            let userName = userNames[j];
+            let color = colors[j];
+            assignedUserDetail += /*html*/ ` 
+            <div class="user-details">
+                <div class="profile-picture" style="background-color:${color}">
+                    ${user}
+                </div>
+                <div class="user-name">
+                    ${userName}
+                </div>   
             </div>
-            <div class="user-name">
-                ${userName}
-            </div>   
-        </div>
-        `;
-    }
+            `;
+        }
+    // }
+   
     return assignedUserDetail;
 }
 

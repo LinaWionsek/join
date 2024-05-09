@@ -48,6 +48,12 @@ async function submitForm() {
  *
  */
 async function addTask() {
+    // if (subtasksFinish == undefined){
+    //     subtasksFinish = ["-"]
+    // }
+    // if (subTaskCollection == undefined){
+    //     subTaskCollection = ["-"]
+    // }
     let task = getTaskTemplate();
     tasks.push(task);
     currentId++;
@@ -75,9 +81,6 @@ function getTaskTemplate() {
         'dueDate': document.getElementById('date_picker').value,
         'priority': currentPrioSelected,
         'contactName': contactCollection.map(contact => contact.name),
-        'contactName': contactCollection.map(contact => {
-            return contact.name;
-        }),
         'contactColor': contactCollection.map(contact => contact.color),
         'contactAbbreviation': contactCollection.map(contact => contact.nameAbbreviation),
         'subtasksInProgress': subTaskCollection,
