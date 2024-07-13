@@ -41,7 +41,7 @@ input:focus {
     border-color: #29ABE2;
 }
 
-input[type=text] {
+input[name=name] {
     background: url('../img/lock.svg') no-repeat scroll;
     background-position: center right;
     background-origin: content-box;

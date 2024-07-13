@@ -82,20 +82,6 @@ let taskIdForEdit = '';
 /** Represents the status for editing tasks. */
 let statusEdit = '';
 
-/**
- * Checks if a certain key exists in storage, if not, sets a default value.
- * @param {string} key - Key to check in storage.
- * @param {*} initialValue - The initial value to set if key is not found.
- * @returns {Promise<void>}
- */
-async function initializeStorage(key, initialValue) {
-    try {
-        await getItem(key);
-    } catch (e) {
-        console.info(`Key "${key}" not found in storage. Initializing with default value.`);
-        await setItem(key, JSON.stringify(initialValue));
-    }
-}
 
 /**
  * Asynchronously saves the current user's tasks.
