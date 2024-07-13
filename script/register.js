@@ -1,5 +1,5 @@
 let registerBtn = document.getElementById('registerBtn');
-let checkbox = document.getElementById('checkbox_id');
+let checkbox = document.getElementById('register_checkbox');
 
 
 /**
@@ -18,9 +18,12 @@ async function registUser() {
     let emailControl = document.getElementById('register_email');
     if (!arePasswordsMatching()) return handlePasswordMismatch();
     if (allUsers.some(u => u.email === emailControl.value)) return handleEmailExists();
+    // if (document.getElementById('register_checkbox').checked = true) await handleRegistration();
     if (checkbox.checked) await handleRegistration();
+    await handleRegistration();
 }
 
+//document.getElementById('checkbox_id').checked = true
 
 /**
  * Handles a scenario when entered passwords don't match.
@@ -114,6 +117,7 @@ async function loadUsers() {
         console.error('Loading error:', e);
     }
 }
+
 
 
 /**
